@@ -1,0 +1,79 @@
+---
+aid: iit-kanpur
+name: Indian Institute of Technology Kanpur
+description: >-
+  The Indian Institute of Technology Kanpur (IIT Kanpur), founded in 1959 and
+  located in Kanpur, Uttar Pradesh, is one of India's premier engineering and
+  research institutions, ranked #263 in the QS World University Rankings 2025. It
+  does not operate a unified central developer portal; its verifiable public
+  programmatic footprint centers on the P.K. Kelkar (PKK) Library, whose Koha
+  integrated library system exposes a live OAI-PMH 2.0 metadata-harvesting
+  endpoint and a Koha ILS-DI service. Administrative and academic systems such as
+  the Pingala ERP/SIS are login-gated with no documented public API, and there is
+  no single official institutional GitHub organization, though numerous student
+  clubs and academic departments maintain their own GitHub orgs.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/iit-kanpur/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Research
+  - India
+  - Open Access
+  - Library
+  - Metadata
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: iit-kanpur:library-oai-pmh
+    name: PKK Library OAI-PMH
+    description: >-
+      The P.K. Kelkar Library runs a Koha integrated library system that exposes
+      an OAI-PMH 2.0 metadata-harvesting interface over its bibliographic
+      catalogue. The Identify verb returns a valid OAI-PMH 2.0 response naming the
+      repository "PKK Library" with an earliest datestamp of 2016, and
+      ListMetadataFormats confirms the oai_dc metadata prefix, verifying a live
+      open-metadata harvesting endpoint.
+    humanURL: https://libserv.iitk.ac.in/
+    baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+    tags: [ Library, OAI-PMH, Open Access, Metadata, Catalogue, Harvesting ]
+    properties:
+      - type: Documentation
+        url: https://libserv.iitk.ac.in/
+      - type: OpenAPI
+        url: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl?verb=Identify
+  - aid: iit-kanpur:library-ils-di
+    name: PKK Library Koha ILS-DI
+    description: >-
+      The P.K. Kelkar Library Koha catalogue exposes the ILS-DI (Integrated
+      Library System - Discovery Interface) service, a standard Koha web service
+      for discovery-layer integrations covering bibliographic, holdings, patron,
+      and circulation operations. The ILS-DI landing page resolves live and
+      identifies the underlying Koha 23.11 installation.
+    humanURL: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+    baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+    tags: [ Library, ILS-DI, Koha, Discovery, Catalogue ]
+    properties:
+      - type: Documentation
+        url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+common:
+  - type: Website
+    url: https://www.iitk.ac.in/
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/indian-institute-of-technology-kanpur/
+  - type: Plans
+    url: plans/iit-kanpur-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/iit-kanpur-rate-limits.yml
+  - type: FinOps
+    url: finops/iit-kanpur-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
