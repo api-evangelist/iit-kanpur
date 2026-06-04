@@ -1,0 +1,30 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/public/biblios/6789/items"
+  },
+  "response": {
+    "status": 200,
+    "body": [
+      {
+        "item_id": 12345,
+        "biblio_id": 6789,
+        "external_id": "BC0001234",
+        "callnumber": "QA76.73 .P98",
+        "barcode": "39001012345678",
+        "home_library_id": "PKK",
+        "holding_library_id": "PKK",
+        "acquisition_date": "2016-09-28",
+        "item_type_id": "BK",
+        "collection_code": "GEN",
+        "not_for_loan_status": 0,
+        "lost_status": 0,
+        "damaged_status": 0,
+        "withdrawn": 0,
+        "checked_out_date": null,
+        "public_notes": null,
+        "bookable": false
+      }
+    ]
+  }
+}

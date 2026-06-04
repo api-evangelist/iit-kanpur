@@ -1,0 +1,327 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/iit-kanpur/main/json-schema/iit-kanpur-item-schema.json",
+  "title": "Koha Library Item",
+  "type": "object",
+  "properties": {
+    "_strings": {
+      "description": "A return claims object if one exists that's unresolved",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "acquisition_date": {
+      "description": "The date the item was acquired",
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "acquisition_source": {
+      "description": "Information about the acquisition source (it is not really a vendor id)",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "biblio": {},
+    "biblio_id": {
+      "description": "Internal identifier for the parent bibliographic record",
+      "type": "integer"
+    },
+    "bookable": {
+      "description": "Allow bookings on this item.",
+      "type": "boolean"
+    },
+    "call_number_sort": {
+      "description": "?",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "call_number_source": {
+      "description": "Classification source used on this item",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "callnumber": {
+      "description": "Call number for this item",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "checked_out_date": {
+      "description": "Defines if item is checked out (NULL for not checked out, and checkout date for checked out)",
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "checkouts_count": {
+      "description": "Number of times this item has been checked out/issued",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "coded_location_qualifier": {
+      "description": "Coded location qualifier",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "collection_code": {
+      "description": "Authorized value for the collection code associated with this item",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "copy_number": {
+      "description": "Copy number",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "damaged_date": {
+      "description": "The date and time an item was last marked as damaged, NULL if not damaged",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "damaged_status": {
+      "description": "Authorized value defining this item as damaged",
+      "type": "integer"
+    },
+    "effective_item_type_id": {
+      "description": "Effective itemtype defining the type for this item_id",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "effective_not_for_loan_status": {
+      "description": "Authorized value defining why this item is not for not_for_loan_status",
+      "type": "integer"
+    },
+    "exclude_from_local_holds_priority": {
+      "description": "Exclude this item from local holds priority.",
+      "type": "boolean"
+    },
+    "extended_subfields": {
+      "description": "Additional 952 subfields in XML format",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "external_id": {
+      "description": "The item's barcode",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "holding_library_id": {
+      "description": "Library that is currently in possession item",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "holds_count": {
+      "description": "Number of times this item has been placed on hold/reserved",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "home_library_id": {
+      "description": "Internal library id for the library the item belongs to",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "internal_notes": {
+      "description": "Non-public notes on this item",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "inventory_number": {
+      "description": "Inventory number",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "item_id": {
+      "description": "Internal item identifier",
+      "type": "integer"
+    },
+    "item_type_id": {
+      "description": "Itemtype defining the type for this item",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "last_checkout_date": {
+      "description": "The date the item was last checked out",
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "last_seen_date": {
+      "description": "The date the item barcode was last scanned",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "location": {
+      "description": "Authorized value for the shelving location for this item",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "lost_date": {
+      "description": "The date and time an item was last marked as lost, NULL if not lost",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "lost_status": {
+      "description": "Authorized value defining this item as lost",
+      "type": "integer"
+    },
+    "materials_notes": {
+      "description": "Materials specified",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "new_status": {
+      "description": "'new' value, whatever free-text information.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "not_for_loan_status": {
+      "description": "Authorized value defining why this item is not for loan",
+      "type": "integer"
+    },
+    "permanent_location": {
+      "description": "Linked to the CART and PROC temporary locations feature, stores the permanent shelving location",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "public_notes": {
+      "description": "Public notes on this item",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "purchase_price": {
+      "description": "Purchase price",
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "renewals_count": {
+      "description": "Number of times this item has been renewed",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "replacement_price": {
+      "description": "Cost the library charges to replace the item (e.g. if lost)",
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "replacement_price_date": {
+      "description": "The date the replacement price is effective from",
+      "format": "date",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "restricted_status": {
+      "description": "Authorized value defining use restrictions for this item",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "return_claim": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "return_claims": {
+      "description": "An array of all return claims associated with this item",
+      "type": "array"
+    },
+    "serial_issue_number": {
+      "description": "serial enumeration/chronology for the item",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "timestamp": {
+      "description": "Date and time this item was last altered",
+      "format": "date-time",
+      "type": "string"
+    },
+    "uri": {
+      "description": "URL for the item",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "withdrawn": {
+      "description": "Authorized value defining this item as withdrawn",
+      "type": "integer"
+    },
+    "withdrawn_date": {
+      "description": "The date and time an item was last marked as withdrawn, NULL if not withdrawn",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

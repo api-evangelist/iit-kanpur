@@ -28,6 +28,10 @@ tags:
   - Metadata
 created: '2026-06-03'
 modified: '2026-06-03'
+# 2026-06-03: Discovered a live Koha 23.11 REST API (Swagger 2.0) served at
+# https://libserv.iitk.ac.in/api/v1/ for the PKK Library; converted to OpenAPI 3.0
+# and added supporting artifacts (json-schema, json-structure, examples, rules,
+# vocabulary, json-ld). See openapi/iit-kanpur-library-rest.yaml.
 specificationVersion: '0.19'
 apis:
   - aid: iit-kanpur:library-oai-pmh
@@ -61,6 +65,14 @@ apis:
     properties:
       - type: Documentation
         url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+      - type: OpenAPI
+        url: openapi/iit-kanpur-library-rest.yaml
+      - type: x-json-schema
+        url: json-schema/iit-kanpur-item-schema.json
+      - type: x-vocabulary
+        url: vocabulary/iit-kanpur-vocabulary.yml
+      - type: x-json-ld
+        url: json-ld/iit-kanpur-context.jsonld
 common:
   - type: Website
     url: https://www.iitk.ac.in/

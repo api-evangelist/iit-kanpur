@@ -1,0 +1,64 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "iitk": "https://www.iitk.ac.in/ns/library#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "@vocab": "https://www.iitk.ac.in/ns/library#",
+
+    "Institution": "schema:CollegeOrUniversity",
+    "Library": "schema:Library",
+    "Item": "iitk:Item",
+    "Biblio": "schema:CreativeWork",
+    "Patron": "schema:Person",
+
+    "name": "schema:name",
+    "url": "schema:url",
+    "description": "schema:description",
+    "email": "schema:email",
+    "address1": "schema:streetAddress",
+    "city": "schema:addressLocality",
+    "state": "schema:addressRegion",
+    "postal_code": "schema:postalCode",
+    "country": "schema:addressCountry",
+    "phone": "schema:telephone",
+
+    "library_id": "schema:identifier",
+    "item_id": "schema:identifier",
+    "biblio_id": "iitk:biblioId",
+    "barcode": "iitk:barcode",
+    "callnumber": "iitk:callNumber",
+    "home_library_id": "iitk:homeLibrary",
+    "holding_library_id": "iitk:holdingLibrary",
+    "item_type_id": "iitk:itemType",
+    "acquisition_date": {
+      "@id": "iitk:acquisitionDate",
+      "@type": "schema:Date"
+    },
+    "checked_out_date": {
+      "@id": "iitk:checkedOutDate",
+      "@type": "schema:DateTime"
+    },
+
+    "title": "dc:title",
+    "creator": "dc:creator",
+    "subject": "dc:subject",
+    "publisher": "dc:publisher",
+    "date": "dc:date",
+    "identifier": "dc:identifier",
+    "type": "dc:type",
+    "format": "dc:format",
+    "language": "dc:language"
+  },
+  "@type": "Institution",
+  "@id": "https://www.iitk.ac.in/",
+  "name": "Indian Institute of Technology Kanpur",
+  "url": "https://www.iitk.ac.in/",
+  "description": "Premier engineering and research institution in Kanpur, Uttar Pradesh, India, whose public programmatic footprint centers on the P.K. Kelkar Library Koha system (REST API, OAI-PMH 2.0, ILS-DI).",
+  "subOrganization": {
+    "@type": "Library",
+    "@id": "https://libserv.iitk.ac.in/",
+    "name": "P.K. Kelkar Library",
+    "url": "https://libserv.iitk.ac.in/",
+    "email": "libcirc@iitk.ac.in"
+  }
+}

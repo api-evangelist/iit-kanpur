@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/iit-kanpur/main/json-structure/iit-kanpur-library-structure.json",
+  "name": "KohaLibraryBranch",
+  "type": "object",
+  "properties": {
+    "address1": {
+      "type": "string",
+      "nullable": true,
+      "description": "the first address line of the library"
+    },
+    "address2": {
+      "type": "string",
+      "nullable": true,
+      "description": "the second address line of the library"
+    },
+    "address3": {
+      "type": "string",
+      "nullable": true,
+      "description": "the third address line of the library"
+    },
+    "cash_registers": {
+      "type": "array",
+      "nullable": true,
+      "description": "The library's defined cash registers (x-koha-embed)"
+    },
+    "city": {
+      "type": "string",
+      "nullable": true,
+      "description": "the city or province of the library"
+    },
+    "country": {
+      "type": "string",
+      "nullable": true,
+      "description": "the county of the library"
+    },
+    "desks": {
+      "type": "array",
+      "nullable": true,
+      "description": "The library's defined desks (x-koha-embed)"
+    },
+    "email": {
+      "type": "string",
+      "nullable": true,
+      "description": "the primary email address of the library"
+    },
+    "fax": {
+      "type": "string",
+      "nullable": true,
+      "description": "the fax number of the library"
+    },
+    "geolocation": {
+      "type": "string",
+      "nullable": true,
+      "description": "geolocation of your library"
+    },
+    "illemail": {
+      "type": "string",
+      "nullable": true,
+      "description": "the ILL staff email address of the library"
+    },
+    "ip": {
+      "type": "string",
+      "nullable": true,
+      "description": "the IP address for your library or branch"
+    },
+    "library_id": {
+      "type": "string",
+      "description": "internally assigned library identifier"
+    },
+    "marc_org_code": {
+      "type": "string",
+      "nullable": true,
+      "description": "MARC Organization Code, see http://www.loc.gov/marc/organizations/orgshome.html, when empty defaults to syspref MARCOrgCode"
+    },
+    "name": {
+      "type": "string",
+      "description": "Printable name of library"
+    },
+    "needs_override": {
+      "type": "boolean",
+      "description": "If the library needs an override to act as pickup location for a hold"
+    },
+    "notes": {
+      "type": "string",
+      "nullable": true,
+      "description": "notes related to your library or branch"
+    },
+    "phone": {
+      "type": "string",
+      "nullable": true,
+      "description": "the primary phone of the library"
+    },
+    "pickup_location": {
+      "type": "boolean",
+      "description": "If the library can act as a pickup location"
+    },
+    "postal_code": {
+      "type": "string",
+      "nullable": true,
+      "description": "the postal code of the library"
+    },
+    "public": {
+      "type": "boolean",
+      "description": "If the library is visible to the public"
+    },
+    "reply_to_email": {
+      "type": "string",
+      "nullable": true,
+      "description": "the email to be used as a Reply-To"
+    },
+    "return_path_email": {
+      "type": "string",
+      "nullable": true,
+      "description": "the email to be used as Return-Path"
+    },
+    "smtp_server": {
+      "type": "object",
+      "nullable": true,
+      "description": "The library effective SMTP server"
+    },
+    "state": {
+      "type": "string",
+      "nullable": true,
+      "description": "the reqional state of the library"
+    },
+    "url": {
+      "type": "string",
+      "nullable": true,
+      "description": "the URL for your library or branch's website"
+    }
+  }
+}

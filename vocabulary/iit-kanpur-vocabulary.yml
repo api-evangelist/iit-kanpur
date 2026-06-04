@@ -1,0 +1,69 @@
+vocabulary:
+  name: IIT Kanpur PKK Library API Vocabulary
+  description: >-
+    Controlled vocabulary for the programmatic surfaces of the P.K. Kelkar (PKK)
+    Library at IIT Kanpur, derived from the live Koha 23.11 integrated library
+    system: the Koha REST API (OpenAPI 3.0), the OAI-PMH 2.0 metadata-harvesting
+    endpoint, and the Koha ILS-DI discovery service. Terms reflect only objects,
+    operations, and metadata formats observed on the live endpoints.
+  version: "1.0.0"
+  terms:
+    - term: Biblio
+      definition: >-
+        A bibliographic record in the Koha catalogue describing a cataloged work;
+        exposed via /biblios and /public/biblios in the REST API and as the unit
+        of metadata returned by OAI-PMH harvesting.
+      tags: [catalogue, bibliographic, koha, rest]
+    - term: Item
+      definition: >-
+        A physical or electronic copy attached to a bibliographic record, carrying
+        a barcode, call number, home/holding library, and circulation status;
+        exposed via /items and /public/items.
+      tags: [holdings, circulation, koha, rest]
+    - term: Library
+      definition: >-
+        A library branch or location within the Koha system; for IIT Kanpur this is
+        the P.K. Kelkar Library (PKK). Exposed via /libraries and /public/libraries.
+      tags: [branch, location, koha, rest]
+    - term: Patron
+      definition: >-
+        A library user account with borrowing privileges and personal data, governed
+        by access redaction rules in the REST API; exposed via /patrons.
+      tags: [user, borrower, privacy, koha, rest]
+    - term: Checkout
+      definition: >-
+        An active or historical loan of an item to a patron, including renewal and
+        availability operations; exposed via /checkouts.
+      tags: [circulation, loan, koha, rest]
+    - term: Hold
+      definition: >-
+        A reservation placed by a patron against a biblio or item, supporting place,
+        cancel, and pickup-location operations.
+      tags: [reservation, circulation, koha, rest]
+    - term: OAI-PMH
+      definition: >-
+        The Open Archives Initiative Protocol for Metadata Harvesting, version 2.0,
+        served by the PKK Library Koha instance for bulk metadata harvesting via the
+        Identify, ListMetadataFormats, ListRecords, GetRecord, and related verbs.
+      tags: [metadata, harvesting, standard, open-access]
+    - term: metadataPrefix
+      definition: >-
+        The OAI-PMH parameter selecting a metadata format; the PKK Library supports
+        oai_dc (Dublin Core), marc21, and marcxml.
+      tags: [metadata, oai-pmh, format]
+    - term: ILS-DI
+      definition: >-
+        The Integrated Library System Discovery Interface, a Koha web service offering
+        discovery-layer operations such as GetAvailability, GetRecords, GetPatronInfo,
+        LookupPatron, AuthenticatePatron, HoldTitle, HoldItem, and RenewLoan.
+      tags: [discovery, koha, service]
+    - term: x-koha-embed
+      definition: >-
+        A custom request header used by the Koha REST API to request related objects
+        be embedded into a response and to enable cross-reference querying.
+      tags: [rest, header, embedding]
+    - term: x-koha-library
+      definition: >-
+        A custom request header that sets the library context for a REST API request,
+        defaulting to the API consumer's assigned home library when omitted.
+      tags: [rest, header, context]

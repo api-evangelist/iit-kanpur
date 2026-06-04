@@ -1,0 +1,60 @@
+# Spectral ruleset for the PKK Library (IIT Kanpur) Koha REST API.
+# Encodes patterns observed in the live OpenAPI description served at
+# https://libserv.iitk.ac.in/api/v1/ (Koha 23.11 REST API).
+formats:
+  - oas3
+extends:
+  - spectral:oas
+rules:
+  # Every operation should declare an operationId (the Koha spec does).
+  iitk-operation-operationId:
+    description: Operations must define an operationId.
+    severity: error
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: operationId
+      function: truthy
+
+  # Operations should be tagged by resource (acquisitions, biblios, items, libraries, patrons...).
+  iitk-operation-tags:
+    description: Operations should be grouped under at least one tag.
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: tags
+      function: truthy
+
+  # Collection paths use lower_snake_case plural nouns (e.g. /biblios, /acquisitions/orders).
+  iitk-path-snake-case:
+    description: Path segments should be lower snake_case (Koha convention).
+    severity: warn
+    given: $.paths[*]~
+    then:
+      function: pattern
+      functionOptions:
+        match: "^(/[a-z0-9_.-]+(\\{[a-zA-Z0-9_]+\\})?)+$|^/$"
+
+  # Public discovery endpoints live under the /public path prefix.
+  iitk-public-prefix-known:
+    description: Document that user-facing discovery endpoints are namespaced under /public.
+    severity: info
+    given: $.paths[*]~
+    then:
+      function: defined
+
+  # Pagination query params follow the underscore-prefixed Koha convention (_page, _per_page).
+  iitk-pagination-params:
+    description: List operations should expose _page / _per_page pagination parameters.
+    severity: info
+    given: $.paths[*].get.parameters[?(@.in=='query')].name
+    then:
+      function: defined
+
+  # Errors should follow the documented { error, error_code } shape.
+  iitk-error-response-documented:
+    description: Non-2xx responses should be documented with a description.
+    severity: warn
+    given: $.paths[*][*].responses[?(@property >= '400')]
+    then:
+      field: description
+      function: truthy

@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/iit-kanpur/main/json-schema/iit-kanpur-library-schema.json",
+  "title": "Koha Library Branch",
+  "type": "object",
+  "properties": {
+    "address1": {
+      "description": "the first address line of the library",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "address2": {
+      "description": "the second address line of the library",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "address3": {
+      "description": "the third address line of the library",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "cash_registers": {
+      "description": "The library's defined cash registers (x-koha-embed)",
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "city": {
+      "description": "the city or province of the library",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "country": {
+      "description": "the county of the library",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "desks": {
+      "description": "The library's defined desks (x-koha-embed)",
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "email": {
+      "description": "the primary email address of the library",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "fax": {
+      "description": "the fax number of the library",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "geolocation": {
+      "description": "geolocation of your library",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "illemail": {
+      "description": "the ILL staff email address of the library",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ip": {
+      "description": "the IP address for your library or branch",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "library_id": {
+      "description": "internally assigned library identifier",
+      "maxLength": 10,
+      "minLength": 1,
+      "type": "string"
+    },
+    "marc_org_code": {
+      "description": "MARC Organization Code, see http://www.loc.gov/marc/organizations/orgshome.html, when empty defaults to syspref MARCOrgCode",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "name": {
+      "description": "Printable name of library",
+      "type": "string"
+    },
+    "needs_override": {
+      "description": "If the library needs an override to act as pickup location for a hold",
+      "type": "boolean"
+    },
+    "notes": {
+      "description": "notes related to your library or branch",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "phone": {
+      "description": "the primary phone of the library",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "pickup_location": {
+      "description": "If the library can act as a pickup location",
+      "type": "boolean"
+    },
+    "postal_code": {
+      "description": "the postal code of the library",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "public": {
+      "description": "If the library is visible to the public",
+      "type": "boolean"
+    },
+    "reply_to_email": {
+      "description": "the email to be used as a Reply-To",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "return_path_email": {
+      "description": "the email to be used as Return-Path",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "smtp_server": {
+      "description": "The library effective SMTP server",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "state": {
+      "description": "the reqional state of the library",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "url": {
+      "description": "the URL for your library or branch's website",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

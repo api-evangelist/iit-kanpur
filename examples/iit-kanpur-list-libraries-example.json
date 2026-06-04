@@ -1,0 +1,27 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/public/libraries"
+  },
+  "response": {
+    "status": 200,
+    "body": [
+      {
+        "library_id": "PKK",
+        "name": "P.K. Kelkar Library",
+        "address1": "IIT Kanpur",
+        "address2": null,
+        "city": "Kanpur",
+        "state": "Uttar Pradesh",
+        "postal_code": "208016",
+        "country": "India",
+        "phone": null,
+        "email": "libcirc@iitk.ac.in",
+        "url": "https://libserv.iitk.ac.in/",
+        "opac_info": null,
+        "notes": null,
+        "public": true
+      }
+    ]
+  }
+}
