@@ -74,6 +74,8 @@ apis:
       - type: x-json-ld
         url: json-ld/iit-kanpur-context.jsonld
 common:
+  - type: AgenticAccess
+    url: agentic-access/iit-kanpur-agentic-access.yml
   - type: DomainSecurity
     url: security/iit-kanpur-domain-security.yml
   - type: Website
