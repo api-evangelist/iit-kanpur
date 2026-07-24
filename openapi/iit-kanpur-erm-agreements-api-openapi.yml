@@ -1,0 +1,813 @@
+openapi: 3.0.3
+info:
+  contact:
+    name: Koha Development Team
+    url: https://koha-community.org/
+  description: "## Background\n\nThe API supports two sets of endpoints, one targetted at library staff and the other at at library users.\n\nThose endpoints under the `/public` path are aimed at delivering functionality tailored to library users and offer\na more restricted set of functions, overrides and data in thier responses for data privacy and library policy\nreasons. Many of these endpoints do not require authentication for fetching public data, though an authenticated\nsession will expose additional options and allow users to see more data where it is part of their own record.\n\nAll other endpoints are targetted at the staff interface level and allow for additional functionality and a more\nunrestricted view of data.  These endpoints, however, have a level of redaction built in for resources that the\napi consumer should not have access to.  For example, user data for users who do not belong to the same library\nor library group of your api user will be reduced to just minimum neccesary for a valid response. Object keys will\nbe consistent for all responses, but their values may be removed depending on access.\n\n## Authentication\n\nThe API supports the following authentication mechanisms\n\n* HTTP Basic authentication\n* OAuth2 (client credentials grant)\n* Cookie-based\n\nBoth _Basic authentication_ and the _OAuth2_ flow, need to be enabled\nby system preferences.\n\n## Authorization\n\nThe API uses existing user profiles to restrict access to resources based on user permissions and the library the\nAPI user is assigned to.  This may result, at times, in resources being returned in a redacted form with all keys\npresent but sensative values nulled.\n\nWe do not yet support OAuth Scopes or the Authorization Code grant flow.\n\n## Errors\n\nThe API uses standard HTTP status codes to indicate the success or failure\nof the API call. The body of the response will be JSON in the following format:\n\n```\n{\n  \"error\": \"Current settings prevent the passed due date to be applied\",\n  \"error_code\": \"invalid_due_date\"\n}\n```\n\nNote: Some routes might offer additional attributes in their error responses but that\"s\nsubject to change and thus not documented.\n\n## Filtering responses\n\nThe API allows for some advanced response filtering using a JSON based query syntax. The\nquery can be added to the requests:\n\n* as a query parameter `q=`\n* in the request body\n\nFor simple field equality matches we can use `{ \"fieldname\": \"value\" }` where the fieldname\nmatches one of the fields as described in the particular endpoints response object.\n\nWe can refine that with more complex matching clauses by nesting a the clause into the\nobject; `{ \"fieldname\": { \"clause\": \"value\" } }`.\n\nAvailable matching clauses include `=`, `!=`, `<`, `>`, `<=`, `>=` and `-not`. We also support `-like`\nand `-not_like` string comparisons with `%` used to denote wildcards, thus you can pass\n`{ \"fieldname\": { \"-like\": \"value%\" } }` to do a 'starts with' string match for example.\n\nWe can filter on multiple fields by adding them to the JSON respresentation. Adding at `HASH`\nlevel will result in an \"AND\" query, whilst combinding them in an `ARRAY` will result in an\n\"OR\" query: `{ \"field1\": \"value2\", \"field2\": \"value2\" }` will filter the response to only those\nresults with both field1 containing value2 AND field2 containing value2 for example.\n\nThere is a collection of special operators also available to you, including:\n\n* `-in` - Expects an array of values to perform an OR match against\n* `-not_in` - Expects an array of values to perform a NOR match against\n* `-between` - Expects two values which the value of the field is expected to fall between\n* `-not_between` - Expects two values which the value of the field is expected to fall outside of\n* `-ident` - Expects a second field name to match the two field values against\n* `-regexp` - Expects a perl compatible regular expression for which the value should match\n\nLogic and nesting is also supported and you may use `-and` and `-or` to change the logic of an ARRAY\nor HASH as described above.\n\nAdditionally, if you are requesting related data be embedded into the response one can query\non the related data using dot notation in the field names.\n\n### Examples\n\nThe following request would return any patron with firstname \"Henry\" and lastname \"Acevedo\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": \"Acevedo\", \"firstname\": \"Henry\" }'`\n\nThe following request would return any patron whose lastname begins with \"Ace\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": { \"-like\": \"Ace%\" }'`\n\nThe following request would return any patron whose lastname is \"Acevedo\" OR \"Bernardo\"\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": [ \"Acevedo\", \"Bernardo\" ] }'`\n\nThe following request embeds the related patron extended attributes data and filters on it.\n\n`curl -u koha:koha =--request GET 'http://127.0.0.1:8081/api/v1/patrons/' --header 'x-koha-embed: extended_attributes' --data-raw '{ \"extended_attributes.code\": \"internet\", \"extended_attributes.attribute\": \"1\" }'`\n\n## Special headers\n\n### x-koha-embed\n\nThis optional header allows the api consumer to request additional related data\nto be returned in the api response.  It also allows for cross referencing in the\nqueries as described above. It accepts a comma delimited list of relation names.\n\nRelations may on occasion also support dot delimited nesting to allow traversal.\n\n### x-koha-library\n\nThis optional header should be passed to give your api request a library\ncontext; If it is not included in the request, then the request context\nwill default to using your api comsumer\"s assigned home library.\n"
+  license:
+    name: GPL v3,
+    url: http://www.gnu.org/licenses/gpl.txt
+  title: Koha REST 2fa erm_agreements API
+  version: '1'
+servers:
+- url: https://libserv.iitk.ac.in/api/v1
+  description: PKK Library Koha REST API (production)
+tags:
+- description: 'Manage ERM agreements
+
+    '
+  name: erm_agreements
+  x-displayName: ERM agreements
+paths:
+  /erm/agreements:
+    get:
+      tags:
+      - erm_agreements
+      summary: List agreements
+      operationId: listErmAgreements
+      parameters:
+      - name: agreement_id
+        in: query
+        required: false
+        description: Case insensitive search on agreement agreement_id
+        schema:
+          type: integer
+      - name: vendor_id
+        in: query
+        required: false
+        description: Case insensitive search on agreement vendor_id
+        schema:
+          type: integer
+      - name: name
+        in: query
+        required: false
+        description: Case insensitive search on agreement name
+        schema:
+          type: string
+      - name: description
+        in: query
+        required: false
+        description: Case insensitive search on agreement description
+        schema:
+          type: string
+      - name: status
+        in: query
+        required: false
+        description: Case insensitive search on agreement status
+        schema:
+          type: string
+      - name: closure_reason
+        in: query
+        required: false
+        description: Case insensitive search on agreement closure_reason
+        schema:
+          type: string
+      - name: is_perpetual
+        in: query
+        required: false
+        description: Case insensitive search on agreement is_perpetual
+        schema:
+          type: boolean
+      - name: renewal_priority
+        in: query
+        required: false
+        description: Case insensitive search on agreement renewal_priority
+        schema:
+          type: string
+      - name: license_info
+        in: query
+        required: false
+        description: Case insensitive search on agreement license_info
+        schema:
+          type: string
+      - name: max_expiration_date
+        in: query
+        required: false
+        description: filter by expired agreements
+        schema:
+          type: string
+          format: date
+      - name: x-koha-embed
+        in: header
+        required: false
+        description: Embed list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - user_roles
+            - vendor
+            type: string
+      - name: _match
+        in: query
+        required: false
+        description: Matching criteria
+        schema:
+          type: string
+          enum:
+          - contains
+          - exact
+          - starts_with
+          - ends_with
+      - name: _order_by
+        in: query
+        required: false
+        description: Sorting criteria
+        schema:
+          type: array
+          items:
+            type: string
+      - name: _page
+        in: query
+        required: false
+        description: Page number, for paginated object listing
+        schema:
+          type: integer
+      - name: _per_page
+        in: query
+        required: false
+        description: Page size, for paginated object listing
+        schema:
+          type: integer
+      - name: q
+        in: query
+        required: false
+        description: Query filter sent as a request parameter
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+        description: Query filter sent through request"s body
+      responses:
+        '200':
+          description: A list of agreement
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/erm_agreement_yaml'
+                type: array
+        '400':
+          description: "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+            * `internal_server_error`'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    post:
+      tags:
+      - erm_agreements
+      summary: Add agreement
+      operationId: addErmAgreements
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/erm_agreement_yaml'
+        description: A JSON object containing information about the new agreement
+      responses:
+        '201':
+          description: A successfully created agreement
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/erm_agreement_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Ressource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: Conflict in creating resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '413':
+          description: Payload too large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+            * `internal_server_error`'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /erm/agreements/{agreement_id}:
+    delete:
+      tags:
+      - erm_agreements
+      summary: Delete agreement
+      operationId: deleteErmAgreements
+      parameters:
+      - name: agreement_id
+        in: path
+        required: true
+        description: Agreement internal identifier
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: Agreement deleted
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Ressource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: Conflict in deleting resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+            * `internal_server_error`'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    get:
+      tags:
+      - erm_agreements
+      summary: Get agreement
+      operationId: getErmAgreements
+      parameters:
+      - name: agreement_id
+        in: path
+        required: true
+        description: Agreement internal identifier
+        schema:
+          type: integer
+      - name: x-koha-embed
+        in: header
+        required: false
+        description: Embed list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - periods
+            - user_roles
+            - user_roles.patron
+            - agreement_licenses
+            - agreement_licenses.license
+            - agreement_relationships
+            - agreement_relationships.agreement
+            - agreement_relationships.related_agreement
+            - agreement_packages
+            - agreement_packages.package
+            - documents
+            - vendor
+            type: string
+      responses:
+        '200':
+          description: An agreement
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/erm_agreement_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Ressource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+            * `internal_server_error`'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    put:
+      tags:
+      - erm_agreements
+      summary: Update agreement
+      operationId: updateErmAgreements
+      parameters:
+      - name: agreement_id
+        in: path
+        required: true
+        description: Agreement internal identifier
+        schema:
+          type: integer
+      - name: x-koha-embed
+        in: header
+        required: false
+        description: Embed list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - periods
+            - user_roles
+            - agreement_licenses
+            - agreement_relationships
+            - documents
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/erm_agreement_yaml'
+        description: A JSON object containing new information about existing agreement
+      responses:
+        '200':
+          description: A successfully updated agreement
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/erm_agreement_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Ressource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: Conflict in updating resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '413':
+          description: Payload too large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+            * `internal_server_error`'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+components:
+  schemas:
+    erm_agreement_relationship_yaml:
+      additionalProperties: false
+      properties:
+        agreement_id:
+          description: Internal agreement identifier
+          type: integer
+        notes:
+          type:
+          - string
+          - 'null'
+        related_agreement_id:
+          description: Internal related agreement identifier
+          type: integer
+        relationship:
+          description: relationship between the agreements
+          enum:
+          - supersedes
+          - is-superseded-by
+          - provides_post-cancellation_access_for
+          - has-post-cancellation-access-in
+          - tracks_demand-driven_acquisitions_for
+          - has-demand-driven-acquisitions-in
+          - has_backfile_in
+          - has_frontfile_in
+          - related_to
+          type: string
+      required:
+      - related_agreement_id
+      - relationship
+      type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
+    erm_document_yaml:
+      additionalProperties: false
+      properties:
+        agreement_id:
+          description: Internal agreement identifier
+          type:
+          - integer
+          - 'null'
+        document_id:
+          description: internally assigned identifier
+          type: integer
+        file_content:
+          description: Content of the file
+          type:
+          - string
+          - 'null'
+        file_description:
+          description: Description of the file
+          type:
+          - string
+          - 'null'
+        file_name:
+          description: Name of the file
+          type:
+          - string
+          - 'null'
+        file_type:
+          description: Type of the file
+          readOnly: true
+          type:
+          - string
+          - 'null'
+        license_id:
+          description: Internal license identifier
+          type:
+          - integer
+          - 'null'
+        notes:
+          type:
+          - string
+          - 'null'
+        physical_location:
+          description: Physical location of the document
+          type:
+          - string
+          - 'null'
+        uploaded_on:
+          description: Datetime of the upload
+          format: date-time
+          readOnly: true
+          type:
+          - string
+          - 'null'
+        uri:
+          description: URI of the document
+          type:
+          - string
+          - 'null'
+      type: object
+    erm_agreement_license_yaml:
+      additionalProperties: false
+      properties:
+        agreement_id:
+          description: Internal agreement identifier
+          type: integer
+        agreement_license_id:
+          description: Internal agreement license identifier
+          type: integer
+        license_id:
+          description: Internal license identifier
+          type: integer
+        notes:
+          type:
+          - string
+          - 'null'
+        physical_location:
+          type:
+          - string
+          - 'null'
+        status:
+          type: string
+        uri:
+          type:
+          - string
+          - 'null'
+      required:
+      - license_id
+      - status
+      type: object
+    erm_agreement_yaml:
+      additionalProperties: false
+      properties:
+        agreement_id:
+          description: internally assigned agreement identifier
+          readOnly: true
+          type: integer
+        agreement_licenses:
+          description: agreement licenses
+          items:
+            $ref: '#/components/schemas/erm_agreement_license_yaml'
+          type: array
+        agreement_relationships:
+          description: agreement relationships
+          items:
+            $ref: '#/components/schemas/erm_agreement_relationship_yaml'
+          type: array
+        closure_reason:
+          description: reason of the closure
+          type:
+          - string
+          - 'null'
+        description:
+          description: description of the agreement
+          type:
+          - string
+          - 'null'
+        documents:
+          description: documents
+          items:
+            $ref: '#/components/schemas/erm_document_yaml'
+          type: array
+        is_perpetual:
+          description: is the agreement perpetual
+          type: boolean
+        license_info:
+          description: info about the license
+          type:
+          - string
+          - 'null'
+        name:
+          description: name of the agreement
+          type: string
+        periods:
+          description: periods defined for this agreement
+          items:
+            $ref: '#/components/schemas/erm_agreement_period_yaml'
+          type: array
+        renewal_priority:
+          description: priority of the renewal
+          type:
+          - string
+          - 'null'
+        status:
+          description: current status of the agreement
+          type: string
+        user_roles:
+          description: role for users
+          items:
+            $ref: '#/components/schemas/erm_user_role_yaml'
+          type: array
+        vendor:
+          description: Information about the vendor
+          type:
+          - object
+          - 'null'
+        vendor_id:
+          description: foreign key to aqbooksellers
+          type:
+          - integer
+          - 'null'
+      required:
+      - agreement_id
+      - name
+      - status
+      - is_perpetual
+      type: object
+    erm_user_role_yaml:
+      additionalProperties: false
+      properties:
+        agreement_id:
+          description: Internal agreement identifier
+          type:
+          - integer
+          - 'null'
+        license_id:
+          description: Internal license identifier
+          type:
+          - integer
+          - 'null'
+        patron:
+          type:
+          - object
+          - 'null'
+        role:
+          description: role of the user
+          type:
+          - string
+        user_id:
+          description: Internal patron identifier
+          type: integer
+        user_role_id:
+          description: Internal user_role identifier
+          type: integer
+      required:
+      - user_id
+      - role
+      type: object
+    erm_agreement_period_yaml:
+      additionalProperties: false
+      properties:
+        agreement_id:
+          description: Internal agreement identifier
+          type: integer
+        agreement_period_id:
+          description: internally assigned identifier
+          readOnly: true
+          type: integer
+        cancellation_deadline:
+          description: Deadline for the cancellation
+          format: date
+          type:
+          - string
+          - 'null'
+        ended_on:
+          description: End of the agreemnent period
+          format: date
+          type:
+          - string
+          - 'null'
+        notes:
+          type:
+          - string
+          - 'null'
+        started_on:
+          description: Start of the agreement period
+          format: date
+          type: string
+      required:
+      - started_on
+      type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object

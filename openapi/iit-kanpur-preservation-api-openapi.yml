@@ -1,0 +1,2189 @@
+openapi: 3.0.3
+info:
+  contact:
+    name: Koha Development Team
+    url: https://koha-community.org/
+  description: "## Background\n\nThe API supports two sets of endpoints, one targetted at library staff and the other at at library users.\n\nThose endpoints under the `/public` path are aimed at delivering functionality tailored to library users and offer\na more restricted set of functions, overrides and data in thier responses for data privacy and library policy\nreasons. Many of these endpoints do not require authentication for fetching public data, though an authenticated\nsession will expose additional options and allow users to see more data where it is part of their own record.\n\nAll other endpoints are targetted at the staff interface level and allow for additional functionality and a more\nunrestricted view of data.  These endpoints, however, have a level of redaction built in for resources that the\napi consumer should not have access to.  For example, user data for users who do not belong to the same library\nor library group of your api user will be reduced to just minimum neccesary for a valid response. Object keys will\nbe consistent for all responses, but their values may be removed depending on access.\n\n## Authentication\n\nThe API supports the following authentication mechanisms\n\n* HTTP Basic authentication\n* OAuth2 (client credentials grant)\n* Cookie-based\n\nBoth _Basic authentication_ and the _OAuth2_ flow, need to be enabled\nby system preferences.\n\n## Authorization\n\nThe API uses existing user profiles to restrict access to resources based on user permissions and the library the\nAPI user is assigned to.  This may result, at times, in resources being returned in a redacted form with all keys\npresent but sensative values nulled.\n\nWe do not yet support OAuth Scopes or the Authorization Code grant flow.\n\n## Errors\n\nThe API uses standard HTTP status codes to indicate the success or failure\nof the API call. The body of the response will be JSON in the following format:\n\n```\n{\n  \"error\": \"Current settings prevent the passed due date to be applied\",\n  \"error_code\": \"invalid_due_date\"\n}\n```\n\nNote: Some routes might offer additional attributes in their error responses but that\"s\nsubject to change and thus not documented.\n\n## Filtering responses\n\nThe API allows for some advanced response filtering using a JSON based query syntax. The\nquery can be added to the requests:\n\n* as a query parameter `q=`\n* in the request body\n\nFor simple field equality matches we can use `{ \"fieldname\": \"value\" }` where the fieldname\nmatches one of the fields as described in the particular endpoints response object.\n\nWe can refine that with more complex matching clauses by nesting a the clause into the\nobject; `{ \"fieldname\": { \"clause\": \"value\" } }`.\n\nAvailable matching clauses include `=`, `!=`, `<`, `>`, `<=`, `>=` and `-not`. We also support `-like`\nand `-not_like` string comparisons with `%` used to denote wildcards, thus you can pass\n`{ \"fieldname\": { \"-like\": \"value%\" } }` to do a 'starts with' string match for example.\n\nWe can filter on multiple fields by adding them to the JSON respresentation. Adding at `HASH`\nlevel will result in an \"AND\" query, whilst combinding them in an `ARRAY` will result in an\n\"OR\" query: `{ \"field1\": \"value2\", \"field2\": \"value2\" }` will filter the response to only those\nresults with both field1 containing value2 AND field2 containing value2 for example.\n\nThere is a collection of special operators also available to you, including:\n\n* `-in` - Expects an array of values to perform an OR match against\n* `-not_in` - Expects an array of values to perform a NOR match against\n* `-between` - Expects two values which the value of the field is expected to fall between\n* `-not_between` - Expects two values which the value of the field is expected to fall outside of\n* `-ident` - Expects a second field name to match the two field values against\n* `-regexp` - Expects a perl compatible regular expression for which the value should match\n\nLogic and nesting is also supported and you may use `-and` and `-or` to change the logic of an ARRAY\nor HASH as described above.\n\nAdditionally, if you are requesting related data be embedded into the response one can query\non the related data using dot notation in the field names.\n\n### Examples\n\nThe following request would return any patron with firstname \"Henry\" and lastname \"Acevedo\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": \"Acevedo\", \"firstname\": \"Henry\" }'`\n\nThe following request would return any patron whose lastname begins with \"Ace\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": { \"-like\": \"Ace%\" }'`\n\nThe following request would return any patron whose lastname is \"Acevedo\" OR \"Bernardo\"\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": [ \"Acevedo\", \"Bernardo\" ] }'`\n\nThe following request embeds the related patron extended attributes data and filters on it.\n\n`curl -u koha:koha =--request GET 'http://127.0.0.1:8081/api/v1/patrons/' --header 'x-koha-embed: extended_attributes' --data-raw '{ \"extended_attributes.code\": \"internet\", \"extended_attributes.attribute\": \"1\" }'`\n\n## Special headers\n\n### x-koha-embed\n\nThis optional header allows the api consumer to request additional related data\nto be returned in the api response.  It also allows for cross referencing in the\nqueries as described above. It accepts a comma delimited list of relation names.\n\nRelations may on occasion also support dot delimited nesting to allow traversal.\n\n### x-koha-library\n\nThis optional header should be passed to give your api request a library\ncontext; If it is not included in the request, then the request context\nwill default to using your api comsumer\"s assigned home library.\n"
+  license:
+    name: GPL v3,
+    url: http://www.gnu.org/licenses/gpl.txt
+  title: Koha REST 2fa preservation API
+  version: '1'
+servers:
+- url: https://libserv.iitk.ac.in/api/v1
+  description: PKK Library Koha REST API (production)
+tags:
+- description: 'Manage preservation tasks
+
+    '
+  name: preservation
+  x-displayName: Preservation
+paths:
+  /preservation/config:
+    get:
+      tags:
+      - preservation
+      summary: get the Preservation config
+      description: This resource returns a list of options needed for the Preservation Vue app. EXPERIMENTAL - DO NOT RELY on this, it is subject to change!
+      operationId: getPreservationconfig
+      responses:
+        '200':
+          description: The Preservation module config
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/preservation_config_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /preservation/processings:
+    get:
+      tags:
+      - preservation
+      summary: List processings
+      operationId: listPreservationProcessings
+      parameters:
+      - name: processing_id
+        in: query
+        required: false
+        description: Case insensitive search on processing id
+        schema:
+          type: integer
+      - name: name
+        in: query
+        required: false
+        description: Case insensitive search on processing name
+        schema:
+          type: string
+      - name: _match
+        in: query
+        required: false
+        description: Matching criteria
+        schema:
+          type: string
+          enum:
+          - contains
+          - exact
+          - starts_with
+          - ends_with
+      - name: _order_by
+        in: query
+        required: false
+        description: Sorting criteria
+        schema:
+          type: array
+          items:
+            type: string
+      - name: _page
+        in: query
+        required: false
+        description: Page number, for paginated object listing
+        schema:
+          type: integer
+      - name: _per_page
+        in: query
+        required: false
+        description: Page size, for paginated object listing
+        schema:
+          type: integer
+      - name: q
+        in: query
+        required: false
+        description: Query filter sent as a request parameter
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+        description: Query filter sent through request"s body
+      responses:
+        '200':
+          description: A list of processings
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/preservation_processing_yaml'
+                type: array
+        '400':
+          description: "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+            * `internal_server_error`'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    post:
+      tags:
+      - preservation
+      summary: Add processing
+      operationId: addPreservationProcessings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/preservation_processing_yaml'
+        description: A JSON object containing information about the new processing
+      responses:
+        '201':
+          description: A successfully created processing
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/preservation_processing_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Ressource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: Conflict in creating resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '413':
+          description: Payload too large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+            * `internal_server_error`'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /preservation/processings/{processing_id}:
+    delete:
+      tags:
+      - preservation
+      summary: Delete processing
+      operationId: deletePreservationProcessings
+      parameters:
+      - name: processing_id
+        in: path
+        required: true
+        description: processing internal identifier
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: processing deleted
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Ressource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: Conflict in deleting resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+            * `internal_server_error`'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    get:
+      tags:
+      - preservation
+      summary: Get processing
+      operationId: getPreservationProcessings
+      parameters:
+      - name: processing_id
+        in: path
+        required: true
+        description: processing internal identifier
+        schema:
+          type: integer
+      - name: x-koha-embed
+        in: header
+        required: false
+        description: Embed list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - attributes
+            type: string
+      responses:
+        '200':
+          description: A processing
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/preservation_processing_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Ressource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+            * `internal_server_error`'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    put:
+      tags:
+      - preservation
+      summary: Update processing
+      operationId: updatePreservationProcessings
+      parameters:
+      - name: processing_id
+        in: path
+        required: true
+        description: processing internal identifier
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/preservation_processing_yaml'
+        description: A JSON object containing new information about existing processing
+      responses:
+        '200':
+          description: A successfully updated processing
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/preservation_processing_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Ressource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: Conflict in updating resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '413':
+          description: Payload too large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+            * `internal_server_error`'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /preservation/trains:
+    get:
+      tags:
+      - preservation
+      summary: List trains
+      operationId: listPreservationTrains
+      parameters:
+      - name: train_id
+        in: query
+        required: false
+        description: Case insensitive search on train id
+        schema:
+          type: integer
+      - name: name
+        in: query
+        required: false
+        description: Case insensitive search on train name
+        schema:
+          type: string
+      - name: description
+        in: query
+        required: false
+        description: Case insensitive search on train description
+        schema:
+          type: string
+      - name: not_for_loan
+        in: query
+        required: false
+        description: Case insensitive search on not for loan value
+        schema:
+          type: string
+      - name: created_on
+        in: query
+        required: false
+        description: Case insensitive search on train creation date
+        schema:
+          type: string
+      - name: closed_on
+        in: query
+        required: false
+        description: Case insensitive search on train closing date
+        schema:
+          type: string
+      - name: sent_on
+        in: query
+        required: false
+        description: Case insensitive search on train sent date
+        schema:
+          type: string
+      - name: received_on
+        in: query
+        required: false
+        description: Case insensitive search on train receiving date
+        schema:
+          type: string
+      - name: _match
+        in: query
+        required: false
+        description: Matching criteria
+        schema:
+          type: string
+          enum:
+          - contains
+          - exact
+          - starts_with
+          - ends_with
+      - name: _order_by
+        in: query
+        required: false
+        description: Sorting criteria
+        schema:
+          type: array
+          items:
+            type: string
+      - name: _page
+        in: query
+        required: false
+        description: Page number, for paginated object listing
+        schema:
+          type: integer
+      - name: _per_page
+        in: query
+        required: false
+        description: Page size, for paginated object listing
+        schema:
+          type: integer
+      - name: q
+        in: query
+        required: false
+        description: Query filter sent as a request parameter
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+        description: Query filter sent through request"s body
+      responses:
+        '200':
+          description: A list of trains
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/preservation_train_yaml'
+                type: array
+        '400':
+          description: "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    post:
+      tags:
+      - preservation
+      summary: Add train
+      operationId: addPreservationTrains
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/preservation_train_yaml'
+        description: A JSON object containing information about the new train
+      responses:
+        '201':
+          description: A successfully created train
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/preservation_train_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Ressource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: Conflict in creating resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '413':
+          description: Payload too large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /preservation/trains/{train_id}:
+    delete:
+      tags:
+      - preservation
+      summary: Delete train
+      operationId: deletePreservationTrains
+      parameters:
+      - name: train_id
+        in: path
+        required: true
+        description: train internal identifier
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: Train deleted
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Ressource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: Conflict in deleting resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    get:
+      tags:
+      - preservation
+      summary: Get train
+      operationId: getPreservationTrains
+      parameters:
+      - name: train_id
+        in: path
+        required: true
+        description: train internal identifier
+        schema:
+          type: integer
+      - name: x-koha-embed
+        in: header
+        required: false
+        description: Embed list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - items
+            - items.attributes
+            - items.attributes+strings
+            - items.attributes.processing_attribute
+            - items.processing
+            - default_processing
+            - default_processing.attributes
+            type: string
+      responses:
+        '200':
+          description: A train
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/preservation_train_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Ressource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    put:
+      tags:
+      - preservation
+      summary: Update train
+      operationId: updatePreservationTrains
+      parameters:
+      - name: train_id
+        in: path
+        required: true
+        description: train internal identifier
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/preservation_train_yaml'
+        description: A JSON object containing new information about existing train
+      responses:
+        '200':
+          description: A successfully updated train
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/preservation_train_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Ressource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: Conflict in updating resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '413':
+          description: Payload too large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /preservation/trains/{train_id}/items:
+    post:
+      tags:
+      - preservation
+      summary: Add item to train
+      operationId: addItemToTrain
+      parameters:
+      - name: train_id
+        in: path
+        required: true
+        description: train internal identifier
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/preservation_train_item_yaml'
+        description: An item
+      responses:
+        '201':
+          description: A successfully added item
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/preservation_train_item_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Ressource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: Conflict in creating resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '413':
+          description: Payload too large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /preservation/trains/{train_id}/items/batch:
+    post:
+      tags:
+      - preservation
+      summary: Add items to train
+      operationId: addItemsToTrain
+      parameters:
+      - name: train_id
+        in: path
+        required: true
+        description: train internal identifier
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              items:
+                type: object
+              type: array
+        description: A list of items
+      responses:
+        '201':
+          description: A successfully added list of items
+          content:
+            application/json:
+              schema:
+                items:
+                  type: object
+                type: array
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Ressource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: Conflict in creating resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '413':
+          description: Payload too large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /preservation/trains/{train_id}/items/{train_item_id}:
+    delete:
+      tags:
+      - preservation
+      summary: Remove item from train
+      operationId: removeItemFromTrain
+      parameters:
+      - name: train_id
+        in: path
+        required: true
+        description: train internal identifier
+        schema:
+          type: integer
+      - name: train_item_id
+        in: path
+        required: true
+        description: train item internal identifier
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: Item removed
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Item not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    get:
+      tags:
+      - preservation
+      summary: Get item from train
+      operationId: getItemFromPreservationTrains
+      parameters:
+      - name: train_id
+        in: path
+        required: true
+        description: train internal identifier
+        schema:
+          type: integer
+      - name: train_item_id
+        in: path
+        required: true
+        description: train item internal identifier
+        schema:
+          type: integer
+      - name: x-koha-embed
+        in: header
+        required: false
+        description: Embed list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - attributes
+            - catalogue_item
+            - catalogue_item.biblio
+            type: string
+      responses:
+        '200':
+          description: An item in train
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/preservation_train_item_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Ressource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    put:
+      tags:
+      - preservation
+      summary: Update item from train
+      operationId: updateItemFromTrain
+      parameters:
+      - name: train_id
+        in: path
+        required: true
+        description: train internal identifier
+        schema:
+          type: integer
+      - name: train_item_id
+        in: path
+        required: true
+        description: train item internal identifier
+        schema:
+          type: integer
+      - name: x-koha-embed
+        in: header
+        required: false
+        description: Embed list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - attributes
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/preservation_train_item_yaml'
+        description: An item
+      responses:
+        '200':
+          description: A successfully updated item
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/preservation_train_item_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Ressource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: Conflict in updating resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '413':
+          description: Payload too large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /preservation/trains/{train_id}/items/{train_item_id}/copy:
+    post:
+      tags:
+      - preservation
+      summary: Copy an item to an other train
+      operationId: copyItemToAnotherTrain
+      parameters:
+      - name: train_id
+        in: path
+        required: true
+        description: train internal identifier
+        schema:
+          type: integer
+      - name: train_item_id
+        in: path
+        required: true
+        description: train item internal identifier
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              properties:
+                train_id:
+                  description: Train id
+                  type: integer
+              type: object
+        description: The train_id of the new train
+      responses:
+        '201':
+          description: A successfully copied item
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/preservation_train_item_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Ressource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: Conflict in creating resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '413':
+          description: Payload too large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /preservation/waiting-list/items:
+    get:
+      tags:
+      - preservation
+      summary: List items from waiting list
+      operationId: listItemsFromWaitingList
+      parameters:
+      - name: external_id
+        in: query
+        required: false
+        description: Search on the item's barcode
+        schema:
+          type: string
+      - name: x-koha-embed
+        in: header
+        required: false
+        description: Embed list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - biblio
+            type: string
+      - name: _match
+        in: query
+        required: false
+        description: Matching criteria
+        schema:
+          type: string
+          enum:
+          - contains
+          - exact
+          - starts_with
+          - ends_with
+      - name: _order_by
+        in: query
+        required: false
+        description: Sorting criteria
+        schema:
+          type: array
+          items:
+            type: string
+      - name: _page
+        in: query
+        required: false
+        description: Page number, for paginated object listing
+        schema:
+          type: integer
+      - name: _per_page
+        in: query
+        required: false
+        description: Page size, for paginated object listing
+        schema:
+          type: integer
+      - name: q
+        in: query
+        required: false
+        description: Query filter sent as a request parameter
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: x-koha-request-id
+        in: header
+        required: false
+        description: Request id header
+        schema:
+          type: integer
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+        description: Query filter sent through request"s body
+      responses:
+        '200':
+          description: A list of item
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/item_yaml'
+                type: array
+        '400':
+          description: "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    post:
+      tags:
+      - preservation
+      summary: Add items to waiting list
+      operationId: addItemsToWaitingList
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              items:
+                type: object
+              type: array
+        description: A list of itemnumbers or barcodes
+      responses:
+        '201':
+          description: A successfully added list of items
+          content:
+            application/json:
+              schema:
+                items:
+                  type: object
+                type: array
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Ressource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: Conflict in creating resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '413':
+          description: Payload too large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /preservation/waiting-list/items/{item_id}:
+    delete:
+      tags:
+      - preservation
+      summary: Remove item from waiting list
+      operationId: removeItemFromWaitingList
+      parameters:
+      - name: item_id
+        in: path
+        required: true
+        description: Internal item identifier
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: Item removed
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Item not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+components:
+  schemas:
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
+    preservation_processing_yaml:
+      additionalProperties: false
+      properties:
+        attributes:
+          description: attributes of the processing
+          items:
+            $ref: '#/components/schemas/preservation_processing_attribute_yaml'
+        letter_code:
+          description: Letter code of the letter to use for printing slips
+          type:
+          - string
+          - 'null'
+        name:
+          description: name of the processing
+          type: string
+        processing_id:
+          description: internally assigned agreement identifier
+          readOnly: true
+          type: integer
+      required:
+      - processing_id
+      - name
+      type: object
+    preservation_config_yaml:
+      additionalProperties: false
+      properties:
+        permissions:
+          description: List of permissions of the logged in user used for the Preservation module
+          type: object
+        settings:
+          description: List of sysprefs used for the Preservation module
+          type: object
+      type: object
+    item_yaml:
+      additionalProperties: false
+      properties:
+        _strings:
+          description: A return claims object if one exists that's unresolved
+          type:
+          - object
+          - 'null'
+        acquisition_date:
+          description: The date the item was acquired
+          format: date
+          type:
+          - string
+          - 'null'
+        acquisition_source:
+          description: Information about the acquisition source (it is not really a vendor id)
+          type:
+          - string
+          - 'null'
+        biblio: {}
+        biblio_id:
+          description: Internal identifier for the parent bibliographic record
+          type: integer
+        bookable:
+          description: Allow bookings on this item.
+          type: boolean
+        call_number_sort:
+          description: '?'
+          type:
+          - string
+          - 'null'
+        call_number_source:
+          description: Classification source used on this item
+          type:
+          - string
+          - 'null'
+        callnumber:
+          description: Call number for this item
+          type:
+          - string
+          - 'null'
+        checked_out_date:
+          description: Defines if item is checked out (NULL for not checked out, and checkout date for checked out)
+          format: date
+          type:
+          - string
+          - 'null'
+        checkouts_count:
+          description: Number of times this item has been checked out/issued
+          type:
+          - integer
+          - 'null'
+        coded_location_qualifier:
+          description: Coded location qualifier
+          type:
+          - string
+          - 'null'
+        collection_code:
+          description: Authorized value for the collection code associated with this item
+          type:
+          - string
+          - 'null'
+        copy_number:
+          description: Copy number
+          type:
+          - string
+          - 'null'
+        damaged_date:
+          description: The date and time an item was last marked as damaged, NULL if not damaged
+          type:
+          - string
+          - 'null'
+        damaged_status:
+          description: Authorized value defining this item as damaged
+          type: integer
+        effective_item_type_id:
+          description: Effective itemtype defining the type for this item_id
+          type:
+          - string
+          - 'null'
+        effective_not_for_loan_status:
+          description: Authorized value defining why this item is not for not_for_loan_status
+          type: integer
+        exclude_from_local_holds_priority:
+          description: Exclude this item from local holds priority.
+          type: boolean
+        extended_subfields:
+          description: Additional 952 subfields in XML format
+          type:
+          - string
+          - 'null'
+        external_id:
+          description: The item's barcode
+          type:
+          - string
+          - 'null'
+        holding_library_id:
+          description: Library that is currently in possession item
+          type:
+          - string
+          - 'null'
+        holds_count:
+          description: Number of times this item has been placed on hold/reserved
+          type:
+          - integer
+          - 'null'
+        home_library_id:
+          description: Internal library id for the library the item belongs to
+          type:
+          - string
+          - 'null'
+        internal_notes:
+          description: Non-public notes on this item
+          type:
+          - string
+          - 'null'
+        inventory_number:
+          description: Inventory number
+          type:
+          - string
+          - 'null'
+        item_id:
+          description: Internal item identifier
+          type: integer
+        item_type_id:
+          description: Itemtype defining the type for this item
+          type:
+          - string
+          - 'null'
+        last_checkout_date:
+          description: The date the item was last checked out
+          format: date
+          type:
+          - string
+          - 'null'
+        last_seen_date:
+          description: The date the item barcode was last scanned
+          format: date-time
+          type:
+          - string
+          - 'null'
+        location:
+          description: Authorized value for the shelving location for this item
+          type:
+          - string
+          - 'null'
+        lost_date:
+          description: The date and time an item was last marked as lost, NULL if not lost
+          format: date-time
+          type:
+          - string
+          - 'null'
+        lost_status:
+          description: Authorized value defining this item as lost
+          type: integer
+        materials_notes:
+          description: Materials specified
+          type:
+          - string
+          - 'null'
+        new_status:
+          description: '''new'' value, whatever free-text information.'
+          type:
+          - string
+          - 'null'
+        not_for_loan_status:
+          description: Authorized value defining why this item is not for loan
+          type: integer
+        permanent_location:
+          description: Linked to the CART and PROC temporary locations feature, stores the permanent shelving location
+          type:
+          - string
+          - 'null'
+        public_notes:
+          description: Public notes on this item
+          type:
+          - string
+          - 'null'
+        purchase_price:
+          description: Purchase price
+          type:
+          - number
+          - 'null'
+        renewals_count:
+          description: Number of times this item has been renewed
+          type:
+          - integer
+          - 'null'
+        replacement_price:
+          description: Cost the library charges to replace the item (e.g. if lost)
+          type:
+          - number
+          - 'null'
+        replacement_price_date:
+          description: The date the replacement price is effective from
+          format: date
+          type:
+          - string
+          - 'null'
+        restricted_status:
+          description: Authorized value defining use restrictions for this item
+          type:
+          - integer
+          - 'null'
+        return_claim:
+          type:
+          - object
+          - 'null'
+        return_claims:
+          description: An array of all return claims associated with this item
+          type: array
+        serial_issue_number:
+          description: serial enumeration/chronology for the item
+          type:
+          - string
+          - 'null'
+        timestamp:
+          description: Date and time this item was last altered
+          format: date-time
+          type: string
+        uri:
+          description: URL for the item
+          type:
+          - string
+          - 'null'
+        withdrawn:
+          description: Authorized value defining this item as withdrawn
+          type: integer
+        withdrawn_date:
+          description: The date and time an item was last marked as withdrawn, NULL if not withdrawn
+          format: date-time
+          type:
+          - string
+          - 'null'
+      type: object
+    preservation_train_yaml:
+      additionalProperties: false
+      properties:
+        closed_on:
+          description: closing date
+          type:
+          - string
+          - 'null'
+        created_on:
+          description: creation date
+          type:
+          - string
+          - 'null'
+        default_processing:
+          description: the default processing
+          type:
+          - object
+          - 'null'
+        default_processing_id:
+          description: foreign key to preservation_processings
+          type:
+          - integer
+          - 'null'
+        description:
+          description: description of the train
+          type:
+          - string
+          - 'null'
+        name:
+          description: name of the train
+          type: string
+        not_for_loan:
+          description: NOT_LOAN authorised value to apply to item added to this train
+          type:
+          - string
+          - 'null'
+        received_on:
+          description: receiving date
+          type:
+          - string
+          - 'null'
+        sent_on:
+          description: sending date
+          type:
+          - string
+          - 'null'
+        train_id:
+          description: internally assigned train identifier
+          readOnly: true
+          type: integer
+      required:
+      - train_id
+      - name
+      type: object
+    preservation_train_item_yaml:
+      additionalProperties: false
+      properties:
+        added_on:
+          description: add date
+          type:
+          - string
+          - 'null'
+        attributes:
+          description: attribute list
+          type:
+          - array
+          - 'null'
+        catalogue_item:
+          description: catalogue item
+          type:
+          - object
+          - 'null'
+        item_id:
+          description: internally item identifier
+          type: integer
+        processing_id:
+          description: internally processing identifier
+          type: integer
+        train_id:
+          description: internally train identifier
+          type: integer
+        train_item_id:
+          description: internally assigned train item identifier
+          readOnly: true
+          type: integer
+        user_train_item_id:
+          description: internally user train item identifier
+          type: integer
+      type: object
+    preservation_processing_attribute_yaml:
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+        option_source:
+          type:
+          - string
+          - 'null'
+        processing_attribute_id:
+          description: Internal processing attribute identifier
+          type: integer
+        processing_id:
+          description: Internal processing identifier
+          type: integer
+        type:
+          type:
+          - string
+      required:
+      - name
+      - type
+      type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object

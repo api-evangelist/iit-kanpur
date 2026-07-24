@@ -1,0 +1,853 @@
+openapi: 3.0.3
+info:
+  contact:
+    name: Koha Development Team
+    url: https://koha-community.org/
+  description: "## Background\n\nThe API supports two sets of endpoints, one targetted at library staff and the other at at library users.\n\nThose endpoints under the `/public` path are aimed at delivering functionality tailored to library users and offer\na more restricted set of functions, overrides and data in thier responses for data privacy and library policy\nreasons. Many of these endpoints do not require authentication for fetching public data, though an authenticated\nsession will expose additional options and allow users to see more data where it is part of their own record.\n\nAll other endpoints are targetted at the staff interface level and allow for additional functionality and a more\nunrestricted view of data.  These endpoints, however, have a level of redaction built in for resources that the\napi consumer should not have access to.  For example, user data for users who do not belong to the same library\nor library group of your api user will be reduced to just minimum neccesary for a valid response. Object keys will\nbe consistent for all responses, but their values may be removed depending on access.\n\n## Authentication\n\nThe API supports the following authentication mechanisms\n\n* HTTP Basic authentication\n* OAuth2 (client credentials grant)\n* Cookie-based\n\nBoth _Basic authentication_ and the _OAuth2_ flow, need to be enabled\nby system preferences.\n\n## Authorization\n\nThe API uses existing user profiles to restrict access to resources based on user permissions and the library the\nAPI user is assigned to.  This may result, at times, in resources being returned in a redacted form with all keys\npresent but sensative values nulled.\n\nWe do not yet support OAuth Scopes or the Authorization Code grant flow.\n\n## Errors\n\nThe API uses standard HTTP status codes to indicate the success or failure\nof the API call. The body of the response will be JSON in the following format:\n\n```\n{\n  \"error\": \"Current settings prevent the passed due date to be applied\",\n  \"error_code\": \"invalid_due_date\"\n}\n```\n\nNote: Some routes might offer additional attributes in their error responses but that\"s\nsubject to change and thus not documented.\n\n## Filtering responses\n\nThe API allows for some advanced response filtering using a JSON based query syntax. The\nquery can be added to the requests:\n\n* as a query parameter `q=`\n* in the request body\n\nFor simple field equality matches we can use `{ \"fieldname\": \"value\" }` where the fieldname\nmatches one of the fields as described in the particular endpoints response object.\n\nWe can refine that with more complex matching clauses by nesting a the clause into the\nobject; `{ \"fieldname\": { \"clause\": \"value\" } }`.\n\nAvailable matching clauses include `=`, `!=`, `<`, `>`, `<=`, `>=` and `-not`. We also support `-like`\nand `-not_like` string comparisons with `%` used to denote wildcards, thus you can pass\n`{ \"fieldname\": { \"-like\": \"value%\" } }` to do a 'starts with' string match for example.\n\nWe can filter on multiple fields by adding them to the JSON respresentation. Adding at `HASH`\nlevel will result in an \"AND\" query, whilst combinding them in an `ARRAY` will result in an\n\"OR\" query: `{ \"field1\": \"value2\", \"field2\": \"value2\" }` will filter the response to only those\nresults with both field1 containing value2 AND field2 containing value2 for example.\n\nThere is a collection of special operators also available to you, including:\n\n* `-in` - Expects an array of values to perform an OR match against\n* `-not_in` - Expects an array of values to perform a NOR match against\n* `-between` - Expects two values which the value of the field is expected to fall between\n* `-not_between` - Expects two values which the value of the field is expected to fall outside of\n* `-ident` - Expects a second field name to match the two field values against\n* `-regexp` - Expects a perl compatible regular expression for which the value should match\n\nLogic and nesting is also supported and you may use `-and` and `-or` to change the logic of an ARRAY\nor HASH as described above.\n\nAdditionally, if you are requesting related data be embedded into the response one can query\non the related data using dot notation in the field names.\n\n### Examples\n\nThe following request would return any patron with firstname \"Henry\" and lastname \"Acevedo\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": \"Acevedo\", \"firstname\": \"Henry\" }'`\n\nThe following request would return any patron whose lastname begins with \"Ace\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": { \"-like\": \"Ace%\" }'`\n\nThe following request would return any patron whose lastname is \"Acevedo\" OR \"Bernardo\"\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": [ \"Acevedo\", \"Bernardo\" ] }'`\n\nThe following request embeds the related patron extended attributes data and filters on it.\n\n`curl -u koha:koha =--request GET 'http://127.0.0.1:8081/api/v1/patrons/' --header 'x-koha-embed: extended_attributes' --data-raw '{ \"extended_attributes.code\": \"internet\", \"extended_attributes.attribute\": \"1\" }'`\n\n## Special headers\n\n### x-koha-embed\n\nThis optional header allows the api consumer to request additional related data\nto be returned in the api response.  It also allows for cross referencing in the\nqueries as described above. It accepts a comma delimited list of relation names.\n\nRelations may on occasion also support dot delimited nesting to allow traversal.\n\n### x-koha-library\n\nThis optional header should be passed to give your api request a library\ncontext; If it is not included in the request, then the request context\nwill default to using your api comsumer\"s assigned home library.\n"
+  license:
+    name: GPL v3,
+    url: http://www.gnu.org/licenses/gpl.txt
+  title: Koha REST 2fa libraries API
+  version: '1'
+servers:
+- url: https://libserv.iitk.ac.in/api/v1
+  description: PKK Library Koha REST API (production)
+tags:
+- description: 'Manage libraries
+
+    '
+  name: libraries
+  x-displayName: Libraries
+paths:
+  /libraries:
+    get:
+      tags:
+      - libraries
+      summary: List libraries
+      operationId: listLibraries
+      parameters:
+      - name: name
+        in: query
+        required: false
+        description: Case insensitive 'starts-with' search on name
+        schema:
+          type: string
+      - name: address1
+        in: query
+        required: false
+        description: Case insensitive 'starts-with' search on address1
+        schema:
+          type: string
+      - name: address2
+        in: query
+        required: false
+        description: Case insensitive 'starts-with' search on address2
+        schema:
+          type: string
+      - name: address3
+        in: query
+        required: false
+        description: Case insensitive 'starts-with' search on address3
+        schema:
+          type: string
+      - name: postal_code
+        in: query
+        required: false
+        description: Case insensitive 'starts-with' search on postal code
+        schema:
+          type: string
+      - name: city
+        in: query
+        required: false
+        description: Case insensitive 'starts-with' search on city
+        schema:
+          type: string
+      - name: state
+        in: query
+        required: false
+        description: Case insensitive 'starts-with' search on state
+        schema:
+          type: string
+      - name: country
+        in: query
+        required: false
+        description: Case insensitive 'starts_with' search on country
+        schema:
+          type: string
+      - name: phone
+        in: query
+        required: false
+        description: Case insensitive 'starts_with' search on phone number
+        schema:
+          type: string
+      - name: fax
+        in: query
+        required: false
+        description: Case insensitive 'starts_with' search on fax number
+        schema:
+          type: string
+      - name: email
+        in: query
+        required: false
+        description: Case insensitive 'starts_with' search on email address
+        schema:
+          type: string
+      - name: reply_to_email
+        in: query
+        required: false
+        description: Case insensitive 'starts_with' search on Reply-To email address
+        schema:
+          type: string
+      - name: return_path_email
+        in: query
+        required: false
+        description: Case insensitive 'starts_with' search on Return-Path email address
+        schema:
+          type: string
+      - name: url
+        in: query
+        required: false
+        description: Case insensitive 'starts_with' search on website URL
+        schema:
+          type: string
+      - name: ip
+        in: query
+        required: false
+        description: Case insensitive 'starts_with' search on IP address
+        schema:
+          type: string
+      - name: notes
+        in: query
+        required: false
+        description: Case insensitive 'starts_with' search on notes
+        schema:
+          type: string
+      - name: _match
+        in: query
+        required: false
+        description: Matching criteria
+        schema:
+          type: string
+          enum:
+          - contains
+          - exact
+          - starts_with
+          - ends_with
+      - name: _order_by
+        in: query
+        required: false
+        description: Sorting criteria
+        schema:
+          type: array
+          items:
+            type: string
+      - name: _page
+        in: query
+        required: false
+        description: Page number, for paginated object listing
+        schema:
+          type: integer
+      - name: _per_page
+        in: query
+        required: false
+        description: Page size, for paginated object listing
+        schema:
+          type: integer
+      - name: q
+        in: query
+        required: false
+        description: Query filter sent as a request parameter
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: x-koha-request-id
+        in: header
+        required: false
+        description: Request id header
+        schema:
+          type: integer
+      - name: x-koha-embed
+        in: header
+        required: false
+        description: Embed list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - cash_registers
+            - desks
+            - smtp_server
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+        description: Query filter sent through request"s body
+      responses:
+        '200':
+          description: A list of libraries
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/library_yaml'
+                type: array
+        '400':
+          description: "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '404':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    post:
+      tags:
+      - libraries
+      summary: Add library
+      operationId: addLibrary
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/library_yaml'
+        description: A JSON object containing informations about the new library
+      responses:
+        '201':
+          description: Library added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/library_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '409':
+          description: Conflict in creating resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /libraries/{library_id}:
+    delete:
+      tags:
+      - libraries
+      summary: Delete library
+      operationId: deleteLibrary
+      parameters:
+      - name: library_id
+        in: path
+        required: true
+        description: Internal library identifier
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Library deleted
+          content:
+            application/json:
+              schema:
+                type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Library not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    get:
+      tags:
+      - libraries
+      summary: Get library
+      operationId: getLibrary
+      parameters:
+      - name: library_id
+        in: path
+        required: true
+        description: Internal library identifier
+        schema:
+          type: string
+      - name: x-koha-embed
+        in: header
+        required: false
+        description: Embed list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - cash_registers
+            - desks
+            - smtp_server
+            type: string
+      responses:
+        '200':
+          description: A library
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/library_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '404':
+          description: Library not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+    put:
+      tags:
+      - libraries
+      summary: Update library
+      operationId: updateLibrary
+      parameters:
+      - name: library_id
+        in: path
+        required: true
+        description: Internal library identifier
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/library_yaml'
+        description: A JSON object containing information on the library
+      responses:
+        '200':
+          description: A library
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/library_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Library not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /public/libraries:
+    get:
+      tags:
+      - libraries
+      summary: List libraries
+      operationId: listLibrariesPublic
+      parameters:
+      - name: _match
+        in: query
+        required: false
+        description: Matching criteria
+        schema:
+          type: string
+          enum:
+          - contains
+          - exact
+          - starts_with
+          - ends_with
+      - name: _order_by
+        in: query
+        required: false
+        description: Sorting criteria
+        schema:
+          type: array
+          items:
+            type: string
+      - name: _page
+        in: query
+        required: false
+        description: Page number, for paginated object listing
+        schema:
+          type: integer
+      - name: _per_page
+        in: query
+        required: false
+        description: Page size, for paginated object listing
+        schema:
+          type: integer
+      - name: q
+        in: query
+        required: false
+        description: Query filter sent as a request parameter
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: x-koha-request-id
+        in: header
+        required: false
+        description: Request id header
+        schema:
+          type: integer
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+        description: Query filter sent through request"s body
+      responses:
+        '200':
+          description: A list of libraries
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/library_yaml'
+                type: array
+        '400':
+          description: "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '404':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /public/libraries/{library_id}:
+    get:
+      tags:
+      - libraries
+      summary: Get library (public)
+      operationId: getLibraryPublic
+      parameters:
+      - name: library_id
+        in: path
+        required: true
+        description: Internal library identifier
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A library
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Library not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '406':
+          description: Not acceptable
+          content:
+            application/json:
+              schema:
+                description: Accepted content-types
+                items:
+                  type: string
+                type: array
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+components:
+  schemas:
+    library_yaml:
+      additionalProperties: false
+      properties:
+        address1:
+          description: the first address line of the library
+          type:
+          - string
+          - 'null'
+        address2:
+          description: the second address line of the library
+          type:
+          - string
+          - 'null'
+        address3:
+          description: the third address line of the library
+          type:
+          - string
+          - 'null'
+        cash_registers:
+          description: The library's defined cash registers (x-koha-embed)
+          type:
+          - array
+          - 'null'
+        city:
+          description: the city or province of the library
+          type:
+          - string
+          - 'null'
+        country:
+          description: the county of the library
+          type:
+          - string
+          - 'null'
+        desks:
+          description: The library's defined desks (x-koha-embed)
+          type:
+          - array
+          - 'null'
+        email:
+          description: the primary email address of the library
+          type:
+          - string
+          - 'null'
+        fax:
+          description: the fax number of the library
+          type:
+          - string
+          - 'null'
+        geolocation:
+          description: geolocation of your library
+          type:
+          - string
+          - 'null'
+        illemail:
+          description: the ILL staff email address of the library
+          type:
+          - string
+          - 'null'
+        ip:
+          description: the IP address for your library or branch
+          type:
+          - string
+          - 'null'
+        library_id:
+          description: internally assigned library identifier
+          maxLength: 10
+          minLength: 1
+          type: string
+        marc_org_code:
+          description: MARC Organization Code, see http://www.loc.gov/marc/organizations/orgshome.html, when empty defaults to syspref MARCOrgCode
+          type:
+          - string
+          - 'null'
+        name:
+          description: Printable name of library
+          type: string
+        needs_override:
+          description: If the library needs an override to act as pickup location for a hold
+          type: boolean
+        notes:
+          description: notes related to your library or branch
+          type:
+          - string
+          - 'null'
+        phone:
+          description: the primary phone of the library
+          type:
+          - string
+          - 'null'
+        pickup_location:
+          description: If the library can act as a pickup location
+          type: boolean
+        postal_code:
+          description: the postal code of the library
+          type:
+          - string
+          - 'null'
+        public:
+          description: If the library is visible to the public
+          type: boolean
+        reply_to_email:
+          description: the email to be used as a Reply-To
+          type:
+          - string
+          - 'null'
+        return_path_email:
+          description: the email to be used as Return-Path
+          type:
+          - string
+          - 'null'
+        smtp_server:
+          description: The library effective SMTP server
+          type:
+          - object
+          - 'null'
+        state:
+          description: the reqional state of the library
+          type:
+          - string
+          - 'null'
+        url:
+          description: the URL for your library or branch's website
+          type:
+          - string
+          - 'null'
+      required:
+      - library_id
+      - name
+      type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object

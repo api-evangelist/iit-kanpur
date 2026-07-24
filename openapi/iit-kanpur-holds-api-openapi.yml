@@ -1,0 +1,1519 @@
+openapi: 3.0.3
+info:
+  contact:
+    name: Koha Development Team
+    url: https://koha-community.org/
+  description: "## Background\n\nThe API supports two sets of endpoints, one targetted at library staff and the other at at library users.\n\nThose endpoints under the `/public` path are aimed at delivering functionality tailored to library users and offer\na more restricted set of functions, overrides and data in thier responses for data privacy and library policy\nreasons. Many of these endpoints do not require authentication for fetching public data, though an authenticated\nsession will expose additional options and allow users to see more data where it is part of their own record.\n\nAll other endpoints are targetted at the staff interface level and allow for additional functionality and a more\nunrestricted view of data.  These endpoints, however, have a level of redaction built in for resources that the\napi consumer should not have access to.  For example, user data for users who do not belong to the same library\nor library group of your api user will be reduced to just minimum neccesary for a valid response. Object keys will\nbe consistent for all responses, but their values may be removed depending on access.\n\n## Authentication\n\nThe API supports the following authentication mechanisms\n\n* HTTP Basic authentication\n* OAuth2 (client credentials grant)\n* Cookie-based\n\nBoth _Basic authentication_ and the _OAuth2_ flow, need to be enabled\nby system preferences.\n\n## Authorization\n\nThe API uses existing user profiles to restrict access to resources based on user permissions and the library the\nAPI user is assigned to.  This may result, at times, in resources being returned in a redacted form with all keys\npresent but sensative values nulled.\n\nWe do not yet support OAuth Scopes or the Authorization Code grant flow.\n\n## Errors\n\nThe API uses standard HTTP status codes to indicate the success or failure\nof the API call. The body of the response will be JSON in the following format:\n\n```\n{\n  \"error\": \"Current settings prevent the passed due date to be applied\",\n  \"error_code\": \"invalid_due_date\"\n}\n```\n\nNote: Some routes might offer additional attributes in their error responses but that\"s\nsubject to change and thus not documented.\n\n## Filtering responses\n\nThe API allows for some advanced response filtering using a JSON based query syntax. The\nquery can be added to the requests:\n\n* as a query parameter `q=`\n* in the request body\n\nFor simple field equality matches we can use `{ \"fieldname\": \"value\" }` where the fieldname\nmatches one of the fields as described in the particular endpoints response object.\n\nWe can refine that with more complex matching clauses by nesting a the clause into the\nobject; `{ \"fieldname\": { \"clause\": \"value\" } }`.\n\nAvailable matching clauses include `=`, `!=`, `<`, `>`, `<=`, `>=` and `-not`. We also support `-like`\nand `-not_like` string comparisons with `%` used to denote wildcards, thus you can pass\n`{ \"fieldname\": { \"-like\": \"value%\" } }` to do a 'starts with' string match for example.\n\nWe can filter on multiple fields by adding them to the JSON respresentation. Adding at `HASH`\nlevel will result in an \"AND\" query, whilst combinding them in an `ARRAY` will result in an\n\"OR\" query: `{ \"field1\": \"value2\", \"field2\": \"value2\" }` will filter the response to only those\nresults with both field1 containing value2 AND field2 containing value2 for example.\n\nThere is a collection of special operators also available to you, including:\n\n* `-in` - Expects an array of values to perform an OR match against\n* `-not_in` - Expects an array of values to perform a NOR match against\n* `-between` - Expects two values which the value of the field is expected to fall between\n* `-not_between` - Expects two values which the value of the field is expected to fall outside of\n* `-ident` - Expects a second field name to match the two field values against\n* `-regexp` - Expects a perl compatible regular expression for which the value should match\n\nLogic and nesting is also supported and you may use `-and` and `-or` to change the logic of an ARRAY\nor HASH as described above.\n\nAdditionally, if you are requesting related data be embedded into the response one can query\non the related data using dot notation in the field names.\n\n### Examples\n\nThe following request would return any patron with firstname \"Henry\" and lastname \"Acevedo\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": \"Acevedo\", \"firstname\": \"Henry\" }'`\n\nThe following request would return any patron whose lastname begins with \"Ace\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": { \"-like\": \"Ace%\" }'`\n\nThe following request would return any patron whose lastname is \"Acevedo\" OR \"Bernardo\"\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": [ \"Acevedo\", \"Bernardo\" ] }'`\n\nThe following request embeds the related patron extended attributes data and filters on it.\n\n`curl -u koha:koha =--request GET 'http://127.0.0.1:8081/api/v1/patrons/' --header 'x-koha-embed: extended_attributes' --data-raw '{ \"extended_attributes.code\": \"internet\", \"extended_attributes.attribute\": \"1\" }'`\n\n## Special headers\n\n### x-koha-embed\n\nThis optional header allows the api consumer to request additional related data\nto be returned in the api response.  It also allows for cross referencing in the\nqueries as described above. It accepts a comma delimited list of relation names.\n\nRelations may on occasion also support dot delimited nesting to allow traversal.\n\n### x-koha-library\n\nThis optional header should be passed to give your api request a library\ncontext; If it is not included in the request, then the request context\nwill default to using your api comsumer\"s assigned home library.\n"
+  license:
+    name: GPL v3,
+    url: http://www.gnu.org/licenses/gpl.txt
+  title: Koha REST 2fa holds API
+  version: '1'
+servers:
+- url: https://libserv.iitk.ac.in/api/v1
+  description: PKK Library Koha REST API (production)
+tags:
+- description: 'Manage holds
+
+    '
+  name: holds
+  x-displayName: Holds
+paths:
+  /holds:
+    get:
+      tags:
+      - holds
+      summary: List holds
+      operationId: listHolds
+      parameters:
+      - name: hold_id
+        in: query
+        required: false
+        description: Internal hold identifier
+        schema:
+          type: integer
+      - name: patron_id
+        in: query
+        required: false
+        description: Internal patron identifier
+        schema:
+          type: integer
+      - name: hold_date
+        in: query
+        required: false
+        description: Hold
+        schema:
+          type: string
+          format: date
+      - name: biblio_id
+        in: query
+        required: false
+        description: Internal biblio identifier
+        schema:
+          type: integer
+      - name: item_group_id
+        in: query
+        required: false
+        description: Internal item group identifier
+        schema:
+          type: integer
+      - name: pickup_library_id
+        in: query
+        required: false
+        description: Internal library identifier for the pickup library
+        schema:
+          type: string
+      - name: cancellation_date
+        in: query
+        required: false
+        description: The date the hold was cancelled
+        schema:
+          type: string
+          format: date
+      - name: notes
+        in: query
+        required: false
+        description: Notes related to this hold
+        schema:
+          type: string
+      - name: priority
+        in: query
+        required: false
+        description: Where in the queue the patron sits
+        schema:
+          type: integer
+      - name: status
+        in: query
+        required: false
+        description: Found status
+        schema:
+          type: string
+      - name: timestamp
+        in: query
+        required: false
+        description: Time of latest update
+        schema:
+          type: string
+      - name: item_id
+        in: query
+        required: false
+        description: Internal item identifier
+        schema:
+          type: integer
+      - name: waiting_date
+        in: query
+        required: false
+        description: Date the item was marked as waiting for the patron
+        schema:
+          type: string
+      - name: expiration_date
+        in: query
+        required: false
+        description: Date the hold expires
+        schema:
+          type: string
+      - name: lowest_priority
+        in: query
+        required: false
+        description: Lowest priority
+        schema:
+          type: boolean
+      - name: suspended
+        in: query
+        required: false
+        description: Suspended
+        schema:
+          type: boolean
+      - name: suspended_until
+        in: query
+        required: false
+        description: Suspended until
+        schema:
+          type: string
+      - name: non_priority
+        in: query
+        required: false
+        description: Non priority hold
+        schema:
+          type: boolean
+      - name: _match
+        in: query
+        required: false
+        description: Matching criteria
+        schema:
+          type: string
+          enum:
+          - contains
+          - exact
+          - starts_with
+          - ends_with
+      - name: _order_by
+        in: query
+        required: false
+        description: Sorting criteria
+        schema:
+          type: array
+          items:
+            type: string
+      - name: _page
+        in: query
+        required: false
+        description: Page number, for paginated object listing
+        schema:
+          type: integer
+      - name: _per_page
+        in: query
+        required: false
+        description: Page size, for paginated object listing
+        schema:
+          type: integer
+      - name: q
+        in: query
+        required: false
+        description: Query filter sent as a request parameter
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: x-koha-request-id
+        in: header
+        required: false
+        description: Request id header
+        schema:
+          type: integer
+      - name: old
+        in: query
+        required: false
+        description: By default, current holds are returned, when this is true then old holds are returned as result.
+        schema:
+          type: boolean
+      - name: x-koha-embed
+        in: header
+        required: false
+        description: Embed list sent as a request header
+        schema:
+          type: array
+          items:
+            collectionFormat: csv
+            enum:
+            - cancellation_requested
+            - biblio
+            - pickup_library
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+        description: Query filter sent through request"s body
+      responses:
+        '200':
+          description: A list of holds
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/holds_yaml'
+        '400':
+          description: "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Hold not allowed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Borrower not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    post:
+      tags:
+      - holds
+      summary: Place hold
+      operationId: addHold
+      parameters:
+      - name: x-koha-override
+        in: header
+        required: false
+        description: Overrides list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - any
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              properties:
+                biblio_id:
+                  description: Internal biblio identifier
+                  type:
+                  - integer
+                  - 'null'
+                expiration_date:
+                  description: Hold end date
+                  format: date
+                  type:
+                  - string
+                  - 'null'
+                hold_date:
+                  description: The date the hold was placed
+                  format: date
+                  type:
+                  - string
+                  - 'null'
+                item_group_id:
+                  description: Internal item group identifier
+                  type:
+                  - integer
+                  - 'null'
+                item_id:
+                  description: Internal item identifier
+                  type:
+                  - integer
+                  - 'null'
+                item_type:
+                  description: Limit hold on one itemtype (ignored for item-level holds)
+                  type:
+                  - string
+                  - 'null'
+                non_priority:
+                  description: Set this hold as non priority
+                  type:
+                  - boolean
+                  - 'null'
+                notes:
+                  description: Notes related to this hold
+                  type:
+                  - string
+                  - 'null'
+                patron_id:
+                  description: Internal patron identifier
+                  type: integer
+                pickup_library_id:
+                  description: Internal library identifier for the pickup library
+                  type: string
+              required:
+              - patron_id
+              - pickup_library_id
+              type: object
+        description: A JSON object containing informations about the new hold
+      responses:
+        '201':
+          description: Created hold
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hold_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Hold not allowed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Borrower not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /holds/{hold_id}:
+    delete:
+      tags:
+      - holds
+      summary: Cancel hold
+      operationId: deleteHold
+      parameters:
+      - name: hold_id
+        in: path
+        required: true
+        description: Internal hold identifier
+        schema:
+          type: integer
+      - name: x-koha-override
+        in: header
+        required: false
+        description: Overrides list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - cancellation-request-flow
+            type: string
+      responses:
+        '202':
+          description: Hold request recorded
+        '204':
+          description: Hold deleted
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Hold not allowed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Hold not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    patch:
+      tags:
+      - holds
+      summary: Update hold
+      operationId: editHold
+      parameters:
+      - name: hold_id
+        in: path
+        required: true
+        description: Internal hold identifier
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              properties:
+                pickup_library_id:
+                  description: Internal library identifier for the pickup library
+                  type: string
+                priority:
+                  description: Position in waiting queue
+                  minimum: 1
+                  type: integer
+                suspended_until:
+                  description: Date until which the hold has been suspended
+                  format: date-time
+                  type: string
+              type: object
+        description: A JSON object containing fields to modify
+      responses:
+        '200':
+          description: Updated hold
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hold_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Hold not allowed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Hold not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    put:
+      tags:
+      - holds
+      summary: Update hold
+      description: This route is being deprecated and will be removed in future releases. Please migrate your project to use PATCH /holds/{hold_id} instead.
+      operationId: overwriteHold
+      parameters:
+      - name: hold_id
+        in: path
+        required: true
+        description: Internal hold identifier
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              properties:
+                pickup_library_id:
+                  description: Internal library identifier for the pickup library
+                  type: string
+                priority:
+                  description: Position in waiting queue
+                  minimum: 1
+                  type: integer
+                suspended_until:
+                  description: Date until which the hold has been suspended
+                  format: date-time
+                  type: string
+              type: object
+        description: A JSON object containing fields to modify
+      responses:
+        '200':
+          description: Updated hold
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hold_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Hold not allowed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Hold not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /holds/{hold_id}/pickup_location:
+    put:
+      tags:
+      - holds
+      summary: Update pickup location for the hold
+      description: Set a new pickup location for the hold
+      operationId: updateHoldPickupLocation
+      parameters:
+      - name: hold_id
+        in: path
+        required: true
+        description: Internal hold identifier
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              properties:
+                pickup_library_id:
+                  description: Internal identifier for the pickup library
+                  type: string
+              type: object
+        description: Pickup location
+      responses:
+        '200':
+          description: The new pickup location value for the hold
+          content:
+            application/json:
+              schema:
+                additionalProperties: false
+                properties:
+                  pickup_library_id:
+                    description: Internal identifier for the pickup library
+                    type: string
+                type: object
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Hold not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: 'Unable to perform action on hold. Possible `error_code` attribute values:
+
+
+            * `hold_waiting`
+
+            * `hold_in_transit`
+
+            * `hold_in_processing`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /holds/{hold_id}/pickup_locations:
+    get:
+      tags:
+      - holds
+      summary: Get valid pickup locations for hold
+      operationId: getHoldPickupLocations
+      parameters:
+      - name: x-koha-override
+        in: header
+        required: false
+        description: Overrides list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - any
+            type: string
+      - name: hold_id
+        in: path
+        required: true
+        description: Internal hold identifier
+        schema:
+          type: integer
+      - name: _match
+        in: query
+        required: false
+        description: Matching criteria
+        schema:
+          type: string
+          enum:
+          - contains
+          - exact
+          - starts_with
+          - ends_with
+      - name: _order_by
+        in: query
+        required: false
+        description: Sorting criteria
+        schema:
+          type: array
+          items:
+            type: string
+      - name: _page
+        in: query
+        required: false
+        description: Page number, for paginated object listing
+        schema:
+          type: integer
+      - name: _per_page
+        in: query
+        required: false
+        description: Page size, for paginated object listing
+        schema:
+          type: integer
+      - name: q
+        in: query
+        required: false
+        description: Query filter sent as a request parameter
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: x-koha-request-id
+        in: header
+        required: false
+        description: Request id header
+        schema:
+          type: integer
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+        description: Query filter sent through request"s body
+      responses:
+        '200':
+          description: Hold pickup location
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/library_yaml'
+                type: array
+        '400':
+          description: "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Hold pickup location list not allowed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Hold not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /holds/{hold_id}/priority:
+    put:
+      tags:
+      - holds
+      summary: Update priority for the hold
+      operationId: updateHoldPriority
+      parameters:
+      - name: hold_id
+        in: path
+        required: true
+        description: Internal hold identifier
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: integer
+        description: An integer representing the new priority to be set for the hold
+      responses:
+        '200':
+          description: The new priority value for the hold
+          content:
+            application/json:
+              schema:
+                type: integer
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Biblio not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: Unable to perform action on biblio
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /holds/{hold_id}/suspension:
+    delete:
+      tags:
+      - holds
+      summary: Resume hold
+      operationId: resumeHold
+      parameters:
+      - name: hold_id
+        in: path
+        required: true
+        description: Internal hold identifier
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: Hold resumed
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Hold not allowed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Hold not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    post:
+      tags:
+      - holds
+      summary: Suspend the hold
+      operationId: suspendHold
+      parameters:
+      - name: hold_id
+        in: path
+        required: true
+        description: Internal hold identifier
+        schema:
+          type: integer
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              properties:
+                end_date:
+                  description: Date the hold suspension expires
+                  format: date
+                  type: string
+              type: object
+        description: A JSON object containing fields to modify
+      responses:
+        '201':
+          description: Hold suspended
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Hold not allowed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Hold not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /patrons/{patron_id}/holds:
+    get:
+      tags:
+      - holds
+      summary: List holds for a patron
+      operationId: getPatronHolds
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      - name: _match
+        in: query
+        required: false
+        description: Matching criteria
+        schema:
+          type: string
+          enum:
+          - contains
+          - exact
+          - starts_with
+          - ends_with
+      - name: _order_by
+        in: query
+        required: false
+        description: Sorting criteria
+        schema:
+          type: array
+          items:
+            type: string
+      - name: _page
+        in: query
+        required: false
+        description: Page number, for paginated object listing
+        schema:
+          type: integer
+      - name: _per_page
+        in: query
+        required: false
+        description: Page size, for paginated object listing
+        schema:
+          type: integer
+      - name: q
+        in: query
+        required: false
+        description: Query filter sent as a request parameter
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: x-koha-request-id
+        in: header
+        required: false
+        description: Request id header
+        schema:
+          type: integer
+      - name: old
+        in: query
+        required: false
+        description: By default, current holds are returned, when this is true then old holds are returned as result.
+        schema:
+          type: boolean
+      - name: x-koha-embed
+        in: header
+        required: false
+        description: Embed list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - cancellation_requested
+            - biblio
+            - item
+            - pickup_library
+            - pickup_library.branchname
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+        description: Query filter sent through request"s body
+      responses:
+        '200':
+          description: The patron holds
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/hold_yaml'
+                type: array
+        '400':
+          description: "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Patron not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+components:
+  schemas:
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
+    library_yaml:
+      additionalProperties: false
+      properties:
+        address1:
+          description: the first address line of the library
+          type:
+          - string
+          - 'null'
+        address2:
+          description: the second address line of the library
+          type:
+          - string
+          - 'null'
+        address3:
+          description: the third address line of the library
+          type:
+          - string
+          - 'null'
+        cash_registers:
+          description: The library's defined cash registers (x-koha-embed)
+          type:
+          - array
+          - 'null'
+        city:
+          description: the city or province of the library
+          type:
+          - string
+          - 'null'
+        country:
+          description: the county of the library
+          type:
+          - string
+          - 'null'
+        desks:
+          description: The library's defined desks (x-koha-embed)
+          type:
+          - array
+          - 'null'
+        email:
+          description: the primary email address of the library
+          type:
+          - string
+          - 'null'
+        fax:
+          description: the fax number of the library
+          type:
+          - string
+          - 'null'
+        geolocation:
+          description: geolocation of your library
+          type:
+          - string
+          - 'null'
+        illemail:
+          description: the ILL staff email address of the library
+          type:
+          - string
+          - 'null'
+        ip:
+          description: the IP address for your library or branch
+          type:
+          - string
+          - 'null'
+        library_id:
+          description: internally assigned library identifier
+          maxLength: 10
+          minLength: 1
+          type: string
+        marc_org_code:
+          description: MARC Organization Code, see http://www.loc.gov/marc/organizations/orgshome.html, when empty defaults to syspref MARCOrgCode
+          type:
+          - string
+          - 'null'
+        name:
+          description: Printable name of library
+          type: string
+        needs_override:
+          description: If the library needs an override to act as pickup location for a hold
+          type: boolean
+        notes:
+          description: notes related to your library or branch
+          type:
+          - string
+          - 'null'
+        phone:
+          description: the primary phone of the library
+          type:
+          - string
+          - 'null'
+        pickup_location:
+          description: If the library can act as a pickup location
+          type: boolean
+        postal_code:
+          description: the postal code of the library
+          type:
+          - string
+          - 'null'
+        public:
+          description: If the library is visible to the public
+          type: boolean
+        reply_to_email:
+          description: the email to be used as a Reply-To
+          type:
+          - string
+          - 'null'
+        return_path_email:
+          description: the email to be used as Return-Path
+          type:
+          - string
+          - 'null'
+        smtp_server:
+          description: The library effective SMTP server
+          type:
+          - object
+          - 'null'
+        state:
+          description: the reqional state of the library
+          type:
+          - string
+          - 'null'
+        url:
+          description: the URL for your library or branch's website
+          type:
+          - string
+          - 'null'
+      required:
+      - library_id
+      - name
+      type: object
+    hold_yaml:
+      additionalProperties: false
+      properties:
+        biblio:
+          description: Bibliographic record
+          type:
+          - object
+          - 'null'
+        biblio_id:
+          description: Internal biblio identifier
+          type: integer
+        cancellation_date:
+          description: The date the hold was cancelled
+          format: date
+          type:
+          - string
+          - 'null'
+        cancellation_reason:
+          description: The reason the hold was cancelled
+          type:
+          - string
+          - 'null'
+        cancellation_requested:
+          description: Cancellation requests count for the hold (x-koha-embed)
+          type:
+          - boolean
+          - 'null'
+        desk_id:
+          description: The id of the desk
+          type:
+          - integer
+          - 'null'
+        expiration_date:
+          description: The date the hold expires
+          format: date
+          type:
+          - string
+          - 'null'
+        hold_date:
+          description: The date the hold was placed
+          format: date
+          type:
+          - string
+          - 'null'
+        hold_id:
+          description: Internal hold identifier
+          type: integer
+        item:
+          description: The item
+          type:
+          - object
+          - 'null'
+        item_group_id:
+          description: Internal item group identifier
+          type:
+          - string
+          - 'null'
+        item_id:
+          description: Internal item identifier
+          type:
+          - integer
+          - 'null'
+        item_level:
+          description: If the hold is placed at item level
+          type: boolean
+        item_type:
+          description: If record level hold, the optional itemtype of the item the patron is requesting
+          type:
+          - string
+          - 'null'
+        lowest_priority:
+          description: Controls if the hold is given the lowest priority on the queue
+          type: boolean
+        non_priority:
+          description: Set this hold as non priority
+          type: boolean
+        notes:
+          description: Notes related to this hold
+          type:
+          - string
+          - 'null'
+        patron_id:
+          description: Internal patron identifier
+          type: integer
+        pickup_library:
+          description: Pickup library
+          type:
+          - object
+          - 'null'
+        pickup_library_id:
+          description: Internal library identifier for the pickup library
+          type:
+          - string
+          - 'null'
+        priority:
+          description: Where in the queue the patron sits
+          type:
+          - integer
+          - 'null'
+        status:
+          description: A one letter code defining what the status of the hold is after it has been confirmed
+          type:
+          - string
+          - 'null'
+        suspended:
+          description: Controls if the hold is suspended
+          type: boolean
+        suspended_until:
+          description: Date until which the hold has been suspended
+          format: date-time
+          type:
+          - string
+          - 'null'
+        timestamp:
+          description: Timestamp for the latest hold update
+          format: date-time
+          type: string
+        waiting_date:
+          description: The date the item was marked as waiting for the patron at the library
+          format: date
+          type:
+          - string
+          - 'null'
+      type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object
+    holds_yaml:
+      additionalProperties: false
+      items:
+        $ref: '#/components/schemas/hold_yaml'
+      type: array

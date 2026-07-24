@@ -1,0 +1,1375 @@
+openapi: 3.0.3
+info:
+  contact:
+    name: Koha Development Team
+    url: https://koha-community.org/
+  description: "## Background\n\nThe API supports two sets of endpoints, one targetted at library staff and the other at at library users.\n\nThose endpoints under the `/public` path are aimed at delivering functionality tailored to library users and offer\na more restricted set of functions, overrides and data in thier responses for data privacy and library policy\nreasons. Many of these endpoints do not require authentication for fetching public data, though an authenticated\nsession will expose additional options and allow users to see more data where it is part of their own record.\n\nAll other endpoints are targetted at the staff interface level and allow for additional functionality and a more\nunrestricted view of data.  These endpoints, however, have a level of redaction built in for resources that the\napi consumer should not have access to.  For example, user data for users who do not belong to the same library\nor library group of your api user will be reduced to just minimum neccesary for a valid response. Object keys will\nbe consistent for all responses, but their values may be removed depending on access.\n\n## Authentication\n\nThe API supports the following authentication mechanisms\n\n* HTTP Basic authentication\n* OAuth2 (client credentials grant)\n* Cookie-based\n\nBoth _Basic authentication_ and the _OAuth2_ flow, need to be enabled\nby system preferences.\n\n## Authorization\n\nThe API uses existing user profiles to restrict access to resources based on user permissions and the library the\nAPI user is assigned to.  This may result, at times, in resources being returned in a redacted form with all keys\npresent but sensative values nulled.\n\nWe do not yet support OAuth Scopes or the Authorization Code grant flow.\n\n## Errors\n\nThe API uses standard HTTP status codes to indicate the success or failure\nof the API call. The body of the response will be JSON in the following format:\n\n```\n{\n  \"error\": \"Current settings prevent the passed due date to be applied\",\n  \"error_code\": \"invalid_due_date\"\n}\n```\n\nNote: Some routes might offer additional attributes in their error responses but that\"s\nsubject to change and thus not documented.\n\n## Filtering responses\n\nThe API allows for some advanced response filtering using a JSON based query syntax. The\nquery can be added to the requests:\n\n* as a query parameter `q=`\n* in the request body\n\nFor simple field equality matches we can use `{ \"fieldname\": \"value\" }` where the fieldname\nmatches one of the fields as described in the particular endpoints response object.\n\nWe can refine that with more complex matching clauses by nesting a the clause into the\nobject; `{ \"fieldname\": { \"clause\": \"value\" } }`.\n\nAvailable matching clauses include `=`, `!=`, `<`, `>`, `<=`, `>=` and `-not`. We also support `-like`\nand `-not_like` string comparisons with `%` used to denote wildcards, thus you can pass\n`{ \"fieldname\": { \"-like\": \"value%\" } }` to do a 'starts with' string match for example.\n\nWe can filter on multiple fields by adding them to the JSON respresentation. Adding at `HASH`\nlevel will result in an \"AND\" query, whilst combinding them in an `ARRAY` will result in an\n\"OR\" query: `{ \"field1\": \"value2\", \"field2\": \"value2\" }` will filter the response to only those\nresults with both field1 containing value2 AND field2 containing value2 for example.\n\nThere is a collection of special operators also available to you, including:\n\n* `-in` - Expects an array of values to perform an OR match against\n* `-not_in` - Expects an array of values to perform a NOR match against\n* `-between` - Expects two values which the value of the field is expected to fall between\n* `-not_between` - Expects two values which the value of the field is expected to fall outside of\n* `-ident` - Expects a second field name to match the two field values against\n* `-regexp` - Expects a perl compatible regular expression for which the value should match\n\nLogic and nesting is also supported and you may use `-and` and `-or` to change the logic of an ARRAY\nor HASH as described above.\n\nAdditionally, if you are requesting related data be embedded into the response one can query\non the related data using dot notation in the field names.\n\n### Examples\n\nThe following request would return any patron with firstname \"Henry\" and lastname \"Acevedo\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": \"Acevedo\", \"firstname\": \"Henry\" }'`\n\nThe following request would return any patron whose lastname begins with \"Ace\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": { \"-like\": \"Ace%\" }'`\n\nThe following request would return any patron whose lastname is \"Acevedo\" OR \"Bernardo\"\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": [ \"Acevedo\", \"Bernardo\" ] }'`\n\nThe following request embeds the related patron extended attributes data and filters on it.\n\n`curl -u koha:koha =--request GET 'http://127.0.0.1:8081/api/v1/patrons/' --header 'x-koha-embed: extended_attributes' --data-raw '{ \"extended_attributes.code\": \"internet\", \"extended_attributes.attribute\": \"1\" }'`\n\n## Special headers\n\n### x-koha-embed\n\nThis optional header allows the api consumer to request additional related data\nto be returned in the api response.  It also allows for cross referencing in the\nqueries as described above. It accepts a comma delimited list of relation names.\n\nRelations may on occasion also support dot delimited nesting to allow traversal.\n\n### x-koha-library\n\nThis optional header should be passed to give your api request a library\ncontext; If it is not included in the request, then the request context\nwill default to using your api comsumer\"s assigned home library.\n"
+  license:
+    name: GPL v3,
+    url: http://www.gnu.org/licenses/gpl.txt
+  title: Koha REST 2fa checkouts API
+  version: '1'
+servers:
+- url: https://libserv.iitk.ac.in/api/v1
+  description: PKK Library Koha REST API (production)
+tags:
+- description: 'Manage checkouts
+
+    '
+  name: checkouts
+  x-displayName: Checkouts
+paths:
+  /biblios/{biblio_id}/checkouts:
+    get:
+      tags:
+      - checkouts
+      summary: List checkouts for a biblio
+      operationId: listBiblioCheckouts
+      parameters:
+      - name: biblio_id
+        in: path
+        required: true
+        description: Record internal identifier
+        schema:
+          type: integer
+      - name: _page
+        in: query
+        required: false
+        description: Page number, for paginated object listing
+        schema:
+          type: integer
+      - name: _per_page
+        in: query
+        required: false
+        description: Page size, for paginated object listing
+        schema:
+          type: integer
+      - name: _match
+        in: query
+        required: false
+        description: Matching criteria
+        schema:
+          type: string
+          enum:
+          - contains
+          - exact
+          - starts_with
+          - ends_with
+      - name: _order_by
+        in: query
+        required: false
+        description: Sorting criteria
+        schema:
+          type: array
+          items:
+            type: string
+      - name: q
+        in: query
+        required: false
+        description: Query filter sent as a request parameter
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: x-koha-request-id
+        in: header
+        required: false
+        description: Request id header
+        schema:
+          type: integer
+      - name: x-koha-embed
+        in: header
+        required: false
+        description: Embed list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - issuer
+            - item
+            - patron
+            - library
+            type: string
+      - name: checked_in
+        in: query
+        required: false
+        description: By default, current checkouts are returned, when this is true then checked in checkouts are returned as result.
+        schema:
+          type: boolean
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+        description: Query filter sent through request"s body
+      responses:
+        '200':
+          description: A list of checkouts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/checkouts_yaml'
+        '400':
+          description: "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Biblio not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /checkouts:
+    get:
+      tags:
+      - checkouts
+      summary: List checkouts
+      operationId: listCheckouts
+      parameters:
+      - name: patron_id
+        in: query
+        required: false
+        description: Internal patron identifier
+        schema:
+          type: integer
+      - name: _page
+        in: query
+        required: false
+        description: Page number, for paginated object listing
+        schema:
+          type: integer
+      - name: _per_page
+        in: query
+        required: false
+        description: Page size, for paginated object listing
+        schema:
+          type: integer
+      - name: _match
+        in: query
+        required: false
+        description: Matching criteria
+        schema:
+          type: string
+          enum:
+          - contains
+          - exact
+          - starts_with
+          - ends_with
+      - name: _order_by
+        in: query
+        required: false
+        description: Sorting criteria
+        schema:
+          type: array
+          items:
+            type: string
+      - name: q
+        in: query
+        required: false
+        description: Query filter sent as a request parameter
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: x-koha-request-id
+        in: header
+        required: false
+        description: Request id header
+        schema:
+          type: integer
+      - name: checked_in
+        in: query
+        required: false
+        description: By default, current checkouts are returned, when this is true then checked in checkouts are returned as result.
+        schema:
+          type: boolean
+      - name: x-koha-embed
+        in: header
+        required: false
+        description: Embed list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - issuer
+            - renewals
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+        description: Query filter sent through request"s body
+      responses:
+        '200':
+          description: A list of checkouts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/checkouts_yaml'
+        '400':
+          description: "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Patron not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    post:
+      tags:
+      - checkouts
+      summary: Add a new checkout
+      operationId: addCheckout
+      parameters:
+      - name: confirmation
+        in: query
+        required: false
+        description: A JWT confirmation token
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/checkout_yaml'
+        description: A JSON object containing information about the new checkout
+      responses:
+        '201':
+          description: Created checkout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/checkout_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Cannot create checkout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '409':
+          description: Conflict in creating checkout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '412':
+          description: Precondition failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /checkouts/availability:
+    get:
+      tags:
+      - checkouts
+      summary: Get checkout availability
+      operationId: availabilityCheckouts
+      parameters:
+      - name: patron_id
+        in: query
+        required: false
+        description: Internal patron identifier
+        schema:
+          type: integer
+      - name: item_id
+        in: query
+        required: false
+        description: Internal item identifier
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Availability
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/checkout_availability_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /checkouts/{checkout_id}:
+    get:
+      tags:
+      - checkouts
+      summary: Get checkout
+      operationId: getCheckout
+      parameters:
+      - name: checkout_id
+        in: path
+        required: true
+        description: Internal checkout identifier
+        schema:
+          type: integer
+      - name: x-koha-embed
+        in: header
+        required: false
+        description: Embed list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - issuer
+            - renewals
+            type: string
+      responses:
+        '200':
+          description: Updated borrower's checkout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/checkout_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Checkout not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /checkouts/{checkout_id}/allows_renewal:
+    get:
+      tags:
+      - checkouts
+      summary: Get renewability for a checkout
+      operationId: allows_renewalCheckout
+      parameters:
+      - name: checkout_id
+        in: path
+        required: true
+        description: Internal checkout identifier
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Checkout renewability information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/allows_renewal_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Checkout not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /checkouts/{checkout_id}/renewal:
+    post:
+      tags:
+      - checkouts
+      summary: Renew a checkout
+      operationId: renewCheckout
+      parameters:
+      - name: checkout_id
+        in: path
+        required: true
+        description: Internal checkout identifier
+        schema:
+          type: integer
+      - name: seen
+        in: query
+        required: false
+        description: Item was seen flag
+        schema:
+          type: integer
+      responses:
+        '201':
+          description: Updated borrower's checkout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/checkout_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Cannot renew checkout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Checkout not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /checkouts/{checkout_id}/renewals:
+    get:
+      tags:
+      - checkouts
+      summary: List renewals for a checkout
+      operationId: getRenewals
+      parameters:
+      - name: checkout_id
+        in: path
+        required: true
+        description: Internal checkout identifier
+        schema:
+          type: integer
+      - name: x-koha-embed
+        in: header
+        required: false
+        description: Embed list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - renewer
+            type: string
+      responses:
+        '200':
+          description: List of checkouts renewals
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/renewals_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Checkout not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    post:
+      tags:
+      - checkouts
+      summary: Renew a checkout
+      operationId: renewsCheckout
+      parameters:
+      - name: checkout_id
+        in: path
+        required: true
+        description: Internal checkout identifier
+        schema:
+          type: integer
+      - name: seen
+        in: query
+        required: false
+        description: Item was seen flag
+        schema:
+          type: integer
+      responses:
+        '201':
+          description: Updated borrower's checkout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/checkout_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Cannot renew checkout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Checkout not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /patrons/{patron_id}/checkouts:
+    get:
+      tags:
+      - checkouts
+      summary: List checkouts for a patron
+      operationId: getPatronCheckouts
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      - name: _match
+        in: query
+        required: false
+        description: Matching criteria
+        schema:
+          type: string
+          enum:
+          - contains
+          - exact
+          - starts_with
+          - ends_with
+      - name: _order_by
+        in: query
+        required: false
+        description: Sorting criteria
+        schema:
+          type: array
+          items:
+            type: string
+      - name: _page
+        in: query
+        required: false
+        description: Page number, for paginated object listing
+        schema:
+          type: integer
+      - name: _per_page
+        in: query
+        required: false
+        description: Page size, for paginated object listing
+        schema:
+          type: integer
+      - name: q
+        in: query
+        required: false
+        description: Query filter sent as a request parameter
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: x-koha-request-id
+        in: header
+        required: false
+        description: Request id header
+        schema:
+          type: integer
+      - name: x-koha-embed
+        in: header
+        required: false
+        description: Embed list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - cancellation_requested
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+        description: Query filter sent through request"s body
+      responses:
+        '200':
+          description: The patron checkouts
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/checkout_yaml'
+                type: array
+        '400':
+          description: "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Patron not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /public/checkouts/availability:
+    get:
+      tags:
+      - checkouts
+      summary: Get checkout availability
+      operationId: availabilityCheckoutsPublic
+      parameters:
+      - name: patron_id
+        in: query
+        required: false
+        description: Internal patron identifier
+        schema:
+          type: integer
+      - name: item_id
+        in: query
+        required: false
+        description: Internal item identifier
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Availability
+          content:
+            application/json:
+              schema:
+                additionalProperties: false
+                properties:
+                  blockers:
+                    type: object
+                  confirmation_token:
+                    type: string
+                  confirms:
+                    type: object
+                  warnings:
+                    type: object
+                type: object
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /public/patrons/{patron_id}/checkouts:
+    post:
+      tags:
+      - checkouts
+      summary: Add a new checkout (public)
+      operationId: addCheckoutPublic
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      - name: confirmation
+        in: query
+        required: false
+        description: A JWT confirmation token
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/checkout_yaml'
+        description: A JSON object containing information about the new checkout
+      responses:
+        '201':
+          description: Created checkout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/checkout_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Cannot create checkout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '405':
+          description: 'Method not allowed. Possible `error_code` attribute values:
+
+
+            * `FEATURE_DISABLED`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: 'Conflict in creating checkout. Possible `error_code` attribute values:
+
+
+            * `ITEM_NOT_FOUND`
+
+            * `PATRON_NOT_FOUND`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '412':
+          description: Precondition failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+components:
+  schemas:
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
+    renewal_yaml:
+      additionalProperties: false
+      properties:
+        checkout_id:
+          description: internally assigned checkout identifier
+          type: integer
+        interface:
+          description: 'Interface from which the renewal took place (values can be: api, cron, commandline, intranet, opac and sip)'
+          type:
+          - string
+          - 'null'
+        renewal_date:
+          description: Date the renewal took place
+          format: date-time
+          type: string
+        renewal_id:
+          description: internally assigned renewal identifier
+          type: integer
+        renewal_type:
+          enum:
+          - Automatic
+          - Manual
+          type:
+          - string
+          - 'null'
+        renewer:
+          description: The object representing the renewal issuer
+          type:
+          - object
+          - 'null'
+        renewer_id:
+          description: internally assigned for the user that processed the renewal
+          type:
+          - integer
+          - 'null'
+        seen:
+          description: Seen/Unseen renewal
+          type:
+          - boolean
+        timestamp:
+          description: Last update time
+          type: string
+      type: object
+    renewals_yaml:
+      additionalProperties: false
+      items:
+        $ref: '#/components/schemas/renewal_yaml'
+      type: array
+    allows_renewal_yaml:
+      additionalProperties: false
+      properties:
+        allows_renewal:
+          description: Renewability status; true = renewable, false = not renewable
+          type: boolean
+        current_renewals:
+          description: Current used renewals
+          type: integer
+        error:
+          description: Description on false allows_renewal.
+          type:
+          - string
+          - 'null'
+        max_renewals:
+          description: Maximum number of possible renewals
+          type: integer
+        unseen_renewals:
+          description: Number of consecutive times the item was renewed without being seen
+          type: integer
+      type: object
+    checkout_yaml:
+      additionalProperties: false
+      properties:
+        auto_renew:
+          description: Auto renewal
+          type: boolean
+        auto_renew_error:
+          description: Auto renewal error
+          type:
+          - string
+          - 'null'
+        checkin_date:
+          description: Date the item was returned
+          format: date-time
+          type:
+          - string
+          - 'null'
+        checkout_date:
+          description: Date the item was issued
+          format: date-time
+          type: string
+        checkout_id:
+          description: internally assigned checkout identifier
+          type: integer
+        due_date:
+          description: Due date
+          format: date-time
+          type: string
+        issuer:
+          description: The object representing the checkout issuer
+          type:
+          - object
+          - 'null'
+        issuer_id:
+          description: internally assigned for the user that processed the checkout
+          type:
+          - integer
+          - 'null'
+        item:
+          description: The object representing the checked out item
+          type:
+          - object
+          - 'null'
+        item_id:
+          description: internal identifier of checked out item
+          type:
+          - integer
+          - 'null'
+        last_renewed_date:
+          description: Date the item was last renewed
+          format: date-time
+          type:
+          - string
+          - 'null'
+        library:
+          description: The object representing the checkout library
+          type:
+          - object
+          - 'null'
+        library_id:
+          description: code of the library the item was checked out
+          type:
+          - string
+          - 'null'
+        note:
+          description: Issue note text
+          type:
+          - string
+          - 'null'
+        note_date:
+          description: Datetime of the issue note
+          format: date
+          type:
+          - string
+          - 'null'
+        note_seen:
+          description: has the note been seen already
+          type:
+          - boolean
+          - 'null'
+        onsite_checkout:
+          description: On site checkout
+          type: boolean
+        patron:
+          description: The object representing the checkout patron
+          type:
+          - object
+          - 'null'
+        patron_id:
+          description: Internal patron identifier
+          type: integer
+        renewals_count:
+          description: Number of renewals
+          type:
+          - integer
+          - 'null'
+        timestamp:
+          description: Last update time
+          type: string
+        unseen_renewals:
+          description: Number of consecutive unseen renewals
+          type:
+          - integer
+          - 'null'
+      type: object
+    checkout_availability_yaml:
+      additionalProperties: false
+      properties:
+        blockers:
+          description: blocking issues
+          type: object
+        confirmation_token:
+          description: token for confirmation
+          type:
+          - string
+          - 'null'
+        confirms:
+          description: issues requireing confirmation
+          type: object
+        warnings:
+          description: informational issues
+          type: object
+      type: object
+    checkouts_yaml:
+      additionalProperties: false
+      items:
+        $ref: '#/components/schemas/checkout_yaml'
+      type: array
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object

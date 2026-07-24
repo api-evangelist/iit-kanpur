@@ -1,0 +1,407 @@
+openapi: 3.0.3
+info:
+  contact:
+    name: Koha Development Team
+    url: https://koha-community.org/
+  description: "## Background\n\nThe API supports two sets of endpoints, one targetted at library staff and the other at at library users.\n\nThose endpoints under the `/public` path are aimed at delivering functionality tailored to library users and offer\na more restricted set of functions, overrides and data in thier responses for data privacy and library policy\nreasons. Many of these endpoints do not require authentication for fetching public data, though an authenticated\nsession will expose additional options and allow users to see more data where it is part of their own record.\n\nAll other endpoints are targetted at the staff interface level and allow for additional functionality and a more\nunrestricted view of data.  These endpoints, however, have a level of redaction built in for resources that the\napi consumer should not have access to.  For example, user data for users who do not belong to the same library\nor library group of your api user will be reduced to just minimum neccesary for a valid response. Object keys will\nbe consistent for all responses, but their values may be removed depending on access.\n\n## Authentication\n\nThe API supports the following authentication mechanisms\n\n* HTTP Basic authentication\n* OAuth2 (client credentials grant)\n* Cookie-based\n\nBoth _Basic authentication_ and the _OAuth2_ flow, need to be enabled\nby system preferences.\n\n## Authorization\n\nThe API uses existing user profiles to restrict access to resources based on user permissions and the library the\nAPI user is assigned to.  This may result, at times, in resources being returned in a redacted form with all keys\npresent but sensative values nulled.\n\nWe do not yet support OAuth Scopes or the Authorization Code grant flow.\n\n## Errors\n\nThe API uses standard HTTP status codes to indicate the success or failure\nof the API call. The body of the response will be JSON in the following format:\n\n```\n{\n  \"error\": \"Current settings prevent the passed due date to be applied\",\n  \"error_code\": \"invalid_due_date\"\n}\n```\n\nNote: Some routes might offer additional attributes in their error responses but that\"s\nsubject to change and thus not documented.\n\n## Filtering responses\n\nThe API allows for some advanced response filtering using a JSON based query syntax. The\nquery can be added to the requests:\n\n* as a query parameter `q=`\n* in the request body\n\nFor simple field equality matches we can use `{ \"fieldname\": \"value\" }` where the fieldname\nmatches one of the fields as described in the particular endpoints response object.\n\nWe can refine that with more complex matching clauses by nesting a the clause into the\nobject; `{ \"fieldname\": { \"clause\": \"value\" } }`.\n\nAvailable matching clauses include `=`, `!=`, `<`, `>`, `<=`, `>=` and `-not`. We also support `-like`\nand `-not_like` string comparisons with `%` used to denote wildcards, thus you can pass\n`{ \"fieldname\": { \"-like\": \"value%\" } }` to do a 'starts with' string match for example.\n\nWe can filter on multiple fields by adding them to the JSON respresentation. Adding at `HASH`\nlevel will result in an \"AND\" query, whilst combinding them in an `ARRAY` will result in an\n\"OR\" query: `{ \"field1\": \"value2\", \"field2\": \"value2\" }` will filter the response to only those\nresults with both field1 containing value2 AND field2 containing value2 for example.\n\nThere is a collection of special operators also available to you, including:\n\n* `-in` - Expects an array of values to perform an OR match against\n* `-not_in` - Expects an array of values to perform a NOR match against\n* `-between` - Expects two values which the value of the field is expected to fall between\n* `-not_between` - Expects two values which the value of the field is expected to fall outside of\n* `-ident` - Expects a second field name to match the two field values against\n* `-regexp` - Expects a perl compatible regular expression for which the value should match\n\nLogic and nesting is also supported and you may use `-and` and `-or` to change the logic of an ARRAY\nor HASH as described above.\n\nAdditionally, if you are requesting related data be embedded into the response one can query\non the related data using dot notation in the field names.\n\n### Examples\n\nThe following request would return any patron with firstname \"Henry\" and lastname \"Acevedo\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": \"Acevedo\", \"firstname\": \"Henry\" }'`\n\nThe following request would return any patron whose lastname begins with \"Ace\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": { \"-like\": \"Ace%\" }'`\n\nThe following request would return any patron whose lastname is \"Acevedo\" OR \"Bernardo\"\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": [ \"Acevedo\", \"Bernardo\" ] }'`\n\nThe following request embeds the related patron extended attributes data and filters on it.\n\n`curl -u koha:koha =--request GET 'http://127.0.0.1:8081/api/v1/patrons/' --header 'x-koha-embed: extended_attributes' --data-raw '{ \"extended_attributes.code\": \"internet\", \"extended_attributes.attribute\": \"1\" }'`\n\n## Special headers\n\n### x-koha-embed\n\nThis optional header allows the api consumer to request additional related data\nto be returned in the api response.  It also allows for cross referencing in the\nqueries as described above. It accepts a comma delimited list of relation names.\n\nRelations may on occasion also support dot delimited nesting to allow traversal.\n\n### x-koha-library\n\nThis optional header should be passed to give your api request a library\ncontext; If it is not included in the request, then the request context\nwill default to using your api comsumer\"s assigned home library.\n"
+  license:
+    name: GPL v3,
+    url: http://www.gnu.org/licenses/gpl.txt
+  title: Koha REST 2fa ill_requests API
+  version: '1'
+servers:
+- url: https://libserv.iitk.ac.in/api/v1
+  description: PKK Library Koha REST API (production)
+tags:
+- description: 'Manage ILL requests
+
+    '
+  name: ill_requests
+  x-displayName: ILL requests
+paths:
+  /ill/requests:
+    get:
+      tags:
+      - ill_requests
+      summary: List ILL requests
+      operationId: listIllrequests
+      parameters:
+      - name: _page
+        in: query
+        required: false
+        description: Page number, for paginated object listing
+        schema:
+          type: integer
+      - name: _per_page
+        in: query
+        required: false
+        description: Page size, for paginated object listing
+        schema:
+          type: integer
+      - name: _match
+        in: query
+        required: false
+        description: Matching criteria
+        schema:
+          type: string
+          enum:
+          - contains
+          - exact
+          - starts_with
+          - ends_with
+      - name: _order_by
+        in: query
+        required: false
+        description: Sorting criteria
+        schema:
+          type: array
+          items:
+            type: string
+      - name: q
+        in: query
+        required: false
+        description: Query filter sent as a request parameter
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: x-koha-request-id
+        in: header
+        required: false
+        description: Request id header
+        schema:
+          type: integer
+      - name: x-koha-embed
+        in: header
+        required: false
+        description: Embed list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - +strings
+            - biblio
+            - comments
+            - comments+count
+            - extended_attributes
+            - ill_batch
+            - library
+            - id_prefix
+            - patron
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+        description: Query filter sent through request"s body
+      responses:
+        '200':
+          description: A list of ILL requests
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ill_request_yaml'
+                type: array
+        '400':
+          description: "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Patron not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    post:
+      tags:
+      - ill_requests
+      summary: Add ILL request
+      operationId: addIllrequest
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ill_request_yaml'
+        description: A JSON object containing informations about the new request
+      responses:
+        '201':
+          description: Request added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ill_request_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '409':
+          description: Conflict in creating resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+components:
+  schemas:
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
+    ill_request_yaml:
+      additionalProperties: false
+      properties:
+        _strings:
+          description: Expanded coded fiels (x-koha-embed)
+          type:
+          - object
+          - 'null'
+        access_url:
+          description: A URL for accessing the item
+          type:
+          - string
+          - 'null'
+        biblio:
+          description: The linked biblio object (x-koha-embed)
+          type:
+          - object
+          - 'null'
+        biblio_id:
+          description: Internal bibliographic record identifier
+          type:
+          - integer
+          - 'null'
+        comments:
+          description: The linked comment objects (x-koha-embed)
+          type:
+          - array
+          - 'null'
+        comments_count:
+          description: The linked comment objects count (x-koha-embed)
+          type:
+          - integer
+          - 'null'
+        completed_date:
+          description: Date the request was marked as completed
+          format: date
+          type:
+          - string
+          - 'null'
+        cost:
+          description: Default request cost
+          type:
+          - string
+          - 'null'
+        due_date:
+          description: Date and time the request item should be due when checked out
+          format: date-time
+          type:
+          - string
+          - 'null'
+        extended_attributes:
+          description: The linked extended ill request attributes (x-koha-embed)
+          type:
+          - array
+          - 'null'
+        id_prefix:
+          description: The id_prefix of the request (x-koha-embed)
+          type:
+          - string
+          - 'null'
+        ill_backend_id:
+          description: The ILL backend identifier string
+          type: string
+        ill_backend_request_id:
+          description: Backend-specific request id
+          type:
+          - string
+          - 'null'
+        ill_batch:
+          description: The linked ill batch object (x-koha-embed)
+          type:
+          - object
+          - 'null'
+        ill_batch_id:
+          description: Batch id this requests belongs to
+          type:
+          - integer
+          - 'null'
+        ill_request_id:
+          description: Internal ILL request identifier
+          type: integer
+        library:
+          description: The linked library object (x-koha-embed)
+          type:
+          - object
+          - 'null'
+        library_id:
+          description: Internal library identifier
+          type: string
+        medium:
+          description: Description of the ILL item medium
+          type:
+          - string
+          - 'null'
+        opac_notes:
+          description: Note that is visible to the patron
+          type:
+          - string
+          - 'null'
+        paid_price:
+          description: Effective request cost
+          type:
+          - string
+          - 'null'
+        patron:
+          description: The linked patron object (x-koha-embed)
+          type:
+          - object
+          - 'null'
+        patron_id:
+          description: Internal patron id
+          type:
+          - integer
+          - 'null'
+        replied_date:
+          description: FIXME
+          format: date
+          type:
+          - string
+          - 'null'
+        requested_date:
+          description: Date the request was placed by the patron
+          format: date
+          type:
+          - string
+          - 'null'
+        staff_notes:
+          description: Interal staff note about the request
+          type:
+          - string
+          - 'null'
+        status:
+          description: 'The status the request is at.
+
+
+            Note: This is defined by each backend. Please refer to the specific backend''s
+
+            documentation or code to understand the possible values.
+
+            '
+          type: string
+        status_av:
+          description: The authorised value category the field is linked to
+          type:
+          - string
+          - 'null'
+        timestamp:
+          description: Date and time of last object update
+          format: date-time
+          type: string
+      type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object

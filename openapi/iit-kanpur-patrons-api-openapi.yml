@@ -1,0 +1,3391 @@
+openapi: 3.0.3
+info:
+  contact:
+    name: Koha Development Team
+    url: https://koha-community.org/
+  description: "## Background\n\nThe API supports two sets of endpoints, one targetted at library staff and the other at at library users.\n\nThose endpoints under the `/public` path are aimed at delivering functionality tailored to library users and offer\na more restricted set of functions, overrides and data in thier responses for data privacy and library policy\nreasons. Many of these endpoints do not require authentication for fetching public data, though an authenticated\nsession will expose additional options and allow users to see more data where it is part of their own record.\n\nAll other endpoints are targetted at the staff interface level and allow for additional functionality and a more\nunrestricted view of data.  These endpoints, however, have a level of redaction built in for resources that the\napi consumer should not have access to.  For example, user data for users who do not belong to the same library\nor library group of your api user will be reduced to just minimum neccesary for a valid response. Object keys will\nbe consistent for all responses, but their values may be removed depending on access.\n\n## Authentication\n\nThe API supports the following authentication mechanisms\n\n* HTTP Basic authentication\n* OAuth2 (client credentials grant)\n* Cookie-based\n\nBoth _Basic authentication_ and the _OAuth2_ flow, need to be enabled\nby system preferences.\n\n## Authorization\n\nThe API uses existing user profiles to restrict access to resources based on user permissions and the library the\nAPI user is assigned to.  This may result, at times, in resources being returned in a redacted form with all keys\npresent but sensative values nulled.\n\nWe do not yet support OAuth Scopes or the Authorization Code grant flow.\n\n## Errors\n\nThe API uses standard HTTP status codes to indicate the success or failure\nof the API call. The body of the response will be JSON in the following format:\n\n```\n{\n  \"error\": \"Current settings prevent the passed due date to be applied\",\n  \"error_code\": \"invalid_due_date\"\n}\n```\n\nNote: Some routes might offer additional attributes in their error responses but that\"s\nsubject to change and thus not documented.\n\n## Filtering responses\n\nThe API allows for some advanced response filtering using a JSON based query syntax. The\nquery can be added to the requests:\n\n* as a query parameter `q=`\n* in the request body\n\nFor simple field equality matches we can use `{ \"fieldname\": \"value\" }` where the fieldname\nmatches one of the fields as described in the particular endpoints response object.\n\nWe can refine that with more complex matching clauses by nesting a the clause into the\nobject; `{ \"fieldname\": { \"clause\": \"value\" } }`.\n\nAvailable matching clauses include `=`, `!=`, `<`, `>`, `<=`, `>=` and `-not`. We also support `-like`\nand `-not_like` string comparisons with `%` used to denote wildcards, thus you can pass\n`{ \"fieldname\": { \"-like\": \"value%\" } }` to do a 'starts with' string match for example.\n\nWe can filter on multiple fields by adding them to the JSON respresentation. Adding at `HASH`\nlevel will result in an \"AND\" query, whilst combinding them in an `ARRAY` will result in an\n\"OR\" query: `{ \"field1\": \"value2\", \"field2\": \"value2\" }` will filter the response to only those\nresults with both field1 containing value2 AND field2 containing value2 for example.\n\nThere is a collection of special operators also available to you, including:\n\n* `-in` - Expects an array of values to perform an OR match against\n* `-not_in` - Expects an array of values to perform a NOR match against\n* `-between` - Expects two values which the value of the field is expected to fall between\n* `-not_between` - Expects two values which the value of the field is expected to fall outside of\n* `-ident` - Expects a second field name to match the two field values against\n* `-regexp` - Expects a perl compatible regular expression for which the value should match\n\nLogic and nesting is also supported and you may use `-and` and `-or` to change the logic of an ARRAY\nor HASH as described above.\n\nAdditionally, if you are requesting related data be embedded into the response one can query\non the related data using dot notation in the field names.\n\n### Examples\n\nThe following request would return any patron with firstname \"Henry\" and lastname \"Acevedo\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": \"Acevedo\", \"firstname\": \"Henry\" }'`\n\nThe following request would return any patron whose lastname begins with \"Ace\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": { \"-like\": \"Ace%\" }'`\n\nThe following request would return any patron whose lastname is \"Acevedo\" OR \"Bernardo\"\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": [ \"Acevedo\", \"Bernardo\" ] }'`\n\nThe following request embeds the related patron extended attributes data and filters on it.\n\n`curl -u koha:koha =--request GET 'http://127.0.0.1:8081/api/v1/patrons/' --header 'x-koha-embed: extended_attributes' --data-raw '{ \"extended_attributes.code\": \"internet\", \"extended_attributes.attribute\": \"1\" }'`\n\n## Special headers\n\n### x-koha-embed\n\nThis optional header allows the api consumer to request additional related data\nto be returned in the api response.  It also allows for cross referencing in the\nqueries as described above. It accepts a comma delimited list of relation names.\n\nRelations may on occasion also support dot delimited nesting to allow traversal.\n\n### x-koha-library\n\nThis optional header should be passed to give your api request a library\ncontext; If it is not included in the request, then the request context\nwill default to using your api comsumer\"s assigned home library.\n"
+  license:
+    name: GPL v3,
+    url: http://www.gnu.org/licenses/gpl.txt
+  title: Koha REST 2fa patrons API
+  version: '1'
+servers:
+- url: https://libserv.iitk.ac.in/api/v1
+  description: PKK Library Koha REST API (production)
+tags:
+- description: 'Manage patrons
+
+    '
+  name: patrons
+  x-displayName: Patrons
+paths:
+  /auth/password/validation:
+    post:
+      tags:
+      - patrons
+      summary: Check validity of username and password
+      operationId: validateUserAndPassword
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              properties:
+                identifier:
+                  description: A patron identifier (`userid` or `cardnumber`)
+                  type: string
+                password:
+                  description: Password (plain text)
+                  type: string
+                userid:
+                  description: A patron userid
+                  type: string
+              required:
+              - password
+              type: object
+        description: 'A JSON object containing a patron identifier and password information.
+
+
+          The identifier will be used to match patrons on the database using the
+
+          following order:
+
+
+          * userid
+
+          * cardnumber
+
+
+          Optionally, you can specify the `userid` attribute if you don''t want it
+
+          to be checked against the patron cardnumbers.
+
+          '
+      responses:
+        '201':
+          description: Validation successful
+          content:
+            application/json:
+              schema:
+                additionalProperties: false
+                properties:
+                  cardnumber:
+                    description: cardnumber for the validated patron
+                    type: string
+                  patron_id:
+                    description: Internal patron identifier
+                    type: integer
+                  userid:
+                    description: userid for the validated patron
+                    type: string
+                type: object
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /checkouts:
+    post:
+      tags:
+      - patrons
+      summary: Add a new checkout
+      operationId: addCheckout
+      parameters:
+      - name: confirmation
+        in: query
+        required: false
+        description: A JWT confirmation token
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/checkout_yaml'
+        description: A JSON object containing information about the new checkout
+      responses:
+        '201':
+          description: Created checkout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/checkout_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Cannot create checkout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '409':
+          description: Conflict in creating checkout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '412':
+          description: Precondition failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /patrons:
+    get:
+      tags:
+      - patrons
+      summary: List patrons
+      operationId: listPatrons
+      parameters:
+      - name: patron_id
+        in: query
+        required: false
+        description: Search on patron_id
+        schema:
+          type: string
+      - name: cardnumber
+        in: query
+        required: false
+        description: Case insensitive search on cardnumber
+        schema:
+          type: string
+      - name: surname
+        in: query
+        required: false
+        description: Case insensitive search on surname
+        schema:
+          type: string
+      - name: firstname
+        in: query
+        required: false
+        description: Case insensitive search on firstname
+        schema:
+          type: string
+      - name: title
+        in: query
+        required: false
+        description: Case insensitive search on title
+        schema:
+          type: string
+      - name: other_name
+        in: query
+        required: false
+        description: Case insensitive search on othernames
+        schema:
+          type: string
+      - name: initials
+        in: query
+        required: false
+        description: Case insensitive search on initials
+        schema:
+          type: string
+      - name: street_number
+        in: query
+        required: false
+        description: Case insensitive search on streetnumber
+        schema:
+          type: string
+      - name: street_type
+        in: query
+        required: false
+        description: Case insensitive search on streettype
+        schema:
+          type: string
+      - name: address
+        in: query
+        required: false
+        description: Case insensitive search on address
+        schema:
+          type: string
+      - name: address2
+        in: query
+        required: false
+        description: Case insensitive search on address2
+        schema:
+          type: string
+      - name: city
+        in: query
+        required: false
+        description: Case insensitive search on city
+        schema:
+          type: string
+      - name: state
+        in: query
+        required: false
+        description: Case insensitive search on state
+        schema:
+          type: string
+      - name: postal_code
+        in: query
+        required: false
+        description: Case insensitive search on zipcode
+        schema:
+          type: string
+      - name: country
+        in: query
+        required: false
+        description: Case insensitive search on country
+        schema:
+          type: string
+      - name: email
+        in: query
+        required: false
+        description: Case insensitive search on email
+        schema:
+          type: string
+      - name: phone
+        in: query
+        required: false
+        description: Case insensitive search on phone
+        schema:
+          type: string
+      - name: mobile
+        in: query
+        required: false
+        description: Case insensitive search on mobile
+        schema:
+          type: string
+      - name: fax
+        in: query
+        required: false
+        description: Case insensitive search on fax
+        schema:
+          type: string
+      - name: secondary_email
+        in: query
+        required: false
+        description: Case insensitive search on secondary_email
+        schema:
+          type: string
+      - name: secondary_phone
+        in: query
+        required: false
+        description: Case insensitive search on secondary_phone
+        schema:
+          type: string
+      - name: altaddress_street_number
+        in: query
+        required: false
+        description: Case insensitive search on altaddress_street_number
+        schema:
+          type: string
+      - name: altaddress_street_type
+        in: query
+        required: false
+        description: Case insensitive search on altaddress_street_type
+        schema:
+          type: string
+      - name: altaddress_address
+        in: query
+        required: false
+        description: Case insensitive search on altaddress_address
+        schema:
+          type: string
+      - name: altaddress_address2
+        in: query
+        required: false
+        description: Case insensitive search on altaddress_address2
+        schema:
+          type: string
+      - name: altaddress_city
+        in: query
+        required: false
+        description: Case insensitive search on altaddress_city
+        schema:
+          type: string
+      - name: altaddress_state
+        in: query
+        required: false
+        description: Case insensitive search on altaddress_state
+        schema:
+          type: string
+      - name: altaddress_postal_code
+        in: query
+        required: false
+        description: Case insensitive search on altaddress_postal_code
+        schema:
+          type: string
+      - name: altaddress_country
+        in: query
+        required: false
+        description: Case insensitive search on altaddress_country
+        schema:
+          type: string
+      - name: altaddress_email
+        in: query
+        required: false
+        description: Case insensitive search on altaddress_email
+        schema:
+          type: string
+      - name: altaddress_phone
+        in: query
+        required: false
+        description: Case insensitive search on altaddress_phone
+        schema:
+          type: string
+      - name: date_of_birth
+        in: query
+        required: false
+        description: Case insensitive search on date_of_birth
+        schema:
+          type: string
+      - name: library_id
+        in: query
+        required: false
+        description: Case insensitive search on library_id
+        schema:
+          type: string
+      - name: category_id
+        in: query
+        required: false
+        description: Case insensitive search on category_id
+        schema:
+          type: string
+      - name: date_enrolled
+        in: query
+        required: false
+        description: Case insensitive search on date_enrolled
+        schema:
+          type: string
+      - name: expiry_date
+        in: query
+        required: false
+        description: Case insensitive search on expiry_date
+        schema:
+          type: string
+      - name: incorrect_address
+        in: query
+        required: false
+        description: Search on incorrect_address
+        schema:
+          type: boolean
+      - name: patron_card_lost
+        in: query
+        required: false
+        description: Search on patron_card_lost
+        schema:
+          type: boolean
+      - name: restricted
+        in: query
+        required: false
+        description: Filter search by restricted
+        schema:
+          type: boolean
+      - name: staff_notes
+        in: query
+        required: false
+        description: Case insensitive search on staff_notes
+        schema:
+          type: string
+      - name: relationship_type
+        in: query
+        required: false
+        description: Case insensitive search on relationship_type
+        schema:
+          type: string
+      - name: gender
+        in: query
+        required: false
+        description: Case insensitive search on gender
+        schema:
+          type: string
+      - name: userid
+        in: query
+        required: false
+        description: Case insensitive search on userid
+        schema:
+          type: string
+      - name: opac_notes
+        in: query
+        required: false
+        description: Case insensitive search on opac_notes
+        schema:
+          type: string
+      - name: altaddress_notes
+        in: query
+        required: false
+        description: Case insensitive search on altaddress_notes
+        schema:
+          type: string
+      - name: statistics_1
+        in: query
+        required: false
+        description: Case insensitive search on statistics_1
+        schema:
+          type: string
+      - name: statistics_2
+        in: query
+        required: false
+        description: Case insensitive search on statistics_2
+        schema:
+          type: string
+      - name: autorenew_checkouts
+        in: query
+        required: false
+        description: Search on autorenew_checkouts
+        schema:
+          type: boolean
+      - name: altcontact_firstname
+        in: query
+        required: false
+        description: Case insensitive search on altcontact_firstname
+        schema:
+          type: string
+      - name: altcontact_surname
+        in: query
+        required: false
+        description: Case insensitive search on altcontact_surname
+        schema:
+          type: string
+      - name: altcontact_address
+        in: query
+        required: false
+        description: Case insensitive search on altcontact_address
+        schema:
+          type: string
+      - name: altcontact_address2
+        in: query
+        required: false
+        description: Case insensitive search on altcontact_address2
+        schema:
+          type: string
+      - name: altcontact_city
+        in: query
+        required: false
+        description: Case insensitive search on altcontact_city
+        schema:
+          type: string
+      - name: altcontact_state
+        in: query
+        required: false
+        description: Case insensitive search on altcontact_state
+        schema:
+          type: string
+      - name: altcontact_postal_code
+        in: query
+        required: false
+        description: Case insensitive search on altcontact_postal_code
+        schema:
+          type: string
+      - name: altcontact_country
+        in: query
+        required: false
+        description: Case insensitive search on altcontact_country
+        schema:
+          type: string
+      - name: altcontact_phone
+        in: query
+        required: false
+        description: Case insensitive search on altcontact_phone
+        schema:
+          type: string
+      - name: sms_number
+        in: query
+        required: false
+        description: Case insensitive search on sms_number
+        schema:
+          type: string
+      - name: sms_provider_id
+        in: query
+        required: false
+        description: Case insensitive search on sms_provider_id
+        schema:
+          type: string
+      - name: privacy
+        in: query
+        required: false
+        description: Search on privacy
+        schema:
+          type: string
+      - name: privacy_guarantor_checkouts
+        in: query
+        required: false
+        description: Search on privacy_guarantor_checkouts
+        schema:
+          type: string
+      - name: check_previous_checkout
+        in: query
+        required: false
+        description: Case insensitive search on check_previous_checkout
+        schema:
+          type: string
+      - name: updated_on
+        in: query
+        required: false
+        description: Search on updated_on
+        schema:
+          type: string
+      - name: last_seen
+        in: query
+        required: false
+        description: Case insensitive search on last_seen
+        schema:
+          type: string
+      - name: lang
+        in: query
+        required: false
+        description: Case insensitive search on lang
+        schema:
+          type: string
+      - name: login_attempts
+        in: query
+        required: false
+        description: Search on login_attempts
+        schema:
+          type: string
+      - name: protected
+        in: query
+        required: false
+        description: Search on protected status
+        schema:
+          type: boolean
+      - name: _match
+        in: query
+        required: false
+        description: Matching criteria
+        schema:
+          type: string
+          enum:
+          - contains
+          - exact
+          - starts_with
+          - ends_with
+      - name: _order_by
+        in: query
+        required: false
+        description: Sorting criteria
+        schema:
+          type: array
+          items:
+            type: string
+      - name: _page
+        in: query
+        required: false
+        description: Page number, for paginated object listing
+        schema:
+          type: integer
+      - name: _per_page
+        in: query
+        required: false
+        description: Page size, for paginated object listing
+        schema:
+          type: integer
+      - name: q
+        in: query
+        required: false
+        description: Query filter sent as a request parameter
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: x-koha-request-id
+        in: header
+        required: false
+        description: Request id header
+        schema:
+          type: integer
+      - name: x-koha-embed
+        in: header
+        required: false
+        description: Embed list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - extended_attributes
+            - checkouts+count
+            - overdues+count
+            - account_balance
+            - library
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+        description: Query filter sent through request"s body
+      responses:
+        '200':
+          description: A list of patrons
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/patron_yaml'
+                type: array
+        '400':
+          description: "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    post:
+      tags:
+      - patrons
+      summary: Add patron
+      operationId: addPatron
+      parameters:
+      - name: x-koha-override
+        in: header
+        required: false
+        description: Overrides list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - welcome_yes
+            - welcome_no
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/patron_yaml'
+        description: A JSON object containing information about the new patron
+      responses:
+        '201':
+          description: A successfully created patron
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/patron_yaml'
+        '400':
+          description: "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_attribute_type`\n  * `attribute_not_unique`\n  * `non_repeatable_attribute`\n  * `missing_mandatory_attribute`\n"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: Conflict in creating resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /patrons/{patron_id}:
+    delete:
+      tags:
+      - patrons
+      summary: Delete patron
+      operationId: deletePatron
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: Patron deleted
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Patron not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: "Conflict. Possible `error_code` attribute values:\n\n  * `has_checkouts`: The patron has pending checkouts\n  * `has_debt`: The patron has pending debts\n  * `has_guarantees`: The patron has guarantees\n  * `is_anonymous_patron`: The system-wide anonymous patron cannot be deleted\n  * `is_protected`: Protected patrons cannot be deleted\n"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    get:
+      tags:
+      - patrons
+      summary: Get patron
+      operationId: getPatron
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      - name: x-koha-embed
+        in: header
+        required: false
+        description: Embed list sent as a request header
+        schema:
+          type: array
+          items:
+            enum:
+            - +strings
+            - extended_attributes
+            type: string
+      responses:
+        '200':
+          description: A patron
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/patron_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Patron not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    put:
+      tags:
+      - patrons
+      summary: Update patron
+      operationId: updatePatron
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/patron_yaml'
+        description: A JSON object containing new information about existing patron
+      responses:
+        '200':
+          description: A successfully updated patron
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/patron_yaml'
+        '400':
+          description: "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_attribute_type`\n  * `attribute_not_unique`\n  * `non_repeatable_attribute`\n  * `missing_mandatory_attribute`\n"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: Conflict in updating resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /patrons/{patron_id}/account:
+    get:
+      tags:
+      - patrons
+      summary: Get account information for a patron
+      operationId: getPatronAccount
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Patron's account balance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/patron_balance_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Patron not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /patrons/{patron_id}/account/credits:
+    get:
+      tags:
+      - patrons
+      summary: List patron credits
+      operationId: listPatronCredits
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      - name: _match
+        in: query
+        required: false
+        description: Matching criteria
+        schema:
+          type: string
+          enum:
+          - contains
+          - exact
+          - starts_with
+          - ends_with
+      - name: _order_by
+        in: query
+        required: false
+        description: Sorting criteria
+        schema:
+          type: array
+          items:
+            type: string
+      - name: _page
+        in: query
+        required: false
+        description: Page number, for paginated object listing
+        schema:
+          type: integer
+      - name: _per_page
+        in: query
+        required: false
+        description: Page size, for paginated object listing
+        schema:
+          type: integer
+      - name: q
+        in: query
+        required: false
+        description: Query filter sent as a request parameter
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+        description: Query filter sent through request"s body
+      responses:
+        '200':
+          description: A list of credits
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/credit_yaml'
+                type: array
+        '400':
+          description: "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '500':
+          description: Internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    post:
+      tags:
+      - patrons
+      summary: Add credit to a patron's account
+      operationId: addPatronCredit
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/patron_account_credit_yaml'
+        description: A JSON object containing credit information
+      responses:
+        '201':
+          description: Credit added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/account_line_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Patron not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /patrons/{patron_id}/account/debits:
+    get:
+      tags:
+      - patrons
+      summary: List patron debits
+      operationId: listPatronDebits
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      - name: _match
+        in: query
+        required: false
+        description: Matching criteria
+        schema:
+          type: string
+          enum:
+          - contains
+          - exact
+          - starts_with
+          - ends_with
+      - name: _order_by
+        in: query
+        required: false
+        description: Sorting criteria
+        schema:
+          type: array
+          items:
+            type: string
+      - name: _page
+        in: query
+        required: false
+        description: Page number, for paginated object listing
+        schema:
+          type: integer
+      - name: _per_page
+        in: query
+        required: false
+        description: Page size, for paginated object listing
+        schema:
+          type: integer
+      - name: q
+        in: query
+        required: false
+        description: Query filter sent as a request parameter
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+        description: Query filter sent through request"s body
+      responses:
+        '200':
+          description: A list of debits
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/debit_yaml'
+                type: array
+        '400':
+          description: "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Patron not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: Internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    post:
+      tags:
+      - patrons
+      summary: Add debit to a patron's account
+      operationId: addPatronDebit
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/debit_yaml'
+        description: A JSON object containing debit information
+      responses:
+        '201':
+          description: Debit added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/debit_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Patron not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /patrons/{patron_id}/extended_attributes:
+    get:
+      tags:
+      - patrons
+      summary: List extended attributes for a patron
+      operationId: getPatronAttributes
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      - name: _match
+        in: query
+        required: false
+        description: Matching criteria
+        schema:
+          type: string
+          enum:
+          - contains
+          - exact
+          - starts_with
+          - ends_with
+      - name: _order_by
+        in: query
+        required: false
+        description: Sorting criteria
+        schema:
+          type: array
+          items:
+            type: string
+      - name: _page
+        in: query
+        required: false
+        description: Page number, for paginated object listing
+        schema:
+          type: integer
+      - name: _per_page
+        in: query
+        required: false
+        description: Page size, for paginated object listing
+        schema:
+          type: integer
+      - name: q
+        in: query
+        required: false
+        description: Query filter sent as a request parameter
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: x-koha-request-id
+        in: header
+        required: false
+        description: Request id header
+        schema:
+          type: integer
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+        description: Query filter sent through request"s body
+      responses:
+        '200':
+          description: The patron extended attributes
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/patron_extended_attribute_yaml'
+                type: array
+        '400':
+          description: "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Patron not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    post:
+      tags:
+      - patrons
+      summary: Add extended attribute for a patron
+      operationId: addPatronAttribute
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/patron_extended_attribute_yaml'
+        description: A JSON representation of the patron extended attribute
+      responses:
+        '201':
+          description: A successfully created patron extended attribute
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/patron_extended_attribute_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Patron not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: Conflict in creating resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    put:
+      tags:
+      - patrons
+      summary: Overwrite extended attributes for a patron
+      operationId: overwritePatronAttributes
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/patron_extended_attribute_yaml'
+              type: array
+        description: A JSON representation of the patron extended attribute
+      responses:
+        '200':
+          description: The successfully created patron extended attributes
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/patron_extended_attribute_yaml'
+                type: array
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Patron not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: Conflict in creating resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /patrons/{patron_id}/extended_attributes/{extended_attribute_id}:
+    delete:
+      tags:
+      - patrons
+      summary: Delete extended attribute
+      operationId: deletePatronAttribute
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      - name: extended_attribute_id
+        in: path
+        required: true
+        description: Internal patron extended attribute identifier
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: Extended patron attribute deleted
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Patron not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+    patch:
+      tags:
+      - patrons
+      summary: Update extended attribute
+      operationId: updatePatronAttribute
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      - name: extended_attribute_id
+        in: path
+        required: true
+        description: Internal patron extended attribute identifier
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              properties:
+                value:
+                  description: Extended attribute value
+                  type: string
+              type: object
+        description: An object containing the updated values for the patron extended attribute
+      responses:
+        '200':
+          description: A successfully updated patron extended attribute
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/patron_extended_attribute_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Object not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: Conflict in updating resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /patrons/{patron_id}/password:
+    post:
+      tags:
+      - patrons
+      summary: Set password for a patron
+      operationId: setPatronPassword
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              properties:
+                password:
+                  description: New password (plain text)
+                  type: string
+                password_2:
+                  description: Repeated new password (plain text)
+                  type: string
+              required:
+              - password
+              - password_2
+              type: object
+        description: A JSON object containing password information
+      responses:
+        '200':
+          description: Password changed
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Patron not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /patrons/{patron_id}/password/expiration_date:
+    put:
+      tags:
+      - patrons
+      summary: Set password expiration for a patron
+      operationId: setPatronPasswordExpiration
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              properties:
+                expiration_date:
+                  description: Date to expire password
+                  format: date
+                  type: string
+              required:
+              - expiration_date
+              type: object
+        description: A JSON object containing password expiration date
+      responses:
+        '200':
+          description: Password expiration changed
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Patron not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /public/patrons/{patron_id}/checkouts:
+    post:
+      tags:
+      - patrons
+      summary: Add a new checkout (public)
+      operationId: addCheckoutPublic
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      - name: confirmation
+        in: query
+        required: false
+        description: A JWT confirmation token
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/checkout_yaml'
+        description: A JSON object containing information about the new checkout
+      responses:
+        '201':
+          description: Created checkout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/checkout_yaml'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Cannot create checkout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '405':
+          description: 'Method not allowed. Possible `error_code` attribute values:
+
+
+            * `FEATURE_DISABLED`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '409':
+          description: 'Conflict in creating checkout. Possible `error_code` attribute values:
+
+
+            * `ITEM_NOT_FOUND`
+
+            * `PATRON_NOT_FOUND`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '412':
+          description: Precondition failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /public/patrons/{patron_id}/guarantors/can_see_charges:
+    put:
+      tags:
+      - patrons
+      summary: Set if guarantors can see charges (public)
+      operationId: setPatronGuarantorsCanSeeCharges
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              properties:
+                allowed:
+                  type: boolean
+              type: object
+        description: A boolean representing if guarantors should be able to see the patron's charges
+      responses:
+        '200':
+          description: Charges view policy for guarantors changed
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Patron not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /public/patrons/{patron_id}/guarantors/can_see_checkouts:
+    put:
+      tags:
+      - patrons
+      summary: Set if guarantors can see checkouts
+      operationId: setPatronGuarantorsCanSeeCheckouts
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              properties:
+                allowed:
+                  type: boolean
+              type: object
+        description: A boolean representing if guarantors should be able to see the patron's checkouts
+      responses:
+        '200':
+          description: Check-out view policy for guarantors changed
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Patron not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /public/patrons/{patron_id}/holds/{hold_id}:
+    delete:
+      tags:
+      - patrons
+      summary: Cancel a patron's hold (public)
+      operationId: cancelPatronHoldPublic
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      - name: hold_id
+        in: path
+        required: true
+        description: Internal hold identifier
+        schema:
+          type: integer
+      responses:
+        '202':
+          description: Hold cancellation request accepted
+        '204':
+          description: Hold cancelled
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Hold not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+  /public/patrons/{patron_id}/password:
+    post:
+      tags:
+      - patrons
+      summary: Set password for a patron (public)
+      operationId: setPatronPasswordPublic
+      parameters:
+      - name: patron_id
+        in: path
+        required: true
+        description: Internal patron identifier
+        schema:
+          type: integer
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              properties:
+                old_password:
+                  description: Patron's original password
+                  type: string
+                password:
+                  description: New password (plain text)
+                  type: string
+                password_repeated:
+                  description: Repeated new password (plain text)
+                  type: string
+              required:
+              - password
+              - password_repeated
+              - old_password
+              type: object
+        description: A JSON object containing password information
+      responses:
+        '200':
+          description: Password changed
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Patron not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '503':
+          description: Under maintenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+components:
+  schemas:
+    debit_yaml:
+      additionalProperties: false
+      properties:
+        account_line_id:
+          description: Internal account line identifier
+          readOnly: true
+          type:
+          - integer
+          - 'null'
+        amount:
+          description: Debit amount
+          minimum: 0
+          type: number
+        amount_outstanding:
+          description: Outstanding amount
+          type: number
+        cash_register_id:
+          description: Internal identifier for the cash register used for the payout (if any)
+          type:
+          - integer
+          - 'null'
+        checkout_id:
+          description: Internal identifier for the checkout the account line is related to
+          type:
+          - integer
+          - 'null'
+        date:
+          description: Date the account line was created
+          format: date-time
+          type: string
+        description:
+          description: Account line description
+          type:
+          - string
+          - 'null'
+        interface:
+          description: 'Interface in which the account line was generated (values can be: api, cron, commandline, intranet, opac and sip)'
+          type:
+          - string
+          - 'null'
+        internal_note:
+          description: Internal note
+          type:
+          - string
+          - 'null'
+        item_id:
+          description: Internal identifier for the item the account line is related to
+          type:
+          - integer
+          - 'null'
+        library_id:
+          description: Internal identifier for the library in which the transaction took place
+          type:
+          - string
+          - 'null'
+        patron_id:
+          description: Internal identifier for the patron the account line belongs to
+          type: integer
+        payout_type:
+          description: Payout type
+          type:
+          - string
+          - 'null'
+        status:
+          description: The debit status
+          type:
+          - string
+          - 'null'
+        timestamp:
+          description: Timestamp for the latest line update
+          format: date-time
+          type: string
+        type:
+          description: Account debit type
+          type:
+          - string
+          - 'null'
+        user_id:
+          description: Internal patron identifier for the staff member that introduced the account line
+          type:
+          - integer
+          - 'null'
+      required:
+      - amount
+      type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
+    account_line_yaml:
+      additionalProperties: false
+      properties:
+        account_line_id:
+          description: Internal account line identifier
+          readOnly: true
+          type:
+          - integer
+          - 'null'
+        amount:
+          description: Account line amount
+          type: number
+        amount_outstanding:
+          description: Outstanding amount
+          readOnly: true
+          type: number
+        cash_register_id:
+          description: Internal identifier for the cash register used for the payment (if any)
+          type:
+          - integer
+          - 'null'
+        checkout_id:
+          description: Internal identifier for the checkout the account line is related to
+          type:
+          - integer
+          - 'null'
+        credit_number:
+          description: Internally generated identifier for credits
+          readOnly: true
+          type:
+          - string
+          - 'null'
+        credit_type:
+          description: Account line credit type
+          type:
+          - string
+          - 'null'
+        date:
+          description: Date the account line was created
+          format: date-time
+          readOnly: true
+          type: string
+        debit_type:
+          description: Account line debit type
+          type:
+          - string
+          - 'null'
+        description:
+          description: Account line description
+          readOnly: true
+          type:
+          - string
+          - 'null'
+        interface:
+          description: 'Interface in which the account line was generated (values can be: api, cron, commandline, intranet, opac and sip)'
+          readOnly: true
+          type:
+          - string
+          - 'null'
+        internal_note:
+          description: Internal note
+          type:
+          - string
+          - 'null'
+        item_id:
+          description: Internal identifier for the item the account line is related to
+          type:
+          - integer
+          - 'null'
+        library_id:
+          description: Internal identifier for the library in which the transaction took place
+          type:
+          - string
+          - 'null'
+        patron_id:
+          description: Internal identifier for the patron the account line belongs to
+          readOnly: true
+          type: integer
+        payment_type:
+          description: Payment type
+          type:
+          - string
+          - 'null'
+        payout_type:
+          description: Payout type
+          type:
+          - string
+          - 'null'
+        status:
+          description: The credit/debit status
+          readOnly: true
+          type:
+          - string
+          - 'null'
+        timestamp:
+          description: Timestamp for the latest line update
+          format: date-time
+          readOnly: true
+          type: string
+        user_id:
+          description: Internal patron identifier for the staff member that introduced the account line
+          type:
+          - integer
+          - 'null'
+      required:
+      - amount
+      type: object
+    checkout_yaml:
+      additionalProperties: false
+      properties:
+        auto_renew:
+          description: Auto renewal
+          type: boolean
+        auto_renew_error:
+          description: Auto renewal error
+          type:
+          - string
+          - 'null'
+        checkin_date:
+          description: Date the item was returned
+          format: date-time
+          type:
+          - string
+          - 'null'
+        checkout_date:
+          description: Date the item was issued
+          format: date-time
+          type: string
+        checkout_id:
+          description: internally assigned checkout identifier
+          type: integer
+        due_date:
+          description: Due date
+          format: date-time
+          type: string
+        issuer:
+          description: The object representing the checkout issuer
+          type:
+          - object
+          - 'null'
+        issuer_id:
+          description: internally assigned for the user that processed the checkout
+          type:
+          - integer
+          - 'null'
+        item:
+          description: The object representing the checked out item
+          type:
+          - object
+          - 'null'
+        item_id:
+          description: internal identifier of checked out item
+          type:
+          - integer
+          - 'null'
+        last_renewed_date:
+          description: Date the item was last renewed
+          format: date-time
+          type:
+          - string
+          - 'null'
+        library:
+          description: The object representing the checkout library
+          type:
+          - object
+          - 'null'
+        library_id:
+          description: code of the library the item was checked out
+          type:
+          - string
+          - 'null'
+        note:
+          description: Issue note text
+          type:
+          - string
+          - 'null'
+        note_date:
+          description: Datetime of the issue note
+          format: date
+          type:
+          - string
+          - 'null'
+        note_seen:
+          description: has the note been seen already
+          type:
+          - boolean
+          - 'null'
+        onsite_checkout:
+          description: On site checkout
+          type: boolean
+        patron:
+          description: The object representing the checkout patron
+          type:
+          - object
+          - 'null'
+        patron_id:
+          description: Internal patron identifier
+          type: integer
+        renewals_count:
+          description: Number of renewals
+          type:
+          - integer
+          - 'null'
+        timestamp:
+          description: Last update time
+          type: string
+        unseen_renewals:
+          description: Number of consecutive unseen renewals
+          type:
+          - integer
+          - 'null'
+      type: object
+    patron_account_credit_yaml:
+      additionalProperties: false
+      properties:
+        account_lines_ids:
+          description: List of account line ids the credit goes against (optional)
+          items:
+            type: integer
+          type: array
+        amount:
+          description: Credit amount
+          minimum: 0
+          type: number
+        credit_type:
+          description: Type of credit ('CREDIT', 'FORGIVEN', 'LOST_FOUND', 'PAYMENT', 'WRITEOFF', 'PROCESSING_FOUND' )
+          type: string
+        date:
+          description: Date the credit was recorded (optional)
+          format: date
+          type: string
+        description:
+          description: Description
+          type: string
+        library_id:
+          description: Internal identifier for the library in which the transaction took place
+          type:
+          - string
+          - 'null'
+        note:
+          description: Internal note
+          type: string
+        payment_type:
+          description: Payment type (only applies when credit_type=payment)
+          type: string
+      required:
+      - amount
+      type: object
+    patron_yaml:
+      additionalProperties: false
+      properties:
+        _strings:
+          description: A list of stringified coded values
+          type:
+          - object
+          - 'null'
+        account_balance:
+          description: Balance of the patron's account
+          type:
+          - number
+          - 'null'
+        address:
+          description: first address line of patron's primary address
+          type:
+          - string
+          - 'null'
+        address2:
+          description: second address line of patron's primary address
+          type:
+          - string
+          - 'null'
+        altaddress_address:
+          description: first address line of patron's alternate address
+          type:
+          - string
+          - 'null'
+        altaddress_address2:
+          description: second address line of patron's alternate address
+          type:
+          - string
+          - 'null'
+        altaddress_city:
+          description: city or town of patron's alternate address
+          type:
+          - string
+          - 'null'
+        altaddress_country:
+          description: country of patron's alternate address
+          type:
+          - string
+          - 'null'
+        altaddress_email:
+          description: email address for patron's alternate address
+          type:
+          - string
+          - 'null'
+        altaddress_notes:
+          description: a note related to patron's alternate address
+          type:
+          - string
+          - 'null'
+        altaddress_phone:
+          description: phone number for patron's alternate address
+          type:
+          - string
+          - 'null'
+        altaddress_postal_code:
+          description: zip or postal code of patron's alternate address
+          type:
+          - string
+          - 'null'
+        altaddress_state:
+          description: state or province of patron's alternate address
+          type:
+          - string
+          - 'null'
+        altaddress_street_number:
+          description: street number of patron's alternate address
+          type:
+          - string
+          - 'null'
+        altaddress_street_type:
+          description: street type of patron's alternate address
+          type:
+          - string
+          - 'null'
+        altcontact_address:
+          description: the first address line for the alternate contact for the patron
+          type:
+          - string
+          - 'null'
+        altcontact_address2:
+          description: the second address line for the alternate contact for the patron
+          type:
+          - string
+          - 'null'
+        altcontact_city:
+          description: the city for the alternate contact for the patron
+          type:
+          - string
+          - 'null'
+        altcontact_country:
+          description: the country for the alternate contact for the patron
+          type:
+          - string
+          - 'null'
+        altcontact_firstname:
+          description: first name of alternate contact for the patron
+          type:
+          - string
+          - 'null'
+        altcontact_phone:
+          description: the phone number for the alternate contact for the patron
+          type:
+          - string
+          - 'null'
+        altcontact_postal_code:
+          description: the zipcode for the alternate contact for the patron
+          type:
+          - string
+          - 'null'
+        altcontact_state:
+          description: the state for the alternate contact for the patron
+          type:
+          - string
+          - 'null'
+        altcontact_surname:
+          description: surname or last name of the alternate contact for the patron
+          type:
+          - string
+          - 'null'
+        anonymized:
+          description: If the patron has been anonymized
+          readOnly: true
+          type: boolean
+        autorenew_checkouts:
+          description: indicate whether auto-renewal is allowed for patron
+          type: boolean
+        cardnumber:
+          description: library assigned user identifier
+          type:
+          - string
+          - 'null'
+        category_id:
+          description: Internal identifier for the patron's category
+          type: string
+        check_previous_checkout:
+          description: produce a warning for this patron if this item has previously been checked out to this patron if 'yes', not if 'no', defer to category setting if 'inherit'
+          type: string
+        checkouts_count:
+          description: Number of checkouts
+          type:
+          - integer
+          - 'null'
+        city:
+          description: city or town of patron's primary address
+          type:
+          - string
+          - 'null'
+        country:
+          description: country of patron's primary address
+          type:
+          - string
+          - 'null'
+        date_enrolled:
+          description: date the patron was added to Koha
+          format: date
+          type:
+          - string
+          - 'null'
+        date_of_birth:
+          description: patron's date of birth
+          format: date
+          type:
+          - string
+          - 'null'
+        date_renewed:
+          description: date the patron's card was last renewed
+          format: date
+          type:
+          - string
+          - 'null'
+        email:
+          description: primary email address for patron's primary address
+          type:
+          - string
+          - 'null'
+        expiry_date:
+          description: date the patron's card is set to expire
+          format: date
+          type:
+          - string
+          - 'null'
+        extended_attributes:
+          description: patron's extended attributes
+          items:
+            $ref: '#/components/schemas/patron_extended_attribute_yaml'
+          type: array
+        fax:
+          description: fax number for patron's primary address
+          type:
+          - string
+          - 'null'
+        firstname:
+          description: patron's first name
+          type:
+          - string
+          - 'null'
+        gender:
+          description: patron's gender
+          type:
+          - string
+          - 'null'
+        incorrect_address:
+          description: set to 1 if library marked this patron as having an unconfirmed address
+          type:
+          - boolean
+          - 'null'
+        initials:
+          description: initials of the patron
+          type:
+          - string
+          - 'null'
+        lang:
+          description: lang to use to send notices to this patron
+          type: string
+        last_seen:
+          description: last time a patron has been seen (connected at the OPAC or staff interface)
+          format: date-time
+          type:
+          - string
+          - 'null'
+        library:
+          description: Library of the patron
+          type:
+          - object
+          - 'null'
+        library_id:
+          description: Internal identifier for the patron's home library
+          type: string
+        login_attempts:
+          description: number of failed login attemps
+          type:
+          - integer
+          - 'null'
+        middle_name:
+          description: patron's middle name
+          type:
+          - string
+          - 'null'
+        mobile:
+          description: the other phone number for patron's primary address
+          type:
+          - string
+          - 'null'
+        opac_notes:
+          description: a note on the patron's account visible in OPAC and staff interface
+          type:
+          - string
+          - 'null'
+        other_name:
+          description: any other names associated with the patron
+          type:
+          - string
+          - 'null'
+        overdrive_auth_token:
+          description: persist OverDrive auth token
+          type:
+          - string
+          - 'null'
+        overdues_count:
+          description: Number of overdued checkouts
+          type:
+          - integer
+          - 'null'
+        patron_card_lost:
+          description: set to 1 if library marked this patron as having lost his card
+          type:
+          - boolean
+          - 'null'
+        patron_id:
+          description: Internal patron identifier
+          type: integer
+        phone:
+          description: primary phone number for patron's primary address
+          type:
+          - string
+          - 'null'
+        postal_code:
+          description: zip or postal code of patron's primary address
+          type:
+          - string
+          - 'null'
+        privacy:
+          description: patron's privacy settings related to their checkout history
+          type: integer
+        privacy_guarantor_checkouts:
+          description: controls if relatives can see this patron's checkouts
+          type: integer
+        privacy_guarantor_fines:
+          description: controls if relatives can see this patron's fines
+          type: boolean
+        pronouns:
+          description: pronouns of the patron
+          type:
+          - string
+          - 'null'
+        protected:
+          description: Protected status of the patron
+          type:
+          - boolean
+        relationship_type:
+          description: used for children to include the relationship to their guarantor
+          type:
+          - string
+          - 'null'
+        restricted:
+          description: If any restriction applies to the patron
+          readOnly: true
+          type: boolean
+        secondary_email:
+          description: secondary email address for patron's primary address
+          type:
+          - string
+          - 'null'
+        secondary_phone:
+          description: secondary phone number for patron's primary address
+          type:
+          - string
+          - 'null'
+        sms_number:
+          description: the mobile phone number where the patron would like to receive notices (if SMS turned on)
+          type:
+          - string
+          - 'null'
+        sms_provider_id:
+          description: the provider of the mobile phone number defined in smsalertnumber
+          type:
+          - integer
+          - 'null'
+        staff_notes:
+          description: a note on the patron's account
+          type:
+          - string
+          - 'null'
+        state:
+          description: state or province of patron's primary address
+          type:
+          - string
+          - 'null'
+        statistics_1:
+          description: a field that can be used for any information unique to the library
+          type:
+          - string
+          - 'null'
+        statistics_2:
+          description: a field that can be used for any information unique to the library
+          type:
+          - string
+          - 'null'
+        street_number:
+          description: street number of patron's primary address
+          type:
+          - string
+          - 'null'
+        street_type:
+          description: street type of patron's primary address
+          type:
+          - string
+          - 'null'
+        surname:
+          description: patron's last name
+          type:
+          - string
+          - 'null'
+        title:
+          description: patron's title
+          type:
+          - string
+          - 'null'
+        updated_on:
+          description: time of last change could be useful for synchronization with external systems (among others)
+          format: date-time
+          type: string
+        userid:
+          description: patron's login
+          type:
+          - string
+          - 'null'
+      required:
+      - surname
+      - library_id
+      - category_id
+      type: object
+    patron_extended_attribute_yaml:
+      additionalProperties: false
+      properties:
+        extended_attribute_id:
+          description: Internal ID for the extended attribute
+          type: integer
+        type:
+          description: Extended attribute type
+          type: string
+        value:
+          description: Extended attribute value
+          type:
+          - string
+          - 'null'
+      required:
+      - type
+      - value
+      type: object
+    patron_balance_yaml:
+      additionalProperties: false
+      properties:
+        balance:
+          description: Signed decimal number
+          type: number
+        outstanding_credits:
+          properties:
+            lines:
+              items:
+                $ref: '#/components/schemas/account_line_yaml'
+              type: array
+            total:
+              type: number
+        outstanding_debits:
+          properties:
+            lines:
+              items:
+                $ref: '#/components/schemas/account_line_yaml'
+              type: array
+            total:
+              type: number
+          type: object
+      required:
+      - balance
+      type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object
+    credit_yaml:
+      additionalProperties: false
+      properties:
+        account_line_id:
+          description: Internal account line identifier
+          readOnly: true
+          type:
+          - integer
+          - 'null'
+        amount:
+          description: Credit amount
+          type: number
+        amount_outstanding:
+          description: Outstanding amount
+          readOnly: true
+          type: number
+        cash_register_id:
+          description: Internal identifier for the cash register used for the payment (if any)
+          type:
+          - integer
+          - 'null'
+        credit_number:
+          description: Internally generated identifier for credits
+          readOnly: true
+          type:
+          - string
+          - 'null'
+        date:
+          description: Date the account line was created
+          format: date-time
+          readOnly: true
+          type: string
+        description:
+          description: Account line description
+          readOnly: true
+          type:
+          - string
+          - 'null'
+        interface:
+          description: 'Interface in which the account line was generated (values can be: api, cron, commandline, intranet, opac and sip)'
+          readOnly: true
+          type:
+          - string
+          - 'null'
+        internal_note:
+          description: Internal note
+          type:
+          - string
+          - 'null'
+        library_id:
+          description: Internal identifier for the library in which the transaction took place
+          type:
+          - string
+          - 'null'
+        patron_id:
+          description: Internal identifier for the patron the account line belongs to
+          readOnly: true
+          type: integer
+        payment_type:
+          description: Payment type
+          type:
+          - string
+          - 'null'
+        status:
+          description: The credit status
+          readOnly: true
+          type:
+          - string
+          - 'null'
+        timestamp:
+          description: Timestamp for the latest line update
+          format: date-time
+          readOnly: true
+          type: string
+        type:
+          description: Account credit type
+          type:
+          - string
+          - 'null'
+        user_id:
+          description: Internal patron identifier for the staff member that introduced the account line
+          type:
+          - integer
+          - 'null'
+      required:
+      - amount
+      type: object
