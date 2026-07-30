@@ -13,9 +13,21 @@ description: >-
   no single official institutional GitHub organization, though numerous student
   clubs and academic departments maintain their own GitHub orgs.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Free
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/iit-kanpur.png
 url: https://raw.githubusercontent.com/api-evangelist/iit-kanpur/refs/heads/main/apis.yml
 tags:
   - Education
@@ -34,45 +46,1286 @@ modified: '2026-06-03'
 # vocabulary, json-ld). See openapi/iit-kanpur-library-rest.yaml.
 specificationVersion: '0.19'
 apis:
-  - aid: iit-kanpur:library-oai-pmh
-    name: PKK Library OAI-PMH
-    description: >-
-      The P.K. Kelkar Library runs a Koha integrated library system that exposes
-      an OAI-PMH 2.0 metadata-harvesting interface over its bibliographic
-      catalogue. The Identify verb returns a valid OAI-PMH 2.0 response naming the
-      repository "PKK Library" with an earliest datestamp of 2016, and
-      ListMetadataFormats confirms the oai_dc metadata prefix, verifying a live
-      open-metadata harvesting endpoint.
-    humanURL: https://libserv.iitk.ac.in/
-    baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-    tags: [ Library, OAI-PMH, Open Access, Metadata, Catalogue, Harvesting ]
-    properties:
-      - type: Documentation
-        url: https://libserv.iitk.ac.in/
-      - type: OpenAPI
-        url: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl?verb=Identify
-  - aid: iit-kanpur:library-ils-di
-    name: PKK Library Koha ILS-DI
-    description: >-
-      The P.K. Kelkar Library Koha catalogue exposes the ILS-DI (Integrated
-      Library System - Discovery Interface) service, a standard Koha web service
-      for discovery-layer integrations covering bibliographic, holdings, patron,
-      and circulation operations. The ILS-DI landing page resolves live and
-      identifies the underlying Koha 23.11 installation.
-    humanURL: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
-    baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
-    tags: [ Library, ILS-DI, Koha, Discovery, Catalogue ]
-    properties:
-      - type: Documentation
-        url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
-      - type: OpenAPI
-        url: openapi/iit-kanpur-library-rest.yaml
-      - type: x-json-schema
-        url: json-schema/iit-kanpur-item-schema.json
-      - type: x-vocabulary
-        url: vocabulary/iit-kanpur-vocabulary.yml
-      - type: x-json-ld
-        url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-2fa-api
+  name: Indian Institute of Technology Kanpur 2fa API
+  description: Handle two factor authentication flows
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - 2fa
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-2fa-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-article-requests-api
+  name: Indian Institute of Technology Kanpur article_requests API
+  description: Manage article requests
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - article_requests
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-article-requests-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-authorised-value-categories-api
+  name: Indian Institute of Technology Kanpur authorised_value_categories API
+  description: Manage authorised value categories
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - authorised_value_categories
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-authorised-value-categories-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-authorised-values-api
+  name: Indian Institute of Technology Kanpur authorised_values API
+  description: Manage authorised values
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - authorised_values
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-authorised-values-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-authorities-api
+  name: Indian Institute of Technology Kanpur authorities API
+  description: Manage Authority records
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - authorities
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-authorities-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-baskets-api
+  name: Indian Institute of Technology Kanpur baskets API
+  description: Manage baskets for the acquisitions module
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - baskets
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-baskets-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-batch-import-profiles-api
+  name: Indian Institute of Technology Kanpur batch_import_profiles API
+  description: Manage batch import profiles
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - batch_import_profiles
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-batch-import-profiles-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-biblios-api
+  name: Indian Institute of Technology Kanpur biblios API
+  description: Manage bibliographic records
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - biblios
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-biblios-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-bookings-api
+  name: Indian Institute of Technology Kanpur bookings API
+  description: Manage bookings
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - bookings
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-bookings-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-cash-registers-api
+  name: Indian Institute of Technology Kanpur cash_registers API
+  description: Manage cash registers
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - cash_registers
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-cash-registers-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-cashups-api
+  name: Indian Institute of Technology Kanpur cashups API
+  description: Manage cash register cashups
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - cashups
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-cashups-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-checkouts-api
+  name: Indian Institute of Technology Kanpur checkouts API
+  description: Manage checkouts
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - checkouts
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-checkouts-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-circulation-rules-api
+  name: Indian Institute of Technology Kanpur circulation_rules API
+  description: Manage circulation rules
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - circulation_rules
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-circulation-rules-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-cities-api
+  name: Indian Institute of Technology Kanpur cities API
+  description: Manage cities
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - cities
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-cities-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-clubs-api
+  name: Indian Institute of Technology Kanpur clubs API
+  description: Manage patron clubs
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - clubs
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-clubs-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-desks-api
+  name: Indian Institute of Technology Kanpur desks API
+  description: Manage circulation desks
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - desks
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-desks-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-erm-agreements-api
+  name: Indian Institute of Technology Kanpur erm_agreements API
+  description: Manage ERM agreements
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - erm_agreements
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-erm-agreements-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-erm-config-api
+  name: Indian Institute of Technology Kanpur erm_config API
+  description: Manage ERM configuration
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - erm_config
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-erm-config-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-erm-counter-files-api
+  name: Indian Institute of Technology Kanpur erm_counter_files API
+  description: Manage ERM counter files
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - erm_counter_files
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-erm-counter-files-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-erm-counter-logs-api
+  name: Indian Institute of Technology Kanpur erm_counter_logs API
+  description: Manage ERM counter logs
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - erm_counter_logs
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-erm-counter-logs-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-erm-counter-registry-api
+  name: Indian Institute of Technology Kanpur erm_counter_registry API
+  description: Retrieve counter registry data
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - erm_counter_registry
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-erm-counter-registry-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-erm-default-usage-reports-api
+  name: Indian Institute of Technology Kanpur erm_default_usage_reports API
+  description: Manage ERM saved reports
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - erm_default_usage_reports
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-erm-default-usage-reports-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-erm-documents-api
+  name: Indian Institute of Technology Kanpur erm_documents API
+  description: Manage ERM docuemnts
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - erm_documents
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-erm-documents-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-erm-eholdings-packages-api
+  name: Indian Institute of Technology Kanpur erm_eholdings_packages API
+  description: Manage ERM eHoldings packages
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - erm_eholdings_packages
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-erm-eholdings-packages-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-erm-eholdings-resources-api
+  name: Indian Institute of Technology Kanpur erm_eholdings_resources API
+  description: Manage ERM eHoldings resources
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - erm_eholdings_resources
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-erm-eholdings-resources-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-erm-eholdings-titles-api
+  name: Indian Institute of Technology Kanpur erm_eholdings_titles API
+  description: Manage ERM eHoldings titles
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - erm_eholdings_titles
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-erm-eholdings-titles-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-erm-licences-api
+  name: Indian Institute of Technology Kanpur erm_licences API
+  description: Manage ERM licences
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - erm_licences
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-erm-licences-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-erm-sushi-service-api
+  name: Indian Institute of Technology Kanpur erm_sushi_service API
+  description: Retrieve SUSHI service data
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - erm_sushi_service
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-erm-sushi-service-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-erm-usage-data-providers-api
+  name: Indian Institute of Technology Kanpur erm_usage_data_providers API
+  description: Manage ERM usage data providers
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - erm_usage_data_providers
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-erm-usage-data-providers-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-erm-usage-databases-api
+  name: Indian Institute of Technology Kanpur erm_usage_databases API
+  description: Manage ERM usage databases
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - erm_usage_databases
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-erm-usage-databases-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-erm-usage-items-api
+  name: Indian Institute of Technology Kanpur erm_usage_items API
+  description: Manage ERM usage items
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - erm_usage_items
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-erm-usage-items-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-erm-usage-platforms-api
+  name: Indian Institute of Technology Kanpur erm_usage_platforms API
+  description: Manage ERM usage platforms
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - erm_usage_platforms
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-erm-usage-platforms-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-erm-usage-reports-api
+  name: Indian Institute of Technology Kanpur erm_usage_reports API
+  description: Manage ERM usage reports
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - erm_usage_reports
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-erm-usage-reports-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-erm-usage-titles-api
+  name: Indian Institute of Technology Kanpur erm_usage_titles API
+  description: Manage ERM usage titles
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - erm_usage_titles
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-erm-usage-titles-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-erm-users-api
+  name: Indian Institute of Technology Kanpur erm_users API
+  description: Manage ERM users
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - erm_users
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-erm-users-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-funds-api
+  name: Indian Institute of Technology Kanpur funds API
+  description: Manage funds for the acquisitions module
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - funds
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-funds-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-holds-api
+  name: Indian Institute of Technology Kanpur holds API
+  description: Manage holds
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - holds
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-holds-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-identity-providers-api
+  name: Indian Institute of Technology Kanpur identity_providers API
+  description: Manage identity providers
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - identity_providers
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-identity-providers-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-ill-backends-api
+  name: Indian Institute of Technology Kanpur ill_backends API
+  description: Manage ILL module backends
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - ill_backends
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-ill-backends-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-ill-batches-api
+  name: Indian Institute of Technology Kanpur ill_batches API
+  description: Manage ILL module batches
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - ill_batches
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-ill-batches-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-ill-batchstatuses-api
+  name: Indian Institute of Technology Kanpur ill_batchstatuses API
+  description: Manage ILL module batch statuses
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - ill_batchstatuses
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-ill-batchstatuses-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-ill-requests-api
+  name: Indian Institute of Technology Kanpur ill_requests API
+  description: Manage ILL requests
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - ill_requests
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-ill-requests-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-import-batches-api
+  name: Indian Institute of Technology Kanpur import_batches API
+  description: Manage import batches
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - import_batches
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-import-batches-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-item-groups-api
+  name: Indian Institute of Technology Kanpur item_groups API
+  description: Manage item groups
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - item_groups
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-item-groups-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-item-types-api
+  name: Indian Institute of Technology Kanpur item_types API
+  description: Manage item types
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - item_types
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-item-types-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-items-api
+  name: Indian Institute of Technology Kanpur items API
+  description: Manage items
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - items
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-items-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-jobs-api
+  name: Indian Institute of Technology Kanpur jobs API
+  description: Manage jobs
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-libraries-api
+  name: Indian Institute of Technology Kanpur libraries API
+  description: Manage libraries
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - libraries
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-libraries-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-macros-api
+  name: Indian Institute of Technology Kanpur macros API
+  description: Manage macros
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - macros
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-macros-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-oauth-api
+  name: Indian Institute of Technology Kanpur oauth API
+  description: Handle OAuth flows
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - oauth
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-oauth-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-orders-api
+  name: Indian Institute of Technology Kanpur orders API
+  description: Manage acquisition orders
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - orders
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-orders-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-patron-categories-api
+  name: Indian Institute of Technology Kanpur patron_categories API
+  description: Manage patron categories
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - patron_categories
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-patron-categories-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-patrons-api
+  name: Indian Institute of Technology Kanpur patrons API
+  description: Manage patrons
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - patrons
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-patrons-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-preservation-api
+  name: Indian Institute of Technology Kanpur preservation API
+  description: Manage preservation tasks
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - preservation
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-preservation-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-quotes-api
+  name: Indian Institute of Technology Kanpur quotes API
+  description: Manage quotes
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - quotes
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-quotes-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-recalls-api
+  name: Indian Institute of Technology Kanpur recalls API
+  description: Manage recalls
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - recalls
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-recalls-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-return-claims-api
+  name: Indian Institute of Technology Kanpur return_claims API
+  description: Manage return claims
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - return_claims
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-return-claims-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-rotas-api
+  name: Indian Institute of Technology Kanpur rotas API
+  description: Manage rotas
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - rotas
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-rotas-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-search-filters-api
+  name: Indian Institute of Technology Kanpur search_filters API
+  description: Manage search filters
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - search_filters
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-search-filters-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-smtp-servers-api
+  name: Indian Institute of Technology Kanpur smtp_servers API
+  description: Manage SMTP servers configurations
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - smtp_servers
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-smtp-servers-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-suggestions-api
+  name: Indian Institute of Technology Kanpur suggestions API
+  description: Manage purchase suggestions
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - suggestions
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-suggestions-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-tickets-api
+  name: Indian Institute of Technology Kanpur tickets API
+  description: Manage tickets
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - tickets
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-tickets-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-transfer-limits-api
+  name: Indian Institute of Technology Kanpur transfer_limits API
+  description: Manage transfer limits
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - transfer_limits
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-transfer-limits-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
+- aid: iit-kanpur:iit-kanpur-vendors-api
+  name: Indian Institute of Technology Kanpur vendors API
+  description: Manage vendors for the acquisitions module
+  humanURL: https://libserv.iitk.ac.in/
+  baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+  tags:
+  - vendors
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-vendors-api-openapi.yml
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/
+  - type: Documentation
+    url: https://libserv.iitk.ac.in/cgi-bin/koha/ilsdi.pl
+  - type: x-json-schema
+    url: json-schema/iit-kanpur-item-schema.json
+  - type: x-vocabulary
+    url: vocabulary/iit-kanpur-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/iit-kanpur-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/iit-kanpur-agentic-access.yml
