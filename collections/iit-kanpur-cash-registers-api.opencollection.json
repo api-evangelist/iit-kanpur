@@ -1,0 +1,77 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa cash_registers API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "cash_registers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the library's cash registers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/libraries/:library_id/cash_registers",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "library_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal library identifier"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List the library's cash registers"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

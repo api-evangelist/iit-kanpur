@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa clubs API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "clubs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add a club hold",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/clubs/:club_id/holds",
+            "params": [
+              {
+                "name": "club_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal club identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a club hold"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

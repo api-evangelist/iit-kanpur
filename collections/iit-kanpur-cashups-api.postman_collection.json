@@ -1,0 +1,1341 @@
+{
+  "item": [
+    {
+      "id": "853ed4af-dd05-4619-adb9-ea4b0b943556",
+      "name": "cashups",
+      "description": {
+        "content": "Manage cash register cashups\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "983633f8-4aa8-4463-bd78-e909b012424b",
+          "name": "List cashups for the cash register",
+          "request": {
+            "name": "List cashups for the cash register",
+            "description": {},
+            "url": {
+              "path": [
+                "cash_registers",
+                ":cash_register_id",
+                "cashups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_match",
+                  "value": "<string>",
+                  "description": "Matching criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_page",
+                  "value": "<integer>",
+                  "description": "Page number, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "_per_page",
+                  "value": "<integer>",
+                  "description": "Page size, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "cash_register_id",
+                  "description": "(Required) Cash register internal identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Request id header",
+                "key": "x-koha-request-id",
+                "value": "<integer>"
+              },
+              {
+                "disabled": false,
+                "description": "Embed list sent as a request header",
+                "key": "x-koha-embed",
+                "value": "<string>,<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dd4760da-3eea-4b67-90ac-32d1a9b50277",
+              "name": "Cashups performed on this register",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cash_registers",
+                    ":cash_register_id",
+                    "cashups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cash_register_id",
+                      "description": "(Required) Cash register internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"amount\": 2365.036133717675,\n    \"cash_register_id\": 6643,\n    \"cashup_id\": 5423,\n    \"manager\": null,\n    \"manager_id\": 3152,\n    \"summary\": {},\n    \"timestamp\": \"1971-08-17T11:51:03.066Z\"\n  },\n  {\n    \"amount\": 1237.3866393018584,\n    \"cash_register_id\": 7514,\n    \"cashup_id\": 6992,\n    \"manager\": {},\n    \"manager_id\": 7314,\n    \"summary\": {},\n    \"timestamp\": \"1971-08-01T21:16:34.250Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d23b6d02-9122-476b-8d3f-2ad2248c7471",
+              "name": "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cash_registers",
+                    ":cash_register_id",
+                    "cashups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cash_register_id",
+                      "description": "(Required) Cash register internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "10834500-bce6-4ccb-9ca7-c25900676c6c",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cash_registers",
+                    ":cash_register_id",
+                    "cashups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cash_register_id",
+                      "description": "(Required) Cash register internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "314cc81e-aa64-4bb5-a379-ac2c9b19fb74",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cash_registers",
+                    ":cash_register_id",
+                    "cashups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cash_register_id",
+                      "description": "(Required) Cash register internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "54c98e1a-87d0-42d5-98d2-51e4cc28442a",
+              "name": "Register not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cash_registers",
+                    ":cash_register_id",
+                    "cashups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cash_register_id",
+                      "description": "(Required) Cash register internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7374a568-2b27-49f4-b1b9-a0530c2d301d",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cash_registers",
+                    ":cash_register_id",
+                    "cashups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cash_register_id",
+                      "description": "(Required) Cash register internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01fd7b90-f6f0-4cb6-a411-7a3ec2b02fd7",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cash_registers",
+                    ":cash_register_id",
+                    "cashups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cash_register_id",
+                      "description": "(Required) Cash register internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0811b952-aca3-41cb-87b2-ddf86a040b2e",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cash_registers",
+                    ":cash_register_id",
+                    "cashups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cash_register_id",
+                      "description": "(Required) Cash register internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "223cc5c7-1bee-4f85-8c39-3927fdf80da5",
+          "name": "Get cashup",
+          "request": {
+            "name": "Get cashup",
+            "description": {},
+            "url": {
+              "path": [
+                "cashups",
+                ":cashup_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "cashup_id",
+                  "description": "(Required) Cashup internal identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Embed list sent as a request header",
+                "key": "x-koha-embed",
+                "value": "<string>,<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9ea45565-4d2c-456d-b4e4-b887973f9c12",
+              "name": "A cashup",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cashups",
+                    ":cashup_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cashup_id",
+                      "description": "(Required) Cashup internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": 7117.379093728846,\n  \"cash_register_id\": 815,\n  \"cashup_id\": 8404,\n  \"manager\": null,\n  \"manager_id\": 9279,\n  \"summary\": {},\n  \"timestamp\": \"2007-07-22T08:26:15.591Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad98bbd8-98cf-4a1b-963a-82bc2d41ff98",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cashups",
+                    ":cashup_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cashup_id",
+                      "description": "(Required) Cashup internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "783efef9-6f46-43e7-93cd-8dad4cd224a4",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cashups",
+                    ":cashup_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cashup_id",
+                      "description": "(Required) Cashup internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7fac431f-6ce4-4ff2-8f24-565609b3c5f2",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cashups",
+                    ":cashup_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cashup_id",
+                      "description": "(Required) Cashup internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1d6eaaae-0ab0-4cfd-b2d7-51cf8493d0de",
+              "name": "Patron not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cashups",
+                    ":cashup_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cashup_id",
+                      "description": "(Required) Cashup internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aaf7c061-5329-4760-82ea-263f83946992",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cashups",
+                    ":cashup_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cashup_id",
+                      "description": "(Required) Cashup internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea957680-44b9-4c9f-928b-85bf9d755387",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cashups",
+                    ":cashup_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cashup_id",
+                      "description": "(Required) Cashup internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "74ec7347-ada0-4462-b574-ffb2db6db12b",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cashups",
+                    ":cashup_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cashup_id",
+                      "description": "(Required) Cashup internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://libserv.iitk.ac.in/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f57d658d-9623-4c63-9bc5-7bd23d24dde0",
+    "name": "Koha REST 2fa cashups API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Background\n\nThe API supports two sets of endpoints, one targetted at library staff and the other at at library users.\n\nThose endpoints under the `/public` path are aimed at delivering functionality tailored to library users and offer\na more restricted set of functions, overrides and data in thier responses for data privacy and library policy\nreasons. Many of these endpoints do not require authentication for fetching public data, though an authenticated\nsession will expose additional options and allow users to see more data where it is part of their own record.\n\nAll other endpoints are targetted at the staff interface level and allow for additional functionality and a more\nunrestricted view of data.  These endpoints, however, have a level of redaction built in for resources that the\napi consumer should not have access to.  For example, user data for users who do not belong to the same library\nor library group of your api user will be reduced to just minimum neccesary for a valid response. Object keys will\nbe consistent for all responses, but their values may be removed depending on access.\n\n## Authentication\n\nThe API supports the following authentication mechanisms\n\n* HTTP Basic authentication\n* OAuth2 (client credentials grant)\n* Cookie-based\n\nBoth _Basic authentication_ and the _OAuth2_ flow, need to be enabled\nby system preferences.\n\n## Authorization\n\nThe API uses existing user profiles to restrict access to resources based on user permissions and the library the\nAPI user is assigned to.  This may result, at times, in resources being returned in a redacted form with all keys\npresent but sensative values nulled.\n\nWe do not yet support OAuth Scopes or the Authorization Code grant flow.\n\n## Errors\n\nThe API uses standard HTTP status codes to indicate the success or failure\nof the API call. The body of the response will be JSON in the following format:\n\n```\n{\n  \"error\": \"Current settings prevent the passed due date to be applied\",\n  \"error_code\": \"invalid_due_date\"\n}\n```\n\nNote: Some routes might offer additional attributes in their error responses but that\"s\nsubject to change and thus not documented.\n\n## Filtering responses\n\nThe API allows for some advanced response filtering using a JSON based query syntax. The\nquery can be added to the requests:\n\n* as a query parameter `q=`\n* in the request body\n\nFor simple field equality matches we can use `{ \"fieldname\": \"value\" }` where the fieldname\nmatches one of the fields as described in the particular endpoints response object.\n\nWe can refine that with more complex matching clauses by nesting a the clause into the\nobject; `{ \"fieldname\": { \"clause\": \"value\" } }`.\n\nAvailable matching clauses include `=`, `!=`, `<`, `>`, `<=`, `>=` and `-not`. We also support `-like`\nand `-not_like` string comparisons with `%` used to denote wildcards, thus you can pass\n`{ \"fieldname\": { \"-like\": \"value%\" } }` to do a 'starts with' string match for example.\n\nWe can filter on multiple fields by adding them to the JSON respresentation. Adding at `HASH`\nlevel will result in an \"AND\" query, whilst combinding them in an `ARRAY` will result in an\n\"OR\" query: `{ \"field1\": \"value2\", \"field2\": \"value2\" }` will filter the response to only those\nresults with both field1 containing value2 AND field2 containing value2 for example.\n\nThere is a collection of special operators also available to you, including:\n\n* `-in` - Expects an array of values to perform an OR match against\n* `-not_in` - Expects an array of values to perform a NOR match against\n* `-between` - Expects two values which the value of the field is expected to fall between\n* `-not_between` - Expects two values which the value of the field is expected to fall outside of\n* `-ident` - Expects a second field name to match the two field values against\n* `-regexp` - Expects a perl compatible regular expression for which the value should match\n\nLogic and nesting is also supported and you may use `-and` and `-or` to change the logic of an ARRAY\nor HASH as described above.\n\nAdditionally, if you are requesting related data be embedded into the response one can query\non the related data using dot notation in the field names.\n\n### Examples\n\nThe following request would return any patron with firstname \"Henry\" and lastname \"Acevedo\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": \"Acevedo\", \"firstname\": \"Henry\" }'`\n\nThe following request would return any patron whose lastname begins with \"Ace\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": { \"-like\": \"Ace%\" }'`\n\nThe following request would return any patron whose lastname is \"Acevedo\" OR \"Bernardo\"\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": [ \"Acevedo\", \"Bernardo\" ] }'`\n\nThe following request embeds the related patron extended attributes data and filters on it.\n\n`curl -u koha:koha =--request GET 'http://127.0.0.1:8081/api/v1/patrons/' --header 'x-koha-embed: extended_attributes' --data-raw '{ \"extended_attributes.code\": \"internet\", \"extended_attributes.attribute\": \"1\" }'`\n\n## Special headers\n\n### x-koha-embed\n\nThis optional header allows the api consumer to request additional related data\nto be returned in the api response.  It also allows for cross referencing in the\nqueries as described above. It accepts a comma delimited list of relation names.\n\nRelations may on occasion also support dot delimited nesting to allow traversal.\n\n### x-koha-library\n\nThis optional header should be passed to give your api request a library\ncontext; If it is not included in the request, then the request context\nwill default to using your api comsumer\"s assigned home library.\n\n\nContact Support:\n Name: Koha Development Team",
+      "type": "text/plain"
+    }
+  }
+}

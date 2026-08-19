@@ -1,0 +1,477 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa items API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/items",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              },
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "query",
+                "description": "Search on the item's barcode"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List items"
+        },
+        {
+          "info": {
+            "name": "Get item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/items/:item_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal item identifier"
+              }
+            ]
+          },
+          "docs": "Get item"
+        },
+        {
+          "info": {
+            "name": "Delete item",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/items/:item_id",
+            "params": [
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal item identifier"
+              }
+            ]
+          },
+          "docs": "Delete item"
+        },
+        {
+          "info": {
+            "name": "Get existing bookings for an item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/items/:item_id/bookings",
+            "params": [
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal item identifier"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get existing bookings for an item"
+        },
+        {
+          "info": {
+            "name": "List bundled items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/items/:item_id/bundled_items",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal item identifier"
+              },
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "query",
+                "description": "Search on the item's barcode"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List bundled items"
+        },
+        {
+          "info": {
+            "name": "Add item to bundle",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/items/:item_id/bundled_items",
+            "params": [
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal item identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add item to bundle"
+        },
+        {
+          "info": {
+            "name": "Remove item from bundle",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/items/:item_id/bundled_items/:bundled_item_id",
+            "params": [
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal item identifier"
+              },
+              {
+                "name": "bundled_item_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal identifier for the bundled item"
+              }
+            ]
+          },
+          "docs": "Remove item from bundle"
+        },
+        {
+          "info": {
+            "name": "Get valid pickup locations for an item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/items/:item_id/pickup_locations",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal item identifier"
+              },
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "query",
+                "description": "Internal patron identifier"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get valid pickup locations for an item"
+        },
+        {
+          "info": {
+            "name": "getBiblioItemsPublic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/public/biblios/:biblio_id/items",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "path",
+                "description": "Record internal identifier"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "List items publically visible",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/public/items",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              },
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "query",
+                "description": "Search on the item's barcode"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List items publically visible"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

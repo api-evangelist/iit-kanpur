@@ -1,0 +1,167 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa erm_eholdings_resources API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "erm_eholdings_resources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List eholdings resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/eholdings/:provider/resources",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path",
+                "description": "Provider name"
+              },
+              {
+                "name": "resource_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on resource_id"
+              },
+              {
+                "name": "package_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on package_id"
+              },
+              {
+                "name": "vendor_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title vendor_id"
+              },
+              {
+                "name": "started_on",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on started_on"
+              },
+              {
+                "name": "ended_on",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on ended_on"
+              },
+              {
+                "name": "proxy",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on proxy"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List eholdings resources"
+        },
+        {
+          "info": {
+            "name": "Get resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/eholdings/:provider/resources/:resource_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path",
+                "description": "Provider name"
+              },
+              {
+                "name": "resource_id",
+                "value": "",
+                "type": "path",
+                "description": "Resource internal identifier"
+              }
+            ]
+          },
+          "docs": "Get resources"
+        },
+        {
+          "info": {
+            "name": "Edit a resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/eholdings/:provider/resources/:resource_id",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path",
+                "description": "Provider name"
+              },
+              {
+                "name": "resource_id",
+                "value": "",
+                "type": "path",
+                "description": "Resource internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit a resource"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

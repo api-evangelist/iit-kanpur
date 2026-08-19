@@ -1,0 +1,252 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa tickets API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "tickets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add ticket",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/public/tickets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add ticket"
+        },
+        {
+          "info": {
+            "name": "List tickets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/tickets",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              },
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List tickets"
+        },
+        {
+          "info": {
+            "name": "Add ticket",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/tickets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add ticket"
+        },
+        {
+          "info": {
+            "name": "Get ticket",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/tickets/:ticket_id",
+            "params": [
+              {
+                "name": "ticket_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal ticket identifier"
+              }
+            ]
+          },
+          "docs": "Get ticket"
+        },
+        {
+          "info": {
+            "name": "Update ticket",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/tickets/:ticket_id",
+            "params": [
+              {
+                "name": "ticket_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal ticket identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update ticket"
+        },
+        {
+          "info": {
+            "name": "Delete ticket",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/tickets/:ticket_id",
+            "params": [
+              {
+                "name": "ticket_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal ticket identifier"
+              }
+            ]
+          },
+          "docs": "Delete ticket"
+        },
+        {
+          "info": {
+            "name": "List ticket updates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/tickets/:ticket_id/updates",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              },
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "ticket_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal ticket identifier"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List ticket updates"
+        },
+        {
+          "info": {
+            "name": "Add an update to the ticket",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/tickets/:ticket_id/updates",
+            "params": [
+              {
+                "name": "ticket_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal ticket identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add an update to the ticket"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

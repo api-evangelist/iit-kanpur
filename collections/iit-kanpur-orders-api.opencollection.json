@@ -1,0 +1,187 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa orders API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/acquisitions/orders",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              },
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "query",
+                "description": "Identifier for a linked bibliographic record"
+              },
+              {
+                "name": "basket_id",
+                "value": "",
+                "type": "query",
+                "description": "Identifier for a linked acquisition basket"
+              },
+              {
+                "name": "fund_id",
+                "value": "",
+                "type": "query",
+                "description": "Identifier for the fund the order goes against"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Current status for the order. Can be 'new', 'ordered', 'partial', 'complete' or 'cancelled'"
+              },
+              {
+                "name": "only_active",
+                "value": "",
+                "type": "query",
+                "description": "If only active orders should be listed"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List orders"
+        },
+        {
+          "info": {
+            "name": "Add order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/acquisitions/orders",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add order"
+        },
+        {
+          "info": {
+            "name": "Get order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/acquisitions/orders/:order_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal order identifier"
+              }
+            ]
+          },
+          "docs": "Get order"
+        },
+        {
+          "info": {
+            "name": "Update order",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/acquisitions/orders/:order_id",
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal order identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update order"
+        },
+        {
+          "info": {
+            "name": "Delete order",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/acquisitions/orders/:order_id",
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal order identifier"
+              }
+            ]
+          },
+          "docs": "Delete order"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

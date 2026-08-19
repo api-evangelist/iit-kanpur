@@ -1,0 +1,610 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa preservation API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "preservation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get the Preservation config",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/preservation/config"
+          },
+          "docs": "This resource returns a list of options needed for the Preservation Vue app. EXPERIMENTAL - DO NOT RELY on this, it is subject to change!"
+        },
+        {
+          "info": {
+            "name": "List processings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/preservation/processings",
+            "params": [
+              {
+                "name": "processing_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on processing id"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on processing name"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List processings"
+        },
+        {
+          "info": {
+            "name": "Add processing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/preservation/processings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add processing"
+        },
+        {
+          "info": {
+            "name": "Get processing",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/preservation/processings/:processing_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "processing_id",
+                "value": "",
+                "type": "path",
+                "description": "processing internal identifier"
+              }
+            ]
+          },
+          "docs": "Get processing"
+        },
+        {
+          "info": {
+            "name": "Update processing",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/preservation/processings/:processing_id",
+            "params": [
+              {
+                "name": "processing_id",
+                "value": "",
+                "type": "path",
+                "description": "processing internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update processing"
+        },
+        {
+          "info": {
+            "name": "Delete processing",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/preservation/processings/:processing_id",
+            "params": [
+              {
+                "name": "processing_id",
+                "value": "",
+                "type": "path",
+                "description": "processing internal identifier"
+              }
+            ]
+          },
+          "docs": "Delete processing"
+        },
+        {
+          "info": {
+            "name": "List trains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/preservation/trains",
+            "params": [
+              {
+                "name": "train_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on train id"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on train name"
+              },
+              {
+                "name": "description",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on train description"
+              },
+              {
+                "name": "not_for_loan",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on not for loan value"
+              },
+              {
+                "name": "created_on",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on train creation date"
+              },
+              {
+                "name": "closed_on",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on train closing date"
+              },
+              {
+                "name": "sent_on",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on train sent date"
+              },
+              {
+                "name": "received_on",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on train receiving date"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List trains"
+        },
+        {
+          "info": {
+            "name": "Add train",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/preservation/trains",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add train"
+        },
+        {
+          "info": {
+            "name": "Get train",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/preservation/trains/:train_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "train_id",
+                "value": "",
+                "type": "path",
+                "description": "train internal identifier"
+              }
+            ]
+          },
+          "docs": "Get train"
+        },
+        {
+          "info": {
+            "name": "Update train",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/preservation/trains/:train_id",
+            "params": [
+              {
+                "name": "train_id",
+                "value": "",
+                "type": "path",
+                "description": "train internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update train"
+        },
+        {
+          "info": {
+            "name": "Delete train",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/preservation/trains/:train_id",
+            "params": [
+              {
+                "name": "train_id",
+                "value": "",
+                "type": "path",
+                "description": "train internal identifier"
+              }
+            ]
+          },
+          "docs": "Delete train"
+        },
+        {
+          "info": {
+            "name": "Add item to train",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/preservation/trains/:train_id/items",
+            "params": [
+              {
+                "name": "train_id",
+                "value": "",
+                "type": "path",
+                "description": "train internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add item to train"
+        },
+        {
+          "info": {
+            "name": "Add items to train",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/preservation/trains/:train_id/items/batch",
+            "params": [
+              {
+                "name": "train_id",
+                "value": "",
+                "type": "path",
+                "description": "train internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add items to train"
+        },
+        {
+          "info": {
+            "name": "Get item from train",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/preservation/trains/:train_id/items/:train_item_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "train_id",
+                "value": "",
+                "type": "path",
+                "description": "train internal identifier"
+              },
+              {
+                "name": "train_item_id",
+                "value": "",
+                "type": "path",
+                "description": "train item internal identifier"
+              }
+            ]
+          },
+          "docs": "Get item from train"
+        },
+        {
+          "info": {
+            "name": "Update item from train",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/preservation/trains/:train_id/items/:train_item_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "train_id",
+                "value": "",
+                "type": "path",
+                "description": "train internal identifier"
+              },
+              {
+                "name": "train_item_id",
+                "value": "",
+                "type": "path",
+                "description": "train item internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update item from train"
+        },
+        {
+          "info": {
+            "name": "Remove item from train",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/preservation/trains/:train_id/items/:train_item_id",
+            "params": [
+              {
+                "name": "train_id",
+                "value": "",
+                "type": "path",
+                "description": "train internal identifier"
+              },
+              {
+                "name": "train_item_id",
+                "value": "",
+                "type": "path",
+                "description": "train item internal identifier"
+              }
+            ]
+          },
+          "docs": "Remove item from train"
+        },
+        {
+          "info": {
+            "name": "Copy an item to an other train",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/preservation/trains/:train_id/items/:train_item_id/copy",
+            "params": [
+              {
+                "name": "train_id",
+                "value": "",
+                "type": "path",
+                "description": "train internal identifier"
+              },
+              {
+                "name": "train_item_id",
+                "value": "",
+                "type": "path",
+                "description": "train item internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Copy an item to an other train"
+        },
+        {
+          "info": {
+            "name": "List items from waiting list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/preservation/waiting-list/items",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              },
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "query",
+                "description": "Search on the item's barcode"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List items from waiting list"
+        },
+        {
+          "info": {
+            "name": "Add items to waiting list",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/preservation/waiting-list/items",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add items to waiting list"
+        },
+        {
+          "info": {
+            "name": "Remove item from waiting list",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/preservation/waiting-list/items/:item_id",
+            "params": [
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal item identifier"
+              }
+            ]
+          },
+          "docs": "Remove item from waiting list"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

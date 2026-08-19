@@ -1,0 +1,219 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa erm_agreements API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "erm_agreements",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List agreements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/agreements",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "agreement_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on agreement agreement_id"
+              },
+              {
+                "name": "vendor_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on agreement vendor_id"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on agreement name"
+              },
+              {
+                "name": "description",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on agreement description"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on agreement status"
+              },
+              {
+                "name": "closure_reason",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on agreement closure_reason"
+              },
+              {
+                "name": "is_perpetual",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on agreement is_perpetual"
+              },
+              {
+                "name": "renewal_priority",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on agreement renewal_priority"
+              },
+              {
+                "name": "license_info",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on agreement license_info"
+              },
+              {
+                "name": "max_expiration_date",
+                "value": "",
+                "type": "query",
+                "description": "filter by expired agreements"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List agreements"
+        },
+        {
+          "info": {
+            "name": "Add agreement",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/agreements",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add agreement"
+        },
+        {
+          "info": {
+            "name": "Get agreement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/agreements/:agreement_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "agreement_id",
+                "value": "",
+                "type": "path",
+                "description": "Agreement internal identifier"
+              }
+            ]
+          },
+          "docs": "Get agreement"
+        },
+        {
+          "info": {
+            "name": "Update agreement",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/agreements/:agreement_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "agreement_id",
+                "value": "",
+                "type": "path",
+                "description": "Agreement internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update agreement"
+        },
+        {
+          "info": {
+            "name": "Delete agreement",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/agreements/:agreement_id",
+            "params": [
+              {
+                "name": "agreement_id",
+                "value": "",
+                "type": "path",
+                "description": "Agreement internal identifier"
+              }
+            ]
+          },
+          "docs": "Delete agreement"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

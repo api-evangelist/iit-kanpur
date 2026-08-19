@@ -1,0 +1,1181 @@
+{
+  "item": [
+    {
+      "id": "bb9e7243-5844-4afd-8150-786f6f9f601e",
+      "name": "jobs",
+      "description": {
+        "content": "Manage jobs\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d5be793b-e28d-493e-8e59-4883e4635321",
+          "name": "List jobs",
+          "request": {
+            "name": "List jobs",
+            "description": {},
+            "url": {
+              "path": [
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "only_current",
+                  "value": "<boolean>",
+                  "description": "Only include current jobs"
+                },
+                {
+                  "disabled": false,
+                  "key": "_match",
+                  "value": "<string>",
+                  "description": "Matching criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_page",
+                  "value": "<integer>",
+                  "description": "Page number, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "_per_page",
+                  "value": "<integer>",
+                  "description": "Page size, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Request id header",
+                "key": "x-koha-request-id",
+                "value": "<integer>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "70933362-d7a4-4c4c-a32b-7b8247e110a2",
+              "name": "A list of jobs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "only_current",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"context\": {},\n    \"data\": {},\n    \"ended_date\": \"1966-02-14T10:07:25.839Z\",\n    \"enqueued_date\": \"1989-11-15T17:00:47.627Z\",\n    \"job_id\": 5108,\n    \"patron_id\": null,\n    \"progress\": \"string\",\n    \"queue\": \"string\",\n    \"size\": \"string\",\n    \"started_date\": null,\n    \"status\": \"string\",\n    \"type\": \"string\"\n  },\n  {\n    \"context\": {},\n    \"data\": {},\n    \"ended_date\": \"1996-11-07T08:09:57.631Z\",\n    \"enqueued_date\": \"1983-06-19T13:46:38.392Z\",\n    \"job_id\": 3321,\n    \"patron_id\": null,\n    \"progress\": \"string\",\n    \"queue\": \"string\",\n    \"size\": null,\n    \"started_date\": \"1988-09-03T22:41:06.705Z\",\n    \"status\": \"string\",\n    \"type\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d65b1a8-22d0-40db-9eca-6507be069252",
+              "name": "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "only_current",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": \"string\",\n  \"key_1\": false,\n  \"key_2\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "11848268-eb4b-46ae-b6a2-eb2952611f9a",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "only_current",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "14863f70-a513-4d10-ada4-85454a00dbed",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "only_current",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": \"string\",\n  \"key_1\": false,\n  \"key_2\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96b4a3b3-e9da-44ee-8a43-9033178c94ea",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "only_current",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa53546b-df1a-465c-821a-30160b7e3574",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "only_current",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": \"string\",\n  \"key_1\": false,\n  \"key_2\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "153aaf9c-a7cb-41aa-8ff6-a2f5526c24df",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "only_current",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a01e6b97-c6cb-49a0-a55b-b4ddeabbd7fd",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "only_current",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": \"string\",\n  \"key_1\": false,\n  \"key_2\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "506a2563-a174-41af-b908-8dfc0d02d0d4",
+          "name": "Get a job",
+          "request": {
+            "name": "Get a job",
+            "description": {},
+            "url": {
+              "path": [
+                "jobs",
+                ":job_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "job_id",
+                  "description": "(Required) Job internal identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ca37d463-94b2-4ece-8f2d-c338dfaf4eb6",
+              "name": "A job",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":job_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "job_id",
+                      "description": "(Required) Job internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"context\": {},\n  \"data\": {},\n  \"ended_date\": \"1955-10-22T12:37:19.558Z\",\n  \"enqueued_date\": \"1958-10-12T13:29:48.154Z\",\n  \"job_id\": 4256,\n  \"patron_id\": \"string\",\n  \"progress\": null,\n  \"queue\": \"string\",\n  \"size\": \"string\",\n  \"started_date\": null,\n  \"status\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea440370-e424-4fea-b3af-9d28ddea477d",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":job_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "job_id",
+                      "description": "(Required) Job internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": \"string\",\n  \"key_1\": false,\n  \"key_2\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "efcd4934-0f60-4b41-b54e-d11e5954f89c",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":job_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "job_id",
+                      "description": "(Required) Job internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d891cd4-4f0f-4ca3-8379-c75544d32559",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":job_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "job_id",
+                      "description": "(Required) Job internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": \"string\",\n  \"key_1\": false,\n  \"key_2\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "527cae98-7bbc-4261-a0b4-91d06dca3f58",
+              "name": "Job not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":job_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "job_id",
+                      "description": "(Required) Job internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": \"string\",\n  \"key_1\": false,\n  \"key_2\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a6fefe8f-bbae-41de-801c-ef7387b8c72b",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":job_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "job_id",
+                      "description": "(Required) Job internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": \"string\",\n  \"key_1\": false,\n  \"key_2\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "24bf10d0-e2fc-4f09-815c-d6f8d782d5f5",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":job_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "job_id",
+                      "description": "(Required) Job internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "50cbd84b-4dd1-49c5-a47f-71c7ecdeb15c",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":job_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "job_id",
+                      "description": "(Required) Job internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": \"string\",\n  \"key_1\": false,\n  \"key_2\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://libserv.iitk.ac.in/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0181b4d1-eb42-419a-b974-0dc702f79ae1",
+    "name": "Koha REST 2fa jobs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Background\n\nThe API supports two sets of endpoints, one targetted at library staff and the other at at library users.\n\nThose endpoints under the `/public` path are aimed at delivering functionality tailored to library users and offer\na more restricted set of functions, overrides and data in thier responses for data privacy and library policy\nreasons. Many of these endpoints do not require authentication for fetching public data, though an authenticated\nsession will expose additional options and allow users to see more data where it is part of their own record.\n\nAll other endpoints are targetted at the staff interface level and allow for additional functionality and a more\nunrestricted view of data.  These endpoints, however, have a level of redaction built in for resources that the\napi consumer should not have access to.  For example, user data for users who do not belong to the same library\nor library group of your api user will be reduced to just minimum neccesary for a valid response. Object keys will\nbe consistent for all responses, but their values may be removed depending on access.\n\n## Authentication\n\nThe API supports the following authentication mechanisms\n\n* HTTP Basic authentication\n* OAuth2 (client credentials grant)\n* Cookie-based\n\nBoth _Basic authentication_ and the _OAuth2_ flow, need to be enabled\nby system preferences.\n\n## Authorization\n\nThe API uses existing user profiles to restrict access to resources based on user permissions and the library the\nAPI user is assigned to.  This may result, at times, in resources being returned in a redacted form with all keys\npresent but sensative values nulled.\n\nWe do not yet support OAuth Scopes or the Authorization Code grant flow.\n\n## Errors\n\nThe API uses standard HTTP status codes to indicate the success or failure\nof the API call. The body of the response will be JSON in the following format:\n\n```\n{\n  \"error\": \"Current settings prevent the passed due date to be applied\",\n  \"error_code\": \"invalid_due_date\"\n}\n```\n\nNote: Some routes might offer additional attributes in their error responses but that\"s\nsubject to change and thus not documented.\n\n## Filtering responses\n\nThe API allows for some advanced response filtering using a JSON based query syntax. The\nquery can be added to the requests:\n\n* as a query parameter `q=`\n* in the request body\n\nFor simple field equality matches we can use `{ \"fieldname\": \"value\" }` where the fieldname\nmatches one of the fields as described in the particular endpoints response object.\n\nWe can refine that with more complex matching clauses by nesting a the clause into the\nobject; `{ \"fieldname\": { \"clause\": \"value\" } }`.\n\nAvailable matching clauses include `=`, `!=`, `<`, `>`, `<=`, `>=` and `-not`. We also support `-like`\nand `-not_like` string comparisons with `%` used to denote wildcards, thus you can pass\n`{ \"fieldname\": { \"-like\": \"value%\" } }` to do a 'starts with' string match for example.\n\nWe can filter on multiple fields by adding them to the JSON respresentation. Adding at `HASH`\nlevel will result in an \"AND\" query, whilst combinding them in an `ARRAY` will result in an\n\"OR\" query: `{ \"field1\": \"value2\", \"field2\": \"value2\" }` will filter the response to only those\nresults with both field1 containing value2 AND field2 containing value2 for example.\n\nThere is a collection of special operators also available to you, including:\n\n* `-in` - Expects an array of values to perform an OR match against\n* `-not_in` - Expects an array of values to perform a NOR match against\n* `-between` - Expects two values which the value of the field is expected to fall between\n* `-not_between` - Expects two values which the value of the field is expected to fall outside of\n* `-ident` - Expects a second field name to match the two field values against\n* `-regexp` - Expects a perl compatible regular expression for which the value should match\n\nLogic and nesting is also supported and you may use `-and` and `-or` to change the logic of an ARRAY\nor HASH as described above.\n\nAdditionally, if you are requesting related data be embedded into the response one can query\non the related data using dot notation in the field names.\n\n### Examples\n\nThe following request would return any patron with firstname \"Henry\" and lastname \"Acevedo\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": \"Acevedo\", \"firstname\": \"Henry\" }'`\n\nThe following request would return any patron whose lastname begins with \"Ace\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": { \"-like\": \"Ace%\" }'`\n\nThe following request would return any patron whose lastname is \"Acevedo\" OR \"Bernardo\"\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": [ \"Acevedo\", \"Bernardo\" ] }'`\n\nThe following request embeds the related patron extended attributes data and filters on it.\n\n`curl -u koha:koha =--request GET 'http://127.0.0.1:8081/api/v1/patrons/' --header 'x-koha-embed: extended_attributes' --data-raw '{ \"extended_attributes.code\": \"internet\", \"extended_attributes.attribute\": \"1\" }'`\n\n## Special headers\n\n### x-koha-embed\n\nThis optional header allows the api consumer to request additional related data\nto be returned in the api response.  It also allows for cross referencing in the\nqueries as described above. It accepts a comma delimited list of relation names.\n\nRelations may on occasion also support dot delimited nesting to allow traversal.\n\n### x-koha-library\n\nThis optional header should be passed to give your api request a library\ncontext; If it is not included in the request, then the request context\nwill default to using your api comsumer\"s assigned home library.\n\n\nContact Support:\n Name: Koha Development Team",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,3194 @@
+{
+  "item": [
+    {
+      "id": "49552c73-9bf7-4d36-8c85-07fea53bea50",
+      "name": "suggestions",
+      "description": {
+        "content": "Manage purchase suggestions\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "841099ff-782c-4ebf-9953-40c087d03501",
+          "name": "List purchase suggestions",
+          "request": {
+            "name": "List purchase suggestions",
+            "description": {
+              "content": "This resource returns a list of purchase suggestions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "suggestions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_match",
+                  "value": "<string>",
+                  "description": "Matching criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_page",
+                  "value": "<integer>",
+                  "description": "Page number, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "_per_page",
+                  "value": "<integer>",
+                  "description": "Page size, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Request id header",
+                "key": "x-koha-request-id",
+                "value": "<integer>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3d0b8e81-1a17-4d42-af64-245f9d787a0d",
+              "name": "A list of suggestions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"accepted_by\": null,\n    \"accepted_date\": null,\n    \"archived\": true,\n    \"author\": null,\n    \"biblio_id\": 3620,\n    \"budget_id\": 4537,\n    \"collection_title\": null,\n    \"copyright_date\": 9833,\n    \"currency\": \"string\",\n    \"isbn\": null,\n    \"item_price\": 2727.563792021559,\n    \"item_type\": null,\n    \"last_status_change_by\": null,\n    \"last_status_change_date\": \"1951-08-03\",\n    \"library_id\": \"string\",\n    \"managed_by\": null,\n    \"managed_date\": \"2004-06-28\",\n    \"note\": \"string\",\n    \"patron_reason\": \"string\",\n    \"publication_place\": \"string\",\n    \"publication_year\": \"string\",\n    \"publisher_code\": \"string\",\n    \"quantity\": null,\n    \"reason\": null,\n    \"rejected_by\": null,\n    \"rejected_date\": null,\n    \"staff_note\": null,\n    \"status\": \"string\",\n    \"suggested_by\": null,\n    \"suggestion_date\": \"1978-06-04\",\n    \"suggestion_id\": 7793,\n    \"timestamp\": \"1986-04-03T13:23:28.877Z\",\n    \"title\": \"string\",\n    \"total_price\": \"string\",\n    \"volume_desc\": \"string\"\n  },\n  {\n    \"accepted_by\": null,\n    \"accepted_date\": \"2022-01-13\",\n    \"archived\": null,\n    \"author\": \"string\",\n    \"biblio_id\": 4205,\n    \"budget_id\": null,\n    \"collection_title\": null,\n    \"copyright_date\": 9181,\n    \"currency\": null,\n    \"isbn\": null,\n    \"item_price\": null,\n    \"item_type\": null,\n    \"last_status_change_by\": 3773,\n    \"last_status_change_date\": null,\n    \"library_id\": \"string\",\n    \"managed_by\": 9059,\n    \"managed_date\": null,\n    \"note\": \"string\",\n    \"patron_reason\": null,\n    \"publication_place\": \"string\",\n    \"publication_year\": \"string\",\n    \"publisher_code\": null,\n    \"quantity\": \"string\",\n    \"reason\": null,\n    \"rejected_by\": 1930,\n    \"rejected_date\": \"1973-12-14\",\n    \"staff_note\": \"string\",\n    \"status\": \"string\",\n    \"suggested_by\": 1639,\n    \"suggestion_date\": \"1995-07-30\",\n    \"suggestion_id\": 1362,\n    \"timestamp\": \"1947-09-20T18:38:15.375Z\",\n    \"title\": null,\n    \"total_price\": \"string\",\n    \"volume_desc\": null\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f576d41b-8d48-4257-8465-4e0cab5a799e",
+              "name": "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91286f10-34fc-4258-92f7-ff97047142c5",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0fa8fc77-21d0-4a4b-a69b-48b4b2731431",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97fd858f-eb99-4dac-a611-660d919c78e4",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a909c60-8ac3-4baf-b4b2-eed7e8f21996",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23ee616b-350f-4d5f-8d5f-3f25606bae6d",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3e5c7859-afb8-4d76-a296-5889f5623d9e",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6ef0ca9-851f-4247-afd0-a232b739c0dc",
+          "name": "Add a purchase suggestion",
+          "request": {
+            "name": "Add a purchase suggestion",
+            "description": {
+              "content": "This resource accepts a new purchase suggestion and creates it",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "suggestions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Overrides list sent as a request header",
+                "key": "x-koha-override",
+                "value": "<string>,<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accepted_by\": \"<integer,null>\",\n  \"accepted_date\": \"<string,null-date>\",\n  \"archived\": \"<boolean,null>\",\n  \"author\": \"<string,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"budget_id\": \"<integer,null>\",\n  \"collection_title\": \"<string,null>\",\n  \"copyright_date\": \"<integer,null>\",\n  \"currency\": \"<string,null>\",\n  \"isbn\": \"<string,null>\",\n  \"item_price\": \"<number,null>\",\n  \"item_type\": \"<string,null>\",\n  \"last_status_change_by\": \"<integer,null>\",\n  \"last_status_change_date\": \"<string,null-date>\",\n  \"library_id\": \"<string,null>\",\n  \"managed_by\": \"<integer,null>\",\n  \"managed_date\": \"<string,null-date>\",\n  \"note\": \"<string,null>\",\n  \"patron_reason\": \"<string,null>\",\n  \"publication_place\": \"<string,null>\",\n  \"publication_year\": \"<string,null>\",\n  \"publisher_code\": \"<string,null>\",\n  \"quantity\": \"<string,null>\",\n  \"reason\": \"<string,null>\",\n  \"rejected_by\": \"<integer,null>\",\n  \"rejected_date\": \"<string,null-date>\",\n  \"staff_note\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"suggested_by\": \"<integer,null>\",\n  \"suggestion_date\": \"<date>\",\n  \"timestamp\": \"<string,null-date-time>\",\n  \"title\": \"<string,null>\",\n  \"total_price\": \"<string,null>\",\n  \"volume_desc\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c91d0390-585b-4f0e-a178-63efc30680b2",
+              "name": "Suggestion added",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Overrides list sent as a request header",
+                    "key": "x-koha-override",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accepted_by\": \"<integer,null>\",\n  \"accepted_date\": \"<string,null-date>\",\n  \"archived\": \"<boolean,null>\",\n  \"author\": \"<string,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"budget_id\": \"<integer,null>\",\n  \"collection_title\": \"<string,null>\",\n  \"copyright_date\": \"<integer,null>\",\n  \"currency\": \"<string,null>\",\n  \"isbn\": \"<string,null>\",\n  \"item_price\": \"<number,null>\",\n  \"item_type\": \"<string,null>\",\n  \"last_status_change_by\": \"<integer,null>\",\n  \"last_status_change_date\": \"<string,null-date>\",\n  \"library_id\": \"<string,null>\",\n  \"managed_by\": \"<integer,null>\",\n  \"managed_date\": \"<string,null-date>\",\n  \"note\": \"<string,null>\",\n  \"patron_reason\": \"<string,null>\",\n  \"publication_place\": \"<string,null>\",\n  \"publication_year\": \"<string,null>\",\n  \"publisher_code\": \"<string,null>\",\n  \"quantity\": \"<string,null>\",\n  \"reason\": \"<string,null>\",\n  \"rejected_by\": \"<integer,null>\",\n  \"rejected_date\": \"<string,null-date>\",\n  \"staff_note\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"suggested_by\": \"<integer,null>\",\n  \"suggestion_date\": \"<date>\",\n  \"timestamp\": \"<string,null-date-time>\",\n  \"title\": \"<string,null>\",\n  \"total_price\": \"<string,null>\",\n  \"volume_desc\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accepted_by\": \"<integer,null>\",\n  \"accepted_date\": \"<string,null-date>\",\n  \"archived\": \"<boolean,null>\",\n  \"author\": \"<string,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"budget_id\": \"<integer,null>\",\n  \"collection_title\": \"<string,null>\",\n  \"copyright_date\": \"<integer,null>\",\n  \"currency\": \"<string,null>\",\n  \"isbn\": \"<string,null>\",\n  \"item_price\": \"<number,null>\",\n  \"item_type\": \"<string,null>\",\n  \"last_status_change_by\": \"<integer,null>\",\n  \"last_status_change_date\": \"<string,null-date>\",\n  \"library_id\": \"<string,null>\",\n  \"managed_by\": \"<integer,null>\",\n  \"managed_date\": \"<string,null-date>\",\n  \"note\": \"<string,null>\",\n  \"patron_reason\": \"<string,null>\",\n  \"publication_place\": \"<string,null>\",\n  \"publication_year\": \"<string,null>\",\n  \"publisher_code\": \"<string,null>\",\n  \"quantity\": \"<string,null>\",\n  \"reason\": \"<string,null>\",\n  \"rejected_by\": \"<integer,null>\",\n  \"rejected_date\": \"<string,null-date>\",\n  \"staff_note\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"suggested_by\": \"<integer,null>\",\n  \"suggestion_date\": \"<date>\",\n  \"suggestion_id\": 9127,\n  \"timestamp\": \"<string,null-date-time>\",\n  \"title\": \"<string,null>\",\n  \"total_price\": \"<string,null>\",\n  \"volume_desc\": \"<string,null>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e17b96ed-e309-42b4-903e-de84b36166f1",
+              "name": "Bad request. Possible `error_code` attribute values:\n\n* `max_total_reached`\n* `max_pending_reached`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Overrides list sent as a request header",
+                    "key": "x-koha-override",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accepted_by\": \"<integer,null>\",\n  \"accepted_date\": \"<string,null-date>\",\n  \"archived\": \"<boolean,null>\",\n  \"author\": \"<string,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"budget_id\": \"<integer,null>\",\n  \"collection_title\": \"<string,null>\",\n  \"copyright_date\": \"<integer,null>\",\n  \"currency\": \"<string,null>\",\n  \"isbn\": \"<string,null>\",\n  \"item_price\": \"<number,null>\",\n  \"item_type\": \"<string,null>\",\n  \"last_status_change_by\": \"<integer,null>\",\n  \"last_status_change_date\": \"<string,null-date>\",\n  \"library_id\": \"<string,null>\",\n  \"managed_by\": \"<integer,null>\",\n  \"managed_date\": \"<string,null-date>\",\n  \"note\": \"<string,null>\",\n  \"patron_reason\": \"<string,null>\",\n  \"publication_place\": \"<string,null>\",\n  \"publication_year\": \"<string,null>\",\n  \"publisher_code\": \"<string,null>\",\n  \"quantity\": \"<string,null>\",\n  \"reason\": \"<string,null>\",\n  \"rejected_by\": \"<integer,null>\",\n  \"rejected_date\": \"<string,null-date>\",\n  \"staff_note\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"suggested_by\": \"<integer,null>\",\n  \"suggestion_date\": \"<date>\",\n  \"timestamp\": \"<string,null-date-time>\",\n  \"title\": \"<string,null>\",\n  \"total_price\": \"<string,null>\",\n  \"volume_desc\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "395d07f5-b5ce-4548-ae34-2c930124340c",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Overrides list sent as a request header",
+                    "key": "x-koha-override",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accepted_by\": \"<integer,null>\",\n  \"accepted_date\": \"<string,null-date>\",\n  \"archived\": \"<boolean,null>\",\n  \"author\": \"<string,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"budget_id\": \"<integer,null>\",\n  \"collection_title\": \"<string,null>\",\n  \"copyright_date\": \"<integer,null>\",\n  \"currency\": \"<string,null>\",\n  \"isbn\": \"<string,null>\",\n  \"item_price\": \"<number,null>\",\n  \"item_type\": \"<string,null>\",\n  \"last_status_change_by\": \"<integer,null>\",\n  \"last_status_change_date\": \"<string,null-date>\",\n  \"library_id\": \"<string,null>\",\n  \"managed_by\": \"<integer,null>\",\n  \"managed_date\": \"<string,null-date>\",\n  \"note\": \"<string,null>\",\n  \"patron_reason\": \"<string,null>\",\n  \"publication_place\": \"<string,null>\",\n  \"publication_year\": \"<string,null>\",\n  \"publisher_code\": \"<string,null>\",\n  \"quantity\": \"<string,null>\",\n  \"reason\": \"<string,null>\",\n  \"rejected_by\": \"<integer,null>\",\n  \"rejected_date\": \"<string,null-date>\",\n  \"staff_note\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"suggested_by\": \"<integer,null>\",\n  \"suggestion_date\": \"<date>\",\n  \"timestamp\": \"<string,null-date-time>\",\n  \"title\": \"<string,null>\",\n  \"total_price\": \"<string,null>\",\n  \"volume_desc\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce06c371-c481-4e8c-9413-473daa50065c",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Overrides list sent as a request header",
+                    "key": "x-koha-override",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accepted_by\": \"<integer,null>\",\n  \"accepted_date\": \"<string,null-date>\",\n  \"archived\": \"<boolean,null>\",\n  \"author\": \"<string,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"budget_id\": \"<integer,null>\",\n  \"collection_title\": \"<string,null>\",\n  \"copyright_date\": \"<integer,null>\",\n  \"currency\": \"<string,null>\",\n  \"isbn\": \"<string,null>\",\n  \"item_price\": \"<number,null>\",\n  \"item_type\": \"<string,null>\",\n  \"last_status_change_by\": \"<integer,null>\",\n  \"last_status_change_date\": \"<string,null-date>\",\n  \"library_id\": \"<string,null>\",\n  \"managed_by\": \"<integer,null>\",\n  \"managed_date\": \"<string,null-date>\",\n  \"note\": \"<string,null>\",\n  \"patron_reason\": \"<string,null>\",\n  \"publication_place\": \"<string,null>\",\n  \"publication_year\": \"<string,null>\",\n  \"publisher_code\": \"<string,null>\",\n  \"quantity\": \"<string,null>\",\n  \"reason\": \"<string,null>\",\n  \"rejected_by\": \"<integer,null>\",\n  \"rejected_date\": \"<string,null-date>\",\n  \"staff_note\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"suggested_by\": \"<integer,null>\",\n  \"suggestion_date\": \"<date>\",\n  \"timestamp\": \"<string,null-date-time>\",\n  \"title\": \"<string,null>\",\n  \"total_price\": \"<string,null>\",\n  \"volume_desc\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "999f8307-872f-40cc-b8ff-bf1fccf5ccff",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Overrides list sent as a request header",
+                    "key": "x-koha-override",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accepted_by\": \"<integer,null>\",\n  \"accepted_date\": \"<string,null-date>\",\n  \"archived\": \"<boolean,null>\",\n  \"author\": \"<string,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"budget_id\": \"<integer,null>\",\n  \"collection_title\": \"<string,null>\",\n  \"copyright_date\": \"<integer,null>\",\n  \"currency\": \"<string,null>\",\n  \"isbn\": \"<string,null>\",\n  \"item_price\": \"<number,null>\",\n  \"item_type\": \"<string,null>\",\n  \"last_status_change_by\": \"<integer,null>\",\n  \"last_status_change_date\": \"<string,null-date>\",\n  \"library_id\": \"<string,null>\",\n  \"managed_by\": \"<integer,null>\",\n  \"managed_date\": \"<string,null-date>\",\n  \"note\": \"<string,null>\",\n  \"patron_reason\": \"<string,null>\",\n  \"publication_place\": \"<string,null>\",\n  \"publication_year\": \"<string,null>\",\n  \"publisher_code\": \"<string,null>\",\n  \"quantity\": \"<string,null>\",\n  \"reason\": \"<string,null>\",\n  \"rejected_by\": \"<integer,null>\",\n  \"rejected_date\": \"<string,null-date>\",\n  \"staff_note\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"suggested_by\": \"<integer,null>\",\n  \"suggestion_date\": \"<date>\",\n  \"timestamp\": \"<string,null-date-time>\",\n  \"title\": \"<string,null>\",\n  \"total_price\": \"<string,null>\",\n  \"volume_desc\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75d01544-2620-493f-8282-0ee9e4b271b9",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Overrides list sent as a request header",
+                    "key": "x-koha-override",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accepted_by\": \"<integer,null>\",\n  \"accepted_date\": \"<string,null-date>\",\n  \"archived\": \"<boolean,null>\",\n  \"author\": \"<string,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"budget_id\": \"<integer,null>\",\n  \"collection_title\": \"<string,null>\",\n  \"copyright_date\": \"<integer,null>\",\n  \"currency\": \"<string,null>\",\n  \"isbn\": \"<string,null>\",\n  \"item_price\": \"<number,null>\",\n  \"item_type\": \"<string,null>\",\n  \"last_status_change_by\": \"<integer,null>\",\n  \"last_status_change_date\": \"<string,null-date>\",\n  \"library_id\": \"<string,null>\",\n  \"managed_by\": \"<integer,null>\",\n  \"managed_date\": \"<string,null-date>\",\n  \"note\": \"<string,null>\",\n  \"patron_reason\": \"<string,null>\",\n  \"publication_place\": \"<string,null>\",\n  \"publication_year\": \"<string,null>\",\n  \"publisher_code\": \"<string,null>\",\n  \"quantity\": \"<string,null>\",\n  \"reason\": \"<string,null>\",\n  \"rejected_by\": \"<integer,null>\",\n  \"rejected_date\": \"<string,null-date>\",\n  \"staff_note\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"suggested_by\": \"<integer,null>\",\n  \"suggestion_date\": \"<date>\",\n  \"timestamp\": \"<string,null-date-time>\",\n  \"title\": \"<string,null>\",\n  \"total_price\": \"<string,null>\",\n  \"volume_desc\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4778bb4c-813f-4743-b8ca-fd6e8fe8eb46",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Overrides list sent as a request header",
+                    "key": "x-koha-override",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accepted_by\": \"<integer,null>\",\n  \"accepted_date\": \"<string,null-date>\",\n  \"archived\": \"<boolean,null>\",\n  \"author\": \"<string,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"budget_id\": \"<integer,null>\",\n  \"collection_title\": \"<string,null>\",\n  \"copyright_date\": \"<integer,null>\",\n  \"currency\": \"<string,null>\",\n  \"isbn\": \"<string,null>\",\n  \"item_price\": \"<number,null>\",\n  \"item_type\": \"<string,null>\",\n  \"last_status_change_by\": \"<integer,null>\",\n  \"last_status_change_date\": \"<string,null-date>\",\n  \"library_id\": \"<string,null>\",\n  \"managed_by\": \"<integer,null>\",\n  \"managed_date\": \"<string,null-date>\",\n  \"note\": \"<string,null>\",\n  \"patron_reason\": \"<string,null>\",\n  \"publication_place\": \"<string,null>\",\n  \"publication_year\": \"<string,null>\",\n  \"publisher_code\": \"<string,null>\",\n  \"quantity\": \"<string,null>\",\n  \"reason\": \"<string,null>\",\n  \"rejected_by\": \"<integer,null>\",\n  \"rejected_date\": \"<string,null-date>\",\n  \"staff_note\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"suggested_by\": \"<integer,null>\",\n  \"suggestion_date\": \"<date>\",\n  \"timestamp\": \"<string,null-date-time>\",\n  \"title\": \"<string,null>\",\n  \"total_price\": \"<string,null>\",\n  \"volume_desc\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fd3811ac-012c-4b90-a38d-091e277cae65",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Overrides list sent as a request header",
+                    "key": "x-koha-override",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accepted_by\": \"<integer,null>\",\n  \"accepted_date\": \"<string,null-date>\",\n  \"archived\": \"<boolean,null>\",\n  \"author\": \"<string,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"budget_id\": \"<integer,null>\",\n  \"collection_title\": \"<string,null>\",\n  \"copyright_date\": \"<integer,null>\",\n  \"currency\": \"<string,null>\",\n  \"isbn\": \"<string,null>\",\n  \"item_price\": \"<number,null>\",\n  \"item_type\": \"<string,null>\",\n  \"last_status_change_by\": \"<integer,null>\",\n  \"last_status_change_date\": \"<string,null-date>\",\n  \"library_id\": \"<string,null>\",\n  \"managed_by\": \"<integer,null>\",\n  \"managed_date\": \"<string,null-date>\",\n  \"note\": \"<string,null>\",\n  \"patron_reason\": \"<string,null>\",\n  \"publication_place\": \"<string,null>\",\n  \"publication_year\": \"<string,null>\",\n  \"publisher_code\": \"<string,null>\",\n  \"quantity\": \"<string,null>\",\n  \"reason\": \"<string,null>\",\n  \"rejected_by\": \"<integer,null>\",\n  \"rejected_date\": \"<string,null-date>\",\n  \"staff_note\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"suggested_by\": \"<integer,null>\",\n  \"suggestion_date\": \"<date>\",\n  \"timestamp\": \"<string,null-date-time>\",\n  \"title\": \"<string,null>\",\n  \"total_price\": \"<string,null>\",\n  \"volume_desc\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f3552fb-0464-44f4-8cf8-4a479c43f91c",
+          "name": "List possibe managers for suggestions",
+          "request": {
+            "name": "List possibe managers for suggestions",
+            "description": {
+              "content": "This resource returns a list of patron allowed to be a manager for suggestions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "suggestions",
+                "managers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_match",
+                  "value": "<string>",
+                  "description": "Matching criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_page",
+                  "value": "<integer>",
+                  "description": "Page number, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "_per_page",
+                  "value": "<integer>",
+                  "description": "Page size, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Embed list sent as a request header",
+                "key": "x-koha-embed",
+                "value": "<string>,<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ddcaee40-de41-4693-930b-4238fd1af932",
+              "name": "A list of suggestions' managers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    "managers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"surname\": null,\n    \"library_id\": \"string\",\n    \"category_id\": \"string\",\n    \"_strings\": null,\n    \"account_balance\": 1241.2183011751222,\n    \"address\": \"string\",\n    \"address2\": null,\n    \"altaddress_address\": null,\n    \"altaddress_address2\": \"string\",\n    \"altaddress_city\": null,\n    \"altaddress_country\": \"string\",\n    \"altaddress_email\": \"string\",\n    \"altaddress_notes\": \"string\",\n    \"altaddress_phone\": \"string\",\n    \"altaddress_postal_code\": null,\n    \"altaddress_state\": \"string\",\n    \"altaddress_street_number\": \"string\",\n    \"altaddress_street_type\": null,\n    \"altcontact_address\": \"string\",\n    \"altcontact_address2\": null,\n    \"altcontact_city\": null,\n    \"altcontact_country\": \"string\",\n    \"altcontact_firstname\": null,\n    \"altcontact_phone\": null,\n    \"altcontact_postal_code\": \"string\",\n    \"altcontact_state\": null,\n    \"altcontact_surname\": \"string\",\n    \"anonymized\": true,\n    \"autorenew_checkouts\": true,\n    \"cardnumber\": null,\n    \"check_previous_checkout\": \"string\",\n    \"checkouts_count\": null,\n    \"city\": null,\n    \"country\": \"string\",\n    \"date_enrolled\": \"1983-08-25\",\n    \"date_of_birth\": null,\n    \"date_renewed\": null,\n    \"email\": null,\n    \"expiry_date\": \"1965-07-10\",\n    \"extended_attributes\": [\n      {\n        \"type\": \"string\",\n        \"value\": null,\n        \"extended_attribute_id\": 4760\n      },\n      {\n        \"type\": \"string\",\n        \"value\": null,\n        \"extended_attribute_id\": 6416\n      }\n    ],\n    \"fax\": null,\n    \"firstname\": \"string\",\n    \"gender\": \"string\",\n    \"incorrect_address\": null,\n    \"initials\": \"string\",\n    \"lang\": \"string\",\n    \"last_seen\": null,\n    \"library\": null,\n    \"login_attempts\": 9598,\n    \"middle_name\": null,\n    \"mobile\": \"string\",\n    \"opac_notes\": null,\n    \"other_name\": \"string\",\n    \"overdrive_auth_token\": null,\n    \"overdues_count\": null,\n    \"patron_card_lost\": null,\n    \"patron_id\": 8348,\n    \"phone\": \"string\",\n    \"postal_code\": null,\n    \"privacy\": 12,\n    \"privacy_guarantor_checkouts\": 6526,\n    \"privacy_guarantor_fines\": true,\n    \"pronouns\": null,\n    \"protected\": false,\n    \"relationship_type\": \"string\",\n    \"restricted\": true,\n    \"secondary_email\": \"string\",\n    \"secondary_phone\": \"string\",\n    \"sms_number\": null,\n    \"sms_provider_id\": 3111,\n    \"staff_notes\": null,\n    \"state\": \"string\",\n    \"statistics_1\": null,\n    \"statistics_2\": \"string\",\n    \"street_number\": \"string\",\n    \"street_type\": null,\n    \"title\": \"string\",\n    \"updated_on\": \"1947-05-29T20:02:46.507Z\",\n    \"userid\": null\n  },\n  {\n    \"surname\": \"string\",\n    \"library_id\": \"string\",\n    \"category_id\": \"string\",\n    \"_strings\": null,\n    \"account_balance\": 5009.921737632099,\n    \"address\": \"string\",\n    \"address2\": \"string\",\n    \"altaddress_address\": \"string\",\n    \"altaddress_address2\": null,\n    \"altaddress_city\": null,\n    \"altaddress_country\": \"string\",\n    \"altaddress_email\": null,\n    \"altaddress_notes\": \"string\",\n    \"altaddress_phone\": \"string\",\n    \"altaddress_postal_code\": null,\n    \"altaddress_state\": null,\n    \"altaddress_street_number\": \"string\",\n    \"altaddress_street_type\": null,\n    \"altcontact_address\": \"string\",\n    \"altcontact_address2\": \"string\",\n    \"altcontact_city\": null,\n    \"altcontact_country\": \"string\",\n    \"altcontact_firstname\": \"string\",\n    \"altcontact_phone\": null,\n    \"altcontact_postal_code\": \"string\",\n    \"altcontact_state\": null,\n    \"altcontact_surname\": \"string\",\n    \"anonymized\": true,\n    \"autorenew_checkouts\": true,\n    \"cardnumber\": null,\n    \"check_previous_checkout\": \"string\",\n    \"checkouts_count\": 8202,\n    \"city\": \"string\",\n    \"country\": \"string\",\n    \"date_enrolled\": null,\n    \"date_of_birth\": null,\n    \"date_renewed\": \"2009-11-02\",\n    \"email\": null,\n    \"expiry_date\": null,\n    \"extended_attributes\": [\n      {\n        \"type\": \"string\",\n        \"value\": \"string\",\n        \"extended_attribute_id\": 7807\n      },\n      {\n        \"type\": \"string\",\n        \"value\": \"string\",\n        \"extended_attribute_id\": 1510\n      }\n    ],\n    \"fax\": null,\n    \"firstname\": null,\n    \"gender\": \"string\",\n    \"incorrect_address\": true,\n    \"initials\": \"string\",\n    \"lang\": \"string\",\n    \"last_seen\": \"2020-07-19T13:52:49.679Z\",\n    \"library\": {},\n    \"login_attempts\": 1698,\n    \"middle_name\": null,\n    \"mobile\": \"string\",\n    \"opac_notes\": \"string\",\n    \"other_name\": \"string\",\n    \"overdrive_auth_token\": \"string\",\n    \"overdues_count\": null,\n    \"patron_card_lost\": false,\n    \"patron_id\": 2121,\n    \"phone\": \"string\",\n    \"postal_code\": \"string\",\n    \"privacy\": 1255,\n    \"privacy_guarantor_checkouts\": 5157,\n    \"privacy_guarantor_fines\": false,\n    \"pronouns\": null,\n    \"protected\": false,\n    \"relationship_type\": \"string\",\n    \"restricted\": false,\n    \"secondary_email\": \"string\",\n    \"secondary_phone\": null,\n    \"sms_number\": null,\n    \"sms_provider_id\": 4779,\n    \"staff_notes\": null,\n    \"state\": \"string\",\n    \"statistics_1\": null,\n    \"statistics_2\": \"string\",\n    \"street_number\": \"string\",\n    \"street_type\": \"string\",\n    \"title\": \"string\",\n    \"updated_on\": \"1953-06-27T06:53:24.176Z\",\n    \"userid\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d4cfafc2-7da3-46a0-a688-5801db489dbb",
+              "name": "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    "managers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "59833d2e-801d-4b4b-badc-54aad60f2249",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    "managers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b58d4fe4-ca42-4584-bd5a-566ab62470d7",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    "managers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0f60173e-2e7d-45d9-9134-0670fb8ea097",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    "managers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3686332f-dfa3-415a-a87c-dd9505b62320",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    "managers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "94c6de3c-d583-453b-be81-6e6e7176937c",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    "managers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fece101b-6a65-469a-a7c8-0e805c7c7285",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    "managers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c474d8b1-7068-404d-a56b-384b37424fca",
+          "name": "Delete purchase suggestion",
+          "request": {
+            "name": "Delete purchase suggestion",
+            "description": {
+              "content": "This resource deletes an existing purchase suggestion",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "suggestions",
+                ":suggestion_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "suggestion_id",
+                  "description": "(Required) Internal suggestion identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f4a5d21c-1bd1-4edc-9fd5-d94b5395e85e",
+              "name": "Suggestion deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0269ca48-f376-45c5-b8ca-674da3b60fc0",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9675ec6c-cddd-409b-bac9-1d09243ce630",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ae97f55-9b7c-47b2-99e9-19a6a0336f2e",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b8a9176c-91e3-4a7d-aa3f-70fb0f45d90d",
+              "name": "Suggestion not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98288f12-3697-460c-90e0-00cda0a31d6b",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4b415aaa-0c9d-4982-b720-b0493fa8e002",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "949930fe-a3b0-4922-8b42-3e639f8bbb78",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "37212db3-f093-4cda-bbb0-545b3ca71736",
+          "name": "Get purchase suggestion",
+          "request": {
+            "name": "Get purchase suggestion",
+            "description": {
+              "content": "This resource gives access to a specific purchase suggestion",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "suggestions",
+                ":suggestion_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "suggestion_id",
+                  "description": "(Required) Internal suggestion identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b2873c51-2dfb-4c7b-bc03-8edbad3dee3d",
+              "name": "A suggestion",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accepted_by\": \"<integer,null>\",\n  \"accepted_date\": \"<string,null-date>\",\n  \"archived\": \"<boolean,null>\",\n  \"author\": \"<string,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"budget_id\": \"<integer,null>\",\n  \"collection_title\": \"<string,null>\",\n  \"copyright_date\": \"<integer,null>\",\n  \"currency\": \"<string,null>\",\n  \"isbn\": \"<string,null>\",\n  \"item_price\": \"<number,null>\",\n  \"item_type\": \"<string,null>\",\n  \"last_status_change_by\": \"<integer,null>\",\n  \"last_status_change_date\": \"<string,null-date>\",\n  \"library_id\": \"<string,null>\",\n  \"managed_by\": \"<integer,null>\",\n  \"managed_date\": \"<string,null-date>\",\n  \"note\": \"<string,null>\",\n  \"patron_reason\": \"<string,null>\",\n  \"publication_place\": \"<string,null>\",\n  \"publication_year\": \"<string,null>\",\n  \"publisher_code\": \"<string,null>\",\n  \"quantity\": \"<string,null>\",\n  \"reason\": \"<string,null>\",\n  \"rejected_by\": \"<integer,null>\",\n  \"rejected_date\": \"<string,null-date>\",\n  \"staff_note\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"suggested_by\": \"<integer,null>\",\n  \"suggestion_date\": \"<date>\",\n  \"suggestion_id\": 9127,\n  \"timestamp\": \"<string,null-date-time>\",\n  \"title\": \"<string,null>\",\n  \"total_price\": \"<string,null>\",\n  \"volume_desc\": \"<string,null>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3dff3db4-3378-4bcb-a215-c6898cabb309",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fe853169-66b8-4b08-879d-592aac45a3b1",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "11e9a9a4-2840-4177-ad20-64875a600402",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0eb13db3-7501-48c7-87de-48c13d1bf464",
+              "name": "Suggestion not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43085cbd-8949-4f5e-aa4d-a16ee5fbb5d9",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a457de82-7609-4b13-8b3e-e63d8c0bf134",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3bf8b0a0-5ff9-49d4-bca3-bfbe9e6609c0",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "726d53a2-6a09-47be-8946-aeea5ef6d05b",
+          "name": "Update purchase suggestion",
+          "request": {
+            "name": "Update purchase suggestion",
+            "description": {
+              "content": "This resource allows updating an existing purchase suggestion",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "suggestions",
+                ":suggestion_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "suggestion_id",
+                  "description": "(Required) Internal suggestion identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accepted_by\": \"<integer,null>\",\n  \"accepted_date\": \"<string,null-date>\",\n  \"archived\": \"<boolean,null>\",\n  \"author\": \"<string,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"budget_id\": \"<integer,null>\",\n  \"collection_title\": \"<string,null>\",\n  \"copyright_date\": \"<integer,null>\",\n  \"currency\": \"<string,null>\",\n  \"isbn\": \"<string,null>\",\n  \"item_price\": \"<number,null>\",\n  \"item_type\": \"<string,null>\",\n  \"last_status_change_by\": \"<integer,null>\",\n  \"last_status_change_date\": \"<string,null-date>\",\n  \"library_id\": \"<string,null>\",\n  \"managed_by\": \"<integer,null>\",\n  \"managed_date\": \"<string,null-date>\",\n  \"note\": \"<string,null>\",\n  \"patron_reason\": \"<string,null>\",\n  \"publication_place\": \"<string,null>\",\n  \"publication_year\": \"<string,null>\",\n  \"publisher_code\": \"<string,null>\",\n  \"quantity\": \"<string,null>\",\n  \"reason\": \"<string,null>\",\n  \"rejected_by\": \"<integer,null>\",\n  \"rejected_date\": \"<string,null-date>\",\n  \"staff_note\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"suggested_by\": \"<integer,null>\",\n  \"suggestion_date\": \"<date>\",\n  \"timestamp\": \"<string,null-date-time>\",\n  \"title\": \"<string,null>\",\n  \"total_price\": \"<string,null>\",\n  \"volume_desc\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7daf3241-994e-4b25-8fd1-c5ef871fec09",
+              "name": "A suggestion",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accepted_by\": \"<integer,null>\",\n  \"accepted_date\": \"<string,null-date>\",\n  \"archived\": \"<boolean,null>\",\n  \"author\": \"<string,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"budget_id\": \"<integer,null>\",\n  \"collection_title\": \"<string,null>\",\n  \"copyright_date\": \"<integer,null>\",\n  \"currency\": \"<string,null>\",\n  \"isbn\": \"<string,null>\",\n  \"item_price\": \"<number,null>\",\n  \"item_type\": \"<string,null>\",\n  \"last_status_change_by\": \"<integer,null>\",\n  \"last_status_change_date\": \"<string,null-date>\",\n  \"library_id\": \"<string,null>\",\n  \"managed_by\": \"<integer,null>\",\n  \"managed_date\": \"<string,null-date>\",\n  \"note\": \"<string,null>\",\n  \"patron_reason\": \"<string,null>\",\n  \"publication_place\": \"<string,null>\",\n  \"publication_year\": \"<string,null>\",\n  \"publisher_code\": \"<string,null>\",\n  \"quantity\": \"<string,null>\",\n  \"reason\": \"<string,null>\",\n  \"rejected_by\": \"<integer,null>\",\n  \"rejected_date\": \"<string,null-date>\",\n  \"staff_note\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"suggested_by\": \"<integer,null>\",\n  \"suggestion_date\": \"<date>\",\n  \"timestamp\": \"<string,null-date-time>\",\n  \"title\": \"<string,null>\",\n  \"total_price\": \"<string,null>\",\n  \"volume_desc\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accepted_by\": \"<integer,null>\",\n  \"accepted_date\": \"<string,null-date>\",\n  \"archived\": \"<boolean,null>\",\n  \"author\": \"<string,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"budget_id\": \"<integer,null>\",\n  \"collection_title\": \"<string,null>\",\n  \"copyright_date\": \"<integer,null>\",\n  \"currency\": \"<string,null>\",\n  \"isbn\": \"<string,null>\",\n  \"item_price\": \"<number,null>\",\n  \"item_type\": \"<string,null>\",\n  \"last_status_change_by\": \"<integer,null>\",\n  \"last_status_change_date\": \"<string,null-date>\",\n  \"library_id\": \"<string,null>\",\n  \"managed_by\": \"<integer,null>\",\n  \"managed_date\": \"<string,null-date>\",\n  \"note\": \"<string,null>\",\n  \"patron_reason\": \"<string,null>\",\n  \"publication_place\": \"<string,null>\",\n  \"publication_year\": \"<string,null>\",\n  \"publisher_code\": \"<string,null>\",\n  \"quantity\": \"<string,null>\",\n  \"reason\": \"<string,null>\",\n  \"rejected_by\": \"<integer,null>\",\n  \"rejected_date\": \"<string,null-date>\",\n  \"staff_note\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"suggested_by\": \"<integer,null>\",\n  \"suggestion_date\": \"<date>\",\n  \"suggestion_id\": 9127,\n  \"timestamp\": \"<string,null-date-time>\",\n  \"title\": \"<string,null>\",\n  \"total_price\": \"<string,null>\",\n  \"volume_desc\": \"<string,null>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f9d0d34-57ee-4d88-b587-7527ebcc20c4",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accepted_by\": \"<integer,null>\",\n  \"accepted_date\": \"<string,null-date>\",\n  \"archived\": \"<boolean,null>\",\n  \"author\": \"<string,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"budget_id\": \"<integer,null>\",\n  \"collection_title\": \"<string,null>\",\n  \"copyright_date\": \"<integer,null>\",\n  \"currency\": \"<string,null>\",\n  \"isbn\": \"<string,null>\",\n  \"item_price\": \"<number,null>\",\n  \"item_type\": \"<string,null>\",\n  \"last_status_change_by\": \"<integer,null>\",\n  \"last_status_change_date\": \"<string,null-date>\",\n  \"library_id\": \"<string,null>\",\n  \"managed_by\": \"<integer,null>\",\n  \"managed_date\": \"<string,null-date>\",\n  \"note\": \"<string,null>\",\n  \"patron_reason\": \"<string,null>\",\n  \"publication_place\": \"<string,null>\",\n  \"publication_year\": \"<string,null>\",\n  \"publisher_code\": \"<string,null>\",\n  \"quantity\": \"<string,null>\",\n  \"reason\": \"<string,null>\",\n  \"rejected_by\": \"<integer,null>\",\n  \"rejected_date\": \"<string,null-date>\",\n  \"staff_note\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"suggested_by\": \"<integer,null>\",\n  \"suggestion_date\": \"<date>\",\n  \"timestamp\": \"<string,null-date-time>\",\n  \"title\": \"<string,null>\",\n  \"total_price\": \"<string,null>\",\n  \"volume_desc\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e513fdd4-5e20-4f45-9ac4-cf36eddc54cf",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accepted_by\": \"<integer,null>\",\n  \"accepted_date\": \"<string,null-date>\",\n  \"archived\": \"<boolean,null>\",\n  \"author\": \"<string,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"budget_id\": \"<integer,null>\",\n  \"collection_title\": \"<string,null>\",\n  \"copyright_date\": \"<integer,null>\",\n  \"currency\": \"<string,null>\",\n  \"isbn\": \"<string,null>\",\n  \"item_price\": \"<number,null>\",\n  \"item_type\": \"<string,null>\",\n  \"last_status_change_by\": \"<integer,null>\",\n  \"last_status_change_date\": \"<string,null-date>\",\n  \"library_id\": \"<string,null>\",\n  \"managed_by\": \"<integer,null>\",\n  \"managed_date\": \"<string,null-date>\",\n  \"note\": \"<string,null>\",\n  \"patron_reason\": \"<string,null>\",\n  \"publication_place\": \"<string,null>\",\n  \"publication_year\": \"<string,null>\",\n  \"publisher_code\": \"<string,null>\",\n  \"quantity\": \"<string,null>\",\n  \"reason\": \"<string,null>\",\n  \"rejected_by\": \"<integer,null>\",\n  \"rejected_date\": \"<string,null-date>\",\n  \"staff_note\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"suggested_by\": \"<integer,null>\",\n  \"suggestion_date\": \"<date>\",\n  \"timestamp\": \"<string,null-date-time>\",\n  \"title\": \"<string,null>\",\n  \"total_price\": \"<string,null>\",\n  \"volume_desc\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c5bdbc5-3496-413c-9569-241878d21027",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accepted_by\": \"<integer,null>\",\n  \"accepted_date\": \"<string,null-date>\",\n  \"archived\": \"<boolean,null>\",\n  \"author\": \"<string,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"budget_id\": \"<integer,null>\",\n  \"collection_title\": \"<string,null>\",\n  \"copyright_date\": \"<integer,null>\",\n  \"currency\": \"<string,null>\",\n  \"isbn\": \"<string,null>\",\n  \"item_price\": \"<number,null>\",\n  \"item_type\": \"<string,null>\",\n  \"last_status_change_by\": \"<integer,null>\",\n  \"last_status_change_date\": \"<string,null-date>\",\n  \"library_id\": \"<string,null>\",\n  \"managed_by\": \"<integer,null>\",\n  \"managed_date\": \"<string,null-date>\",\n  \"note\": \"<string,null>\",\n  \"patron_reason\": \"<string,null>\",\n  \"publication_place\": \"<string,null>\",\n  \"publication_year\": \"<string,null>\",\n  \"publisher_code\": \"<string,null>\",\n  \"quantity\": \"<string,null>\",\n  \"reason\": \"<string,null>\",\n  \"rejected_by\": \"<integer,null>\",\n  \"rejected_date\": \"<string,null-date>\",\n  \"staff_note\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"suggested_by\": \"<integer,null>\",\n  \"suggestion_date\": \"<date>\",\n  \"timestamp\": \"<string,null-date-time>\",\n  \"title\": \"<string,null>\",\n  \"total_price\": \"<string,null>\",\n  \"volume_desc\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ef917922-a896-45ac-a066-165d664613b8",
+              "name": "Suggestion not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accepted_by\": \"<integer,null>\",\n  \"accepted_date\": \"<string,null-date>\",\n  \"archived\": \"<boolean,null>\",\n  \"author\": \"<string,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"budget_id\": \"<integer,null>\",\n  \"collection_title\": \"<string,null>\",\n  \"copyright_date\": \"<integer,null>\",\n  \"currency\": \"<string,null>\",\n  \"isbn\": \"<string,null>\",\n  \"item_price\": \"<number,null>\",\n  \"item_type\": \"<string,null>\",\n  \"last_status_change_by\": \"<integer,null>\",\n  \"last_status_change_date\": \"<string,null-date>\",\n  \"library_id\": \"<string,null>\",\n  \"managed_by\": \"<integer,null>\",\n  \"managed_date\": \"<string,null-date>\",\n  \"note\": \"<string,null>\",\n  \"patron_reason\": \"<string,null>\",\n  \"publication_place\": \"<string,null>\",\n  \"publication_year\": \"<string,null>\",\n  \"publisher_code\": \"<string,null>\",\n  \"quantity\": \"<string,null>\",\n  \"reason\": \"<string,null>\",\n  \"rejected_by\": \"<integer,null>\",\n  \"rejected_date\": \"<string,null-date>\",\n  \"staff_note\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"suggested_by\": \"<integer,null>\",\n  \"suggestion_date\": \"<date>\",\n  \"timestamp\": \"<string,null-date-time>\",\n  \"title\": \"<string,null>\",\n  \"total_price\": \"<string,null>\",\n  \"volume_desc\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "afe8a407-2779-4bc3-b5e3-a9bc81209669",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accepted_by\": \"<integer,null>\",\n  \"accepted_date\": \"<string,null-date>\",\n  \"archived\": \"<boolean,null>\",\n  \"author\": \"<string,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"budget_id\": \"<integer,null>\",\n  \"collection_title\": \"<string,null>\",\n  \"copyright_date\": \"<integer,null>\",\n  \"currency\": \"<string,null>\",\n  \"isbn\": \"<string,null>\",\n  \"item_price\": \"<number,null>\",\n  \"item_type\": \"<string,null>\",\n  \"last_status_change_by\": \"<integer,null>\",\n  \"last_status_change_date\": \"<string,null-date>\",\n  \"library_id\": \"<string,null>\",\n  \"managed_by\": \"<integer,null>\",\n  \"managed_date\": \"<string,null-date>\",\n  \"note\": \"<string,null>\",\n  \"patron_reason\": \"<string,null>\",\n  \"publication_place\": \"<string,null>\",\n  \"publication_year\": \"<string,null>\",\n  \"publisher_code\": \"<string,null>\",\n  \"quantity\": \"<string,null>\",\n  \"reason\": \"<string,null>\",\n  \"rejected_by\": \"<integer,null>\",\n  \"rejected_date\": \"<string,null-date>\",\n  \"staff_note\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"suggested_by\": \"<integer,null>\",\n  \"suggestion_date\": \"<date>\",\n  \"timestamp\": \"<string,null-date-time>\",\n  \"title\": \"<string,null>\",\n  \"total_price\": \"<string,null>\",\n  \"volume_desc\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b23c3b46-9858-4d46-b609-8b61e87fc579",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accepted_by\": \"<integer,null>\",\n  \"accepted_date\": \"<string,null-date>\",\n  \"archived\": \"<boolean,null>\",\n  \"author\": \"<string,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"budget_id\": \"<integer,null>\",\n  \"collection_title\": \"<string,null>\",\n  \"copyright_date\": \"<integer,null>\",\n  \"currency\": \"<string,null>\",\n  \"isbn\": \"<string,null>\",\n  \"item_price\": \"<number,null>\",\n  \"item_type\": \"<string,null>\",\n  \"last_status_change_by\": \"<integer,null>\",\n  \"last_status_change_date\": \"<string,null-date>\",\n  \"library_id\": \"<string,null>\",\n  \"managed_by\": \"<integer,null>\",\n  \"managed_date\": \"<string,null-date>\",\n  \"note\": \"<string,null>\",\n  \"patron_reason\": \"<string,null>\",\n  \"publication_place\": \"<string,null>\",\n  \"publication_year\": \"<string,null>\",\n  \"publisher_code\": \"<string,null>\",\n  \"quantity\": \"<string,null>\",\n  \"reason\": \"<string,null>\",\n  \"rejected_by\": \"<integer,null>\",\n  \"rejected_date\": \"<string,null-date>\",\n  \"staff_note\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"suggested_by\": \"<integer,null>\",\n  \"suggestion_date\": \"<date>\",\n  \"timestamp\": \"<string,null-date-time>\",\n  \"title\": \"<string,null>\",\n  \"total_price\": \"<string,null>\",\n  \"volume_desc\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dee7d6d1-09e2-4e19-bb08-a57c5b63d6d0",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggestions",
+                    ":suggestion_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "suggestion_id",
+                      "description": "(Required) Internal suggestion identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accepted_by\": \"<integer,null>\",\n  \"accepted_date\": \"<string,null-date>\",\n  \"archived\": \"<boolean,null>\",\n  \"author\": \"<string,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"budget_id\": \"<integer,null>\",\n  \"collection_title\": \"<string,null>\",\n  \"copyright_date\": \"<integer,null>\",\n  \"currency\": \"<string,null>\",\n  \"isbn\": \"<string,null>\",\n  \"item_price\": \"<number,null>\",\n  \"item_type\": \"<string,null>\",\n  \"last_status_change_by\": \"<integer,null>\",\n  \"last_status_change_date\": \"<string,null-date>\",\n  \"library_id\": \"<string,null>\",\n  \"managed_by\": \"<integer,null>\",\n  \"managed_date\": \"<string,null-date>\",\n  \"note\": \"<string,null>\",\n  \"patron_reason\": \"<string,null>\",\n  \"publication_place\": \"<string,null>\",\n  \"publication_year\": \"<string,null>\",\n  \"publisher_code\": \"<string,null>\",\n  \"quantity\": \"<string,null>\",\n  \"reason\": \"<string,null>\",\n  \"rejected_by\": \"<integer,null>\",\n  \"rejected_date\": \"<string,null-date>\",\n  \"staff_note\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"suggested_by\": \"<integer,null>\",\n  \"suggestion_date\": \"<date>\",\n  \"timestamp\": \"<string,null-date-time>\",\n  \"title\": \"<string,null>\",\n  \"total_price\": \"<string,null>\",\n  \"volume_desc\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://libserv.iitk.ac.in/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6c394f17-4d53-4573-82fe-bb912d7ca4de",
+    "name": "Koha REST 2fa suggestions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Background\n\nThe API supports two sets of endpoints, one targetted at library staff and the other at at library users.\n\nThose endpoints under the `/public` path are aimed at delivering functionality tailored to library users and offer\na more restricted set of functions, overrides and data in thier responses for data privacy and library policy\nreasons. Many of these endpoints do not require authentication for fetching public data, though an authenticated\nsession will expose additional options and allow users to see more data where it is part of their own record.\n\nAll other endpoints are targetted at the staff interface level and allow for additional functionality and a more\nunrestricted view of data.  These endpoints, however, have a level of redaction built in for resources that the\napi consumer should not have access to.  For example, user data for users who do not belong to the same library\nor library group of your api user will be reduced to just minimum neccesary for a valid response. Object keys will\nbe consistent for all responses, but their values may be removed depending on access.\n\n## Authentication\n\nThe API supports the following authentication mechanisms\n\n* HTTP Basic authentication\n* OAuth2 (client credentials grant)\n* Cookie-based\n\nBoth _Basic authentication_ and the _OAuth2_ flow, need to be enabled\nby system preferences.\n\n## Authorization\n\nThe API uses existing user profiles to restrict access to resources based on user permissions and the library the\nAPI user is assigned to.  This may result, at times, in resources being returned in a redacted form with all keys\npresent but sensative values nulled.\n\nWe do not yet support OAuth Scopes or the Authorization Code grant flow.\n\n## Errors\n\nThe API uses standard HTTP status codes to indicate the success or failure\nof the API call. The body of the response will be JSON in the following format:\n\n```\n{\n  \"error\": \"Current settings prevent the passed due date to be applied\",\n  \"error_code\": \"invalid_due_date\"\n}\n```\n\nNote: Some routes might offer additional attributes in their error responses but that\"s\nsubject to change and thus not documented.\n\n## Filtering responses\n\nThe API allows for some advanced response filtering using a JSON based query syntax. The\nquery can be added to the requests:\n\n* as a query parameter `q=`\n* in the request body\n\nFor simple field equality matches we can use `{ \"fieldname\": \"value\" }` where the fieldname\nmatches one of the fields as described in the particular endpoints response object.\n\nWe can refine that with more complex matching clauses by nesting a the clause into the\nobject; `{ \"fieldname\": { \"clause\": \"value\" } }`.\n\nAvailable matching clauses include `=`, `!=`, `<`, `>`, `<=`, `>=` and `-not`. We also support `-like`\nand `-not_like` string comparisons with `%` used to denote wildcards, thus you can pass\n`{ \"fieldname\": { \"-like\": \"value%\" } }` to do a 'starts with' string match for example.\n\nWe can filter on multiple fields by adding them to the JSON respresentation. Adding at `HASH`\nlevel will result in an \"AND\" query, whilst combinding them in an `ARRAY` will result in an\n\"OR\" query: `{ \"field1\": \"value2\", \"field2\": \"value2\" }` will filter the response to only those\nresults with both field1 containing value2 AND field2 containing value2 for example.\n\nThere is a collection of special operators also available to you, including:\n\n* `-in` - Expects an array of values to perform an OR match against\n* `-not_in` - Expects an array of values to perform a NOR match against\n* `-between` - Expects two values which the value of the field is expected to fall between\n* `-not_between` - Expects two values which the value of the field is expected to fall outside of\n* `-ident` - Expects a second field name to match the two field values against\n* `-regexp` - Expects a perl compatible regular expression for which the value should match\n\nLogic and nesting is also supported and you may use `-and` and `-or` to change the logic of an ARRAY\nor HASH as described above.\n\nAdditionally, if you are requesting related data be embedded into the response one can query\non the related data using dot notation in the field names.\n\n### Examples\n\nThe following request would return any patron with firstname \"Henry\" and lastname \"Acevedo\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": \"Acevedo\", \"firstname\": \"Henry\" }'`\n\nThe following request would return any patron whose lastname begins with \"Ace\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": { \"-like\": \"Ace%\" }'`\n\nThe following request would return any patron whose lastname is \"Acevedo\" OR \"Bernardo\"\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": [ \"Acevedo\", \"Bernardo\" ] }'`\n\nThe following request embeds the related patron extended attributes data and filters on it.\n\n`curl -u koha:koha =--request GET 'http://127.0.0.1:8081/api/v1/patrons/' --header 'x-koha-embed: extended_attributes' --data-raw '{ \"extended_attributes.code\": \"internet\", \"extended_attributes.attribute\": \"1\" }'`\n\n## Special headers\n\n### x-koha-embed\n\nThis optional header allows the api consumer to request additional related data\nto be returned in the api response.  It also allows for cross referencing in the\nqueries as described above. It accepts a comma delimited list of relation names.\n\nRelations may on occasion also support dot delimited nesting to allow traversal.\n\n### x-koha-library\n\nThis optional header should be passed to give your api request a library\ncontext; If it is not included in the request, then the request context\nwill default to using your api comsumer\"s assigned home library.\n\n\nContact Support:\n Name: Koha Development Team",
+      "type": "text/plain"
+    }
+  }
+}

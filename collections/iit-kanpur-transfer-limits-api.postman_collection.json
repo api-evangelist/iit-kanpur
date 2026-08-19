@@ -1,0 +1,2576 @@
+{
+  "item": [
+    {
+      "id": "ca80642a-78c3-4569-9f6d-e651c9f1c76b",
+      "name": "transfer_limits",
+      "description": {
+        "content": "Manage transfer limits\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bc448b72-ded1-4d39-afe7-bce8ae068469",
+          "name": "List transfer limits",
+          "request": {
+            "name": "List transfer limits",
+            "description": {
+              "content": "This resource returns a list of existing transfer limits.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transfer_limits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "to_library_id",
+                  "value": "<string>",
+                  "description": "Search on to_library_id"
+                },
+                {
+                  "disabled": false,
+                  "key": "from_library_id",
+                  "value": "<string>",
+                  "description": "Search on from_library_id"
+                },
+                {
+                  "disabled": false,
+                  "key": "item_type",
+                  "value": "<string>",
+                  "description": "Search on item_type"
+                },
+                {
+                  "disabled": false,
+                  "key": "collection_code",
+                  "value": "<string>",
+                  "description": "Search on collection_code"
+                },
+                {
+                  "disabled": false,
+                  "key": "_match",
+                  "value": "<string>",
+                  "description": "Matching criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_page",
+                  "value": "<integer>",
+                  "description": "Page number, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "_per_page",
+                  "value": "<integer>",
+                  "description": "Page size, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Request id header",
+                "key": "x-koha-request-id",
+                "value": "<integer>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "be2cbfa8-51a3-49b5-8a24-51e209680802",
+              "name": "A list of transfer limits",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "to_library_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_library_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "item_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collection_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"to_library_id\": \"string\",\n    \"from_library_id\": \"string\",\n    \"collection_code\": null,\n    \"item_type\": null,\n    \"limit_id\": 9900\n  },\n  {\n    \"to_library_id\": \"string\",\n    \"from_library_id\": \"string\",\n    \"collection_code\": \"string\",\n    \"item_type\": null,\n    \"limit_id\": 598\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b125fd98-7564-499a-9972-2972e7b6732b",
+              "name": "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "to_library_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_library_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "item_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collection_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ac3b516c-e249-475a-b3cc-8012e8cc7f83",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "to_library_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_library_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "item_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collection_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5cdecd83-70ef-49d4-a520-f18c1bf9fadd",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "to_library_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_library_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "item_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collection_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a665fd52-8f69-45e9-914a-f26a84fa3e30",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "to_library_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_library_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "item_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collection_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ef5060ee-fab8-4608-802c-a49e5d6785d4",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "to_library_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_library_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "item_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collection_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "95a21000-38e3-4441-bb48-bf638aed4b10",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "to_library_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_library_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "item_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collection_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e096541-0c46-4264-8448-fbbdced9b86e",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "to_library_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from_library_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "item_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "collection_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ee357cf3-e930-4fb0-a501-5dfe48be29af",
+          "name": "Add a transfer limit",
+          "request": {
+            "name": "Add a transfer limit",
+            "description": {
+              "content": "This resource accepts a new transfer limit and creates it if it does not already exist.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transfer_limits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"to_library_id\": \"<string>\",\n  \"from_library_id\": \"<string>\",\n  \"collection_code\": \"<string,null>\",\n  \"item_type\": \"<string,null>\",\n  \"limit_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1cc6296e-4329-4f08-abb6-568fc89298fa",
+              "name": "Transfer limit added",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to_library_id\": \"<string>\",\n  \"from_library_id\": \"<string>\",\n  \"collection_code\": \"<string,null>\",\n  \"item_type\": \"<string,null>\",\n  \"limit_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"to_library_id\": \"<string>\",\n  \"from_library_id\": \"<string>\",\n  \"collection_code\": \"<string,null>\",\n  \"item_type\": \"<string,null>\",\n  \"limit_id\": \"<integer>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0a92269-b7d1-41ee-b1ee-e085b1c1638b",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to_library_id\": \"<string>\",\n  \"from_library_id\": \"<string>\",\n  \"collection_code\": \"<string,null>\",\n  \"item_type\": \"<string,null>\",\n  \"limit_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e8e1ecfa-2ec9-4e5a-b7fc-e3893c81d0ff",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to_library_id\": \"<string>\",\n  \"from_library_id\": \"<string>\",\n  \"collection_code\": \"<string,null>\",\n  \"item_type\": \"<string,null>\",\n  \"limit_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2409e9a5-acdd-43fe-bb58-507bbff55a57",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to_library_id\": \"<string>\",\n  \"from_library_id\": \"<string>\",\n  \"collection_code\": \"<string,null>\",\n  \"item_type\": \"<string,null>\",\n  \"limit_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c80b0c23-d89b-4873-b90d-7523e2727c56",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to_library_id\": \"<string>\",\n  \"from_library_id\": \"<string>\",\n  \"collection_code\": \"<string,null>\",\n  \"item_type\": \"<string,null>\",\n  \"limit_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "daca75cf-eeb6-4700-925a-c5d0dd44fb57",
+              "name": "Conflict in creating resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to_library_id\": \"<string>\",\n  \"from_library_id\": \"<string>\",\n  \"collection_code\": \"<string,null>\",\n  \"item_type\": \"<string,null>\",\n  \"limit_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "33cf4bb9-28a7-4f5f-8427-5c69e4608427",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to_library_id\": \"<string>\",\n  \"from_library_id\": \"<string>\",\n  \"collection_code\": \"<string,null>\",\n  \"item_type\": \"<string,null>\",\n  \"limit_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ad8b20d-3c3a-4016-8db0-da2597367ac4",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to_library_id\": \"<string>\",\n  \"from_library_id\": \"<string>\",\n  \"collection_code\": \"<string,null>\",\n  \"item_type\": \"<string,null>\",\n  \"limit_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b16b06d-5c5a-4a0e-99ee-04f7436b41b1",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to_library_id\": \"<string>\",\n  \"from_library_id\": \"<string>\",\n  \"collection_code\": \"<string,null>\",\n  \"item_type\": \"<string,null>\",\n  \"limit_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3bfaa35c-a4b2-4d56-949c-a4d1afb21d4e",
+          "name": "Batch delete transfer limits",
+          "request": {
+            "name": "Batch delete transfer limits",
+            "description": {
+              "content": "This endpoint works just like [the POST version](#op-post-transfer_limits-batch), except it deletes transfer in batch rather than creating them.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transfer_limits",
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"collection_code\": \"<string,null>\",\n  \"from_library_id\": \"<string>\",\n  \"item_type\": \"<string,null>\",\n  \"to_library_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7237e05c-81ac-4d33-aa01-a08e0e4ef64b",
+              "name": "Transfer limits deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collection_code\": \"<string,null>\",\n  \"from_library_id\": \"<string>\",\n  \"item_type\": \"<string,null>\",\n  \"to_library_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ad803c52-3a6c-42e3-9add-5857bde98f97",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collection_code\": \"<string,null>\",\n  \"from_library_id\": \"<string>\",\n  \"item_type\": \"<string,null>\",\n  \"to_library_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9e7f2e33-2960-4916-a595-b556df9782a4",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collection_code\": \"<string,null>\",\n  \"from_library_id\": \"<string>\",\n  \"item_type\": \"<string,null>\",\n  \"to_library_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c9cb368-d975-467b-8b82-f08a0c5b32f2",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collection_code\": \"<string,null>\",\n  \"from_library_id\": \"<string>\",\n  \"item_type\": \"<string,null>\",\n  \"to_library_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d987dcb6-7cf2-4dc0-8875-90d13f796197",
+              "name": "Library not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collection_code\": \"<string,null>\",\n  \"from_library_id\": \"<string>\",\n  \"item_type\": \"<string,null>\",\n  \"to_library_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "afe86c58-7a6d-4041-9829-9379fac77320",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collection_code\": \"<string,null>\",\n  \"from_library_id\": \"<string>\",\n  \"item_type\": \"<string,null>\",\n  \"to_library_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "41e3f623-ed55-4ee7-9927-eaad952263a0",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collection_code\": \"<string,null>\",\n  \"from_library_id\": \"<string>\",\n  \"item_type\": \"<string,null>\",\n  \"to_library_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d3c81fcf-026c-42d7-9ec7-c525e1cf9fd4",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collection_code\": \"<string,null>\",\n  \"from_library_id\": \"<string>\",\n  \"item_type\": \"<string,null>\",\n  \"to_library_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "34decd73-df74-4646-9445-3a33902b7000",
+          "name": "Batch add transfer limits",
+          "request": {
+            "name": "Batch add transfer limits",
+            "description": {
+              "content": "\nThis resource batch creates new transfer limits based on the given data.\nTransfer limits can be defined based on `collection_code` or `item_type`. The endpoint only accepts one at a time, and which one is used will depend on the value of the `BranchTransferLimitsType` system preference.\nFor example, if the paramters `to_library_id: 'BranchA'` and `item_type: 'BOOK'` are passed in new transfer limits for `BOOK`s will be created, with one transfer limit each for all the branches defined in Koha. Given 4 branches, 3 limits would be created:\n* to_library_id: 'BranchA', from_library_id: 'BranchB', item_type: 'BOOK' * to_library_id: 'BranchA', from_library_id: 'BranchC', item_type: 'BOOK' * to_library_id: 'BranchA', from_library_id: 'BranchD', item_type: 'BOOK'\n\nThe body of the query would look like\n``` {\n    'to_library_id': 'BranchA',\n    'item_type': 'BOOK'\n\n} ```\nAs another example, imagine we have an itemtype that is never supposed to be transferred to another library. If we call that itemtype `LOCAL_ONLY` we would need to just pass `item_type: 'LOCAL_ONLY'`, which would create transfer limits for all libraries, meaning those items would never be allowed to transfer to another library. The body of the query would look like\n``` {\n    'item_type': 'LOCAL_ONLY'\n} ```\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transfer_limits",
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"collection_code\": \"<string,null>\",\n  \"from_library_id\": \"<string>\",\n  \"item_type\": \"<string,null>\",\n  \"to_library_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3e428a90-e8da-4ffc-8bbf-17fe746cc2f1",
+              "name": "A list of transfer limits",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collection_code\": \"<string,null>\",\n  \"from_library_id\": \"<string>\",\n  \"item_type\": \"<string,null>\",\n  \"to_library_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"to_library_id\": \"<string>\",\n    \"from_library_id\": \"<string>\",\n    \"collection_code\": \"<string,null>\",\n    \"item_type\": \"<string,null>\",\n    \"limit_id\": \"<integer>\"\n  },\n  {\n    \"to_library_id\": \"<string>\",\n    \"from_library_id\": \"<string>\",\n    \"collection_code\": \"<string,null>\",\n    \"item_type\": \"<string,null>\",\n    \"limit_id\": \"<integer>\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f6ca376-1236-45f1-ba67-91d8575f2bc0",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collection_code\": \"<string,null>\",\n  \"from_library_id\": \"<string>\",\n  \"item_type\": \"<string,null>\",\n  \"to_library_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d72af564-00f7-46d1-9600-4369a366f8fb",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collection_code\": \"<string,null>\",\n  \"from_library_id\": \"<string>\",\n  \"item_type\": \"<string,null>\",\n  \"to_library_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52543656-edd0-40a4-a018-cda229c260a0",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collection_code\": \"<string,null>\",\n  \"from_library_id\": \"<string>\",\n  \"item_type\": \"<string,null>\",\n  \"to_library_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d9e2fd5-6308-43ce-ac34-2597945ada0e",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collection_code\": \"<string,null>\",\n  \"from_library_id\": \"<string>\",\n  \"item_type\": \"<string,null>\",\n  \"to_library_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "052afff0-1f85-425a-a43b-c9edfbecb6c1",
+              "name": "Conflict in creating resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collection_code\": \"<string,null>\",\n  \"from_library_id\": \"<string>\",\n  \"item_type\": \"<string,null>\",\n  \"to_library_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44dcffd4-17c3-4aec-84a9-477b0b55da6c",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collection_code\": \"<string,null>\",\n  \"from_library_id\": \"<string>\",\n  \"item_type\": \"<string,null>\",\n  \"to_library_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a6706771-bbf4-45ce-93b6-abd91efba9cb",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collection_code\": \"<string,null>\",\n  \"from_library_id\": \"<string>\",\n  \"item_type\": \"<string,null>\",\n  \"to_library_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68e60c5c-e364-4c86-8dd6-a00dd1e25a28",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"collection_code\": \"<string,null>\",\n  \"from_library_id\": \"<string>\",\n  \"item_type\": \"<string,null>\",\n  \"to_library_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "201877d9-37bb-4218-adeb-bea48a10f5d8",
+          "name": "Delete transfer limit",
+          "request": {
+            "name": "Delete transfer limit",
+            "description": {
+              "content": "This resource deletes a transfer limit for the given limit id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transfer_limits",
+                ":limit_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "limit_id",
+                  "description": "(Required) Internal transfer limit identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0d1dac27-902b-4719-826e-7d1e12ebf56d",
+              "name": "Transfer limit deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    ":limit_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "limit_id",
+                      "description": "(Required) Internal transfer limit identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15dbf496-ac76-4c7a-beff-51fdbd6a7827",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    ":limit_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "limit_id",
+                      "description": "(Required) Internal transfer limit identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "beb3f20c-85a8-43f0-85a9-ca2ca197db32",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    ":limit_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "limit_id",
+                      "description": "(Required) Internal transfer limit identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a29b4d80-301a-4222-9035-4aafe17e2afe",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    ":limit_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "limit_id",
+                      "description": "(Required) Internal transfer limit identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0d2e39bb-0830-4e51-88c0-50c4730c21c8",
+              "name": "Library not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    ":limit_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "limit_id",
+                      "description": "(Required) Internal transfer limit identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "19bb696a-0817-40cd-af59-7fe152486956",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    ":limit_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "limit_id",
+                      "description": "(Required) Internal transfer limit identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57c06b8a-66f3-4ed5-8661-c0dbc6aa807d",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    ":limit_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "limit_id",
+                      "description": "(Required) Internal transfer limit identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b9da4c98-c0fb-4d49-b881-2a3aeb3d5df0",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transfer_limits",
+                    ":limit_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "limit_id",
+                      "description": "(Required) Internal transfer limit identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://libserv.iitk.ac.in/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7c5c0780-cc3d-452d-b030-4d46f25eaf6f",
+    "name": "Koha REST 2fa transfer_limits API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Background\n\nThe API supports two sets of endpoints, one targetted at library staff and the other at at library users.\n\nThose endpoints under the `/public` path are aimed at delivering functionality tailored to library users and offer\na more restricted set of functions, overrides and data in thier responses for data privacy and library policy\nreasons. Many of these endpoints do not require authentication for fetching public data, though an authenticated\nsession will expose additional options and allow users to see more data where it is part of their own record.\n\nAll other endpoints are targetted at the staff interface level and allow for additional functionality and a more\nunrestricted view of data.  These endpoints, however, have a level of redaction built in for resources that the\napi consumer should not have access to.  For example, user data for users who do not belong to the same library\nor library group of your api user will be reduced to just minimum neccesary for a valid response. Object keys will\nbe consistent for all responses, but their values may be removed depending on access.\n\n## Authentication\n\nThe API supports the following authentication mechanisms\n\n* HTTP Basic authentication\n* OAuth2 (client credentials grant)\n* Cookie-based\n\nBoth _Basic authentication_ and the _OAuth2_ flow, need to be enabled\nby system preferences.\n\n## Authorization\n\nThe API uses existing user profiles to restrict access to resources based on user permissions and the library the\nAPI user is assigned to.  This may result, at times, in resources being returned in a redacted form with all keys\npresent but sensative values nulled.\n\nWe do not yet support OAuth Scopes or the Authorization Code grant flow.\n\n## Errors\n\nThe API uses standard HTTP status codes to indicate the success or failure\nof the API call. The body of the response will be JSON in the following format:\n\n```\n{\n  \"error\": \"Current settings prevent the passed due date to be applied\",\n  \"error_code\": \"invalid_due_date\"\n}\n```\n\nNote: Some routes might offer additional attributes in their error responses but that\"s\nsubject to change and thus not documented.\n\n## Filtering responses\n\nThe API allows for some advanced response filtering using a JSON based query syntax. The\nquery can be added to the requests:\n\n* as a query parameter `q=`\n* in the request body\n\nFor simple field equality matches we can use `{ \"fieldname\": \"value\" }` where the fieldname\nmatches one of the fields as described in the particular endpoints response object.\n\nWe can refine that with more complex matching clauses by nesting a the clause into the\nobject; `{ \"fieldname\": { \"clause\": \"value\" } }`.\n\nAvailable matching clauses include `=`, `!=`, `<`, `>`, `<=`, `>=` and `-not`. We also support `-like`\nand `-not_like` string comparisons with `%` used to denote wildcards, thus you can pass\n`{ \"fieldname\": { \"-like\": \"value%\" } }` to do a 'starts with' string match for example.\n\nWe can filter on multiple fields by adding them to the JSON respresentation. Adding at `HASH`\nlevel will result in an \"AND\" query, whilst combinding them in an `ARRAY` will result in an\n\"OR\" query: `{ \"field1\": \"value2\", \"field2\": \"value2\" }` will filter the response to only those\nresults with both field1 containing value2 AND field2 containing value2 for example.\n\nThere is a collection of special operators also available to you, including:\n\n* `-in` - Expects an array of values to perform an OR match against\n* `-not_in` - Expects an array of values to perform a NOR match against\n* `-between` - Expects two values which the value of the field is expected to fall between\n* `-not_between` - Expects two values which the value of the field is expected to fall outside of\n* `-ident` - Expects a second field name to match the two field values against\n* `-regexp` - Expects a perl compatible regular expression for which the value should match\n\nLogic and nesting is also supported and you may use `-and` and `-or` to change the logic of an ARRAY\nor HASH as described above.\n\nAdditionally, if you are requesting related data be embedded into the response one can query\non the related data using dot notation in the field names.\n\n### Examples\n\nThe following request would return any patron with firstname \"Henry\" and lastname \"Acevedo\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": \"Acevedo\", \"firstname\": \"Henry\" }'`\n\nThe following request would return any patron whose lastname begins with \"Ace\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": { \"-like\": \"Ace%\" }'`\n\nThe following request would return any patron whose lastname is \"Acevedo\" OR \"Bernardo\"\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": [ \"Acevedo\", \"Bernardo\" ] }'`\n\nThe following request embeds the related patron extended attributes data and filters on it.\n\n`curl -u koha:koha =--request GET 'http://127.0.0.1:8081/api/v1/patrons/' --header 'x-koha-embed: extended_attributes' --data-raw '{ \"extended_attributes.code\": \"internet\", \"extended_attributes.attribute\": \"1\" }'`\n\n## Special headers\n\n### x-koha-embed\n\nThis optional header allows the api consumer to request additional related data\nto be returned in the api response.  It also allows for cross referencing in the\nqueries as described above. It accepts a comma delimited list of relation names.\n\nRelations may on occasion also support dot delimited nesting to allow traversal.\n\n### x-koha-library\n\nThis optional header should be passed to give your api request a library\ncontext; If it is not included in the request, then the request context\nwill default to using your api comsumer\"s assigned home library.\n\n\nContact Support:\n Name: Koha Development Team",
+      "type": "text/plain"
+    }
+  }
+}

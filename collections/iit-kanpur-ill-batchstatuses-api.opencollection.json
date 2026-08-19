@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa ill_batchstatuses API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ill_batchstatuses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List ILL batch statuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/ill/batchstatuses"
+          },
+          "docs": "List ILL batch statuses"
+        },
+        {
+          "info": {
+            "name": "Add ILL batch status",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/ill/batchstatuses",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add ILL batch status"
+        },
+        {
+          "info": {
+            "name": "Get ILL batch status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/ill/batchstatuses/:ill_batchstatus_code",
+            "params": [
+              {
+                "name": "ill_batchstatus_code",
+                "value": "",
+                "type": "path",
+                "description": "ILL batch status"
+              }
+            ]
+          },
+          "docs": "Get ILL batch status"
+        },
+        {
+          "info": {
+            "name": "Update batch status",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/ill/batchstatuses/:ill_batchstatus_code",
+            "params": [
+              {
+                "name": "ill_batchstatus_code",
+                "value": "",
+                "type": "path",
+                "description": "Internal ILL batch status identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update batch status"
+        },
+        {
+          "info": {
+            "name": "Delete ILL batch status",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/ill/batchstatuses/:ill_batchstatus_code",
+            "params": [
+              {
+                "name": "ill_batchstatus_code",
+                "value": "",
+                "type": "path",
+                "description": "Internal ILL batch status identifier"
+              }
+            ]
+          },
+          "docs": "Delete ILL batch status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

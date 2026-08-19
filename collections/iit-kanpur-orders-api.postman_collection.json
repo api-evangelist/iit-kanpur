@@ -1,0 +1,2821 @@
+{
+  "item": [
+    {
+      "id": "1fa31177-ed49-4cf3-8092-3135b4e7c752",
+      "name": "orders",
+      "description": {
+        "content": "Manage acquisition orders\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e9162395-f8f8-4924-a0f0-7347cc9a0444",
+          "name": "List orders",
+          "request": {
+            "name": "List orders",
+            "description": {},
+            "url": {
+              "path": [
+                "acquisitions",
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "biblio_id",
+                  "value": "<integer>",
+                  "description": "Identifier for a linked bibliographic record"
+                },
+                {
+                  "disabled": false,
+                  "key": "basket_id",
+                  "value": "<integer>",
+                  "description": "Identifier for a linked acquisition basket"
+                },
+                {
+                  "disabled": false,
+                  "key": "fund_id",
+                  "value": "<integer>",
+                  "description": "Identifier for the fund the order goes against"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Current status for the order. Can be 'new', 'ordered', 'partial', 'complete' or 'cancelled'"
+                },
+                {
+                  "disabled": false,
+                  "key": "only_active",
+                  "value": "<boolean>",
+                  "description": "If only active orders should be listed"
+                },
+                {
+                  "disabled": false,
+                  "key": "_match",
+                  "value": "<string>",
+                  "description": "Matching criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_page",
+                  "value": "<integer>",
+                  "description": "Page number, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "_per_page",
+                  "value": "<integer>",
+                  "description": "Page size, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Request id header",
+                "key": "x-koha-request-id",
+                "value": "<integer>"
+              },
+              {
+                "disabled": false,
+                "description": "Embed list sent as a request header",
+                "key": "x-koha-embed",
+                "value": "<string>,<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d973e044-b352-47e5-9d07-c84321cde42d",
+              "name": "A list of orders",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "biblio_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "basket_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fund_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"basket\": {},\n    \"basket_id\": 6008,\n    \"biblio\": {},\n    \"biblio_id\": null,\n    \"cancellation_date\": null,\n    \"cancellation_reason\": null,\n    \"claims_count\": 4093,\n    \"created_by\": 9100,\n    \"creator\": {},\n    \"currency\": null,\n    \"current_item_level_holds_count\": 8730,\n    \"date_received\": \"1968-05-13\",\n    \"deleted_biblio_id\": null,\n    \"discount_rate\": 2558.8776731723815,\n    \"ecost\": 1226.7404575279284,\n    \"ecost_tax_excluded\": 7559.652868111274,\n    \"ecost_tax_included\": null,\n    \"entry_date\": \"2002-10-30\",\n    \"estimated_delivery_date\": \"1964-12-20\",\n    \"fund\": {},\n    \"fund_id\": 2790,\n    \"internal_note\": \"string\",\n    \"invoice\": {},\n    \"invoice_currency\": \"string\",\n    \"invoice_id\": 4581,\n    \"invoice_unit_price\": 494.62954448658,\n    \"last_claim_date\": \"1986-01-24\",\n    \"list_price\": null,\n    \"order_id\": 608,\n    \"parent_order_id\": null,\n    \"quantity\": 7649,\n    \"quantity_received\": 5779,\n    \"replacement_price\": 7832.378174405778,\n    \"rrp\": 2264.1487293034447,\n    \"rrp_tax_excluded\": null,\n    \"rrp_tax_included\": 319.0637388625972,\n    \"shipping_cost\": null,\n    \"statistics_1\": \"string\",\n    \"statistics_1_authcat\": null,\n    \"statistics_2\": \"string\",\n    \"statistics_2_authcat\": null,\n    \"status\": \"partial\",\n    \"subscription\": {},\n    \"subscription_id\": null,\n    \"tax_rate_on_ordering\": 9555.14927342805,\n    \"tax_rate_on_receiving\": 8838.298298278105,\n    \"tax_value_on_ordering\": 8000.021556827039,\n    \"tax_value_on_receiving\": null,\n    \"timestamp\": \"2003-02-09T02:14:50.419Z\",\n    \"uncertain_price\": false,\n    \"unit_price\": 7268.09398317081,\n    \"unit_price_tax_excluded\": null,\n    \"unit_price_tax_included\": 6880.106901029386,\n    \"vendor_note\": \"string\"\n  },\n  {\n    \"basket\": {},\n    \"basket_id\": 929,\n    \"biblio\": null,\n    \"biblio_id\": null,\n    \"cancellation_date\": \"1984-05-14\",\n    \"cancellation_reason\": \"string\",\n    \"claims_count\": 2696,\n    \"created_by\": 8836,\n    \"creator\": null,\n    \"currency\": null,\n    \"current_item_level_holds_count\": 2406,\n    \"date_received\": null,\n    \"deleted_biblio_id\": null,\n    \"discount_rate\": null,\n    \"ecost\": null,\n    \"ecost_tax_excluded\": 1910.4135174944836,\n    \"ecost_tax_included\": 8713.344671600044,\n    \"entry_date\": \"1961-05-03\",\n    \"estimated_delivery_date\": null,\n    \"fund\": {},\n    \"fund_id\": 7113,\n    \"internal_note\": null,\n    \"invoice\": null,\n    \"invoice_currency\": null,\n    \"invoice_id\": 8940,\n    \"invoice_unit_price\": 2756.8577891036925,\n    \"last_claim_date\": \"1968-01-06\",\n    \"list_price\": null,\n    \"order_id\": 8318,\n    \"parent_order_id\": 1343,\n    \"quantity\": null,\n    \"quantity_received\": 5215,\n    \"replacement_price\": null,\n    \"rrp\": null,\n    \"rrp_tax_excluded\": 4566.175184973472,\n    \"rrp_tax_included\": null,\n    \"shipping_cost\": 1853.392503055684,\n    \"statistics_1\": \"string\",\n    \"statistics_1_authcat\": null,\n    \"statistics_2\": null,\n    \"statistics_2_authcat\": \"string\",\n    \"status\": \"complete\",\n    \"subscription\": {},\n    \"subscription_id\": null,\n    \"tax_rate_on_ordering\": 7889.205693988147,\n    \"tax_rate_on_receiving\": null,\n    \"tax_value_on_ordering\": null,\n    \"tax_value_on_receiving\": 6165.112657996415,\n    \"timestamp\": \"1956-08-17T21:26:23.832Z\",\n    \"uncertain_price\": true,\n    \"unit_price\": null,\n    \"unit_price_tax_excluded\": null,\n    \"unit_price_tax_included\": null,\n    \"vendor_note\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "968e7971-9b3e-4cb0-aeb8-dd68dbca2437",
+              "name": "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "biblio_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "basket_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fund_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c6ba84dc-f95c-427b-8f05-00fb7c7d3303",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "biblio_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "basket_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fund_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b011dd7-8acc-499c-9461-6fe49e7fb90e",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "biblio_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "basket_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fund_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e4560f25-735f-4162-9f0a-e44f2c3e956d",
+              "name": "Order not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "biblio_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "basket_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fund_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d6563d06-7908-4108-a316-b12e10a6d54c",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "biblio_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "basket_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fund_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ac79fff-7942-4ed0-b952-33e5334f4e4f",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "biblio_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "basket_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fund_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ffb7a3b7-9916-4bbe-a772-87b66fd879bd",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "biblio_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "basket_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fund_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1e46a72-c9ea-45b5-adf4-95b794e68d44",
+          "name": "Add order",
+          "request": {
+            "name": "Add order",
+            "description": {},
+            "url": {
+              "path": [
+                "acquisitions",
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "54d92e24-6d15-4731-b1a9-7c496058eda0",
+              "name": "Order added",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3fa5fc12-afdf-4665-a847-8cc7c11e4139",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f981211a-44b3-44e5-a9a4-d0471d0f0198",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a8f9d4a-6734-42c4-b53a-47cb2e9e6ce1",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29cc543c-a13e-4e13-ad95-d3b96b8d964e",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c3b5b8e-cb45-4a90-a780-d61668671a2e",
+              "name": "Conflict in creating the resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c88b0cb4-ed41-4357-9a2e-d788e7058bf2",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b2ae6a4-beee-4145-bdb3-05861b93860f",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0b4a81f5-72b1-481f-b7d8-ae9a9ad21ae7",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0b3b7a3-2c44-4c60-90fa-a905a4fd296b",
+          "name": "Delete order",
+          "request": {
+            "name": "Delete order",
+            "description": {},
+            "url": {
+              "path": [
+                "acquisitions",
+                "orders",
+                ":order_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "order_id",
+                  "description": "(Required) Internal order identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "82050254-b9e1-4b8f-a417-4fbaf3fc1aad",
+              "name": "Order deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "43430d2a-7133-46c3-8bfc-a805dc0b02ba",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf2040a9-8546-40c2-a9b5-1643b9d0fe46",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d831864-a586-420a-b0ed-a2ddaf9085bd",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "59d7a928-e55c-457a-854a-7e2e31df31c6",
+              "name": "Order not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d27b3af6-e641-4c9c-8cbb-ffc17e22e4e1",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8611b121-f160-42fe-b252-397f5bcf5af5",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82a2eba9-bd7f-4e41-bef0-201100e44e56",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b9887b2b-a3e7-43e7-b5ce-2a7349a14035",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "90a3aac0-d3d9-4b82-bb6f-1515769f9894",
+          "name": "Get order",
+          "request": {
+            "name": "Get order",
+            "description": {},
+            "url": {
+              "path": [
+                "acquisitions",
+                "orders",
+                ":order_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "order_id",
+                  "description": "(Required) Internal order identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Embed list sent as a request header",
+                "key": "x-koha-embed",
+                "value": "<string>,<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b6a3893-1ca9-4840-bf8f-16d887d7e419",
+              "name": "An order",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d47e69db-3ee0-4306-85f8-b675b39e57cc",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d2c5b2f-ddc2-40b8-b169-d80690074bab",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c6065ee4-dd59-4e0d-813b-be4ea869be64",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b2932b9d-0840-4453-8a5e-8ea09a38e2f2",
+              "name": "Order not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9aa3033d-269a-4c0f-9dee-dde1fec2c14f",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a807f0d-ddc0-458e-aff6-c108a19d6151",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dcd50f28-8c22-4caf-be24-e88ab4c59035",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa0f36cf-1bff-4c84-b147-42b3c42f096a",
+          "name": "Update order",
+          "request": {
+            "name": "Update order",
+            "description": {},
+            "url": {
+              "path": [
+                "acquisitions",
+                "orders",
+                ":order_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "order_id",
+                  "description": "(Required) Internal order identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5d62ded6-e7fe-4b8b-bbbf-338272f832a5",
+              "name": "An order",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e249675e-579c-4dcb-a71b-9c32e54c6412",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5cd699c9-c13c-49e1-8d79-9b53ff1a4125",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5596a313-6303-4530-97a7-a0dfa3948033",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75baca99-7eb8-49a4-afc2-b3e729578926",
+              "name": "Order not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "59606354-600d-4cf7-8e2e-a9f46b36a8c1",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8920caa6-9f56-4d0e-aaec-a98bc54888c0",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b0f1c137-0abf-4b83-bd77-fbaa0bd9eabc",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "orders",
+                    ":order_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "order_id",
+                      "description": "(Required) Internal order identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basket\": \"<object,null>\",\n  \"basket_id\": \"<integer,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"cancellation_date\": \"<string,null-date>\",\n  \"cancellation_reason\": \"<string,null>\",\n  \"claims_count\": \"<integer>\",\n  \"created_by\": \"<integer,null>\",\n  \"creator\": \"<object,null>\",\n  \"currency\": \"<string,null>\",\n  \"current_item_level_holds_count\": \"<integer>\",\n  \"date_received\": \"<string,null-date>\",\n  \"deleted_biblio_id\": \"<integer,null>\",\n  \"discount_rate\": \"<number,null>\",\n  \"ecost\": \"<number,null>\",\n  \"ecost_tax_excluded\": \"<number,null>\",\n  \"ecost_tax_included\": \"<number,null>\",\n  \"entry_date\": \"<string,null-date>\",\n  \"estimated_delivery_date\": \"<string,null-date>\",\n  \"fund\": \"<object,null>\",\n  \"fund_id\": \"<integer>\",\n  \"internal_note\": \"<string,null>\",\n  \"invoice\": \"<object,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_id\": \"<integer,null>\",\n  \"invoice_unit_price\": \"<number,null>\",\n  \"items\": \"<array>\",\n  \"last_claim_date\": \"<string,null-date>\",\n  \"list_price\": \"<number,null>\",\n  \"order_id\": \"<integer>\",\n  \"parent_order_id\": \"<integer,null>\",\n  \"quantity\": \"<integer,null>\",\n  \"quantity_received\": \"<integer>\",\n  \"replacement_price\": \"<number,null>\",\n  \"rrp\": \"<number,null>\",\n  \"rrp_tax_excluded\": \"<number,null>\",\n  \"rrp_tax_included\": \"<number,null>\",\n  \"shipping_cost\": \"<number,null>\",\n  \"statistics_1\": \"<string,null>\",\n  \"statistics_1_authcat\": \"<string,null>\",\n  \"statistics_2\": \"<string,null>\",\n  \"statistics_2_authcat\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"subscription\": \"<object,null>\",\n  \"subscription_id\": \"<integer,null>\",\n  \"tax_rate_on_ordering\": \"<number,null>\",\n  \"tax_rate_on_receiving\": \"<number,null>\",\n  \"tax_value_on_ordering\": \"<number,null>\",\n  \"tax_value_on_receiving\": \"<number,null>\",\n  \"timestamp\": \"<dateTime>\",\n  \"uncertain_price\": \"<boolean>\",\n  \"unit_price\": \"<number,null>\",\n  \"unit_price_tax_excluded\": \"<number,null>\",\n  \"unit_price_tax_included\": \"<number,null>\",\n  \"vendor_note\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://libserv.iitk.ac.in/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e7d0d440-cc2c-465c-b9b3-bbf07b9948fd",
+    "name": "Koha REST 2fa orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Background\n\nThe API supports two sets of endpoints, one targetted at library staff and the other at at library users.\n\nThose endpoints under the `/public` path are aimed at delivering functionality tailored to library users and offer\na more restricted set of functions, overrides and data in thier responses for data privacy and library policy\nreasons. Many of these endpoints do not require authentication for fetching public data, though an authenticated\nsession will expose additional options and allow users to see more data where it is part of their own record.\n\nAll other endpoints are targetted at the staff interface level and allow for additional functionality and a more\nunrestricted view of data.  These endpoints, however, have a level of redaction built in for resources that the\napi consumer should not have access to.  For example, user data for users who do not belong to the same library\nor library group of your api user will be reduced to just minimum neccesary for a valid response. Object keys will\nbe consistent for all responses, but their values may be removed depending on access.\n\n## Authentication\n\nThe API supports the following authentication mechanisms\n\n* HTTP Basic authentication\n* OAuth2 (client credentials grant)\n* Cookie-based\n\nBoth _Basic authentication_ and the _OAuth2_ flow, need to be enabled\nby system preferences.\n\n## Authorization\n\nThe API uses existing user profiles to restrict access to resources based on user permissions and the library the\nAPI user is assigned to.  This may result, at times, in resources being returned in a redacted form with all keys\npresent but sensative values nulled.\n\nWe do not yet support OAuth Scopes or the Authorization Code grant flow.\n\n## Errors\n\nThe API uses standard HTTP status codes to indicate the success or failure\nof the API call. The body of the response will be JSON in the following format:\n\n```\n{\n  \"error\": \"Current settings prevent the passed due date to be applied\",\n  \"error_code\": \"invalid_due_date\"\n}\n```\n\nNote: Some routes might offer additional attributes in their error responses but that\"s\nsubject to change and thus not documented.\n\n## Filtering responses\n\nThe API allows for some advanced response filtering using a JSON based query syntax. The\nquery can be added to the requests:\n\n* as a query parameter `q=`\n* in the request body\n\nFor simple field equality matches we can use `{ \"fieldname\": \"value\" }` where the fieldname\nmatches one of the fields as described in the particular endpoints response object.\n\nWe can refine that with more complex matching clauses by nesting a the clause into the\nobject; `{ \"fieldname\": { \"clause\": \"value\" } }`.\n\nAvailable matching clauses include `=`, `!=`, `<`, `>`, `<=`, `>=` and `-not`. We also support `-like`\nand `-not_like` string comparisons with `%` used to denote wildcards, thus you can pass\n`{ \"fieldname\": { \"-like\": \"value%\" } }` to do a 'starts with' string match for example.\n\nWe can filter on multiple fields by adding them to the JSON respresentation. Adding at `HASH`\nlevel will result in an \"AND\" query, whilst combinding them in an `ARRAY` will result in an\n\"OR\" query: `{ \"field1\": \"value2\", \"field2\": \"value2\" }` will filter the response to only those\nresults with both field1 containing value2 AND field2 containing value2 for example.\n\nThere is a collection of special operators also available to you, including:\n\n* `-in` - Expects an array of values to perform an OR match against\n* `-not_in` - Expects an array of values to perform a NOR match against\n* `-between` - Expects two values which the value of the field is expected to fall between\n* `-not_between` - Expects two values which the value of the field is expected to fall outside of\n* `-ident` - Expects a second field name to match the two field values against\n* `-regexp` - Expects a perl compatible regular expression for which the value should match\n\nLogic and nesting is also supported and you may use `-and` and `-or` to change the logic of an ARRAY\nor HASH as described above.\n\nAdditionally, if you are requesting related data be embedded into the response one can query\non the related data using dot notation in the field names.\n\n### Examples\n\nThe following request would return any patron with firstname \"Henry\" and lastname \"Acevedo\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": \"Acevedo\", \"firstname\": \"Henry\" }'`\n\nThe following request would return any patron whose lastname begins with \"Ace\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": { \"-like\": \"Ace%\" }'`\n\nThe following request would return any patron whose lastname is \"Acevedo\" OR \"Bernardo\"\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": [ \"Acevedo\", \"Bernardo\" ] }'`\n\nThe following request embeds the related patron extended attributes data and filters on it.\n\n`curl -u koha:koha =--request GET 'http://127.0.0.1:8081/api/v1/patrons/' --header 'x-koha-embed: extended_attributes' --data-raw '{ \"extended_attributes.code\": \"internet\", \"extended_attributes.attribute\": \"1\" }'`\n\n## Special headers\n\n### x-koha-embed\n\nThis optional header allows the api consumer to request additional related data\nto be returned in the api response.  It also allows for cross referencing in the\nqueries as described above. It accepts a comma delimited list of relation names.\n\nRelations may on occasion also support dot delimited nesting to allow traversal.\n\n### x-koha-library\n\nThis optional header should be passed to give your api request a library\ncontext; If it is not included in the request, then the request context\nwill default to using your api comsumer\"s assigned home library.\n\n\nContact Support:\n Name: Koha Development Team",
+      "type": "text/plain"
+    }
+  }
+}

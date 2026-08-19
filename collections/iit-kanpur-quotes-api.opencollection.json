@@ -1,0 +1,171 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa quotes API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "quotes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List quotes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/quotes",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "quote_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on quote id"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on source"
+              },
+              {
+                "name": "text",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on text"
+              },
+              {
+                "name": "displayed_on",
+                "value": "",
+                "type": "query",
+                "description": "Case Insensative search on last displayed date"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List quotes"
+        },
+        {
+          "info": {
+            "name": "Add quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/quotes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add quote"
+        },
+        {
+          "info": {
+            "name": "Get quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/quotes/:quote_id",
+            "params": [
+              {
+                "name": "quote_id",
+                "value": "",
+                "type": "path",
+                "description": "Quote internal identifier"
+              }
+            ]
+          },
+          "docs": "Get quote"
+        },
+        {
+          "info": {
+            "name": "Update quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/quotes/:quote_id",
+            "params": [
+              {
+                "name": "quote_id",
+                "value": "",
+                "type": "path",
+                "description": "Quote internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update quote"
+        },
+        {
+          "info": {
+            "name": "Delete quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/quotes/:quote_id",
+            "params": [
+              {
+                "name": "quote_id",
+                "value": "",
+                "type": "path",
+                "description": "Quote internal identifier"
+              }
+            ]
+          },
+          "docs": "Delete quote"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

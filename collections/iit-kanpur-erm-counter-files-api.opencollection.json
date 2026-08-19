@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa erm_counter_files API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "erm_counter_files",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List counter_files",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/counter_files",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "erm_counter_files_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on counter_file erm_counter_files_id"
+              },
+              {
+                "name": "usage_data_provider_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on counter_file usage_data_provider_id"
+              },
+              {
+                "name": "filename",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on counter_file filename"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on counter_file type"
+              },
+              {
+                "name": "file_content",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on counter_file file_content"
+              },
+              {
+                "name": "date_uploaded",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on counter_file date_uploaded"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List counter_files"
+        },
+        {
+          "info": {
+            "name": "Delete counter_file",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/counter_files/:erm_counter_files_id",
+            "params": [
+              {
+                "name": "erm_counter_files_id",
+                "value": "",
+                "type": "path",
+                "description": "ERM counter_files internal identifier"
+              }
+            ]
+          },
+          "docs": "Delete counter_file"
+        },
+        {
+          "info": {
+            "name": "Download Counter file",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/counter_files/:erm_counter_files_id/file/content",
+            "params": [
+              {
+                "name": "erm_counter_files_id",
+                "value": "",
+                "type": "path",
+                "description": "Case insensitive search on erm_counter_files_id"
+              }
+            ]
+          },
+          "docs": "Download Counter file"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,247 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa macros API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "macros",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List advanced editor macros",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/advanced_editor/macros",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Case insensative search on macro name"
+              },
+              {
+                "name": "macro_text",
+                "value": "",
+                "type": "query",
+                "description": "Case insensative search on macro text"
+              },
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "query",
+                "description": "Search on internal patron_id"
+              },
+              {
+                "name": "shared",
+                "value": "",
+                "type": "query",
+                "description": "Search on shared macros"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List advanced editor macros"
+        },
+        {
+          "info": {
+            "name": "Add advanced editor macros",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/advanced_editor/macros",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add advanced editor macros"
+        },
+        {
+          "info": {
+            "name": "Add shared advanced editor macros",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/advanced_editor/macros/shared",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add shared advanced editor macros"
+        },
+        {
+          "info": {
+            "name": "Get shared advanced editor macro",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/advanced_editor/macros/shared/:advancededitormacro_id",
+            "params": [
+              {
+                "name": "advancededitormacro_id",
+                "value": "",
+                "type": "path",
+                "description": "Advanced editor macro internal identifier"
+              }
+            ]
+          },
+          "docs": "Get shared advanced editor macro"
+        },
+        {
+          "info": {
+            "name": "Update shared advanced editor macro",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/advanced_editor/macros/shared/:advancededitormacro_id",
+            "params": [
+              {
+                "name": "advancededitormacro_id",
+                "value": "",
+                "type": "path",
+                "description": "Advanced editor macro internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update shared advanced editor macro"
+        },
+        {
+          "info": {
+            "name": "Delete shared advanced editor macro",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/advanced_editor/macros/shared/:advancededitormacro_id",
+            "params": [
+              {
+                "name": "advancededitormacro_id",
+                "value": "",
+                "type": "path",
+                "description": "Advanced editor macro internal identifier"
+              }
+            ]
+          },
+          "docs": "Delete shared advanced editor macro"
+        },
+        {
+          "info": {
+            "name": "Get advanced editor macro",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/advanced_editor/macros/:advancededitormacro_id",
+            "params": [
+              {
+                "name": "advancededitormacro_id",
+                "value": "",
+                "type": "path",
+                "description": "Advanced editor macro internal identifier"
+              }
+            ]
+          },
+          "docs": "Get advanced editor macro"
+        },
+        {
+          "info": {
+            "name": "Update advanced editor macro",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/advanced_editor/macros/:advancededitormacro_id",
+            "params": [
+              {
+                "name": "advancededitormacro_id",
+                "value": "",
+                "type": "path",
+                "description": "Advanced editor macro internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update advanced editor macro"
+        },
+        {
+          "info": {
+            "name": "Delete advanced editor macro",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/advanced_editor/macros/:advancededitormacro_id",
+            "params": [
+              {
+                "name": "advancededitormacro_id",
+                "value": "",
+                "type": "path",
+                "description": "Advanced editor macro internal identifier"
+              }
+            ]
+          },
+          "docs": "Delete advanced editor macro"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

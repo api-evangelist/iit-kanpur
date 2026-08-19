@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa rotas API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "rotas",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Update stage",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/rotas/:rota_id/stages/:stage_id/position",
+            "params": [
+              {
+                "name": "rota_id",
+                "value": "",
+                "type": "path",
+                "description": "A rotas ID"
+              },
+              {
+                "name": "stage_id",
+                "value": "",
+                "type": "path",
+                "description": "A stages ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update stage"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

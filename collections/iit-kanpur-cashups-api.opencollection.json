@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa cashups API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "cashups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List cashups for the cash register",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/cash_registers/:cash_register_id/cashups",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              },
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "cash_register_id",
+                "value": "",
+                "type": "path",
+                "description": "Cash register internal identifier"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List cashups for the cash register"
+        },
+        {
+          "info": {
+            "name": "Get cashup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/cashups/:cashup_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "cashup_id",
+                "value": "",
+                "type": "path",
+                "description": "Cashup internal identifier"
+              }
+            ]
+          },
+          "docs": "Get cashup"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

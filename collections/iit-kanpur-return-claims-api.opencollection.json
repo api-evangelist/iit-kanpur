@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa return_claims API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "return_claims",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add a return claim",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/return_claims",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a return claim"
+        },
+        {
+          "info": {
+            "name": "Delete claim",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/return_claims/:claim_id",
+            "params": [
+              {
+                "name": "claim_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the claim to be deleted"
+              }
+            ]
+          },
+          "docs": "Delete claim"
+        },
+        {
+          "info": {
+            "name": "Update notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/return_claims/:claim_id/notes",
+            "params": [
+              {
+                "name": "claim_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the claim whose notes are to be updated"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update notes"
+        },
+        {
+          "info": {
+            "name": "Resolve claim",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/return_claims/:claim_id/resolve",
+            "params": [
+              {
+                "name": "claim_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the claim to be resolved"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Resolve claim"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

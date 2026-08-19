@@ -1,0 +1,201 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa erm_licences API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "erm_licences",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List licenses for agreements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/licenses",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "license_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on license license_id"
+              },
+              {
+                "name": "vendor_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on agreement vendor_id"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on license name"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on license type"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on license status"
+              },
+              {
+                "name": "started_on",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on license start date"
+              },
+              {
+                "name": "ended_on",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on license end date"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List licenses for agreements"
+        },
+        {
+          "info": {
+            "name": "Add license",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/licenses",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add license"
+        },
+        {
+          "info": {
+            "name": "get license",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/licenses/:license_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "license_id",
+                "value": "",
+                "type": "path",
+                "description": "License internal identifier"
+              }
+            ]
+          },
+          "docs": "get license"
+        },
+        {
+          "info": {
+            "name": "update license",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/licenses/:license_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "license_id",
+                "value": "",
+                "type": "path",
+                "description": "License internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "update license"
+        },
+        {
+          "info": {
+            "name": "Delete license",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/licenses/:license_id",
+            "params": [
+              {
+                "name": "license_id",
+                "value": "",
+                "type": "path",
+                "description": "License internal identifier"
+              }
+            ]
+          },
+          "docs": "Delete license"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

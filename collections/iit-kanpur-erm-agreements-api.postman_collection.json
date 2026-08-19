@@ -1,0 +1,3173 @@
+{
+  "item": [
+    {
+      "id": "736071c2-4488-403c-a357-901638483962",
+      "name": "erm_agreements",
+      "description": {
+        "content": "Manage ERM agreements\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "879a82d9-1639-4b6c-b83c-c0cc80630b31",
+          "name": "List agreements",
+          "request": {
+            "name": "List agreements",
+            "description": {},
+            "url": {
+              "path": [
+                "erm",
+                "agreements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "agreement_id",
+                  "value": "<integer>",
+                  "description": "Case insensitive search on agreement agreement_id"
+                },
+                {
+                  "disabled": false,
+                  "key": "vendor_id",
+                  "value": "<integer>",
+                  "description": "Case insensitive search on agreement vendor_id"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Case insensitive search on agreement name"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>",
+                  "description": "Case insensitive search on agreement description"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Case insensitive search on agreement status"
+                },
+                {
+                  "disabled": false,
+                  "key": "closure_reason",
+                  "value": "<string>",
+                  "description": "Case insensitive search on agreement closure_reason"
+                },
+                {
+                  "disabled": false,
+                  "key": "is_perpetual",
+                  "value": "<boolean>",
+                  "description": "Case insensitive search on agreement is_perpetual"
+                },
+                {
+                  "disabled": false,
+                  "key": "renewal_priority",
+                  "value": "<string>",
+                  "description": "Case insensitive search on agreement renewal_priority"
+                },
+                {
+                  "disabled": false,
+                  "key": "license_info",
+                  "value": "<string>",
+                  "description": "Case insensitive search on agreement license_info"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_expiration_date",
+                  "value": "<date>",
+                  "description": "filter by expired agreements"
+                },
+                {
+                  "disabled": false,
+                  "key": "_match",
+                  "value": "<string>",
+                  "description": "Matching criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_page",
+                  "value": "<integer>",
+                  "description": "Page number, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "_per_page",
+                  "value": "<integer>",
+                  "description": "Page size, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Embed list sent as a request header",
+                "key": "x-koha-embed",
+                "value": "<string>,<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8634f6fb-c59a-4960-957f-09a4090d0bc9",
+              "name": "A list of agreement",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agreement_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vendor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "closure_reason",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "is_perpetual",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "renewal_priority",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "license_info",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_expiration_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"agreement_id\": 4701,\n    \"name\": \"string\",\n    \"status\": \"string\",\n    \"is_perpetual\": false,\n    \"agreement_licenses\": [\n      {\n        \"license_id\": 6198,\n        \"status\": \"string\",\n        \"agreement_id\": 8544,\n        \"agreement_license_id\": 338,\n        \"notes\": \"string\",\n        \"physical_location\": \"string\",\n        \"uri\": null\n      },\n      {\n        \"license_id\": 4171,\n        \"status\": \"string\",\n        \"agreement_id\": 8876,\n        \"agreement_license_id\": 882,\n        \"notes\": \"string\",\n        \"physical_location\": null,\n        \"uri\": \"string\"\n      }\n    ],\n    \"agreement_relationships\": [\n      {\n        \"related_agreement_id\": 1463,\n        \"relationship\": \"has-post-cancellation-access-in\",\n        \"agreement_id\": 7947,\n        \"notes\": null\n      },\n      {\n        \"related_agreement_id\": 4669,\n        \"relationship\": \"is-superseded-by\",\n        \"agreement_id\": 511,\n        \"notes\": \"string\"\n      }\n    ],\n    \"closure_reason\": \"string\",\n    \"description\": \"string\",\n    \"documents\": [\n      {\n        \"agreement_id\": null,\n        \"document_id\": 1927,\n        \"file_content\": null,\n        \"file_description\": \"string\",\n        \"file_name\": null,\n        \"file_type\": null,\n        \"license_id\": null,\n        \"notes\": \"string\",\n        \"physical_location\": null,\n        \"uploaded_on\": null,\n        \"uri\": \"string\"\n      },\n      {\n        \"agreement_id\": 8205,\n        \"document_id\": 3905,\n        \"file_content\": \"string\",\n        \"file_description\": \"string\",\n        \"file_name\": \"string\",\n        \"file_type\": \"string\",\n        \"license_id\": 277,\n        \"notes\": \"string\",\n        \"physical_location\": \"string\",\n        \"uploaded_on\": \"1971-12-06T15:14:33.641Z\",\n        \"uri\": null\n      }\n    ],\n    \"license_info\": null,\n    \"periods\": [\n      {\n        \"started_on\": \"2013-10-18\",\n        \"agreement_id\": 7234,\n        \"agreement_period_id\": 4835,\n        \"cancellation_deadline\": null,\n        \"ended_on\": null,\n        \"notes\": null\n      },\n      {\n        \"started_on\": \"2006-05-03\",\n        \"agreement_id\": 6563,\n        \"agreement_period_id\": 6241,\n        \"cancellation_deadline\": null,\n        \"ended_on\": \"1999-11-30\",\n        \"notes\": \"string\"\n      }\n    ],\n    \"renewal_priority\": null,\n    \"user_roles\": [\n      {\n        \"user_id\": 8119,\n        \"role\": \"string\",\n        \"agreement_id\": null,\n        \"license_id\": null,\n        \"patron\": {},\n        \"user_role_id\": 8603\n      },\n      {\n        \"user_id\": 8096,\n        \"role\": \"string\",\n        \"agreement_id\": null,\n        \"license_id\": null,\n        \"patron\": null,\n        \"user_role_id\": 9682\n      }\n    ],\n    \"vendor\": {},\n    \"vendor_id\": 6783\n  },\n  {\n    \"agreement_id\": 7645,\n    \"name\": \"string\",\n    \"status\": \"string\",\n    \"is_perpetual\": false,\n    \"agreement_licenses\": [\n      {\n        \"license_id\": 5884,\n        \"status\": \"string\",\n        \"agreement_id\": 4266,\n        \"agreement_license_id\": 2628,\n        \"notes\": null,\n        \"physical_location\": \"string\",\n        \"uri\": \"string\"\n      },\n      {\n        \"license_id\": 2627,\n        \"status\": \"string\",\n        \"agreement_id\": 8613,\n        \"agreement_license_id\": 5286,\n        \"notes\": \"string\",\n        \"physical_location\": null,\n        \"uri\": null\n      }\n    ],\n    \"agreement_relationships\": [\n      {\n        \"related_agreement_id\": 4568,\n        \"relationship\": \"supersedes\",\n        \"agreement_id\": 3110,\n        \"notes\": null\n      },\n      {\n        \"related_agreement_id\": 5202,\n        \"relationship\": \"is-superseded-by\",\n        \"agreement_id\": 2413,\n        \"notes\": \"string\"\n      }\n    ],\n    \"closure_reason\": \"string\",\n    \"description\": \"string\",\n    \"documents\": [\n      {\n        \"agreement_id\": null,\n        \"document_id\": 6885,\n        \"file_content\": \"string\",\n        \"file_description\": \"string\",\n        \"file_name\": \"string\",\n        \"file_type\": null,\n        \"license_id\": null,\n        \"notes\": \"string\",\n        \"physical_location\": \"string\",\n        \"uploaded_on\": \"1979-01-10T18:43:12.093Z\",\n        \"uri\": null\n      },\n      {\n        \"agreement_id\": 9765,\n        \"document_id\": 3058,\n        \"file_content\": null,\n        \"file_description\": null,\n        \"file_name\": \"string\",\n        \"file_type\": \"string\",\n        \"license_id\": null,\n        \"notes\": null,\n        \"physical_location\": null,\n        \"uploaded_on\": null,\n        \"uri\": null\n      }\n    ],\n    \"license_info\": \"string\",\n    \"periods\": [\n      {\n        \"started_on\": \"1984-03-10\",\n        \"agreement_id\": 8002,\n        \"agreement_period_id\": 8491,\n        \"cancellation_deadline\": null,\n        \"ended_on\": \"1973-03-15\",\n        \"notes\": null\n      },\n      {\n        \"started_on\": \"1985-07-07\",\n        \"agreement_id\": 5321,\n        \"agreement_period_id\": 3132,\n        \"cancellation_deadline\": \"2016-09-15\",\n        \"ended_on\": null,\n        \"notes\": null\n      }\n    ],\n    \"renewal_priority\": \"string\",\n    \"user_roles\": [\n      {\n        \"user_id\": 6058,\n        \"role\": \"string\",\n        \"agreement_id\": null,\n        \"license_id\": null,\n        \"patron\": {},\n        \"user_role_id\": 2296\n      },\n      {\n        \"user_id\": 7579,\n        \"role\": \"string\",\n        \"agreement_id\": 8016,\n        \"license_id\": null,\n        \"patron\": null,\n        \"user_role_id\": 8566\n      }\n    ],\n    \"vendor\": {},\n    \"vendor_id\": null\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "21a6c05b-d0b0-488c-b99a-a658f9c8097e",
+              "name": "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agreement_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vendor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "closure_reason",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "is_perpetual",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "renewal_priority",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "license_info",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_expiration_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0f0e5637-3bb0-4c73-b345-9d3c71b17fd4",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agreement_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vendor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "closure_reason",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "is_perpetual",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "renewal_priority",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "license_info",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_expiration_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b2fb28ec-cd05-46af-a953-e784657c6ba3",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agreement_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vendor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "closure_reason",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "is_perpetual",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "renewal_priority",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "license_info",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_expiration_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e666671-1743-451c-8a65-4c6582f25031",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agreement_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vendor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "closure_reason",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "is_perpetual",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "renewal_priority",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "license_info",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_expiration_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c559691e-0246-415d-a0b0-9ccbe0f9010c",
+              "name": "Internal server error. Possible `error_code` attribute values:\n* `internal_server_error`",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agreement_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vendor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "closure_reason",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "is_perpetual",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "renewal_priority",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "license_info",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_expiration_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f60cb08-efb7-4d3e-93c1-184e516ec20a",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agreement_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vendor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "closure_reason",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "is_perpetual",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "renewal_priority",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "license_info",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_expiration_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c98329d-6753-45d4-bc43-9e7beddce779",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "agreement_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vendor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "closure_reason",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "is_perpetual",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "renewal_priority",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "license_info",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_expiration_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ca412b5c-e9c7-48fb-bcc0-57baf98aeac6",
+          "name": "Add agreement",
+          "request": {
+            "name": "Add agreement",
+            "description": {},
+            "url": {
+              "path": [
+                "erm",
+                "agreements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "323ba587-9b7f-4ade-a167-7465cf11d11d",
+              "name": "A successfully created agreement",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d23b086-0541-4ff0-a8d5-e72f03f761d8",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7af85fc-385c-4890-8108-a340e1b53ffc",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df752f56-3e79-41a3-909a-e2159e353118",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7286ec19-a08f-4f61-839d-7fa4c43b1d3e",
+              "name": "Ressource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "149d09c2-4481-4795-a6ee-1e2a6b13444c",
+              "name": "Conflict in creating resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3fbdd220-b40d-475f-b8a8-08d229e23993",
+              "name": "Payload too large",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Request Entity Too Large",
+              "code": 413,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6465efc-37f3-4633-9a9b-3408e691775e",
+              "name": "Internal server error. Possible `error_code` attribute values:\n* `internal_server_error`",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aaee16b7-b7c8-49bf-8bca-95ab7e8fc0af",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b915e57e-869e-48e9-89a0-16c7677eec93",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c602f167-e804-42c5-837f-44f76ff3de13",
+          "name": "Delete agreement",
+          "request": {
+            "name": "Delete agreement",
+            "description": {},
+            "url": {
+              "path": [
+                "erm",
+                "agreements",
+                ":agreement_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "agreement_id",
+                  "description": "(Required) Agreement internal identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3c4122d-a8bd-4237-846a-b4c7a3317432",
+              "name": "Agreement deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "36dfaa55-c1b9-43ae-ac03-4825ce0d02a2",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13dcc3e2-fc32-4dc5-a58f-16966a07640f",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4e2529f-825e-4d65-8196-3a8dd7170c19",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f9e03bbf-419e-4d83-941f-941a9f79cbea",
+              "name": "Ressource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "171bc075-f906-4c5e-be90-21ab99b1c8ae",
+              "name": "Conflict in deleting resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "25d9bcca-b0a9-4f3c-839b-fa9ac5c780be",
+              "name": "Internal server error. Possible `error_code` attribute values:\n* `internal_server_error`",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6bffa0f-9f44-4c6b-8611-7734a8f0cdda",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d740b85e-c4e6-4b31-ae33-cd854eeb3f3a",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd5bad07-6559-4268-9a2a-8d3b11a95bed",
+          "name": "Get agreement",
+          "request": {
+            "name": "Get agreement",
+            "description": {},
+            "url": {
+              "path": [
+                "erm",
+                "agreements",
+                ":agreement_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "agreement_id",
+                  "description": "(Required) Agreement internal identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Embed list sent as a request header",
+                "key": "x-koha-embed",
+                "value": "<string>,<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "894bf763-d5ce-4c6d-96f2-28542ce406f2",
+              "name": "An agreement",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "855fdbaa-a178-4f59-9ae8-5a5eae1aa4a6",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "be2f7c38-b9da-4a58-ae38-d4e811a5c6a6",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "37ce5aba-5c69-4c01-b895-52fc5b137b3d",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ed24f43d-3f13-4490-95c6-4d35fbdd82fb",
+              "name": "Ressource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d48c22db-3b96-4e7e-9b2b-5702a7d89b0b",
+              "name": "Internal server error. Possible `error_code` attribute values:\n* `internal_server_error`",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a6e2eee8-43e0-4382-b798-9e47770b7375",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51ee79f0-a515-47b3-b5f6-fdf2c820889a",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df6e35e2-0ea8-4b5c-af2f-0990e67df17e",
+          "name": "Update agreement",
+          "request": {
+            "name": "Update agreement",
+            "description": {},
+            "url": {
+              "path": [
+                "erm",
+                "agreements",
+                ":agreement_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "agreement_id",
+                  "description": "(Required) Agreement internal identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Embed list sent as a request header",
+                "key": "x-koha-embed",
+                "value": "<string>,<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c9c6f68a-ccbf-4f2a-b23d-1b248efa3bf3",
+              "name": "A successfully updated agreement",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c34fdea-81eb-4972-a43c-fbc4d0d01fd6",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "772d2039-ff01-4b7e-9ca8-d5b18cc7fcd8",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e6fc459-8c9b-4057-b4b5-2b3a0ae18c4c",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52ccd700-e4c1-4cd7-b691-f7a5919db906",
+              "name": "Ressource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "376dff3b-827e-45a7-b6f8-0a0a163748fe",
+              "name": "Conflict in updating resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a4af08a4-c030-4726-8aac-8567c4e86e4d",
+              "name": "Payload too large",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Request Entity Too Large",
+              "code": 413,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c5197bd0-fadc-4e79-a634-cf324898b164",
+              "name": "Internal server error. Possible `error_code` attribute values:\n* `internal_server_error`",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "94454f04-60ef-4cf4-846b-0ba9697a00e4",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ab1e876f-874f-4d87-bd63-313945e6af04",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "agreements",
+                    ":agreement_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "agreement_id",
+                      "description": "(Required) Agreement internal identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"is_perpetual\": \"<boolean>\",\n  \"agreement_licenses\": [\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"license_id\": \"<integer>\",\n      \"status\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"agreement_license_id\": \"<integer>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"agreement_relationships\": [\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"related_agreement_id\": \"<integer>\",\n      \"relationship\": \"<string>\",\n      \"agreement_id\": \"<integer>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"closure_reason\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"documents\": [\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    },\n    {\n      \"agreement_id\": \"<integer,null>\",\n      \"document_id\": \"<integer>\",\n      \"file_content\": \"<string,null>\",\n      \"file_description\": \"<string,null>\",\n      \"file_name\": \"<string,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"notes\": \"<string,null>\",\n      \"physical_location\": \"<string,null>\",\n      \"uri\": \"<string,null>\"\n    }\n  ],\n  \"license_info\": \"<string,null>\",\n  \"periods\": [\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    },\n    {\n      \"started_on\": \"<date>\",\n      \"agreement_id\": \"<integer>\",\n      \"cancellation_deadline\": \"<string,null-date>\",\n      \"ended_on\": \"<string,null-date>\",\n      \"notes\": \"<string,null>\"\n    }\n  ],\n  \"renewal_priority\": \"<string,null>\",\n  \"user_roles\": [\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    },\n    {\n      \"user_id\": \"<integer>\",\n      \"role\": \"<string>\",\n      \"agreement_id\": \"<integer,null>\",\n      \"license_id\": \"<integer,null>\",\n      \"patron\": \"<object,null>\",\n      \"user_role_id\": \"<integer>\"\n    }\n  ],\n  \"vendor\": \"<object,null>\",\n  \"vendor_id\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://libserv.iitk.ac.in/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6c3d903e-6387-42cc-8111-bd2c4f3c5119",
+    "name": "Koha REST 2fa erm_agreements API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Background\n\nThe API supports two sets of endpoints, one targetted at library staff and the other at at library users.\n\nThose endpoints under the `/public` path are aimed at delivering functionality tailored to library users and offer\na more restricted set of functions, overrides and data in thier responses for data privacy and library policy\nreasons. Many of these endpoints do not require authentication for fetching public data, though an authenticated\nsession will expose additional options and allow users to see more data where it is part of their own record.\n\nAll other endpoints are targetted at the staff interface level and allow for additional functionality and a more\nunrestricted view of data.  These endpoints, however, have a level of redaction built in for resources that the\napi consumer should not have access to.  For example, user data for users who do not belong to the same library\nor library group of your api user will be reduced to just minimum neccesary for a valid response. Object keys will\nbe consistent for all responses, but their values may be removed depending on access.\n\n## Authentication\n\nThe API supports the following authentication mechanisms\n\n* HTTP Basic authentication\n* OAuth2 (client credentials grant)\n* Cookie-based\n\nBoth _Basic authentication_ and the _OAuth2_ flow, need to be enabled\nby system preferences.\n\n## Authorization\n\nThe API uses existing user profiles to restrict access to resources based on user permissions and the library the\nAPI user is assigned to.  This may result, at times, in resources being returned in a redacted form with all keys\npresent but sensative values nulled.\n\nWe do not yet support OAuth Scopes or the Authorization Code grant flow.\n\n## Errors\n\nThe API uses standard HTTP status codes to indicate the success or failure\nof the API call. The body of the response will be JSON in the following format:\n\n```\n{\n  \"error\": \"Current settings prevent the passed due date to be applied\",\n  \"error_code\": \"invalid_due_date\"\n}\n```\n\nNote: Some routes might offer additional attributes in their error responses but that\"s\nsubject to change and thus not documented.\n\n## Filtering responses\n\nThe API allows for some advanced response filtering using a JSON based query syntax. The\nquery can be added to the requests:\n\n* as a query parameter `q=`\n* in the request body\n\nFor simple field equality matches we can use `{ \"fieldname\": \"value\" }` where the fieldname\nmatches one of the fields as described in the particular endpoints response object.\n\nWe can refine that with more complex matching clauses by nesting a the clause into the\nobject; `{ \"fieldname\": { \"clause\": \"value\" } }`.\n\nAvailable matching clauses include `=`, `!=`, `<`, `>`, `<=`, `>=` and `-not`. We also support `-like`\nand `-not_like` string comparisons with `%` used to denote wildcards, thus you can pass\n`{ \"fieldname\": { \"-like\": \"value%\" } }` to do a 'starts with' string match for example.\n\nWe can filter on multiple fields by adding them to the JSON respresentation. Adding at `HASH`\nlevel will result in an \"AND\" query, whilst combinding them in an `ARRAY` will result in an\n\"OR\" query: `{ \"field1\": \"value2\", \"field2\": \"value2\" }` will filter the response to only those\nresults with both field1 containing value2 AND field2 containing value2 for example.\n\nThere is a collection of special operators also available to you, including:\n\n* `-in` - Expects an array of values to perform an OR match against\n* `-not_in` - Expects an array of values to perform a NOR match against\n* `-between` - Expects two values which the value of the field is expected to fall between\n* `-not_between` - Expects two values which the value of the field is expected to fall outside of\n* `-ident` - Expects a second field name to match the two field values against\n* `-regexp` - Expects a perl compatible regular expression for which the value should match\n\nLogic and nesting is also supported and you may use `-and` and `-or` to change the logic of an ARRAY\nor HASH as described above.\n\nAdditionally, if you are requesting related data be embedded into the response one can query\non the related data using dot notation in the field names.\n\n### Examples\n\nThe following request would return any patron with firstname \"Henry\" and lastname \"Acevedo\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": \"Acevedo\", \"firstname\": \"Henry\" }'`\n\nThe following request would return any patron whose lastname begins with \"Ace\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": { \"-like\": \"Ace%\" }'`\n\nThe following request would return any patron whose lastname is \"Acevedo\" OR \"Bernardo\"\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": [ \"Acevedo\", \"Bernardo\" ] }'`\n\nThe following request embeds the related patron extended attributes data and filters on it.\n\n`curl -u koha:koha =--request GET 'http://127.0.0.1:8081/api/v1/patrons/' --header 'x-koha-embed: extended_attributes' --data-raw '{ \"extended_attributes.code\": \"internet\", \"extended_attributes.attribute\": \"1\" }'`\n\n## Special headers\n\n### x-koha-embed\n\nThis optional header allows the api consumer to request additional related data\nto be returned in the api response.  It also allows for cross referencing in the\nqueries as described above. It accepts a comma delimited list of relation names.\n\nRelations may on occasion also support dot delimited nesting to allow traversal.\n\n### x-koha-library\n\nThis optional header should be passed to give your api request a library\ncontext; If it is not included in the request, then the request context\nwill default to using your api comsumer\"s assigned home library.\n\n\nContact Support:\n Name: Koha Development Team",
+      "type": "text/plain"
+    }
+  }
+}

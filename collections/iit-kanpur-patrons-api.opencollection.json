@@ -1,0 +1,1102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa patrons API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "patrons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check validity of username and password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/auth/password/validation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check validity of username and password"
+        },
+        {
+          "info": {
+            "name": "Add a new checkout",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/checkouts",
+            "params": [
+              {
+                "name": "confirmation",
+                "value": "",
+                "type": "query",
+                "description": "A JWT confirmation token"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new checkout"
+        },
+        {
+          "info": {
+            "name": "List patrons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/patrons",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              },
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "query",
+                "description": "Search on patron_id"
+              },
+              {
+                "name": "cardnumber",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on cardnumber"
+              },
+              {
+                "name": "surname",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on surname"
+              },
+              {
+                "name": "firstname",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on firstname"
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title"
+              },
+              {
+                "name": "other_name",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on othernames"
+              },
+              {
+                "name": "initials",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on initials"
+              },
+              {
+                "name": "street_number",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on streetnumber"
+              },
+              {
+                "name": "street_type",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on streettype"
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on address"
+              },
+              {
+                "name": "address2",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on address2"
+              },
+              {
+                "name": "city",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on city"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on state"
+              },
+              {
+                "name": "postal_code",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on zipcode"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on country"
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on email"
+              },
+              {
+                "name": "phone",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on phone"
+              },
+              {
+                "name": "mobile",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on mobile"
+              },
+              {
+                "name": "fax",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on fax"
+              },
+              {
+                "name": "secondary_email",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on secondary_email"
+              },
+              {
+                "name": "secondary_phone",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on secondary_phone"
+              },
+              {
+                "name": "altaddress_street_number",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on altaddress_street_number"
+              },
+              {
+                "name": "altaddress_street_type",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on altaddress_street_type"
+              },
+              {
+                "name": "altaddress_address",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on altaddress_address"
+              },
+              {
+                "name": "altaddress_address2",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on altaddress_address2"
+              },
+              {
+                "name": "altaddress_city",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on altaddress_city"
+              },
+              {
+                "name": "altaddress_state",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on altaddress_state"
+              },
+              {
+                "name": "altaddress_postal_code",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on altaddress_postal_code"
+              },
+              {
+                "name": "altaddress_country",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on altaddress_country"
+              },
+              {
+                "name": "altaddress_email",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on altaddress_email"
+              },
+              {
+                "name": "altaddress_phone",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on altaddress_phone"
+              },
+              {
+                "name": "date_of_birth",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on date_of_birth"
+              },
+              {
+                "name": "library_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on library_id"
+              },
+              {
+                "name": "category_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on category_id"
+              },
+              {
+                "name": "date_enrolled",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on date_enrolled"
+              },
+              {
+                "name": "expiry_date",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on expiry_date"
+              },
+              {
+                "name": "incorrect_address",
+                "value": "",
+                "type": "query",
+                "description": "Search on incorrect_address"
+              },
+              {
+                "name": "patron_card_lost",
+                "value": "",
+                "type": "query",
+                "description": "Search on patron_card_lost"
+              },
+              {
+                "name": "restricted",
+                "value": "",
+                "type": "query",
+                "description": "Filter search by restricted"
+              },
+              {
+                "name": "staff_notes",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on staff_notes"
+              },
+              {
+                "name": "relationship_type",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on relationship_type"
+              },
+              {
+                "name": "gender",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on gender"
+              },
+              {
+                "name": "userid",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on userid"
+              },
+              {
+                "name": "opac_notes",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on opac_notes"
+              },
+              {
+                "name": "altaddress_notes",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on altaddress_notes"
+              },
+              {
+                "name": "statistics_1",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on statistics_1"
+              },
+              {
+                "name": "statistics_2",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on statistics_2"
+              },
+              {
+                "name": "autorenew_checkouts",
+                "value": "",
+                "type": "query",
+                "description": "Search on autorenew_checkouts"
+              },
+              {
+                "name": "altcontact_firstname",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on altcontact_firstname"
+              },
+              {
+                "name": "altcontact_surname",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on altcontact_surname"
+              },
+              {
+                "name": "altcontact_address",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on altcontact_address"
+              },
+              {
+                "name": "altcontact_address2",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on altcontact_address2"
+              },
+              {
+                "name": "altcontact_city",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on altcontact_city"
+              },
+              {
+                "name": "altcontact_state",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on altcontact_state"
+              },
+              {
+                "name": "altcontact_postal_code",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on altcontact_postal_code"
+              },
+              {
+                "name": "altcontact_country",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on altcontact_country"
+              },
+              {
+                "name": "altcontact_phone",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on altcontact_phone"
+              },
+              {
+                "name": "sms_number",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on sms_number"
+              },
+              {
+                "name": "sms_provider_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on sms_provider_id"
+              },
+              {
+                "name": "privacy",
+                "value": "",
+                "type": "query",
+                "description": "Search on privacy"
+              },
+              {
+                "name": "privacy_guarantor_checkouts",
+                "value": "",
+                "type": "query",
+                "description": "Search on privacy_guarantor_checkouts"
+              },
+              {
+                "name": "check_previous_checkout",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on check_previous_checkout"
+              },
+              {
+                "name": "updated_on",
+                "value": "",
+                "type": "query",
+                "description": "Search on updated_on"
+              },
+              {
+                "name": "last_seen",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on last_seen"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on lang"
+              },
+              {
+                "name": "login_attempts",
+                "value": "",
+                "type": "query",
+                "description": "Search on login_attempts"
+              },
+              {
+                "name": "protected",
+                "value": "",
+                "type": "query",
+                "description": "Search on protected status"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List patrons"
+        },
+        {
+          "info": {
+            "name": "Add patron",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/patrons",
+            "headers": [
+              {
+                "name": "x-koha-override",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add patron"
+        },
+        {
+          "info": {
+            "name": "Get patron",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/patrons/:patron_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              }
+            ]
+          },
+          "docs": "Get patron"
+        },
+        {
+          "info": {
+            "name": "Update patron",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/patrons/:patron_id",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update patron"
+        },
+        {
+          "info": {
+            "name": "Delete patron",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/patrons/:patron_id",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              }
+            ]
+          },
+          "docs": "Delete patron"
+        },
+        {
+          "info": {
+            "name": "Get account information for a patron",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/patrons/:patron_id/account",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              }
+            ]
+          },
+          "docs": "Get account information for a patron"
+        },
+        {
+          "info": {
+            "name": "List patron credits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/patrons/:patron_id/account/credits",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List patron credits"
+        },
+        {
+          "info": {
+            "name": "Add credit to a patron's account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/patrons/:patron_id/account/credits",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add credit to a patron's account"
+        },
+        {
+          "info": {
+            "name": "List patron debits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/patrons/:patron_id/account/debits",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List patron debits"
+        },
+        {
+          "info": {
+            "name": "Add debit to a patron's account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/patrons/:patron_id/account/debits",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add debit to a patron's account"
+        },
+        {
+          "info": {
+            "name": "List extended attributes for a patron",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/patrons/:patron_id/extended_attributes",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List extended attributes for a patron"
+        },
+        {
+          "info": {
+            "name": "Add extended attribute for a patron",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/patrons/:patron_id/extended_attributes",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add extended attribute for a patron"
+        },
+        {
+          "info": {
+            "name": "Overwrite extended attributes for a patron",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/patrons/:patron_id/extended_attributes",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Overwrite extended attributes for a patron"
+        },
+        {
+          "info": {
+            "name": "Update extended attribute",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://libserv.iitk.ac.in/api/v1/patrons/:patron_id/extended_attributes/:extended_attribute_id",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              },
+              {
+                "name": "extended_attribute_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron extended attribute identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update extended attribute"
+        },
+        {
+          "info": {
+            "name": "Delete extended attribute",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/patrons/:patron_id/extended_attributes/:extended_attribute_id",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              },
+              {
+                "name": "extended_attribute_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron extended attribute identifier"
+              }
+            ]
+          },
+          "docs": "Delete extended attribute"
+        },
+        {
+          "info": {
+            "name": "Set password for a patron",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/patrons/:patron_id/password",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set password for a patron"
+        },
+        {
+          "info": {
+            "name": "Set password expiration for a patron",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/patrons/:patron_id/password/expiration_date",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set password expiration for a patron"
+        },
+        {
+          "info": {
+            "name": "Add a new checkout (public)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/public/patrons/:patron_id/checkouts",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              },
+              {
+                "name": "confirmation",
+                "value": "",
+                "type": "query",
+                "description": "A JWT confirmation token"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new checkout (public)"
+        },
+        {
+          "info": {
+            "name": "Set if guarantors can see charges (public)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/public/patrons/:patron_id/guarantors/can_see_charges",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set if guarantors can see charges (public)"
+        },
+        {
+          "info": {
+            "name": "Set if guarantors can see checkouts",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/public/patrons/:patron_id/guarantors/can_see_checkouts",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set if guarantors can see checkouts"
+        },
+        {
+          "info": {
+            "name": "Cancel a patron's hold (public)",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/public/patrons/:patron_id/holds/:hold_id",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              },
+              {
+                "name": "hold_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal hold identifier"
+              }
+            ]
+          },
+          "docs": "Cancel a patron's hold (public)"
+        },
+        {
+          "info": {
+            "name": "Set password for a patron (public)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/public/patrons/:patron_id/password",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set password for a patron (public)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

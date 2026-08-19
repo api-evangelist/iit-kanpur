@@ -1,0 +1,440 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa checkouts API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "checkouts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List checkouts for a biblio",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/biblios/:biblio_id/checkouts",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              },
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "path",
+                "description": "Record internal identifier"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              },
+              {
+                "name": "checked_in",
+                "value": "",
+                "type": "query",
+                "description": "By default, current checkouts are returned, when this is true then checked in checkouts are returned as result."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List checkouts for a biblio"
+        },
+        {
+          "info": {
+            "name": "List checkouts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/checkouts",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              },
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "query",
+                "description": "Internal patron identifier"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              },
+              {
+                "name": "checked_in",
+                "value": "",
+                "type": "query",
+                "description": "By default, current checkouts are returned, when this is true then checked in checkouts are returned as result."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List checkouts"
+        },
+        {
+          "info": {
+            "name": "Add a new checkout",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/checkouts",
+            "params": [
+              {
+                "name": "confirmation",
+                "value": "",
+                "type": "query",
+                "description": "A JWT confirmation token"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new checkout"
+        },
+        {
+          "info": {
+            "name": "Get checkout availability",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/checkouts/availability",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "query",
+                "description": "Internal patron identifier"
+              },
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "query",
+                "description": "Internal item identifier"
+              }
+            ]
+          },
+          "docs": "Get checkout availability"
+        },
+        {
+          "info": {
+            "name": "Get checkout",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/checkouts/:checkout_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "checkout_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal checkout identifier"
+              }
+            ]
+          },
+          "docs": "Get checkout"
+        },
+        {
+          "info": {
+            "name": "Get renewability for a checkout",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/checkouts/:checkout_id/allows_renewal",
+            "params": [
+              {
+                "name": "checkout_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal checkout identifier"
+              }
+            ]
+          },
+          "docs": "Get renewability for a checkout"
+        },
+        {
+          "info": {
+            "name": "Renew a checkout",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/checkouts/:checkout_id/renewal",
+            "params": [
+              {
+                "name": "checkout_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal checkout identifier"
+              },
+              {
+                "name": "seen",
+                "value": "",
+                "type": "query",
+                "description": "Item was seen flag"
+              }
+            ]
+          },
+          "docs": "Renew a checkout"
+        },
+        {
+          "info": {
+            "name": "List renewals for a checkout",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/checkouts/:checkout_id/renewals",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "checkout_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal checkout identifier"
+              }
+            ]
+          },
+          "docs": "List renewals for a checkout"
+        },
+        {
+          "info": {
+            "name": "Renew a checkout",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/checkouts/:checkout_id/renewals",
+            "params": [
+              {
+                "name": "checkout_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal checkout identifier"
+              },
+              {
+                "name": "seen",
+                "value": "",
+                "type": "query",
+                "description": "Item was seen flag"
+              }
+            ]
+          },
+          "docs": "Renew a checkout"
+        },
+        {
+          "info": {
+            "name": "List checkouts for a patron",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/patrons/:patron_id/checkouts",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              },
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List checkouts for a patron"
+        },
+        {
+          "info": {
+            "name": "Get checkout availability",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/public/checkouts/availability",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "query",
+                "description": "Internal patron identifier"
+              },
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "query",
+                "description": "Internal item identifier"
+              }
+            ]
+          },
+          "docs": "Get checkout availability"
+        },
+        {
+          "info": {
+            "name": "Add a new checkout (public)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/public/patrons/:patron_id/checkouts",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              },
+              {
+                "name": "confirmation",
+                "value": "",
+                "type": "query",
+                "description": "A JWT confirmation token"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new checkout (public)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

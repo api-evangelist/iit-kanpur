@@ -1,0 +1,236 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa bookings API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "bookings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get bookings for a biblio",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/biblios/:biblio_id/bookings",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "path",
+                "description": "Record internal identifier"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get bookings for a biblio"
+        },
+        {
+          "info": {
+            "name": "List bookings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/bookings",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensative search on booking biblio_id"
+              },
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensative search on booking item_id"
+              },
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensative search on booking patron_id"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Case Insensative search on booking start_date"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "Case Insensative search on booking end_date"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List bookings"
+        },
+        {
+          "info": {
+            "name": "Add booking",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/bookings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add booking"
+        },
+        {
+          "info": {
+            "name": "Get booking",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/bookings/:booking_id",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path",
+                "description": "Booking identifier"
+              }
+            ]
+          },
+          "docs": "Get booking"
+        },
+        {
+          "info": {
+            "name": "Update booking",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/bookings/:booking_id",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path",
+                "description": "Booking identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update booking"
+        },
+        {
+          "info": {
+            "name": "Delete booking",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/bookings/:booking_id",
+            "params": [
+              {
+                "name": "booking_id",
+                "value": "",
+                "type": "path",
+                "description": "Booking identifier"
+              }
+            ]
+          },
+          "docs": "Delete booking"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

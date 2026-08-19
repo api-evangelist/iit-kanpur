@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa erm_usage_databases API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "erm_usage_databases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List usage_databases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/usage_databases",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              },
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "database_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_database database_id"
+              },
+              {
+                "name": "database",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_database database"
+              },
+              {
+                "name": "usage_data_provider_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_database usage_data_provider_id"
+              },
+              {
+                "name": "platform",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_database platform"
+              },
+              {
+                "name": "publisher",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_database publisher"
+              },
+              {
+                "name": "publisher_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_title publisher_id"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List usage_databases"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

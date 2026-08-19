@@ -1,0 +1,314 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa erm_usage_data_providers API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "erm_usage_data_providers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List usage_data_providers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/usage_data_providers",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "usage_data_provider_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_data_provider usage_data_provider_id"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_data_provider name"
+              },
+              {
+                "name": "description",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_data_provider description"
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_data_provider active"
+              },
+              {
+                "name": "method",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_data_provider method"
+              },
+              {
+                "name": "aggregator",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_data_provider aggregator"
+              },
+              {
+                "name": "service_type",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_data_provider service_type"
+              },
+              {
+                "name": "service_url",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_data_provider service_url"
+              },
+              {
+                "name": "report_release",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_data_provider report_release"
+              },
+              {
+                "name": "customer_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_data_provider customer_id"
+              },
+              {
+                "name": "requestor_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_data_provider requestor_id"
+              },
+              {
+                "name": "api_key",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_data_provider api_key"
+              },
+              {
+                "name": "requestor_name",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_data_provider requestor_name"
+              },
+              {
+                "name": "requestor_email",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_data_provider requestor_email"
+              },
+              {
+                "name": "report_types",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_data_provider report_types"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List usage_data_providers"
+        },
+        {
+          "info": {
+            "name": "Add usage_data_provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/usage_data_providers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add usage_data_provider"
+        },
+        {
+          "info": {
+            "name": "get usage_data_provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/usage_data_providers/:erm_usage_data_provider_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "erm_usage_data_provider_id",
+                "value": "",
+                "type": "path",
+                "description": "ERM usage_data_provider internal identifier"
+              }
+            ]
+          },
+          "docs": "get usage_data_provider"
+        },
+        {
+          "info": {
+            "name": "update usage_data_provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/usage_data_providers/:erm_usage_data_provider_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "erm_usage_data_provider_id",
+                "value": "",
+                "type": "path",
+                "description": "ERM usage_data_provider internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "update usage_data_provider"
+        },
+        {
+          "info": {
+            "name": "Delete usage_data_provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/usage_data_providers/:erm_usage_data_provider_id",
+            "params": [
+              {
+                "name": "erm_usage_data_provider_id",
+                "value": "",
+                "type": "path",
+                "description": "ERM usage_data_provider internal identifier"
+              }
+            ]
+          },
+          "docs": "Delete usage_data_provider"
+        },
+        {
+          "info": {
+            "name": "Process COUNTER file upload for this data provider's harvester",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/usage_data_providers/:erm_usage_data_provider_id/process_COUNTER_file",
+            "params": [
+              {
+                "name": "erm_usage_data_provider_id",
+                "value": "",
+                "type": "path",
+                "description": "ERM usage_data_provider internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Process COUNTER file upload for this data provider's harvester"
+        },
+        {
+          "info": {
+            "name": "Process SUSHI COUNTER for this data provider's harvester",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/usage_data_providers/:erm_usage_data_provider_id/process_SUSHI_response",
+            "params": [
+              {
+                "name": "erm_usage_data_provider_id",
+                "value": "",
+                "type": "path",
+                "description": "ERM usage_data_provider internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Process SUSHI COUNTER for this data provider's harvester"
+        },
+        {
+          "info": {
+            "name": "Test this data provider's harvester",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/usage_data_providers/:erm_usage_data_provider_id/test_connection",
+            "params": [
+              {
+                "name": "erm_usage_data_provider_id",
+                "value": "",
+                "type": "path",
+                "description": "ERM usage_data_provider internal identifier"
+              }
+            ]
+          },
+          "docs": "Test this data provider's harvester"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

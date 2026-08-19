@@ -1,0 +1,470 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa biblios API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "biblios",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List biblios",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/biblios",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List biblios"
+        },
+        {
+          "info": {
+            "name": "Add biblio",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/biblios",
+            "headers": [
+              {
+                "name": "x-framework-id",
+                "value": ""
+              },
+              {
+                "name": "x-record-schema",
+                "value": ""
+              },
+              {
+                "name": "x-confirm-not-duplicate",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Add a bibliographic record to Koha. An optional `x-framework-id`\nmay be passed to specify the cataloguing framework to be used (instead\nof the default).\n\nThe request body is expected to contain a MARC record in the format specified in\nthe `Content-type` header you pass. Possible values for this header and the corresponding\nrecord formats expected are listed below:\n\n* application/marcxml+xml: MARCXML\n* application/marc-in-json: MARC-in-JSON\n* application/marc: Raw USMARC binary data\n"
+        },
+        {
+          "info": {
+            "name": "Get biblio",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/biblios/:biblio_id",
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "path",
+                "description": "Record internal identifier"
+              }
+            ]
+          },
+          "docs": "Get biblio"
+        },
+        {
+          "info": {
+            "name": "Update biblio",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/biblios/:biblio_id",
+            "headers": [
+              {
+                "name": "x-framework-id",
+                "value": ""
+              },
+              {
+                "name": "x-record-schema",
+                "value": ""
+              },
+              {
+                "name": "x-confirm-not-duplicate",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "path",
+                "description": "Record internal identifier"
+              }
+            ]
+          },
+          "docs": "Updates a bibliographic record to Koha. An optional `x-framework-id`\nmay be passed, to specify the cataloguing framework to be used (instead\nof the default).\n\nThe request body is expected to contain a MARC record in the format specified by\nthe `Content-type` header passed. Possible values for this headers and the corresponding\nrecord formats expected are listed below:\n\n* application/marcxml+xml: MARCXML\n* application/marc-in-json: MARC-in-JSON\n* application/marc: Raw USMARC binary data\n"
+        },
+        {
+          "info": {
+            "name": "Delete biblio",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/biblios/:biblio_id",
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "path",
+                "description": "Record internal identifier"
+              }
+            ]
+          },
+          "docs": "Delete biblio"
+        },
+        {
+          "info": {
+            "name": "Get items for a biblio",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/biblios/:biblio_id/items",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              },
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "path",
+                "description": "Record internal identifier"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              },
+              {
+                "name": "bookable",
+                "value": "",
+                "type": "query",
+                "description": "Limit to items that are bookable"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get items for a biblio"
+        },
+        {
+          "info": {
+            "name": "Add an item for a biblio",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/biblios/:biblio_id/items",
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "path",
+                "description": "Record internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add an item for a biblio"
+        },
+        {
+          "info": {
+            "name": "Update an item for a biblio",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/biblios/:biblio_id/items/:item_id",
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "path",
+                "description": "Record internal identifier"
+              },
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal item identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an item for a biblio"
+        },
+        {
+          "info": {
+            "name": "Merge Biblios",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/biblios/:biblio_id/merge",
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "path",
+                "description": "Bilblionumber"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Merge Biblios"
+        },
+        {
+          "info": {
+            "name": "Get valid pickup locations for a biblio",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/biblios/:biblio_id/pickup_locations",
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "path",
+                "description": "Record internal identifier"
+              },
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "query",
+                "description": "Internal patron identifier"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get valid pickup locations for a biblio"
+        },
+        {
+          "info": {
+            "name": "Get biblio (public)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/public/biblios/:biblio_id",
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "path",
+                "description": "Record internal identifier"
+              }
+            ]
+          },
+          "docs": "Get biblio (public)"
+        },
+        {
+          "info": {
+            "name": "getBiblioItemsPublic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/public/biblios/:biblio_id/items",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "path",
+                "description": "Record internal identifier"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "set biblio rating (public)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/public/biblios/:biblio_id/ratings",
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "path",
+                "description": "Record internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "set biblio rating (public)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

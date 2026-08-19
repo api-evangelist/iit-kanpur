@@ -1,0 +1,1255 @@
+{
+  "item": [
+    {
+      "id": "eba4ae41-e660-4986-9e55-5be1f94557c5",
+      "name": "ill_requests",
+      "description": {
+        "content": "Manage ILL requests\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6eba2397-74ce-457d-b3e0-a9d39301b7ff",
+          "name": "List ILL requests",
+          "request": {
+            "name": "List ILL requests",
+            "description": {},
+            "url": {
+              "path": [
+                "ill",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_page",
+                  "value": "<integer>",
+                  "description": "Page number, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "_per_page",
+                  "value": "<integer>",
+                  "description": "Page size, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "_match",
+                  "value": "<string>",
+                  "description": "Matching criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Request id header",
+                "key": "x-koha-request-id",
+                "value": "<integer>"
+              },
+              {
+                "disabled": false,
+                "description": "Embed list sent as a request header",
+                "key": "x-koha-embed",
+                "value": "<string>,<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d8cde807-ad80-4321-af01-a74f04d6c64a",
+              "name": "A list of ILL requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ill",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"_strings\": {},\n    \"access_url\": null,\n    \"biblio\": null,\n    \"biblio_id\": 4539,\n    \"comments\": null,\n    \"comments_count\": null,\n    \"completed_date\": null,\n    \"cost\": \"string\",\n    \"due_date\": \"1980-05-30T23:58:07.652Z\",\n    \"id_prefix\": null,\n    \"ill_backend_id\": \"string\",\n    \"ill_backend_request_id\": \"string\",\n    \"ill_batch\": {},\n    \"ill_batch_id\": 8758,\n    \"ill_request_id\": 4744,\n    \"library\": {},\n    \"library_id\": \"string\",\n    \"medium\": null,\n    \"opac_notes\": null,\n    \"paid_price\": \"string\",\n    \"patron\": {},\n    \"patron_id\": null,\n    \"replied_date\": null,\n    \"requested_date\": \"1954-01-07\",\n    \"staff_notes\": \"string\",\n    \"status\": \"string\",\n    \"status_av\": \"string\",\n    \"timestamp\": \"1962-08-19T21:36:43.293Z\"\n  },\n  {\n    \"_strings\": null,\n    \"access_url\": null,\n    \"biblio\": null,\n    \"biblio_id\": null,\n    \"comments_count\": 5038,\n    \"completed_date\": \"1996-04-06\",\n    \"cost\": null,\n    \"due_date\": null,\n    \"extended_attributes\": null,\n    \"id_prefix\": \"string\",\n    \"ill_backend_id\": \"string\",\n    \"ill_backend_request_id\": null,\n    \"ill_batch\": {},\n    \"ill_batch_id\": null,\n    \"ill_request_id\": 4332,\n    \"library\": {},\n    \"library_id\": \"string\",\n    \"medium\": \"string\",\n    \"opac_notes\": \"string\",\n    \"paid_price\": null,\n    \"patron\": null,\n    \"patron_id\": 298,\n    \"replied_date\": \"1948-03-08\",\n    \"requested_date\": null,\n    \"staff_notes\": null,\n    \"status\": \"string\",\n    \"status_av\": null,\n    \"timestamp\": \"2002-09-20T19:58:14.300Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a7423d8-2667-44c3-a15a-84a8985a0469",
+              "name": "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ill",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "127fbdc8-0169-483d-8f1e-c52dd8ebd2e8",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ill",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "08c29afa-7c63-41ce-9db3-408c83cefbde",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ill",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f537587b-d0d1-4e2c-b769-498599de2e5e",
+              "name": "Patron not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ill",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7f55d377-c8b4-4c55-82ac-b5f6e21f4b50",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ill",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b636c69-acf0-436a-b4d1-e0b648bf6b0c",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ill",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c96ee650-87be-4495-8ece-056ebf07c945",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ill",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64e5810c-c875-42b9-91f2-1a9134911146",
+          "name": "Add ILL request",
+          "request": {
+            "name": "Add ILL request",
+            "description": {},
+            "url": {
+              "path": [
+                "ill",
+                "requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"_strings\": \"<object,null>\",\n  \"access_url\": \"<string,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"comments\": \"<array,null>\",\n  \"comments_count\": \"<integer,null>\",\n  \"completed_date\": \"<string,null-date>\",\n  \"cost\": \"<string,null>\",\n  \"due_date\": \"<string,null-date-time>\",\n  \"extended_attributes\": \"<array,null>\",\n  \"id_prefix\": \"<string,null>\",\n  \"ill_backend_id\": \"<string>\",\n  \"ill_backend_request_id\": \"<string,null>\",\n  \"ill_batch\": \"<object,null>\",\n  \"ill_batch_id\": \"<integer,null>\",\n  \"ill_request_id\": \"<integer>\",\n  \"library\": \"<object,null>\",\n  \"library_id\": \"<string>\",\n  \"medium\": \"<string,null>\",\n  \"opac_notes\": \"<string,null>\",\n  \"paid_price\": \"<string,null>\",\n  \"patron\": \"<object,null>\",\n  \"patron_id\": \"<integer,null>\",\n  \"replied_date\": \"<string,null-date>\",\n  \"requested_date\": \"<string,null-date>\",\n  \"staff_notes\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"status_av\": \"<string,null>\",\n  \"timestamp\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "70e717b0-481e-41e4-93b5-6928af9d1b70",
+              "name": "Request added",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ill",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"_strings\": \"<object,null>\",\n  \"access_url\": \"<string,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"comments\": \"<array,null>\",\n  \"comments_count\": \"<integer,null>\",\n  \"completed_date\": \"<string,null-date>\",\n  \"cost\": \"<string,null>\",\n  \"due_date\": \"<string,null-date-time>\",\n  \"extended_attributes\": \"<array,null>\",\n  \"id_prefix\": \"<string,null>\",\n  \"ill_backend_id\": \"<string>\",\n  \"ill_backend_request_id\": \"<string,null>\",\n  \"ill_batch\": \"<object,null>\",\n  \"ill_batch_id\": \"<integer,null>\",\n  \"ill_request_id\": \"<integer>\",\n  \"library\": \"<object,null>\",\n  \"library_id\": \"<string>\",\n  \"medium\": \"<string,null>\",\n  \"opac_notes\": \"<string,null>\",\n  \"paid_price\": \"<string,null>\",\n  \"patron\": \"<object,null>\",\n  \"patron_id\": \"<integer,null>\",\n  \"replied_date\": \"<string,null-date>\",\n  \"requested_date\": \"<string,null-date>\",\n  \"staff_notes\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"status_av\": \"<string,null>\",\n  \"timestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_strings\": \"<object,null>\",\n  \"access_url\": \"<string,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"comments\": \"<array,null>\",\n  \"comments_count\": \"<integer,null>\",\n  \"completed_date\": \"<string,null-date>\",\n  \"cost\": \"<string,null>\",\n  \"due_date\": \"<string,null-date-time>\",\n  \"extended_attributes\": \"<array,null>\",\n  \"id_prefix\": \"<string,null>\",\n  \"ill_backend_id\": \"<string>\",\n  \"ill_backend_request_id\": \"<string,null>\",\n  \"ill_batch\": \"<object,null>\",\n  \"ill_batch_id\": \"<integer,null>\",\n  \"ill_request_id\": \"<integer>\",\n  \"library\": \"<object,null>\",\n  \"library_id\": \"<string>\",\n  \"medium\": \"<string,null>\",\n  \"opac_notes\": \"<string,null>\",\n  \"paid_price\": \"<string,null>\",\n  \"patron\": \"<object,null>\",\n  \"patron_id\": \"<integer,null>\",\n  \"replied_date\": \"<string,null-date>\",\n  \"requested_date\": \"<string,null-date>\",\n  \"staff_notes\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"status_av\": \"<string,null>\",\n  \"timestamp\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b0ab80d2-8271-4b48-8100-22364afa773c",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ill",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"_strings\": \"<object,null>\",\n  \"access_url\": \"<string,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"comments\": \"<array,null>\",\n  \"comments_count\": \"<integer,null>\",\n  \"completed_date\": \"<string,null-date>\",\n  \"cost\": \"<string,null>\",\n  \"due_date\": \"<string,null-date-time>\",\n  \"extended_attributes\": \"<array,null>\",\n  \"id_prefix\": \"<string,null>\",\n  \"ill_backend_id\": \"<string>\",\n  \"ill_backend_request_id\": \"<string,null>\",\n  \"ill_batch\": \"<object,null>\",\n  \"ill_batch_id\": \"<integer,null>\",\n  \"ill_request_id\": \"<integer>\",\n  \"library\": \"<object,null>\",\n  \"library_id\": \"<string>\",\n  \"medium\": \"<string,null>\",\n  \"opac_notes\": \"<string,null>\",\n  \"paid_price\": \"<string,null>\",\n  \"patron\": \"<object,null>\",\n  \"patron_id\": \"<integer,null>\",\n  \"replied_date\": \"<string,null-date>\",\n  \"requested_date\": \"<string,null-date>\",\n  \"staff_notes\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"status_av\": \"<string,null>\",\n  \"timestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e75d2c45-b1bd-429f-8ab8-ca16842a5bd0",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ill",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"_strings\": \"<object,null>\",\n  \"access_url\": \"<string,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"comments\": \"<array,null>\",\n  \"comments_count\": \"<integer,null>\",\n  \"completed_date\": \"<string,null-date>\",\n  \"cost\": \"<string,null>\",\n  \"due_date\": \"<string,null-date-time>\",\n  \"extended_attributes\": \"<array,null>\",\n  \"id_prefix\": \"<string,null>\",\n  \"ill_backend_id\": \"<string>\",\n  \"ill_backend_request_id\": \"<string,null>\",\n  \"ill_batch\": \"<object,null>\",\n  \"ill_batch_id\": \"<integer,null>\",\n  \"ill_request_id\": \"<integer>\",\n  \"library\": \"<object,null>\",\n  \"library_id\": \"<string>\",\n  \"medium\": \"<string,null>\",\n  \"opac_notes\": \"<string,null>\",\n  \"paid_price\": \"<string,null>\",\n  \"patron\": \"<object,null>\",\n  \"patron_id\": \"<integer,null>\",\n  \"replied_date\": \"<string,null-date>\",\n  \"requested_date\": \"<string,null-date>\",\n  \"staff_notes\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"status_av\": \"<string,null>\",\n  \"timestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c390a4aa-54f2-4f35-86eb-ca0a8316d725",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ill",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"_strings\": \"<object,null>\",\n  \"access_url\": \"<string,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"comments\": \"<array,null>\",\n  \"comments_count\": \"<integer,null>\",\n  \"completed_date\": \"<string,null-date>\",\n  \"cost\": \"<string,null>\",\n  \"due_date\": \"<string,null-date-time>\",\n  \"extended_attributes\": \"<array,null>\",\n  \"id_prefix\": \"<string,null>\",\n  \"ill_backend_id\": \"<string>\",\n  \"ill_backend_request_id\": \"<string,null>\",\n  \"ill_batch\": \"<object,null>\",\n  \"ill_batch_id\": \"<integer,null>\",\n  \"ill_request_id\": \"<integer>\",\n  \"library\": \"<object,null>\",\n  \"library_id\": \"<string>\",\n  \"medium\": \"<string,null>\",\n  \"opac_notes\": \"<string,null>\",\n  \"paid_price\": \"<string,null>\",\n  \"patron\": \"<object,null>\",\n  \"patron_id\": \"<integer,null>\",\n  \"replied_date\": \"<string,null-date>\",\n  \"requested_date\": \"<string,null-date>\",\n  \"staff_notes\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"status_av\": \"<string,null>\",\n  \"timestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89044722-275a-46e7-b52a-3d96911edfd1",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ill",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"_strings\": \"<object,null>\",\n  \"access_url\": \"<string,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"comments\": \"<array,null>\",\n  \"comments_count\": \"<integer,null>\",\n  \"completed_date\": \"<string,null-date>\",\n  \"cost\": \"<string,null>\",\n  \"due_date\": \"<string,null-date-time>\",\n  \"extended_attributes\": \"<array,null>\",\n  \"id_prefix\": \"<string,null>\",\n  \"ill_backend_id\": \"<string>\",\n  \"ill_backend_request_id\": \"<string,null>\",\n  \"ill_batch\": \"<object,null>\",\n  \"ill_batch_id\": \"<integer,null>\",\n  \"ill_request_id\": \"<integer>\",\n  \"library\": \"<object,null>\",\n  \"library_id\": \"<string>\",\n  \"medium\": \"<string,null>\",\n  \"opac_notes\": \"<string,null>\",\n  \"paid_price\": \"<string,null>\",\n  \"patron\": \"<object,null>\",\n  \"patron_id\": \"<integer,null>\",\n  \"replied_date\": \"<string,null-date>\",\n  \"requested_date\": \"<string,null-date>\",\n  \"staff_notes\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"status_av\": \"<string,null>\",\n  \"timestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4e0633b1-5db3-4c5c-9985-0f59ee186a14",
+              "name": "Conflict in creating resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ill",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"_strings\": \"<object,null>\",\n  \"access_url\": \"<string,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"comments\": \"<array,null>\",\n  \"comments_count\": \"<integer,null>\",\n  \"completed_date\": \"<string,null-date>\",\n  \"cost\": \"<string,null>\",\n  \"due_date\": \"<string,null-date-time>\",\n  \"extended_attributes\": \"<array,null>\",\n  \"id_prefix\": \"<string,null>\",\n  \"ill_backend_id\": \"<string>\",\n  \"ill_backend_request_id\": \"<string,null>\",\n  \"ill_batch\": \"<object,null>\",\n  \"ill_batch_id\": \"<integer,null>\",\n  \"ill_request_id\": \"<integer>\",\n  \"library\": \"<object,null>\",\n  \"library_id\": \"<string>\",\n  \"medium\": \"<string,null>\",\n  \"opac_notes\": \"<string,null>\",\n  \"paid_price\": \"<string,null>\",\n  \"patron\": \"<object,null>\",\n  \"patron_id\": \"<integer,null>\",\n  \"replied_date\": \"<string,null-date>\",\n  \"requested_date\": \"<string,null-date>\",\n  \"staff_notes\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"status_av\": \"<string,null>\",\n  \"timestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c2d89429-4f7e-409e-a74d-70e89bc5036d",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ill",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"_strings\": \"<object,null>\",\n  \"access_url\": \"<string,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"comments\": \"<array,null>\",\n  \"comments_count\": \"<integer,null>\",\n  \"completed_date\": \"<string,null-date>\",\n  \"cost\": \"<string,null>\",\n  \"due_date\": \"<string,null-date-time>\",\n  \"extended_attributes\": \"<array,null>\",\n  \"id_prefix\": \"<string,null>\",\n  \"ill_backend_id\": \"<string>\",\n  \"ill_backend_request_id\": \"<string,null>\",\n  \"ill_batch\": \"<object,null>\",\n  \"ill_batch_id\": \"<integer,null>\",\n  \"ill_request_id\": \"<integer>\",\n  \"library\": \"<object,null>\",\n  \"library_id\": \"<string>\",\n  \"medium\": \"<string,null>\",\n  \"opac_notes\": \"<string,null>\",\n  \"paid_price\": \"<string,null>\",\n  \"patron\": \"<object,null>\",\n  \"patron_id\": \"<integer,null>\",\n  \"replied_date\": \"<string,null-date>\",\n  \"requested_date\": \"<string,null-date>\",\n  \"staff_notes\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"status_av\": \"<string,null>\",\n  \"timestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d960c930-b2c8-4e88-9baa-e9fb4a60c1e3",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ill",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"_strings\": \"<object,null>\",\n  \"access_url\": \"<string,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"comments\": \"<array,null>\",\n  \"comments_count\": \"<integer,null>\",\n  \"completed_date\": \"<string,null-date>\",\n  \"cost\": \"<string,null>\",\n  \"due_date\": \"<string,null-date-time>\",\n  \"extended_attributes\": \"<array,null>\",\n  \"id_prefix\": \"<string,null>\",\n  \"ill_backend_id\": \"<string>\",\n  \"ill_backend_request_id\": \"<string,null>\",\n  \"ill_batch\": \"<object,null>\",\n  \"ill_batch_id\": \"<integer,null>\",\n  \"ill_request_id\": \"<integer>\",\n  \"library\": \"<object,null>\",\n  \"library_id\": \"<string>\",\n  \"medium\": \"<string,null>\",\n  \"opac_notes\": \"<string,null>\",\n  \"paid_price\": \"<string,null>\",\n  \"patron\": \"<object,null>\",\n  \"patron_id\": \"<integer,null>\",\n  \"replied_date\": \"<string,null-date>\",\n  \"requested_date\": \"<string,null-date>\",\n  \"staff_notes\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"status_av\": \"<string,null>\",\n  \"timestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f856d203-0d1c-4438-b0cf-95cabd95dcf5",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ill",
+                    "requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"_strings\": \"<object,null>\",\n  \"access_url\": \"<string,null>\",\n  \"biblio\": \"<object,null>\",\n  \"biblio_id\": \"<integer,null>\",\n  \"comments\": \"<array,null>\",\n  \"comments_count\": \"<integer,null>\",\n  \"completed_date\": \"<string,null-date>\",\n  \"cost\": \"<string,null>\",\n  \"due_date\": \"<string,null-date-time>\",\n  \"extended_attributes\": \"<array,null>\",\n  \"id_prefix\": \"<string,null>\",\n  \"ill_backend_id\": \"<string>\",\n  \"ill_backend_request_id\": \"<string,null>\",\n  \"ill_batch\": \"<object,null>\",\n  \"ill_batch_id\": \"<integer,null>\",\n  \"ill_request_id\": \"<integer>\",\n  \"library\": \"<object,null>\",\n  \"library_id\": \"<string>\",\n  \"medium\": \"<string,null>\",\n  \"opac_notes\": \"<string,null>\",\n  \"paid_price\": \"<string,null>\",\n  \"patron\": \"<object,null>\",\n  \"patron_id\": \"<integer,null>\",\n  \"replied_date\": \"<string,null-date>\",\n  \"requested_date\": \"<string,null-date>\",\n  \"staff_notes\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"status_av\": \"<string,null>\",\n  \"timestamp\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://libserv.iitk.ac.in/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "73dc90c2-30f3-4b16-bf5a-03ef19017fe9",
+    "name": "Koha REST 2fa ill_requests API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Background\n\nThe API supports two sets of endpoints, one targetted at library staff and the other at at library users.\n\nThose endpoints under the `/public` path are aimed at delivering functionality tailored to library users and offer\na more restricted set of functions, overrides and data in thier responses for data privacy and library policy\nreasons. Many of these endpoints do not require authentication for fetching public data, though an authenticated\nsession will expose additional options and allow users to see more data where it is part of their own record.\n\nAll other endpoints are targetted at the staff interface level and allow for additional functionality and a more\nunrestricted view of data.  These endpoints, however, have a level of redaction built in for resources that the\napi consumer should not have access to.  For example, user data for users who do not belong to the same library\nor library group of your api user will be reduced to just minimum neccesary for a valid response. Object keys will\nbe consistent for all responses, but their values may be removed depending on access.\n\n## Authentication\n\nThe API supports the following authentication mechanisms\n\n* HTTP Basic authentication\n* OAuth2 (client credentials grant)\n* Cookie-based\n\nBoth _Basic authentication_ and the _OAuth2_ flow, need to be enabled\nby system preferences.\n\n## Authorization\n\nThe API uses existing user profiles to restrict access to resources based on user permissions and the library the\nAPI user is assigned to.  This may result, at times, in resources being returned in a redacted form with all keys\npresent but sensative values nulled.\n\nWe do not yet support OAuth Scopes or the Authorization Code grant flow.\n\n## Errors\n\nThe API uses standard HTTP status codes to indicate the success or failure\nof the API call. The body of the response will be JSON in the following format:\n\n```\n{\n  \"error\": \"Current settings prevent the passed due date to be applied\",\n  \"error_code\": \"invalid_due_date\"\n}\n```\n\nNote: Some routes might offer additional attributes in their error responses but that\"s\nsubject to change and thus not documented.\n\n## Filtering responses\n\nThe API allows for some advanced response filtering using a JSON based query syntax. The\nquery can be added to the requests:\n\n* as a query parameter `q=`\n* in the request body\n\nFor simple field equality matches we can use `{ \"fieldname\": \"value\" }` where the fieldname\nmatches one of the fields as described in the particular endpoints response object.\n\nWe can refine that with more complex matching clauses by nesting a the clause into the\nobject; `{ \"fieldname\": { \"clause\": \"value\" } }`.\n\nAvailable matching clauses include `=`, `!=`, `<`, `>`, `<=`, `>=` and `-not`. We also support `-like`\nand `-not_like` string comparisons with `%` used to denote wildcards, thus you can pass\n`{ \"fieldname\": { \"-like\": \"value%\" } }` to do a 'starts with' string match for example.\n\nWe can filter on multiple fields by adding them to the JSON respresentation. Adding at `HASH`\nlevel will result in an \"AND\" query, whilst combinding them in an `ARRAY` will result in an\n\"OR\" query: `{ \"field1\": \"value2\", \"field2\": \"value2\" }` will filter the response to only those\nresults with both field1 containing value2 AND field2 containing value2 for example.\n\nThere is a collection of special operators also available to you, including:\n\n* `-in` - Expects an array of values to perform an OR match against\n* `-not_in` - Expects an array of values to perform a NOR match against\n* `-between` - Expects two values which the value of the field is expected to fall between\n* `-not_between` - Expects two values which the value of the field is expected to fall outside of\n* `-ident` - Expects a second field name to match the two field values against\n* `-regexp` - Expects a perl compatible regular expression for which the value should match\n\nLogic and nesting is also supported and you may use `-and` and `-or` to change the logic of an ARRAY\nor HASH as described above.\n\nAdditionally, if you are requesting related data be embedded into the response one can query\non the related data using dot notation in the field names.\n\n### Examples\n\nThe following request would return any patron with firstname \"Henry\" and lastname \"Acevedo\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": \"Acevedo\", \"firstname\": \"Henry\" }'`\n\nThe following request would return any patron whose lastname begins with \"Ace\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": { \"-like\": \"Ace%\" }'`\n\nThe following request would return any patron whose lastname is \"Acevedo\" OR \"Bernardo\"\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": [ \"Acevedo\", \"Bernardo\" ] }'`\n\nThe following request embeds the related patron extended attributes data and filters on it.\n\n`curl -u koha:koha =--request GET 'http://127.0.0.1:8081/api/v1/patrons/' --header 'x-koha-embed: extended_attributes' --data-raw '{ \"extended_attributes.code\": \"internet\", \"extended_attributes.attribute\": \"1\" }'`\n\n## Special headers\n\n### x-koha-embed\n\nThis optional header allows the api consumer to request additional related data\nto be returned in the api response.  It also allows for cross referencing in the\nqueries as described above. It accepts a comma delimited list of relation names.\n\nRelations may on occasion also support dot delimited nesting to allow traversal.\n\n### x-koha-library\n\nThis optional header should be passed to give your api request a library\ncontext; If it is not included in the request, then the request context\nwill default to using your api comsumer\"s assigned home library.\n\n\nContact Support:\n Name: Koha Development Team",
+      "type": "text/plain"
+    }
+  }
+}

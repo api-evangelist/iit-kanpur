@@ -1,0 +1,171 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa cities API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "cities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List cities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/cities",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Case insensative search on city name"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Case insensative search on city state"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Case insensative search on city country"
+              },
+              {
+                "name": "postal_code",
+                "value": "",
+                "type": "query",
+                "description": "Case Insensative search on city postal code"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List cities"
+        },
+        {
+          "info": {
+            "name": "Add city",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/cities",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add city"
+        },
+        {
+          "info": {
+            "name": "Get city",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/cities/:city_id",
+            "params": [
+              {
+                "name": "city_id",
+                "value": "",
+                "type": "path",
+                "description": "City internal identifier"
+              }
+            ]
+          },
+          "docs": "Get city"
+        },
+        {
+          "info": {
+            "name": "Update city",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/cities/:city_id",
+            "params": [
+              {
+                "name": "city_id",
+                "value": "",
+                "type": "path",
+                "description": "City internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update city"
+        },
+        {
+          "info": {
+            "name": "Delete city",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/cities/:city_id",
+            "params": [
+              {
+                "name": "city_id",
+                "value": "",
+                "type": "path",
+                "description": "City internal identifier"
+              }
+            ]
+          },
+          "docs": "Delete city"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

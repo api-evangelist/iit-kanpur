@@ -1,0 +1,3995 @@
+{
+  "item": [
+    {
+      "id": "2d07b08e-7e3a-45f5-a223-3da148059813",
+      "name": "libraries",
+      "description": {
+        "content": "Manage libraries\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9759b688-9b3e-4866-87e7-8f55dbf1d985",
+          "name": "List libraries",
+          "request": {
+            "name": "List libraries",
+            "description": {},
+            "url": {
+              "path": [
+                "libraries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Case insensitive 'starts-with' search on name"
+                },
+                {
+                  "disabled": false,
+                  "key": "address1",
+                  "value": "<string>",
+                  "description": "Case insensitive 'starts-with' search on address1"
+                },
+                {
+                  "disabled": false,
+                  "key": "address2",
+                  "value": "<string>",
+                  "description": "Case insensitive 'starts-with' search on address2"
+                },
+                {
+                  "disabled": false,
+                  "key": "address3",
+                  "value": "<string>",
+                  "description": "Case insensitive 'starts-with' search on address3"
+                },
+                {
+                  "disabled": false,
+                  "key": "postal_code",
+                  "value": "<string>",
+                  "description": "Case insensitive 'starts-with' search on postal code"
+                },
+                {
+                  "disabled": false,
+                  "key": "city",
+                  "value": "<string>",
+                  "description": "Case insensitive 'starts-with' search on city"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "Case insensitive 'starts-with' search on state"
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "Case insensitive 'starts_with' search on country"
+                },
+                {
+                  "disabled": false,
+                  "key": "phone",
+                  "value": "<string>",
+                  "description": "Case insensitive 'starts_with' search on phone number"
+                },
+                {
+                  "disabled": false,
+                  "key": "fax",
+                  "value": "<string>",
+                  "description": "Case insensitive 'starts_with' search on fax number"
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "Case insensitive 'starts_with' search on email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "reply_to_email",
+                  "value": "<string>",
+                  "description": "Case insensitive 'starts_with' search on Reply-To email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "return_path_email",
+                  "value": "<string>",
+                  "description": "Case insensitive 'starts_with' search on Return-Path email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "url",
+                  "value": "<string>",
+                  "description": "Case insensitive 'starts_with' search on website URL"
+                },
+                {
+                  "disabled": false,
+                  "key": "ip",
+                  "value": "<string>",
+                  "description": "Case insensitive 'starts_with' search on IP address"
+                },
+                {
+                  "disabled": false,
+                  "key": "notes",
+                  "value": "<string>",
+                  "description": "Case insensitive 'starts_with' search on notes"
+                },
+                {
+                  "disabled": false,
+                  "key": "_match",
+                  "value": "<string>",
+                  "description": "Matching criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_page",
+                  "value": "<integer>",
+                  "description": "Page number, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "_per_page",
+                  "value": "<integer>",
+                  "description": "Page size, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Request id header",
+                "key": "x-koha-request-id",
+                "value": "<integer>"
+              },
+              {
+                "disabled": false,
+                "description": "Embed list sent as a request header",
+                "key": "x-koha-embed",
+                "value": "<string>,<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "627eb9ea-94e3-4972-915c-5b4315439208",
+              "name": "A list of libraries",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address3",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "postal_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fax",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reply_to_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "return_path_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ip",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"library_id\": \"stri\",\n    \"name\": \"string\",\n    \"address1\": null,\n    \"address2\": \"string\",\n    \"address3\": null,\n    \"cash_registers\": null,\n    \"city\": null,\n    \"country\": \"string\",\n    \"desks\": null,\n    \"email\": null,\n    \"fax\": null,\n    \"geolocation\": null,\n    \"illemail\": \"string\",\n    \"ip\": \"string\",\n    \"marc_org_code\": \"string\",\n    \"needs_override\": false,\n    \"notes\": \"string\",\n    \"phone\": \"string\",\n    \"pickup_location\": false,\n    \"postal_code\": \"string\",\n    \"public\": true,\n    \"reply_to_email\": null,\n    \"return_path_email\": null,\n    \"smtp_server\": {},\n    \"state\": \"string\",\n    \"url\": \"string\"\n  },\n  {\n    \"library_id\": \"string\",\n    \"name\": \"string\",\n    \"address1\": null,\n    \"address2\": \"string\",\n    \"address3\": \"string\",\n    \"city\": null,\n    \"country\": null,\n    \"email\": null,\n    \"fax\": \"string\",\n    \"geolocation\": null,\n    \"illemail\": null,\n    \"ip\": null,\n    \"marc_org_code\": \"string\",\n    \"needs_override\": false,\n    \"notes\": null,\n    \"phone\": null,\n    \"pickup_location\": true,\n    \"postal_code\": \"string\",\n    \"public\": false,\n    \"reply_to_email\": \"string\",\n    \"return_path_email\": \"string\",\n    \"smtp_server\": {},\n    \"state\": \"string\",\n    \"url\": null\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9f3979d-58c6-45cd-81fd-bf7a0c74a31c",
+              "name": "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address3",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "postal_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fax",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reply_to_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "return_path_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ip",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba8b6556-3086-4eec-8ac6-9cb1ce907527",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address3",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "postal_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fax",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reply_to_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "return_path_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ip",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89e26df4-2fc5-4f64-8a63-cef339c2d3aa",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address3",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "postal_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fax",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reply_to_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "return_path_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ip",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "965f3bad-8b12-4451-8ecc-0d5ba670a8a8",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address3",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "postal_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fax",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reply_to_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "return_path_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ip",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cee60fa3-5367-48e5-99ad-851f6668cdbb",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address3",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "postal_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fax",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reply_to_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "return_path_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ip",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43cddfb3-0400-47d5-b2b5-26dae1376e3c",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address3",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "postal_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fax",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reply_to_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "return_path_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ip",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "771e58ad-0e51-4eaa-b330-df730c5e91f7",
+          "name": "Add library",
+          "request": {
+            "name": "Add library",
+            "description": {},
+            "url": {
+              "path": [
+                "libraries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7834bcfb-4724-44f4-ab09-5b7a507ea180",
+              "name": "Library added",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63157cfa-2f26-4795-b1cf-78b9dfed11f1",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d4574ad7-d4d2-4c0c-9ece-544958fdc777",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fdd7b173-3bad-4b41-9ff9-eb17fc9756dc",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81fe0620-4b13-4d0d-aeea-a1e417b55bd5",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "451c1b01-a9a4-4f5d-b412-019ef156b4b2",
+              "name": "Conflict in creating resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "02a78f00-7ebe-41b3-ad10-f8f37e287351",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80a85267-5222-4242-bf70-7fce3ff3ef6a",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7344725b-a51f-4fd1-9f3e-8004fbbd5ec9",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2105928e-b2bf-4d93-9595-597dfca8fa5e",
+          "name": "Delete library",
+          "request": {
+            "name": "Delete library",
+            "description": {},
+            "url": {
+              "path": [
+                "libraries",
+                ":library_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "library_id",
+                  "description": "(Required) Internal library identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b36d1de-90b0-4e08-a9cc-9224ab53592a",
+              "name": "Library deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f679e68-b2af-4afc-904b-319d1b545223",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce3deb4f-fa9f-4467-843e-4f1c228ddfe9",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf287318-9b5d-4269-a1af-a9235c76c593",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18a48f18-6472-4da7-bb06-4b5eb1b92942",
+              "name": "Library not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "badc4f35-7d4e-47a9-afe9-4a5fb98aeb19",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4297e113-8395-4dce-b273-84c2bc6ae5ad",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c2f8492-705f-4164-bcd9-f294957ba94a",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "827be0de-829f-4e48-8345-cbaddc5d49d9",
+          "name": "Get library",
+          "request": {
+            "name": "Get library",
+            "description": {},
+            "url": {
+              "path": [
+                "libraries",
+                ":library_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "library_id",
+                  "description": "(Required) Internal library identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Embed list sent as a request header",
+                "key": "x-koha-embed",
+                "value": "<string>,<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68a92a78-171f-4d75-9557-169d58048798",
+              "name": "A library",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e4d4e65-d147-4df8-804c-bbb0da965fa7",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb11a061-f4ca-445b-a3ba-b0bd081d0e1c",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8cc290c8-bd46-4949-a0ff-99d96e3fadea",
+              "name": "Library not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47d9245c-f745-4110-b51c-1f8e2efcb580",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a42e31f-3a60-4fbb-a5c2-78c876affaa7",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e3f0f15-f027-4d59-a63b-4eb60b138859",
+          "name": "Update library",
+          "request": {
+            "name": "Update library",
+            "description": {},
+            "url": {
+              "path": [
+                "libraries",
+                ":library_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "library_id",
+                  "description": "(Required) Internal library identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "60184c18-0484-4a62-943f-5ea103bf16d7",
+              "name": "A library",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "392c7acc-70bc-4580-b914-76f0b8e5bb59",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c5274e1c-d6ee-4d20-93ea-73b90be7dfd4",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f6599a92-2982-4bfc-89bd-c94afbbf9da6",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e777a5d0-d304-4bb0-8ebe-549a2133a1d9",
+              "name": "Library not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "21e3b235-125e-4981-acaa-665d93e17ce4",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d898c63-8ef7-434a-88b2-c1994f0f040e",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6a7bdbe-72f5-46e1-8c28-34c044329036",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"library_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"cash_registers\": \"<array,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"desks\": \"<array,null>\",\n  \"email\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"geolocation\": \"<string,null>\",\n  \"illemail\": \"<string,null>\",\n  \"ip\": \"<string,null>\",\n  \"marc_org_code\": \"<string,null>\",\n  \"needs_override\": \"<boolean>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"pickup_location\": \"<boolean>\",\n  \"postal_code\": \"<string,null>\",\n  \"public\": \"<boolean>\",\n  \"reply_to_email\": \"<string,null>\",\n  \"return_path_email\": \"<string,null>\",\n  \"smtp_server\": \"<object,null>\",\n  \"state\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7f241bc-14ff-49ed-9575-63d3517dbcd6",
+          "name": "List libraries",
+          "request": {
+            "name": "List libraries",
+            "description": {},
+            "url": {
+              "path": [
+                "public",
+                "libraries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_match",
+                  "value": "<string>",
+                  "description": "Matching criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_page",
+                  "value": "<integer>",
+                  "description": "Page number, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "_per_page",
+                  "value": "<integer>",
+                  "description": "Page size, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Request id header",
+                "key": "x-koha-request-id",
+                "value": "<integer>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "894b45bc-701b-45ee-a2c7-0557c3fdc26d",
+              "name": "A list of libraries",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"library_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"address1\": \"<string,null>\",\n    \"address2\": \"<string,null>\",\n    \"address3\": \"<string,null>\",\n    \"cash_registers\": \"<array,null>\",\n    \"city\": \"<string,null>\",\n    \"country\": \"<string,null>\",\n    \"desks\": \"<array,null>\",\n    \"email\": \"<string,null>\",\n    \"fax\": \"<string,null>\",\n    \"geolocation\": \"<string,null>\",\n    \"illemail\": \"<string,null>\",\n    \"ip\": \"<string,null>\",\n    \"marc_org_code\": \"<string,null>\",\n    \"needs_override\": \"<boolean>\",\n    \"notes\": \"<string,null>\",\n    \"phone\": \"<string,null>\",\n    \"pickup_location\": \"<boolean>\",\n    \"postal_code\": \"<string,null>\",\n    \"public\": \"<boolean>\",\n    \"reply_to_email\": \"<string,null>\",\n    \"return_path_email\": \"<string,null>\",\n    \"smtp_server\": \"<object,null>\",\n    \"state\": \"<string,null>\",\n    \"url\": \"<string,null>\"\n  },\n  {\n    \"library_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"address1\": \"<string,null>\",\n    \"address2\": \"<string,null>\",\n    \"address3\": \"<string,null>\",\n    \"cash_registers\": \"<array,null>\",\n    \"city\": \"<string,null>\",\n    \"country\": \"<string,null>\",\n    \"desks\": \"<array,null>\",\n    \"email\": \"<string,null>\",\n    \"fax\": \"<string,null>\",\n    \"geolocation\": \"<string,null>\",\n    \"illemail\": \"<string,null>\",\n    \"ip\": \"<string,null>\",\n    \"marc_org_code\": \"<string,null>\",\n    \"needs_override\": \"<boolean>\",\n    \"notes\": \"<string,null>\",\n    \"phone\": \"<string,null>\",\n    \"pickup_location\": \"<boolean>\",\n    \"postal_code\": \"<string,null>\",\n    \"public\": \"<boolean>\",\n    \"reply_to_email\": \"<string,null>\",\n    \"return_path_email\": \"<string,null>\",\n    \"smtp_server\": \"<object,null>\",\n    \"state\": \"<string,null>\",\n    \"url\": \"<string,null>\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0610adf-45d6-4ae2-a22a-fab6ee72e00b",
+              "name": "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4b956d85-cb38-4275-a030-ce2a189ae4e0",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "11a0d77f-5695-4262-b34e-b6bd0ff0f3bd",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a538976-5b77-4756-9914-edf68a17e6e3",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "844fedda-ed87-4179-964e-591ba16264de",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "99e2cf08-d4b0-47ce-9489-384a10805b34",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "libraries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d5a95206-8f45-4314-a5f4-afa0d3f628aa",
+          "name": "Get library (public)",
+          "request": {
+            "name": "Get library (public)",
+            "description": {},
+            "url": {
+              "path": [
+                "public",
+                "libraries",
+                ":library_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "library_id",
+                  "description": "(Required) Internal library identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ecd538d-328a-4da9-95de-64a3e535606c",
+              "name": "A library",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ee81858d-946f-4e26-a19c-057d15a158c7",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "39bb561c-6afc-4ed5-a4cc-891288abc274",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0645475a-229e-4739-bc2d-4fc11798048b",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc16f99b-fc82-4b9b-a30b-6b06b1268fea",
+              "name": "Library not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0fd2e35d-ad38-4315-95ce-e3be72f87c3c",
+              "name": "Not acceptable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "90cadf21-61a3-4dd0-b2af-0ef8902bc76a",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13b33558-768c-4bf0-ab2e-75dec2cad128",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "533e3f2e-ca46-40bb-b67c-0b559b183b4e",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "libraries",
+                    ":library_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "library_id",
+                      "description": "(Required) Internal library identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": false,\n  \"key_1\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://libserv.iitk.ac.in/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3d31cde6-02e9-454e-b592-72f1da6db92c",
+    "name": "Koha REST 2fa libraries API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Background\n\nThe API supports two sets of endpoints, one targetted at library staff and the other at at library users.\n\nThose endpoints under the `/public` path are aimed at delivering functionality tailored to library users and offer\na more restricted set of functions, overrides and data in thier responses for data privacy and library policy\nreasons. Many of these endpoints do not require authentication for fetching public data, though an authenticated\nsession will expose additional options and allow users to see more data where it is part of their own record.\n\nAll other endpoints are targetted at the staff interface level and allow for additional functionality and a more\nunrestricted view of data.  These endpoints, however, have a level of redaction built in for resources that the\napi consumer should not have access to.  For example, user data for users who do not belong to the same library\nor library group of your api user will be reduced to just minimum neccesary for a valid response. Object keys will\nbe consistent for all responses, but their values may be removed depending on access.\n\n## Authentication\n\nThe API supports the following authentication mechanisms\n\n* HTTP Basic authentication\n* OAuth2 (client credentials grant)\n* Cookie-based\n\nBoth _Basic authentication_ and the _OAuth2_ flow, need to be enabled\nby system preferences.\n\n## Authorization\n\nThe API uses existing user profiles to restrict access to resources based on user permissions and the library the\nAPI user is assigned to.  This may result, at times, in resources being returned in a redacted form with all keys\npresent but sensative values nulled.\n\nWe do not yet support OAuth Scopes or the Authorization Code grant flow.\n\n## Errors\n\nThe API uses standard HTTP status codes to indicate the success or failure\nof the API call. The body of the response will be JSON in the following format:\n\n```\n{\n  \"error\": \"Current settings prevent the passed due date to be applied\",\n  \"error_code\": \"invalid_due_date\"\n}\n```\n\nNote: Some routes might offer additional attributes in their error responses but that\"s\nsubject to change and thus not documented.\n\n## Filtering responses\n\nThe API allows for some advanced response filtering using a JSON based query syntax. The\nquery can be added to the requests:\n\n* as a query parameter `q=`\n* in the request body\n\nFor simple field equality matches we can use `{ \"fieldname\": \"value\" }` where the fieldname\nmatches one of the fields as described in the particular endpoints response object.\n\nWe can refine that with more complex matching clauses by nesting a the clause into the\nobject; `{ \"fieldname\": { \"clause\": \"value\" } }`.\n\nAvailable matching clauses include `=`, `!=`, `<`, `>`, `<=`, `>=` and `-not`. We also support `-like`\nand `-not_like` string comparisons with `%` used to denote wildcards, thus you can pass\n`{ \"fieldname\": { \"-like\": \"value%\" } }` to do a 'starts with' string match for example.\n\nWe can filter on multiple fields by adding them to the JSON respresentation. Adding at `HASH`\nlevel will result in an \"AND\" query, whilst combinding them in an `ARRAY` will result in an\n\"OR\" query: `{ \"field1\": \"value2\", \"field2\": \"value2\" }` will filter the response to only those\nresults with both field1 containing value2 AND field2 containing value2 for example.\n\nThere is a collection of special operators also available to you, including:\n\n* `-in` - Expects an array of values to perform an OR match against\n* `-not_in` - Expects an array of values to perform a NOR match against\n* `-between` - Expects two values which the value of the field is expected to fall between\n* `-not_between` - Expects two values which the value of the field is expected to fall outside of\n* `-ident` - Expects a second field name to match the two field values against\n* `-regexp` - Expects a perl compatible regular expression for which the value should match\n\nLogic and nesting is also supported and you may use `-and` and `-or` to change the logic of an ARRAY\nor HASH as described above.\n\nAdditionally, if you are requesting related data be embedded into the response one can query\non the related data using dot notation in the field names.\n\n### Examples\n\nThe following request would return any patron with firstname \"Henry\" and lastname \"Acevedo\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": \"Acevedo\", \"firstname\": \"Henry\" }'`\n\nThe following request would return any patron whose lastname begins with \"Ace\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": { \"-like\": \"Ace%\" }'`\n\nThe following request would return any patron whose lastname is \"Acevedo\" OR \"Bernardo\"\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": [ \"Acevedo\", \"Bernardo\" ] }'`\n\nThe following request embeds the related patron extended attributes data and filters on it.\n\n`curl -u koha:koha =--request GET 'http://127.0.0.1:8081/api/v1/patrons/' --header 'x-koha-embed: extended_attributes' --data-raw '{ \"extended_attributes.code\": \"internet\", \"extended_attributes.attribute\": \"1\" }'`\n\n## Special headers\n\n### x-koha-embed\n\nThis optional header allows the api consumer to request additional related data\nto be returned in the api response.  It also allows for cross referencing in the\nqueries as described above. It accepts a comma delimited list of relation names.\n\nRelations may on occasion also support dot delimited nesting to allow traversal.\n\n### x-koha-library\n\nThis optional header should be passed to give your api request a library\ncontext; If it is not included in the request, then the request context\nwill default to using your api comsumer\"s assigned home library.\n\n\nContact Support:\n Name: Koha Development Team",
+      "type": "text/plain"
+    }
+  }
+}

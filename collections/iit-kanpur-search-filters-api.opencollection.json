@@ -1,0 +1,147 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa search_filters API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "search_filters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List search filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/search_filters",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List search filters"
+        },
+        {
+          "info": {
+            "name": "Add search filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/search_filters",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add search filter"
+        },
+        {
+          "info": {
+            "name": "Get search filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/search_filters/:search_filter_id",
+            "params": [
+              {
+                "name": "search_filter_id",
+                "value": "",
+                "type": "path",
+                "description": "Search filter internal identifier"
+              }
+            ]
+          },
+          "docs": "Get search filter"
+        },
+        {
+          "info": {
+            "name": "Update search filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/search_filters/:search_filter_id",
+            "params": [
+              {
+                "name": "search_filter_id",
+                "value": "",
+                "type": "path",
+                "description": "Search filter internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update search filter"
+        },
+        {
+          "info": {
+            "name": "Delete search filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/search_filters/:search_filter_id",
+            "params": [
+              {
+                "name": "search_filter_id",
+                "value": "",
+                "type": "path",
+                "description": "Search filter internal identifier"
+              }
+            ]
+          },
+          "docs": "Delete search filter"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

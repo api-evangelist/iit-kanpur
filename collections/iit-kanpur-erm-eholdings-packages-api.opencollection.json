@@ -1,0 +1,357 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa erm_eholdings_packages API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "erm_eholdings_packages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List packages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/eholdings/:provider/packages",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path",
+                "description": "Provider name"
+              },
+              {
+                "name": "package_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on package package_id"
+              },
+              {
+                "name": "vendor_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on package vendor_id"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on package name"
+              },
+              {
+                "name": "external_package_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on package external_package_id"
+              },
+              {
+                "name": "package_type",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on package type"
+              },
+              {
+                "name": "content_type",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on package content_type"
+              },
+              {
+                "name": "notes",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on package notes"
+              },
+              {
+                "name": "created_on",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on package creation date"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List packages"
+        },
+        {
+          "info": {
+            "name": "Add package",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/eholdings/:provider/packages",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path",
+                "description": "Provider name"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add package"
+        },
+        {
+          "info": {
+            "name": "Get eHoldings package",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/eholdings/:provider/packages/:package_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path",
+                "description": "Provider name"
+              },
+              {
+                "name": "package_id",
+                "value": "",
+                "type": "path",
+                "description": "Package internal identifier"
+              }
+            ]
+          },
+          "docs": "Get eHoldings package"
+        },
+        {
+          "info": {
+            "name": "Update eHoldings package",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/eholdings/:provider/packages/:package_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path",
+                "description": "Provider name"
+              },
+              {
+                "name": "package_id",
+                "value": "",
+                "type": "path",
+                "description": "Package internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update eHoldings package"
+        },
+        {
+          "info": {
+            "name": "Edit a package",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/eholdings/:provider/packages/:package_id",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path",
+                "description": "Provider name"
+              },
+              {
+                "name": "package_id",
+                "value": "",
+                "type": "path",
+                "description": "Package internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit a package"
+        },
+        {
+          "info": {
+            "name": "Delete eHoldings package",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/eholdings/:provider/packages/:package_id",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path",
+                "description": "Provider name"
+              },
+              {
+                "name": "package_id",
+                "value": "",
+                "type": "path",
+                "description": "Package internal identifier"
+              }
+            ]
+          },
+          "docs": "Delete eHoldings package"
+        },
+        {
+          "info": {
+            "name": "List eholdings resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/eholdings/:provider/packages/:package_id/resources",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path",
+                "description": "Provider name"
+              },
+              {
+                "name": "resource_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on resource_id"
+              },
+              {
+                "name": "started_on",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on started_on"
+              },
+              {
+                "name": "ended_on",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on ended_on"
+              },
+              {
+                "name": "proxy",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on proxy"
+              },
+              {
+                "name": "package_id",
+                "value": "",
+                "type": "path",
+                "description": "Package internal identifier"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List eholdings resources"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

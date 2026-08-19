@@ -1,0 +1,2133 @@
+{
+  "item": [
+    {
+      "id": "c8bb28bc-2014-4157-a469-bbf0a9706ef5",
+      "name": "oauth",
+      "description": {
+        "content": "Handle OAuth flows\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "45fc5f29-a7f7-4ebf-a717-aec317608ea1",
+          "name": "Login to OAuth provider",
+          "request": {
+            "name": "Login to OAuth provider",
+            "description": {},
+            "url": {
+              "path": [
+                "oauth",
+                "login",
+                ":provider_code",
+                ":interface"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "Code returned from OAuth server for Authorization Code grant"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "An opaque value used by the client to maintain state between the request and callback. This is the callback part."
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>",
+                  "description": "Scope returned by OAuth server"
+                },
+                {
+                  "disabled": false,
+                  "key": "prompt",
+                  "value": "<string>",
+                  "description": "Prompt returned by OAuth server"
+                },
+                {
+                  "disabled": false,
+                  "key": "authuser",
+                  "value": "<string>",
+                  "description": "Auth user returned by OAuth server"
+                },
+                {
+                  "disabled": false,
+                  "key": "error",
+                  "value": "<string>",
+                  "description": "OAuth error code"
+                },
+                {
+                  "disabled": false,
+                  "key": "error_description",
+                  "value": "<string>",
+                  "description": "OAuth error description"
+                },
+                {
+                  "disabled": false,
+                  "key": "error_uri",
+                  "value": "<string>",
+                  "description": "Web page with user friendly description of the error"
+                },
+                {
+                  "disabled": false,
+                  "key": "session_state",
+                  "value": "<string>",
+                  "description": "Session state returned by OAuth server"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "provider_code",
+                  "description": "(Required) Code for OAuth provider"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "interface",
+                  "description": "(Required) Name of the interface this login is for"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "242a9126-81c6-4852-a107-41d3df7a4df2",
+              "name": "User authorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "login",
+                    ":provider_code",
+                    ":interface"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "authuser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session_state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider_code",
+                      "description": "(Required) Code for OAuth provider"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interface",
+                      "description": "(Required) Name of the interface this login is for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a241630-e2be-4b66-aceb-18d5b5594729",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "login",
+                    ":provider_code",
+                    ":interface"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "authuser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session_state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider_code",
+                      "description": "(Required) Code for OAuth provider"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interface",
+                      "description": "(Required) Name of the interface this login is for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a9671259-9f72-4e6c-85b5-2f024d493755",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "login",
+                    ":provider_code",
+                    ":interface"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "authuser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session_state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider_code",
+                      "description": "(Required) Code for OAuth provider"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interface",
+                      "description": "(Required) Name of the interface this login is for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d5e9eed4-1346-4420-af22-43937a8f7e4f",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "login",
+                    ":provider_code",
+                    ":interface"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "authuser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session_state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider_code",
+                      "description": "(Required) Code for OAuth provider"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interface",
+                      "description": "(Required) Name of the interface this login is for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5903f859-4160-441d-9dbd-94b39ba6cc06",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "login",
+                    ":provider_code",
+                    ":interface"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "authuser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session_state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider_code",
+                      "description": "(Required) Code for OAuth provider"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interface",
+                      "description": "(Required) Name of the interface this login is for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b54bbcc3-281d-460b-9bd9-e98ea372b084",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "login",
+                    ":provider_code",
+                    ":interface"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "authuser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session_state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider_code",
+                      "description": "(Required) Code for OAuth provider"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interface",
+                      "description": "(Required) Name of the interface this login is for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "daf581ab-2276-4805-b85a-7a5b620fb2a0",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "login",
+                    ":provider_code",
+                    ":interface"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "authuser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session_state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider_code",
+                      "description": "(Required) Code for OAuth provider"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interface",
+                      "description": "(Required) Name of the interface this login is for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "716260b7-1e31-422c-b626-70557c4a0623",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "login",
+                    ":provider_code",
+                    ":interface"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "authuser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session_state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider_code",
+                      "description": "(Required) Code for OAuth provider"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interface",
+                      "description": "(Required) Name of the interface this login is for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac28c9d1-f408-460f-82c1-607915d11bfa",
+          "name": "Get access token",
+          "request": {
+            "name": "Get access token",
+            "description": {},
+            "url": {
+              "path": [
+                "oauth",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "grant_type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_secret",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "45221203-f759-40ca-8a24-79fb5fc457ba",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "client_secret",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"expires_in\": 9439,\n  \"token_type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f91b29f-a11a-4150-99b7-0cf38b694204",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "client_secret",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "17955573-d683-4807-aebe-8b0d7510b5de",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "client_secret",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b1cfc2b-7496-4fd3-9683-ed358e4c54cd",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "client_secret",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "774be225-ab62-4f13-8eed-a7d9caf8a053",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "client_secret",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f36d7226-efba-40bc-85f7-4b382cd1e83d",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "client_secret",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2932f1a9-a1d3-401f-8ff3-df098cff615b",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "client_secret",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b45cfcb4-8045-4736-b88f-907dc00edd5e",
+          "name": "Login to OAuth provider",
+          "request": {
+            "name": "Login to OAuth provider",
+            "description": {},
+            "url": {
+              "path": [
+                "public",
+                "oauth",
+                "login",
+                ":provider_code",
+                ":interface"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "Code returned from OAuth server for Authorization Code grant"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "An opaque value used by the client to maintain state between the request and callback. This is the callback part."
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>",
+                  "description": "Scope returned by OAuth server"
+                },
+                {
+                  "disabled": false,
+                  "key": "prompt",
+                  "value": "<string>",
+                  "description": "Prompt returned by OAuth server"
+                },
+                {
+                  "disabled": false,
+                  "key": "authuser",
+                  "value": "<string>",
+                  "description": "Auth user returned by OAuth server"
+                },
+                {
+                  "disabled": false,
+                  "key": "error",
+                  "value": "<string>",
+                  "description": "OAuth error code"
+                },
+                {
+                  "disabled": false,
+                  "key": "error_description",
+                  "value": "<string>",
+                  "description": "OAuth error description"
+                },
+                {
+                  "disabled": false,
+                  "key": "error_uri",
+                  "value": "<string>",
+                  "description": "Web page with user friendly description of the error"
+                },
+                {
+                  "disabled": false,
+                  "key": "session_state",
+                  "value": "<string>",
+                  "description": "Session state returned by OAuth server"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "provider_code",
+                  "description": "(Required) Code for OAuth provider"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "interface",
+                  "description": "(Required) Name of the interface this login is for"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e43fe108-b9db-4237-b6f6-3e33c53df4ba",
+              "name": "User authorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "oauth",
+                    "login",
+                    ":provider_code",
+                    ":interface"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "authuser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session_state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider_code",
+                      "description": "(Required) Code for OAuth provider"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interface",
+                      "description": "(Required) Name of the interface this login is for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "405951e7-c694-46d5-bb07-9030536f41d4",
+              "name": "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "oauth",
+                    "login",
+                    ":provider_code",
+                    ":interface"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "authuser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session_state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider_code",
+                      "description": "(Required) Code for OAuth provider"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interface",
+                      "description": "(Required) Name of the interface this login is for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c460604f-86b4-46c6-9157-631b5d0940d7",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "oauth",
+                    "login",
+                    ":provider_code",
+                    ":interface"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "authuser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session_state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider_code",
+                      "description": "(Required) Code for OAuth provider"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interface",
+                      "description": "(Required) Name of the interface this login is for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3e0244b1-51c3-47cc-9c86-2ed334deceda",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "oauth",
+                    "login",
+                    ":provider_code",
+                    ":interface"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "authuser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session_state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider_code",
+                      "description": "(Required) Code for OAuth provider"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interface",
+                      "description": "(Required) Name of the interface this login is for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6ed9bce3-66c3-4f37-aef5-dfd08f76e51d",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "oauth",
+                    "login",
+                    ":provider_code",
+                    ":interface"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "authuser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session_state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider_code",
+                      "description": "(Required) Code for OAuth provider"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interface",
+                      "description": "(Required) Name of the interface this login is for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "55cafa17-e0f1-425f-84ec-d2485358ae7a",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "oauth",
+                    "login",
+                    ":provider_code",
+                    ":interface"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "authuser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session_state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider_code",
+                      "description": "(Required) Code for OAuth provider"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interface",
+                      "description": "(Required) Name of the interface this login is for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "686c861c-794a-4c46-89c8-611946530b8a",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "oauth",
+                    "login",
+                    ":provider_code",
+                    ":interface"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "authuser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session_state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider_code",
+                      "description": "(Required) Code for OAuth provider"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interface",
+                      "description": "(Required) Name of the interface this login is for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "95af1771-5b64-40fb-b8f4-3aed1d352bc1",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "oauth",
+                    "login",
+                    ":provider_code",
+                    ":interface"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "authuser",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "session_state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider_code",
+                      "description": "(Required) Code for OAuth provider"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "interface",
+                      "description": "(Required) Name of the interface this login is for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://libserv.iitk.ac.in/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c8e36161-72d4-4f79-8900-3bee9f7a6913",
+    "name": "Koha REST 2fa oauth API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Background\n\nThe API supports two sets of endpoints, one targetted at library staff and the other at at library users.\n\nThose endpoints under the `/public` path are aimed at delivering functionality tailored to library users and offer\na more restricted set of functions, overrides and data in thier responses for data privacy and library policy\nreasons. Many of these endpoints do not require authentication for fetching public data, though an authenticated\nsession will expose additional options and allow users to see more data where it is part of their own record.\n\nAll other endpoints are targetted at the staff interface level and allow for additional functionality and a more\nunrestricted view of data.  These endpoints, however, have a level of redaction built in for resources that the\napi consumer should not have access to.  For example, user data for users who do not belong to the same library\nor library group of your api user will be reduced to just minimum neccesary for a valid response. Object keys will\nbe consistent for all responses, but their values may be removed depending on access.\n\n## Authentication\n\nThe API supports the following authentication mechanisms\n\n* HTTP Basic authentication\n* OAuth2 (client credentials grant)\n* Cookie-based\n\nBoth _Basic authentication_ and the _OAuth2_ flow, need to be enabled\nby system preferences.\n\n## Authorization\n\nThe API uses existing user profiles to restrict access to resources based on user permissions and the library the\nAPI user is assigned to.  This may result, at times, in resources being returned in a redacted form with all keys\npresent but sensative values nulled.\n\nWe do not yet support OAuth Scopes or the Authorization Code grant flow.\n\n## Errors\n\nThe API uses standard HTTP status codes to indicate the success or failure\nof the API call. The body of the response will be JSON in the following format:\n\n```\n{\n  \"error\": \"Current settings prevent the passed due date to be applied\",\n  \"error_code\": \"invalid_due_date\"\n}\n```\n\nNote: Some routes might offer additional attributes in their error responses but that\"s\nsubject to change and thus not documented.\n\n## Filtering responses\n\nThe API allows for some advanced response filtering using a JSON based query syntax. The\nquery can be added to the requests:\n\n* as a query parameter `q=`\n* in the request body\n\nFor simple field equality matches we can use `{ \"fieldname\": \"value\" }` where the fieldname\nmatches one of the fields as described in the particular endpoints response object.\n\nWe can refine that with more complex matching clauses by nesting a the clause into the\nobject; `{ \"fieldname\": { \"clause\": \"value\" } }`.\n\nAvailable matching clauses include `=`, `!=`, `<`, `>`, `<=`, `>=` and `-not`. We also support `-like`\nand `-not_like` string comparisons with `%` used to denote wildcards, thus you can pass\n`{ \"fieldname\": { \"-like\": \"value%\" } }` to do a 'starts with' string match for example.\n\nWe can filter on multiple fields by adding them to the JSON respresentation. Adding at `HASH`\nlevel will result in an \"AND\" query, whilst combinding them in an `ARRAY` will result in an\n\"OR\" query: `{ \"field1\": \"value2\", \"field2\": \"value2\" }` will filter the response to only those\nresults with both field1 containing value2 AND field2 containing value2 for example.\n\nThere is a collection of special operators also available to you, including:\n\n* `-in` - Expects an array of values to perform an OR match against\n* `-not_in` - Expects an array of values to perform a NOR match against\n* `-between` - Expects two values which the value of the field is expected to fall between\n* `-not_between` - Expects two values which the value of the field is expected to fall outside of\n* `-ident` - Expects a second field name to match the two field values against\n* `-regexp` - Expects a perl compatible regular expression for which the value should match\n\nLogic and nesting is also supported and you may use `-and` and `-or` to change the logic of an ARRAY\nor HASH as described above.\n\nAdditionally, if you are requesting related data be embedded into the response one can query\non the related data using dot notation in the field names.\n\n### Examples\n\nThe following request would return any patron with firstname \"Henry\" and lastname \"Acevedo\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": \"Acevedo\", \"firstname\": \"Henry\" }'`\n\nThe following request would return any patron whose lastname begins with \"Ace\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": { \"-like\": \"Ace%\" }'`\n\nThe following request would return any patron whose lastname is \"Acevedo\" OR \"Bernardo\"\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": [ \"Acevedo\", \"Bernardo\" ] }'`\n\nThe following request embeds the related patron extended attributes data and filters on it.\n\n`curl -u koha:koha =--request GET 'http://127.0.0.1:8081/api/v1/patrons/' --header 'x-koha-embed: extended_attributes' --data-raw '{ \"extended_attributes.code\": \"internet\", \"extended_attributes.attribute\": \"1\" }'`\n\n## Special headers\n\n### x-koha-embed\n\nThis optional header allows the api consumer to request additional related data\nto be returned in the api response.  It also allows for cross referencing in the\nqueries as described above. It accepts a comma delimited list of relation names.\n\nRelations may on occasion also support dot delimited nesting to allow traversal.\n\n### x-koha-library\n\nThis optional header should be passed to give your api request a library\ncontext; If it is not included in the request, then the request context\nwill default to using your api comsumer\"s assigned home library.\n\n\nContact Support:\n Name: Koha Development Team",
+      "type": "text/plain"
+    }
+  }
+}

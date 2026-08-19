@@ -1,0 +1,107 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa authorised_values API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "authorised_values",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List authorised values for a given category",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/authorised_value_categories/:authorised_value_category_name/authorised_values",
+            "params": [
+              {
+                "name": "authorised_value_category_name",
+                "value": "",
+                "type": "path",
+                "description": "category name"
+              },
+              {
+                "name": "authorised_value_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on authorised value id"
+              },
+              {
+                "name": "category_name",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on authorised value category name"
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on value"
+              },
+              {
+                "name": "description",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on description"
+              },
+              {
+                "name": "opac_description",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on opac description"
+              },
+              {
+                "name": "image_url",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on image url"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List authorised values for a given category"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

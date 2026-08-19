@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa article_requests API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "article_requests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cancel article requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/article_requests/:article_request_id",
+            "params": [
+              {
+                "name": "article_request_id",
+                "value": "",
+                "type": "path",
+                "description": "Article request identifier"
+              },
+              {
+                "name": "cancellation_reason",
+                "value": "",
+                "type": "query",
+                "description": "Article request cancellation reason"
+              },
+              {
+                "name": "notes",
+                "value": "",
+                "type": "query",
+                "description": "Article request custom cancellation reason"
+              }
+            ]
+          },
+          "docs": "Cancel article requests"
+        },
+        {
+          "info": {
+            "name": "Cancel patron's article requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/public/patrons/:patron_id/article_requests/:article_request_id",
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              },
+              {
+                "name": "article_request_id",
+                "value": "",
+                "type": "path",
+                "description": "Article request identifier"
+              },
+              {
+                "name": "cancellation_reason",
+                "value": "",
+                "type": "query",
+                "description": "Article request cancellation reason"
+              },
+              {
+                "name": "notes",
+                "value": "",
+                "type": "query",
+                "description": "Article request custom cancellation reason"
+              }
+            ]
+          },
+          "docs": "Cancel patron's article requests"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

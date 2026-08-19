@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa ill_backends API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ill_backends",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List ILL backends",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/ill/backends"
+          },
+          "docs": "List ILL backends"
+        },
+        {
+          "info": {
+            "name": "Get ILL backend",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/ill/backends/:ill_backend_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "ill_backend_id",
+                "value": "",
+                "type": "path",
+                "description": "ILL backend id/name"
+              }
+            ]
+          },
+          "docs": "Get ILL backend"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

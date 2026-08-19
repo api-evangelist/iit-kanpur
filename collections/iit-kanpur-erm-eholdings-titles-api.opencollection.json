@@ -1,0 +1,451 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa erm_eholdings_titles API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "erm_eholdings_titles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Import local titles",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/eholdings/local/titles/import",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Import local titles"
+        },
+        {
+          "info": {
+            "name": "List eholdings titles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/eholdings/:provider/titles",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path",
+                "description": "Provider name"
+              },
+              {
+                "name": "title_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title title_id"
+              },
+              {
+                "name": "publication_title",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title publication_title"
+              },
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title external_id"
+              },
+              {
+                "name": "print_identifier",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title print_identifier"
+              },
+              {
+                "name": "online_identifier",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title online_identifier"
+              },
+              {
+                "name": "date_first_issue_online",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title date_first_issue_online"
+              },
+              {
+                "name": "num_first_vol_online",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title num_first_vol_online"
+              },
+              {
+                "name": "num_first_issue_online",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title num_first_issue_online"
+              },
+              {
+                "name": "date_last_issue_online",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title date_last_issue_online"
+              },
+              {
+                "name": "num_last_vol_online",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title num_last_vol_online"
+              },
+              {
+                "name": "num_last_issue_online",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title num_last_issue_online"
+              },
+              {
+                "name": "title_url",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title title_url"
+              },
+              {
+                "name": "first_author",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title first_author"
+              },
+              {
+                "name": "embargo_info",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title embargo_info"
+              },
+              {
+                "name": "coverage_depth",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title coverage_depth"
+              },
+              {
+                "name": "notes",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title notes"
+              },
+              {
+                "name": "publisher_name",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title publisher_name"
+              },
+              {
+                "name": "publication_type",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title publication_type"
+              },
+              {
+                "name": "date_monograph_published_print",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title date_monograph_published_print"
+              },
+              {
+                "name": "date_monograph_published_online",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title date_monograph_published_online"
+              },
+              {
+                "name": "monograph_volume",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title monograph_volume"
+              },
+              {
+                "name": "monograph_edition",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title monograph_edition"
+              },
+              {
+                "name": "first_editor",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title first_editor"
+              },
+              {
+                "name": "parent_publication_title_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title parent_publication_title_id"
+              },
+              {
+                "name": "preceding_publication_title_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title preceding_publication_title_id"
+              },
+              {
+                "name": "access_type",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on title access_type"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List eholdings titles"
+        },
+        {
+          "info": {
+            "name": "Add eholding",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/eholdings/:provider/titles",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path",
+                "description": "Provider name"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add eholding"
+        },
+        {
+          "info": {
+            "name": "Get titles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/eholdings/:provider/titles/:title_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path",
+                "description": "Provider name"
+              },
+              {
+                "name": "title_id",
+                "value": "",
+                "type": "path",
+                "description": "Title internal identifier"
+              }
+            ]
+          },
+          "docs": "Get titles"
+        },
+        {
+          "info": {
+            "name": "Update titles",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/eholdings/:provider/titles/:title_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path",
+                "description": "Provider name"
+              },
+              {
+                "name": "title_id",
+                "value": "",
+                "type": "path",
+                "description": "Title internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update titles"
+        },
+        {
+          "info": {
+            "name": "Delete eHolding title",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/eholdings/:provider/titles/:title_id",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path",
+                "description": "Provider name"
+              },
+              {
+                "name": "title_id",
+                "value": "",
+                "type": "path",
+                "description": "Title internal identifier"
+              }
+            ]
+          },
+          "docs": "Delete eHolding title"
+        },
+        {
+          "info": {
+            "name": "List eholdings resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/eholdings/:provider/titles/:title_id/resources",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path",
+                "description": "Provider name"
+              },
+              {
+                "name": "resource_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on resource_id"
+              },
+              {
+                "name": "started_on",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on started_on"
+              },
+              {
+                "name": "ended_on",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on ended_on"
+              },
+              {
+                "name": "proxy",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on proxy"
+              },
+              {
+                "name": "title_id",
+                "value": "",
+                "type": "path",
+                "description": "Title internal identifier"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List eholdings resources"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

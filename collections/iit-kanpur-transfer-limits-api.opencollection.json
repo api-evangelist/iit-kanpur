@@ -1,0 +1,159 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa transfer_limits API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "transfer_limits",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List transfer limits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/transfer_limits",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "to_library_id",
+                "value": "",
+                "type": "query",
+                "description": "Search on to_library_id"
+              },
+              {
+                "name": "from_library_id",
+                "value": "",
+                "type": "query",
+                "description": "Search on from_library_id"
+              },
+              {
+                "name": "item_type",
+                "value": "",
+                "type": "query",
+                "description": "Search on item_type"
+              },
+              {
+                "name": "collection_code",
+                "value": "",
+                "type": "query",
+                "description": "Search on collection_code"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This resource returns a list of existing transfer limits."
+        },
+        {
+          "info": {
+            "name": "Add a transfer limit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/transfer_limits",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This resource accepts a new transfer limit and creates it if it does not already exist."
+        },
+        {
+          "info": {
+            "name": "Batch add transfer limits",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/transfer_limits/batch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\nThis resource batch creates new transfer limits based on the given data.\nTransfer limits can be defined based on `collection_code` or `item_type`. The endpoint only accepts one at a time, and which one is used will depend on the value of the `BranchTransferLimitsType` system preference.\nFor example, if the paramters `to_library_id: 'BranchA'` and `item_type: 'BOOK'` are passed in new transfer limits for `BOOK`s will be created, with one transfer limit each for all the branches defined in Koha. "
+        },
+        {
+          "info": {
+            "name": "Batch delete transfer limits",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/transfer_limits/batch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint works just like [the POST version](#op-post-transfer_limits-batch), except it deletes transfer in batch rather than creating them."
+        },
+        {
+          "info": {
+            "name": "Delete transfer limit",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/transfer_limits/:limit_id",
+            "params": [
+              {
+                "name": "limit_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal transfer limit identifier"
+              }
+            ]
+          },
+          "docs": "This resource deletes a transfer limit for the given limit id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

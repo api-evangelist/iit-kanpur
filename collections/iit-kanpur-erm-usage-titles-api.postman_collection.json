@@ -1,0 +1,1231 @@
+{
+  "item": [
+    {
+      "id": "d5628bdc-9985-4e09-b7b2-afeaa8a087b0",
+      "name": "erm_usage_titles",
+      "description": {
+        "content": "Manage ERM usage titles\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ada3de1b-8d91-419a-b14c-4edecd10e52a",
+          "name": "List usage_titles",
+          "request": {
+            "name": "List usage_titles",
+            "description": {},
+            "url": {
+              "path": [
+                "erm",
+                "usage_titles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "title_id",
+                  "value": "<integer>",
+                  "description": "Case insensitive search on usage_title title_id"
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>",
+                  "description": "Case insensitive search on usage_title title"
+                },
+                {
+                  "disabled": false,
+                  "key": "usage_data_provider_id",
+                  "value": "<string>",
+                  "description": "Case insensitive search on usage_title usage_data_provider_id"
+                },
+                {
+                  "disabled": false,
+                  "key": "title_doi",
+                  "value": "<string>",
+                  "description": "Case insensitive search on usage_title title_doi"
+                },
+                {
+                  "disabled": false,
+                  "key": "print_issn",
+                  "value": "<string>",
+                  "description": "Case insensitive search on usage_title print_issn"
+                },
+                {
+                  "disabled": false,
+                  "key": "online_issn",
+                  "value": "<string>",
+                  "description": "Case insensitive search on usage_title online_issn"
+                },
+                {
+                  "disabled": false,
+                  "key": "title_uri",
+                  "value": "<string>",
+                  "description": "Case insensitive search on usage_title title_uri"
+                },
+                {
+                  "disabled": false,
+                  "key": "publisher",
+                  "value": "<string>",
+                  "description": "Case insensitive search on usage_title publisher"
+                },
+                {
+                  "disabled": false,
+                  "key": "publisher_id",
+                  "value": "<string>",
+                  "description": "Case insensitive search on usage_title publisher_id"
+                },
+                {
+                  "disabled": false,
+                  "key": "yop",
+                  "value": "<string>",
+                  "description": "Case insensitive search on usage_title yop"
+                },
+                {
+                  "disabled": false,
+                  "key": "isbn",
+                  "value": "<string>",
+                  "description": "Case insensitive search on usage_title isbn"
+                },
+                {
+                  "disabled": false,
+                  "key": "_match",
+                  "value": "<string>",
+                  "description": "Matching criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_page",
+                  "value": "<integer>",
+                  "description": "Page number, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "_per_page",
+                  "value": "<integer>",
+                  "description": "Page size, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Embed list sent as a request header",
+                "key": "x-koha-embed",
+                "value": "<string>,<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Request id header",
+                "key": "x-koha-request-id",
+                "value": "<integer>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8c266488-82ba-4471-abc1-69c308151f03",
+              "name": "A list of usage_titles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "usage_titles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "title_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "usage_data_provider_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "print_issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "online_issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publisher",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publisher_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "yop",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isbn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"title\": \"string\",\n    \"usage_data_provider_id\": 4933,\n    \"erm_usage_muses\": [\n      {\n        \"title_id\": null,\n        \"usage_data_provider_id\": null,\n        \"access_type\": \"string\",\n        \"database_id\": 741,\n        \"item_id\": 1845,\n        \"metric_type\": \"string\",\n        \"month\": 611,\n        \"monthly_usage_summary_id\": 2130,\n        \"platform_id\": 1940,\n        \"report_type\": null,\n        \"usage_count\": 1486,\n        \"year\": 4017,\n        \"yop\": \"string\"\n      },\n      {\n        \"title_id\": 2754,\n        \"usage_data_provider_id\": 6460,\n        \"access_type\": null,\n        \"database_id\": 8212,\n        \"item_id\": 9839,\n        \"metric_type\": \"string\",\n        \"month\": 2654,\n        \"monthly_usage_summary_id\": 3958,\n        \"platform_id\": null,\n        \"report_type\": null,\n        \"usage_count\": null,\n        \"year\": null,\n        \"yop\": null\n      }\n    ],\n    \"erm_usage_yuses\": [\n      {\n        \"title_id\": 3512,\n        \"usage_data_provider_id\": 2191,\n        \"access_type\": null,\n        \"database_id\": null,\n        \"item_id\": null,\n        \"metric_type\": null,\n        \"platform_id\": 7776,\n        \"report_type\": null,\n        \"totalcount\": null,\n        \"year\": null,\n        \"yearly_usage_summary_id\": 3691,\n        \"yop\": null\n      },\n      {\n        \"title_id\": 2949,\n        \"usage_data_provider_id\": 103,\n        \"access_type\": \"string\",\n        \"database_id\": 404,\n        \"item_id\": 1960,\n        \"metric_type\": null,\n        \"platform_id\": 7475,\n        \"report_type\": null,\n        \"totalcount\": 9037,\n        \"year\": 5318,\n        \"yearly_usage_summary_id\": 2512,\n        \"yop\": \"string\"\n      }\n    ],\n    \"isbn\": null,\n    \"metric_type\": \"string\",\n    \"online_issn\": null,\n    \"platform\": \"string\",\n    \"print_issn\": null,\n    \"proprietary_id\": null,\n    \"provider_name\": \"string\",\n    \"publisher\": null,\n    \"publisher_id\": null,\n    \"title_doi\": null,\n    \"title_id\": 9027,\n    \"title_uri\": \"string\"\n  },\n  {\n    \"title\": \"string\",\n    \"usage_data_provider_id\": 3493,\n    \"erm_usage_muses\": [\n      {\n        \"title_id\": null,\n        \"usage_data_provider_id\": null,\n        \"access_type\": null,\n        \"database_id\": null,\n        \"item_id\": null,\n        \"metric_type\": null,\n        \"month\": null,\n        \"monthly_usage_summary_id\": 465,\n        \"platform_id\": 4268,\n        \"report_type\": \"string\",\n        \"usage_count\": 9494,\n        \"year\": null,\n        \"yop\": null\n      },\n      {\n        \"title_id\": 3958,\n        \"usage_data_provider_id\": null,\n        \"access_type\": \"string\",\n        \"database_id\": null,\n        \"item_id\": 278,\n        \"metric_type\": \"string\",\n        \"month\": null,\n        \"monthly_usage_summary_id\": 8925,\n        \"platform_id\": null,\n        \"report_type\": \"string\",\n        \"usage_count\": null,\n        \"year\": null,\n        \"yop\": null\n      }\n    ],\n    \"erm_usage_yuses\": [\n      {\n        \"title_id\": null,\n        \"usage_data_provider_id\": null,\n        \"access_type\": \"string\",\n        \"database_id\": null,\n        \"item_id\": null,\n        \"metric_type\": \"string\",\n        \"platform_id\": 4195,\n        \"report_type\": \"string\",\n        \"totalcount\": null,\n        \"year\": null,\n        \"yearly_usage_summary_id\": 4351,\n        \"yop\": \"string\"\n      },\n      {\n        \"title_id\": null,\n        \"usage_data_provider_id\": 1158,\n        \"access_type\": \"string\",\n        \"database_id\": null,\n        \"item_id\": 1245,\n        \"metric_type\": \"string\",\n        \"platform_id\": null,\n        \"report_type\": \"string\",\n        \"totalcount\": 236,\n        \"year\": 4508,\n        \"yearly_usage_summary_id\": 2988,\n        \"yop\": null\n      }\n    ],\n    \"isbn\": null,\n    \"metric_type\": null,\n    \"online_issn\": null,\n    \"platform\": null,\n    \"print_issn\": \"string\",\n    \"proprietary_id\": \"string\",\n    \"provider_name\": null,\n    \"publisher\": null,\n    \"publisher_id\": null,\n    \"title_doi\": null,\n    \"title_id\": 2856,\n    \"title_uri\": null\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1573746-573c-4b5c-adf2-cb26993fdd13",
+              "name": "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "usage_titles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "title_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "usage_data_provider_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "print_issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "online_issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publisher",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publisher_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "yop",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isbn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": \"string\",\n  \"key_1\": 3790,\n  \"key_2\": 3181.3576393806243,\n  \"key_3\": 7537\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "db83a3f4-560f-4d8e-92a2-fa78a74f3d12",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "usage_titles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "title_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "usage_data_provider_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "print_issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "online_issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publisher",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publisher_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "yop",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isbn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "515d64eb-6711-4398-bb5d-1ccb20dec545",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "usage_titles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "title_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "usage_data_provider_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "print_issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "online_issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publisher",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publisher_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "yop",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isbn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": \"string\",\n  \"key_1\": 3790,\n  \"key_2\": 3181.3576393806243,\n  \"key_3\": 7537\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb21233a-f029-4409-8d26-fd00ef0eaad9",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "usage_titles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "title_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "usage_data_provider_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "print_issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "online_issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publisher",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publisher_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "yop",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isbn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a7ca8fed-f555-450a-b13a-4178e2fadf23",
+              "name": "Internal server error. Possible `error_code` attribute values:\n* `internal_server_error`",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "usage_titles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "title_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "usage_data_provider_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "print_issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "online_issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publisher",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publisher_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "yop",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isbn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": \"string\",\n  \"key_1\": 3790,\n  \"key_2\": 3181.3576393806243,\n  \"key_3\": 7537\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "756963cb-4836-4bf5-9ce9-dbb1ecd5d24c",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "usage_titles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "title_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "usage_data_provider_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "print_issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "online_issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publisher",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publisher_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "yop",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isbn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d38b7178-2656-4672-a039-c8a28dce7b99",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "erm",
+                    "usage_titles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "title_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "usage_data_provider_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_doi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "print_issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "online_issn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publisher",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publisher_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "yop",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isbn",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\",\n  \"key_0\": \"string\",\n  \"key_1\": 3790,\n  \"key_2\": 3181.3576393806243,\n  \"key_3\": 7537\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://libserv.iitk.ac.in/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3a9f297e-7f49-42c1-82f1-0b6ec892ebec",
+    "name": "Koha REST 2fa erm_usage_titles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Background\n\nThe API supports two sets of endpoints, one targetted at library staff and the other at at library users.\n\nThose endpoints under the `/public` path are aimed at delivering functionality tailored to library users and offer\na more restricted set of functions, overrides and data in thier responses for data privacy and library policy\nreasons. Many of these endpoints do not require authentication for fetching public data, though an authenticated\nsession will expose additional options and allow users to see more data where it is part of their own record.\n\nAll other endpoints are targetted at the staff interface level and allow for additional functionality and a more\nunrestricted view of data.  These endpoints, however, have a level of redaction built in for resources that the\napi consumer should not have access to.  For example, user data for users who do not belong to the same library\nor library group of your api user will be reduced to just minimum neccesary for a valid response. Object keys will\nbe consistent for all responses, but their values may be removed depending on access.\n\n## Authentication\n\nThe API supports the following authentication mechanisms\n\n* HTTP Basic authentication\n* OAuth2 (client credentials grant)\n* Cookie-based\n\nBoth _Basic authentication_ and the _OAuth2_ flow, need to be enabled\nby system preferences.\n\n## Authorization\n\nThe API uses existing user profiles to restrict access to resources based on user permissions and the library the\nAPI user is assigned to.  This may result, at times, in resources being returned in a redacted form with all keys\npresent but sensative values nulled.\n\nWe do not yet support OAuth Scopes or the Authorization Code grant flow.\n\n## Errors\n\nThe API uses standard HTTP status codes to indicate the success or failure\nof the API call. The body of the response will be JSON in the following format:\n\n```\n{\n  \"error\": \"Current settings prevent the passed due date to be applied\",\n  \"error_code\": \"invalid_due_date\"\n}\n```\n\nNote: Some routes might offer additional attributes in their error responses but that\"s\nsubject to change and thus not documented.\n\n## Filtering responses\n\nThe API allows for some advanced response filtering using a JSON based query syntax. The\nquery can be added to the requests:\n\n* as a query parameter `q=`\n* in the request body\n\nFor simple field equality matches we can use `{ \"fieldname\": \"value\" }` where the fieldname\nmatches one of the fields as described in the particular endpoints response object.\n\nWe can refine that with more complex matching clauses by nesting a the clause into the\nobject; `{ \"fieldname\": { \"clause\": \"value\" } }`.\n\nAvailable matching clauses include `=`, `!=`, `<`, `>`, `<=`, `>=` and `-not`. We also support `-like`\nand `-not_like` string comparisons with `%` used to denote wildcards, thus you can pass\n`{ \"fieldname\": { \"-like\": \"value%\" } }` to do a 'starts with' string match for example.\n\nWe can filter on multiple fields by adding them to the JSON respresentation. Adding at `HASH`\nlevel will result in an \"AND\" query, whilst combinding them in an `ARRAY` will result in an\n\"OR\" query: `{ \"field1\": \"value2\", \"field2\": \"value2\" }` will filter the response to only those\nresults with both field1 containing value2 AND field2 containing value2 for example.\n\nThere is a collection of special operators also available to you, including:\n\n* `-in` - Expects an array of values to perform an OR match against\n* `-not_in` - Expects an array of values to perform a NOR match against\n* `-between` - Expects two values which the value of the field is expected to fall between\n* `-not_between` - Expects two values which the value of the field is expected to fall outside of\n* `-ident` - Expects a second field name to match the two field values against\n* `-regexp` - Expects a perl compatible regular expression for which the value should match\n\nLogic and nesting is also supported and you may use `-and` and `-or` to change the logic of an ARRAY\nor HASH as described above.\n\nAdditionally, if you are requesting related data be embedded into the response one can query\non the related data using dot notation in the field names.\n\n### Examples\n\nThe following request would return any patron with firstname \"Henry\" and lastname \"Acevedo\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": \"Acevedo\", \"firstname\": \"Henry\" }'`\n\nThe following request would return any patron whose lastname begins with \"Ace\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": { \"-like\": \"Ace%\" }'`\n\nThe following request would return any patron whose lastname is \"Acevedo\" OR \"Bernardo\"\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": [ \"Acevedo\", \"Bernardo\" ] }'`\n\nThe following request embeds the related patron extended attributes data and filters on it.\n\n`curl -u koha:koha =--request GET 'http://127.0.0.1:8081/api/v1/patrons/' --header 'x-koha-embed: extended_attributes' --data-raw '{ \"extended_attributes.code\": \"internet\", \"extended_attributes.attribute\": \"1\" }'`\n\n## Special headers\n\n### x-koha-embed\n\nThis optional header allows the api consumer to request additional related data\nto be returned in the api response.  It also allows for cross referencing in the\nqueries as described above. It accepts a comma delimited list of relation names.\n\nRelations may on occasion also support dot delimited nesting to allow traversal.\n\n### x-koha-library\n\nThis optional header should be passed to give your api request a library\ncontext; If it is not included in the request, then the request context\nwill default to using your api comsumer\"s assigned home library.\n\n\nContact Support:\n Name: Koha Development Team",
+      "type": "text/plain"
+    }
+  }
+}

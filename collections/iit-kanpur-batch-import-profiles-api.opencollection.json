@@ -1,0 +1,134 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa batch_import_profiles API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "batch_import_profiles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List batch import profiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/import_batch_profiles",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Search on profile's name"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List batch import profiles"
+        },
+        {
+          "info": {
+            "name": "Add batch import profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/import_batch_profiles",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add batch import profile"
+        },
+        {
+          "info": {
+            "name": "Update batch import profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/import_batch_profiles/:import_batch_profile_id",
+            "params": [
+              {
+                "name": "import_batch_profile_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal profile identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update batch import profile"
+        },
+        {
+          "info": {
+            "name": "Delete batch import profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/import_batch_profiles/:import_batch_profile_id",
+            "params": [
+              {
+                "name": "import_batch_profile_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal profile identifier"
+              }
+            ]
+          },
+          "docs": "Delete batch import profile"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

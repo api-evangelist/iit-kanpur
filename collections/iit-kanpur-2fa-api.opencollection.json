@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "2fa",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send OTP token for second step authentication",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/auth/otp/token_delivery"
+          },
+          "docs": "Send OTP token for second step authentication"
+        },
+        {
+          "info": {
+            "name": "Generate a secret",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/auth/two-factor/registration"
+          },
+          "docs": "Generate a secret"
+        },
+        {
+          "info": {
+            "name": "Verify two-factor registration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/auth/two-factor/registration/verification",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "secret32",
+                  "value": ""
+                },
+                {
+                  "name": "pin_code",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Verify two-factor registration"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

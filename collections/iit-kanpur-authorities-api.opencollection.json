@@ -1,0 +1,155 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa authorities API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "authorities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List authorities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/authorities",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List authorities"
+        },
+        {
+          "info": {
+            "name": "Add authority",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/authorities",
+            "headers": [
+              {
+                "name": "x-authority-type",
+                "value": ""
+              },
+              {
+                "name": "x-koha-override",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Add an authority record to Koha. An optional `x-authority-type`\nmay be passed to specify the cataloguing framework to be used (instead\nof the default).\n\nThe request body is expected to contain a MARC record in the format specified in\nthe `Content-type` header you pass. Possible values for this header and the corresponding\nrecord formats expected are listed below:\n\n* application/marcxml+xml: MARCXML\n* application/marc-in-json: MARC-in-JSON\n* application/marc: Raw USMARC binary data\n"
+        },
+        {
+          "info": {
+            "name": "Get authority",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/authorities/:authority_id",
+            "params": [
+              {
+                "name": "authority_id",
+                "value": "",
+                "type": "path",
+                "description": "Authority identifier"
+              }
+            ]
+          },
+          "docs": "Get authority"
+        },
+        {
+          "info": {
+            "name": "Update authority",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/authorities/:authority_id",
+            "headers": [
+              {
+                "name": "x-authority-type",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "authority_id",
+                "value": "",
+                "type": "path",
+                "description": "Authority identifier"
+              }
+            ]
+          },
+          "docs": "Update authority"
+        },
+        {
+          "info": {
+            "name": "Delete authority",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/authorities/:authority_id",
+            "params": [
+              {
+                "name": "authority_id",
+                "value": "",
+                "type": "path",
+                "description": "Authority identifier"
+              }
+            ]
+          },
+          "docs": "Delete authority"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

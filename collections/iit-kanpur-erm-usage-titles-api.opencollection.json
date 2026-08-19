@@ -1,0 +1,141 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa erm_usage_titles API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "erm_usage_titles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List usage_titles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/usage_titles",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              },
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "title_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_title title_id"
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_title title"
+              },
+              {
+                "name": "usage_data_provider_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_title usage_data_provider_id"
+              },
+              {
+                "name": "title_doi",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_title title_doi"
+              },
+              {
+                "name": "print_issn",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_title print_issn"
+              },
+              {
+                "name": "online_issn",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_title online_issn"
+              },
+              {
+                "name": "title_uri",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_title title_uri"
+              },
+              {
+                "name": "publisher",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_title publisher"
+              },
+              {
+                "name": "publisher_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_title publisher_id"
+              },
+              {
+                "name": "yop",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_title yop"
+              },
+              {
+                "name": "isbn",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on usage_title isbn"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List usage_titles"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

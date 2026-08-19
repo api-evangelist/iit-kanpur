@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa erm_config API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "erm_config",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get the ERM config",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/config"
+          },
+          "docs": "This resource returns a list of options needed for the ERM Vue app. EXPERIMENTAL - DO NOT RELY on this, it is subject to change!"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

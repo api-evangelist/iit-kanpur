@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa import_batches API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "import_batches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Set the chosen match for an import record ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/import_batches/:import_batch_id/records/:import_record_id/matches/chosen",
+            "params": [
+              {
+                "name": "import_batch_id",
+                "value": "",
+                "type": "path",
+                "description": "An import_batch ID"
+              },
+              {
+                "name": "import_record_id",
+                "value": "",
+                "type": "path",
+                "description": "An import_record ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set the chosen match for an import record ID"
+        },
+        {
+          "info": {
+            "name": "Unset the chosen match for an import record ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/import_batches/:import_batch_id/records/:import_record_id/matches/chosen",
+            "params": [
+              {
+                "name": "import_batch_id",
+                "value": "",
+                "type": "path",
+                "description": "An import_batch ID"
+              },
+              {
+                "name": "import_record_id",
+                "value": "",
+                "type": "path",
+                "description": "An import_record ID"
+              }
+            ]
+          },
+          "docs": "Unset the chosen match for an import record ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

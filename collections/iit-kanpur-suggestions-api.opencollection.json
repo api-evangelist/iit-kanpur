@@ -1,0 +1,206 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa suggestions API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "suggestions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List purchase suggestions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/suggestions",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This resource returns a list of purchase suggestions"
+        },
+        {
+          "info": {
+            "name": "Add a purchase suggestion",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/suggestions",
+            "headers": [
+              {
+                "name": "x-koha-override",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This resource accepts a new purchase suggestion and creates it"
+        },
+        {
+          "info": {
+            "name": "List possibe managers for suggestions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/suggestions/managers",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This resource returns a list of patron allowed to be a manager for suggestions"
+        },
+        {
+          "info": {
+            "name": "Get purchase suggestion",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/suggestions/:suggestion_id",
+            "params": [
+              {
+                "name": "suggestion_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal suggestion identifier"
+              }
+            ]
+          },
+          "docs": "This resource gives access to a specific purchase suggestion"
+        },
+        {
+          "info": {
+            "name": "Update purchase suggestion",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/suggestions/:suggestion_id",
+            "params": [
+              {
+                "name": "suggestion_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal suggestion identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This resource allows updating an existing purchase suggestion"
+        },
+        {
+          "info": {
+            "name": "Delete purchase suggestion",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/suggestions/:suggestion_id",
+            "params": [
+              {
+                "name": "suggestion_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal suggestion identifier"
+              }
+            ]
+          },
+          "docs": "This resource deletes an existing purchase suggestion"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

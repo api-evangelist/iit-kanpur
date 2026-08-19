@@ -1,0 +1,322 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa identity_providers API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "identity_providers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List configured identity providers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/auth/identity_providers",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              },
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List configured identity providers"
+        },
+        {
+          "info": {
+            "name": "Add a new identity provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/auth/identity_providers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new identity provider"
+        },
+        {
+          "info": {
+            "name": "Get identity provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/auth/identity_providers/:identity_provider_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "identity_provider_id",
+                "value": "",
+                "type": "path",
+                "description": "Identity provider internal identifier"
+              }
+            ]
+          },
+          "docs": "Get identity provider"
+        },
+        {
+          "info": {
+            "name": "Update an identity provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/auth/identity_providers/:identity_provider_id",
+            "params": [
+              {
+                "name": "identity_provider_id",
+                "value": "",
+                "type": "path",
+                "description": "Identity provider internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an identity provider"
+        },
+        {
+          "info": {
+            "name": "Delete identity provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/auth/identity_providers/:identity_provider_id",
+            "params": [
+              {
+                "name": "identity_provider_id",
+                "value": "",
+                "type": "path",
+                "description": "Identity provider internal identifier"
+              }
+            ]
+          },
+          "docs": "Delete identity provider"
+        },
+        {
+          "info": {
+            "name": "Get identity provider configured domains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/auth/identity_providers/:identity_provider_id/domains",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              },
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "identity_provider_id",
+                "value": "",
+                "type": "path",
+                "description": "Identity provider internal identifier"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get identity provider configured domains"
+        },
+        {
+          "info": {
+            "name": "Add an identity provider domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/auth/identity_providers/:identity_provider_id/domains",
+            "params": [
+              {
+                "name": "identity_provider_id",
+                "value": "",
+                "type": "path",
+                "description": "Identity provider internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add an identity provider domain"
+        },
+        {
+          "info": {
+            "name": "Get identity provider domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/auth/identity_providers/:identity_provider_id/domains/:identity_provider_domain_id",
+            "params": [
+              {
+                "name": "identity_provider_id",
+                "value": "",
+                "type": "path",
+                "description": "Identity provider internal identifier"
+              },
+              {
+                "name": "identity_provider_domain_id",
+                "value": "",
+                "type": "path",
+                "description": "Identity provider domain internal identifier"
+              }
+            ]
+          },
+          "docs": "Get identity provider domain"
+        },
+        {
+          "info": {
+            "name": "Update an identity provider domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/auth/identity_providers/:identity_provider_id/domains/:identity_provider_domain_id",
+            "params": [
+              {
+                "name": "identity_provider_id",
+                "value": "",
+                "type": "path",
+                "description": "Identity provider internal identifier"
+              },
+              {
+                "name": "identity_provider_domain_id",
+                "value": "",
+                "type": "path",
+                "description": "Identity provider domain internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an identity provider domain"
+        },
+        {
+          "info": {
+            "name": "Delete identity provider",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/auth/identity_providers/:identity_provider_id/domains/:identity_provider_domain_id",
+            "params": [
+              {
+                "name": "identity_provider_id",
+                "value": "",
+                "type": "path",
+                "description": "Identity provider internal identifier"
+              },
+              {
+                "name": "identity_provider_domain_id",
+                "value": "",
+                "type": "path",
+                "description": "Identity provider domain internal identifier"
+              }
+            ]
+          },
+          "docs": "Delete identity provider"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

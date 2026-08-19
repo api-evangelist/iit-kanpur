@@ -1,0 +1,3663 @@
+{
+  "item": [
+    {
+      "id": "a022e7a1-90f6-41b6-bbed-bb502b2c9d2f",
+      "name": "vendors",
+      "description": {
+        "content": "Manage vendors for the acquisitions module\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "496863b2-27bb-4f57-b144-761d5d9a6bcd",
+          "name": "List vendors",
+          "request": {
+            "name": "List vendors",
+            "description": {},
+            "url": {
+              "path": [
+                "acquisitions",
+                "vendors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Case insensitive search on vendor name"
+                },
+                {
+                  "disabled": false,
+                  "key": "accountnumber",
+                  "value": "<string>",
+                  "description": "Case insensitive search on vendor's account number"
+                },
+                {
+                  "disabled": false,
+                  "key": "_match",
+                  "value": "<string>",
+                  "description": "Matching criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_page",
+                  "value": "<integer>",
+                  "description": "Page number, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "_per_page",
+                  "value": "<integer>",
+                  "description": "Page size, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Request id header",
+                "key": "x-koha-request-id",
+                "value": "<integer>"
+              },
+              {
+                "disabled": false,
+                "description": "Embed list sent as a request header",
+                "key": "x-koha-embed",
+                "value": "<string>,<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "60dc4350-9652-438b-89da-fcf0095ce632",
+              "name": "A list of vendors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "accountnumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"accountnumber\": null,\n    \"active\": null,\n    \"address1\": null,\n    \"address2\": null,\n    \"address3\": null,\n    \"address4\": null,\n    \"aliases\": [\n      {\n        \"alias\": \"string\",\n        \"alias_id\": 8817,\n        \"vendor_id\": 8364\n      },\n      {\n        \"alias\": \"string\",\n        \"alias_id\": 8851,\n        \"vendor_id\": 7092\n      }\n    ],\n    \"deliverytime\": 202,\n    \"discount\": null,\n    \"external_id\": null,\n    \"fax\": null,\n    \"gst\": null,\n    \"id\": 8314,\n    \"invoice_currency\": \"string\",\n    \"invoice_includes_gst\": true,\n    \"list_currency\": \"string\",\n    \"list_includes_gst\": false,\n    \"notes\": null,\n    \"phone\": null,\n    \"postal\": \"string\",\n    \"tax_rate\": 7435.726794798277,\n    \"type\": null,\n    \"url\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"accountnumber\": null,\n    \"active\": false,\n    \"address1\": null,\n    \"address2\": null,\n    \"address3\": \"string\",\n    \"address4\": null,\n    \"aliases\": [\n      {\n        \"alias\": \"string\",\n        \"alias_id\": 408,\n        \"vendor_id\": 3203\n      },\n      {\n        \"alias\": \"string\",\n        \"alias_id\": 8898,\n        \"vendor_id\": 4761\n      }\n    ],\n    \"deliverytime\": 7250,\n    \"discount\": 7824.831075302792,\n    \"external_id\": \"string\",\n    \"fax\": null,\n    \"gst\": null,\n    \"id\": 8124,\n    \"invoice_currency\": \"string\",\n    \"invoice_includes_gst\": false,\n    \"list_currency\": \"string\",\n    \"list_includes_gst\": true,\n    \"notes\": null,\n    \"phone\": null,\n    \"postal\": \"string\",\n    \"tax_rate\": null,\n    \"type\": \"string\",\n    \"url\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01842be9-b577-44da-af23-6ba7276e86ab",
+              "name": "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "accountnumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e529b3b4-946a-409f-aee0-762132d1f002",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "accountnumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1790e719-abb6-4b9e-8889-6c491ef6bf05",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "accountnumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6acbae94-6e6a-41b0-b847-44cd74c58fac",
+              "name": "Vendor not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "accountnumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5620281a-150a-4e14-8881-2cd29db3acf1",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "accountnumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f03c613a-e3f0-450a-9130-e527c78ad6de",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "accountnumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ec88c230-ac44-4c8f-91ce-d61278e744ea",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "accountnumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d8b72e08-5007-4e36-8528-0df9abb20125",
+          "name": "Add vendor",
+          "request": {
+            "name": "Add vendor",
+            "description": {},
+            "url": {
+              "path": [
+                "acquisitions",
+                "vendors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string,null>\",\n  \"active\": \"<boolean,null>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"address4\": \"<string,null>\",\n  \"aliases\": [\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    },\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    }\n  ],\n  \"deliverytime\": \"<integer,null>\",\n  \"discount\": \"<number,null>\",\n  \"external_id\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"gst\": \"<boolean,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_includes_gst\": \"<boolean,null>\",\n  \"list_currency\": \"<string,null>\",\n  \"list_includes_gst\": \"<boolean,null>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"postal\": \"<string,null>\",\n  \"tax_rate\": \"<number,null>\",\n  \"type\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f5e0ffb3-7a31-42e8-ac64-0c4a0c70f410",
+              "name": "Vendor added",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string,null>\",\n  \"active\": \"<boolean,null>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"address4\": \"<string,null>\",\n  \"aliases\": [\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    },\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    }\n  ],\n  \"deliverytime\": \"<integer,null>\",\n  \"discount\": \"<number,null>\",\n  \"external_id\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"gst\": \"<boolean,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_includes_gst\": \"<boolean,null>\",\n  \"list_currency\": \"<string,null>\",\n  \"list_includes_gst\": \"<boolean,null>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"postal\": \"<string,null>\",\n  \"tax_rate\": \"<number,null>\",\n  \"type\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string,null>\",\n  \"active\": \"<boolean,null>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"address4\": \"<string,null>\",\n  \"aliases\": [\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    },\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    }\n  ],\n  \"deliverytime\": \"<integer,null>\",\n  \"discount\": \"<number,null>\",\n  \"external_id\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"gst\": \"<boolean,null>\",\n  \"id\": 6827,\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_includes_gst\": \"<boolean,null>\",\n  \"list_currency\": \"<string,null>\",\n  \"list_includes_gst\": \"<boolean,null>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"postal\": \"<string,null>\",\n  \"tax_rate\": \"<number,null>\",\n  \"type\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a46ee0fa-d995-4b04-99af-09168cb4f476",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string,null>\",\n  \"active\": \"<boolean,null>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"address4\": \"<string,null>\",\n  \"aliases\": [\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    },\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    }\n  ],\n  \"deliverytime\": \"<integer,null>\",\n  \"discount\": \"<number,null>\",\n  \"external_id\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"gst\": \"<boolean,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_includes_gst\": \"<boolean,null>\",\n  \"list_currency\": \"<string,null>\",\n  \"list_includes_gst\": \"<boolean,null>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"postal\": \"<string,null>\",\n  \"tax_rate\": \"<number,null>\",\n  \"type\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "520f773d-dd01-4b2b-be40-3fda178f4bec",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string,null>\",\n  \"active\": \"<boolean,null>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"address4\": \"<string,null>\",\n  \"aliases\": [\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    },\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    }\n  ],\n  \"deliverytime\": \"<integer,null>\",\n  \"discount\": \"<number,null>\",\n  \"external_id\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"gst\": \"<boolean,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_includes_gst\": \"<boolean,null>\",\n  \"list_currency\": \"<string,null>\",\n  \"list_includes_gst\": \"<boolean,null>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"postal\": \"<string,null>\",\n  \"tax_rate\": \"<number,null>\",\n  \"type\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9862682a-09cc-42fd-abef-1f28829e349d",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string,null>\",\n  \"active\": \"<boolean,null>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"address4\": \"<string,null>\",\n  \"aliases\": [\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    },\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    }\n  ],\n  \"deliverytime\": \"<integer,null>\",\n  \"discount\": \"<number,null>\",\n  \"external_id\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"gst\": \"<boolean,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_includes_gst\": \"<boolean,null>\",\n  \"list_currency\": \"<string,null>\",\n  \"list_includes_gst\": \"<boolean,null>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"postal\": \"<string,null>\",\n  \"tax_rate\": \"<number,null>\",\n  \"type\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "654c12ac-384b-4f4d-a3c6-f3e35e0dc042",
+              "name": "Vendor not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string,null>\",\n  \"active\": \"<boolean,null>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"address4\": \"<string,null>\",\n  \"aliases\": [\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    },\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    }\n  ],\n  \"deliverytime\": \"<integer,null>\",\n  \"discount\": \"<number,null>\",\n  \"external_id\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"gst\": \"<boolean,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_includes_gst\": \"<boolean,null>\",\n  \"list_currency\": \"<string,null>\",\n  \"list_includes_gst\": \"<boolean,null>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"postal\": \"<string,null>\",\n  \"tax_rate\": \"<number,null>\",\n  \"type\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98bd73bb-4b3b-40d6-b7a2-3a7189bce7ba",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string,null>\",\n  \"active\": \"<boolean,null>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"address4\": \"<string,null>\",\n  \"aliases\": [\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    },\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    }\n  ],\n  \"deliverytime\": \"<integer,null>\",\n  \"discount\": \"<number,null>\",\n  \"external_id\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"gst\": \"<boolean,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_includes_gst\": \"<boolean,null>\",\n  \"list_currency\": \"<string,null>\",\n  \"list_includes_gst\": \"<boolean,null>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"postal\": \"<string,null>\",\n  \"tax_rate\": \"<number,null>\",\n  \"type\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6b2cf507-66bc-4678-887c-ab4f51598a24",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string,null>\",\n  \"active\": \"<boolean,null>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"address4\": \"<string,null>\",\n  \"aliases\": [\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    },\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    }\n  ],\n  \"deliverytime\": \"<integer,null>\",\n  \"discount\": \"<number,null>\",\n  \"external_id\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"gst\": \"<boolean,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_includes_gst\": \"<boolean,null>\",\n  \"list_currency\": \"<string,null>\",\n  \"list_includes_gst\": \"<boolean,null>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"postal\": \"<string,null>\",\n  \"tax_rate\": \"<number,null>\",\n  \"type\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f7a2d28c-67c8-4bfa-b4c6-1f65af4b34a0",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string,null>\",\n  \"active\": \"<boolean,null>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"address4\": \"<string,null>\",\n  \"aliases\": [\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    },\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    }\n  ],\n  \"deliverytime\": \"<integer,null>\",\n  \"discount\": \"<number,null>\",\n  \"external_id\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"gst\": \"<boolean,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_includes_gst\": \"<boolean,null>\",\n  \"list_currency\": \"<string,null>\",\n  \"list_includes_gst\": \"<boolean,null>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"postal\": \"<string,null>\",\n  \"tax_rate\": \"<number,null>\",\n  \"type\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0174c70d-4879-4384-bb40-910b3b64b056",
+          "name": "Delete vendor",
+          "request": {
+            "name": "Delete vendor",
+            "description": {},
+            "url": {
+              "path": [
+                "acquisitions",
+                "vendors",
+                ":vendor_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vendor_id",
+                  "description": "(Required) Vendor id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "260f1810-abf3-4dd6-9087-6cc7551f57a1",
+              "name": "Vendor deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2389ff0f-6820-4de7-b6da-69674d2daedb",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "49e07f39-6ebd-4f69-a636-a137bebea4de",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c77a22b-b029-45fb-93fa-1ce58099300d",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9e09aaca-1918-40dc-88e9-4a801e4929a9",
+              "name": "Vendor not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e0b68020-e774-49c2-b61d-9715d3d40c5f",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c4cd8f9-95a3-46a7-921c-996e30e816b1",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf0990cd-39ab-4397-bbb5-c67bc3776458",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0c89cc6-bf99-49fd-9795-d886c3588995",
+          "name": "Get vendor",
+          "request": {
+            "name": "Get vendor",
+            "description": {},
+            "url": {
+              "path": [
+                "acquisitions",
+                "vendors",
+                ":vendor_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vendor_id",
+                  "description": "(Required) Vendor id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "16fa7abf-8afd-41f7-9441-203ed1001f7e",
+              "name": "A vendor",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string,null>\",\n  \"active\": \"<boolean,null>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"address4\": \"<string,null>\",\n  \"aliases\": [\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    },\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    }\n  ],\n  \"deliverytime\": \"<integer,null>\",\n  \"discount\": \"<number,null>\",\n  \"external_id\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"gst\": \"<boolean,null>\",\n  \"id\": 6827,\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_includes_gst\": \"<boolean,null>\",\n  \"list_currency\": \"<string,null>\",\n  \"list_includes_gst\": \"<boolean,null>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"postal\": \"<string,null>\",\n  \"tax_rate\": \"<number,null>\",\n  \"type\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72172ba0-4a24-44b4-8e4d-38fcd8877e63",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e9084c5-8ad3-476c-bb81-6fd48d2f17ba",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "11371dd6-fe37-49e7-803f-dcdcf3e7294c",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0508017e-79f3-49bf-bf90-a7b685ec8e46",
+              "name": "Vendor not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2977249-686c-4069-8786-122f9e016393",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e00fc7e-d89b-48b8-9f5a-80db14e30e06",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "55a13d70-0d17-4e44-8d49-c24d94848f75",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ee165ba-b412-463b-bab8-be452dfe6675",
+          "name": "Update vendor",
+          "request": {
+            "name": "Update vendor",
+            "description": {},
+            "url": {
+              "path": [
+                "acquisitions",
+                "vendors",
+                ":vendor_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vendor_id",
+                  "description": "(Required) Vendor id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string,null>\",\n  \"active\": \"<boolean,null>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"address4\": \"<string,null>\",\n  \"aliases\": [\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    },\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    }\n  ],\n  \"deliverytime\": \"<integer,null>\",\n  \"discount\": \"<number,null>\",\n  \"external_id\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"gst\": \"<boolean,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_includes_gst\": \"<boolean,null>\",\n  \"list_currency\": \"<string,null>\",\n  \"list_includes_gst\": \"<boolean,null>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"postal\": \"<string,null>\",\n  \"tax_rate\": \"<number,null>\",\n  \"type\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c67aca79-b996-4371-9381-855a83a0f602",
+              "name": "A vendor",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string,null>\",\n  \"active\": \"<boolean,null>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"address4\": \"<string,null>\",\n  \"aliases\": [\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    },\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    }\n  ],\n  \"deliverytime\": \"<integer,null>\",\n  \"discount\": \"<number,null>\",\n  \"external_id\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"gst\": \"<boolean,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_includes_gst\": \"<boolean,null>\",\n  \"list_currency\": \"<string,null>\",\n  \"list_includes_gst\": \"<boolean,null>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"postal\": \"<string,null>\",\n  \"tax_rate\": \"<number,null>\",\n  \"type\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string,null>\",\n  \"active\": \"<boolean,null>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"address4\": \"<string,null>\",\n  \"aliases\": [\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    },\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    }\n  ],\n  \"deliverytime\": \"<integer,null>\",\n  \"discount\": \"<number,null>\",\n  \"external_id\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"gst\": \"<boolean,null>\",\n  \"id\": 6827,\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_includes_gst\": \"<boolean,null>\",\n  \"list_currency\": \"<string,null>\",\n  \"list_includes_gst\": \"<boolean,null>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"postal\": \"<string,null>\",\n  \"tax_rate\": \"<number,null>\",\n  \"type\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ef262c0-c8dc-4509-af22-cc84a3fa100d",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string,null>\",\n  \"active\": \"<boolean,null>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"address4\": \"<string,null>\",\n  \"aliases\": [\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    },\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    }\n  ],\n  \"deliverytime\": \"<integer,null>\",\n  \"discount\": \"<number,null>\",\n  \"external_id\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"gst\": \"<boolean,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_includes_gst\": \"<boolean,null>\",\n  \"list_currency\": \"<string,null>\",\n  \"list_includes_gst\": \"<boolean,null>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"postal\": \"<string,null>\",\n  \"tax_rate\": \"<number,null>\",\n  \"type\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "56f2c7d2-65c2-4df9-b6a5-c23b982a58dc",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string,null>\",\n  \"active\": \"<boolean,null>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"address4\": \"<string,null>\",\n  \"aliases\": [\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    },\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    }\n  ],\n  \"deliverytime\": \"<integer,null>\",\n  \"discount\": \"<number,null>\",\n  \"external_id\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"gst\": \"<boolean,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_includes_gst\": \"<boolean,null>\",\n  \"list_currency\": \"<string,null>\",\n  \"list_includes_gst\": \"<boolean,null>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"postal\": \"<string,null>\",\n  \"tax_rate\": \"<number,null>\",\n  \"type\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "12254ecb-8b05-4f5c-b8ad-1af010331ba6",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string,null>\",\n  \"active\": \"<boolean,null>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"address4\": \"<string,null>\",\n  \"aliases\": [\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    },\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    }\n  ],\n  \"deliverytime\": \"<integer,null>\",\n  \"discount\": \"<number,null>\",\n  \"external_id\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"gst\": \"<boolean,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_includes_gst\": \"<boolean,null>\",\n  \"list_currency\": \"<string,null>\",\n  \"list_includes_gst\": \"<boolean,null>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"postal\": \"<string,null>\",\n  \"tax_rate\": \"<number,null>\",\n  \"type\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c5a452f-6592-4b29-bbbe-b9b807187d3b",
+              "name": "Vendor not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string,null>\",\n  \"active\": \"<boolean,null>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"address4\": \"<string,null>\",\n  \"aliases\": [\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    },\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    }\n  ],\n  \"deliverytime\": \"<integer,null>\",\n  \"discount\": \"<number,null>\",\n  \"external_id\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"gst\": \"<boolean,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_includes_gst\": \"<boolean,null>\",\n  \"list_currency\": \"<string,null>\",\n  \"list_includes_gst\": \"<boolean,null>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"postal\": \"<string,null>\",\n  \"tax_rate\": \"<number,null>\",\n  \"type\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29763dcb-c8ef-4d3e-bd10-24b473e870e1",
+              "name": "Internal server error. Possible `error_code` attribute values:\n\n* `internal_server_error`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string,null>\",\n  \"active\": \"<boolean,null>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"address4\": \"<string,null>\",\n  \"aliases\": [\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    },\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    }\n  ],\n  \"deliverytime\": \"<integer,null>\",\n  \"discount\": \"<number,null>\",\n  \"external_id\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"gst\": \"<boolean,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_includes_gst\": \"<boolean,null>\",\n  \"list_currency\": \"<string,null>\",\n  \"list_includes_gst\": \"<boolean,null>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"postal\": \"<string,null>\",\n  \"tax_rate\": \"<number,null>\",\n  \"type\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d40a648b-6d80-4ad3-8c27-ddf1d0dfc217",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string,null>\",\n  \"active\": \"<boolean,null>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"address4\": \"<string,null>\",\n  \"aliases\": [\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    },\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    }\n  ],\n  \"deliverytime\": \"<integer,null>\",\n  \"discount\": \"<number,null>\",\n  \"external_id\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"gst\": \"<boolean,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_includes_gst\": \"<boolean,null>\",\n  \"list_currency\": \"<string,null>\",\n  \"list_includes_gst\": \"<boolean,null>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"postal\": \"<string,null>\",\n  \"tax_rate\": \"<number,null>\",\n  \"type\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44d0b894-89ca-466c-9135-17a4f41df804",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"accountnumber\": \"<string,null>\",\n  \"active\": \"<boolean,null>\",\n  \"address1\": \"<string,null>\",\n  \"address2\": \"<string,null>\",\n  \"address3\": \"<string,null>\",\n  \"address4\": \"<string,null>\",\n  \"aliases\": [\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    },\n    {\n      \"alias\": \"<string>\",\n      \"alias_id\": \"<integer>\",\n      \"vendor_id\": \"<integer>\"\n    }\n  ],\n  \"deliverytime\": \"<integer,null>\",\n  \"discount\": \"<number,null>\",\n  \"external_id\": \"<string,null>\",\n  \"fax\": \"<string,null>\",\n  \"gst\": \"<boolean,null>\",\n  \"invoice_currency\": \"<string,null>\",\n  \"invoice_includes_gst\": \"<boolean,null>\",\n  \"list_currency\": \"<string,null>\",\n  \"list_includes_gst\": \"<boolean,null>\",\n  \"notes\": \"<string,null>\",\n  \"phone\": \"<string,null>\",\n  \"postal\": \"<string,null>\",\n  \"tax_rate\": \"<number,null>\",\n  \"type\": \"<string,null>\",\n  \"url\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc0d0f24-802a-40c8-a522-4cfae406e408",
+          "name": "List vendor issues",
+          "request": {
+            "name": "List vendor issues",
+            "description": {},
+            "url": {
+              "path": [
+                "acquisitions",
+                "vendors",
+                ":vendor_id",
+                "issues"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "issue_id",
+                  "value": "<integer>",
+                  "description": "Case insensitive search on issue's id"
+                },
+                {
+                  "disabled": false,
+                  "key": "vendor_id",
+                  "value": "<integer>",
+                  "description": "Case insensitive search on vendor's id"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Case insensitive search on issue type"
+                },
+                {
+                  "disabled": false,
+                  "key": "started_on",
+                  "value": "<string>",
+                  "description": "Case insensitive search on issue start date"
+                },
+                {
+                  "disabled": false,
+                  "key": "ended_on",
+                  "value": "<string>",
+                  "description": "Case insensitive search on issue end date"
+                },
+                {
+                  "disabled": false,
+                  "key": "notes",
+                  "value": "<string>",
+                  "description": "Case insensitive search on issue's notes"
+                },
+                {
+                  "disabled": false,
+                  "key": "_match",
+                  "value": "<string>",
+                  "description": "Matching criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_order_by",
+                  "value": "<string>",
+                  "description": "Sorting criteria"
+                },
+                {
+                  "disabled": false,
+                  "key": "_page",
+                  "value": "<integer>",
+                  "description": "Page number, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "_per_page",
+                  "value": "<integer>",
+                  "description": "Page size, for paginated object listing"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query filter sent as a request parameter"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vendor_id",
+                  "description": "(Required) Vendor id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Embed list sent as a request header",
+                "key": "x-koha-embed",
+                "value": "<string>,<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Request id header",
+                "key": "x-koha-request-id",
+                "value": "<integer>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d68a45b9-21d8-45b0-a91d-f60d42669d57",
+              "name": "A list of issues",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id",
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "issue_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vendor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "started_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ended_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"_strings\": null,\n    \"ended_on\": \"2001-06-23\",\n    \"issue_id\": 5294,\n    \"notes\": null,\n    \"started_on\": null,\n    \"type\": null,\n    \"vendor_id\": 9926\n  },\n  {\n    \"_strings\": {},\n    \"ended_on\": null,\n    \"issue_id\": 5128,\n    \"notes\": null,\n    \"started_on\": null,\n    \"type\": null,\n    \"vendor_id\": 8529\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb340ee9-d269-48c8-b0f5-d748db95b3b6",
+              "name": "Bad request. Possible `error_code` attribute values:\n\n  * `invalid_query`\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id",
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "issue_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vendor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "started_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ended_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3747b245-6d3a-4399-83bc-7f0e307dd335",
+              "name": "Authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id",
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "issue_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vendor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "started_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ended_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b31f6917-b029-4f55-abfb-45d29f9530c1",
+              "name": "Access forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id",
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "issue_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vendor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "started_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ended_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa1ba691-9a4f-45a2-bf5d-94ab4cc3f4a2",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id",
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "issue_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vendor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "started_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ended_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "74235ec8-ed9a-408e-ae28-b630923571c4",
+              "name": "Internal server error. Possible `error_code` attribute values:\n* `internal_server_error`",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id",
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "issue_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vendor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "started_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ended_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e2da0e9a-62bd-46d5-a65a-0cf4eb7e4260",
+              "name": "Default response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id",
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "issue_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vendor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "started_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ended_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Implemented",
+              "code": 501,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    },\n    {\n      \"message\": \"string\",\n      \"path\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67197cfa-3d7c-4a70-9487-d0a8ab01ae50",
+              "name": "Under maintenance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "acquisitions",
+                    "vendors",
+                    ":vendor_id",
+                    "issues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "issue_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vendor_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "started_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ended_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "_per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vendor_id",
+                      "description": "(Required) Vendor id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Embed list sent as a request header",
+                    "key": "x-koha-embed",
+                    "value": "<string>,<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id header",
+                    "key": "x-koha-request-id",
+                    "value": "<integer>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://libserv.iitk.ac.in/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "941c2653-8e39-4621-90de-4d8ac1f6f8e4",
+    "name": "Koha REST 2fa vendors API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "## Background\n\nThe API supports two sets of endpoints, one targetted at library staff and the other at at library users.\n\nThose endpoints under the `/public` path are aimed at delivering functionality tailored to library users and offer\na more restricted set of functions, overrides and data in thier responses for data privacy and library policy\nreasons. Many of these endpoints do not require authentication for fetching public data, though an authenticated\nsession will expose additional options and allow users to see more data where it is part of their own record.\n\nAll other endpoints are targetted at the staff interface level and allow for additional functionality and a more\nunrestricted view of data.  These endpoints, however, have a level of redaction built in for resources that the\napi consumer should not have access to.  For example, user data for users who do not belong to the same library\nor library group of your api user will be reduced to just minimum neccesary for a valid response. Object keys will\nbe consistent for all responses, but their values may be removed depending on access.\n\n## Authentication\n\nThe API supports the following authentication mechanisms\n\n* HTTP Basic authentication\n* OAuth2 (client credentials grant)\n* Cookie-based\n\nBoth _Basic authentication_ and the _OAuth2_ flow, need to be enabled\nby system preferences.\n\n## Authorization\n\nThe API uses existing user profiles to restrict access to resources based on user permissions and the library the\nAPI user is assigned to.  This may result, at times, in resources being returned in a redacted form with all keys\npresent but sensative values nulled.\n\nWe do not yet support OAuth Scopes or the Authorization Code grant flow.\n\n## Errors\n\nThe API uses standard HTTP status codes to indicate the success or failure\nof the API call. The body of the response will be JSON in the following format:\n\n```\n{\n  \"error\": \"Current settings prevent the passed due date to be applied\",\n  \"error_code\": \"invalid_due_date\"\n}\n```\n\nNote: Some routes might offer additional attributes in their error responses but that\"s\nsubject to change and thus not documented.\n\n## Filtering responses\n\nThe API allows for some advanced response filtering using a JSON based query syntax. The\nquery can be added to the requests:\n\n* as a query parameter `q=`\n* in the request body\n\nFor simple field equality matches we can use `{ \"fieldname\": \"value\" }` where the fieldname\nmatches one of the fields as described in the particular endpoints response object.\n\nWe can refine that with more complex matching clauses by nesting a the clause into the\nobject; `{ \"fieldname\": { \"clause\": \"value\" } }`.\n\nAvailable matching clauses include `=`, `!=`, `<`, `>`, `<=`, `>=` and `-not`. We also support `-like`\nand `-not_like` string comparisons with `%` used to denote wildcards, thus you can pass\n`{ \"fieldname\": { \"-like\": \"value%\" } }` to do a 'starts with' string match for example.\n\nWe can filter on multiple fields by adding them to the JSON respresentation. Adding at `HASH`\nlevel will result in an \"AND\" query, whilst combinding them in an `ARRAY` will result in an\n\"OR\" query: `{ \"field1\": \"value2\", \"field2\": \"value2\" }` will filter the response to only those\nresults with both field1 containing value2 AND field2 containing value2 for example.\n\nThere is a collection of special operators also available to you, including:\n\n* `-in` - Expects an array of values to perform an OR match against\n* `-not_in` - Expects an array of values to perform a NOR match against\n* `-between` - Expects two values which the value of the field is expected to fall between\n* `-not_between` - Expects two values which the value of the field is expected to fall outside of\n* `-ident` - Expects a second field name to match the two field values against\n* `-regexp` - Expects a perl compatible regular expression for which the value should match\n\nLogic and nesting is also supported and you may use `-and` and `-or` to change the logic of an ARRAY\nor HASH as described above.\n\nAdditionally, if you are requesting related data be embedded into the response one can query\non the related data using dot notation in the field names.\n\n### Examples\n\nThe following request would return any patron with firstname \"Henry\" and lastname \"Acevedo\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": \"Acevedo\", \"firstname\": \"Henry\" }'`\n\nThe following request would return any patron whose lastname begins with \"Ace\";\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": { \"-like\": \"Ace%\" }'`\n\nThe following request would return any patron whose lastname is \"Acevedo\" OR \"Bernardo\"\n\n`curl -u koha:koha --request GET \"http://127.0.0.1:8081/api/v1/patrons/\" --data-raw '{ \"surname\": [ \"Acevedo\", \"Bernardo\" ] }'`\n\nThe following request embeds the related patron extended attributes data and filters on it.\n\n`curl -u koha:koha =--request GET 'http://127.0.0.1:8081/api/v1/patrons/' --header 'x-koha-embed: extended_attributes' --data-raw '{ \"extended_attributes.code\": \"internet\", \"extended_attributes.attribute\": \"1\" }'`\n\n## Special headers\n\n### x-koha-embed\n\nThis optional header allows the api consumer to request additional related data\nto be returned in the api response.  It also allows for cross referencing in the\nqueries as described above. It accepts a comma delimited list of relation names.\n\nRelations may on occasion also support dot delimited nesting to allow traversal.\n\n### x-koha-library\n\nThis optional header should be passed to give your api request a library\ncontext; If it is not included in the request, then the request context\nwill default to using your api comsumer\"s assigned home library.\n\n\nContact Support:\n Name: Koha Development Team",
+      "type": "text/plain"
+    }
+  }
+}

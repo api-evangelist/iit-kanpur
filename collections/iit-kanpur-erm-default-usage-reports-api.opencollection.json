@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa erm_default_usage_reports API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "erm_default_usage_reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List default_usage_reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/default_usage_reports",
+            "params": [
+              {
+                "name": "erm_default_usage_report_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on erm_default_usage_report_id"
+              },
+              {
+                "name": "report_name",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on default_usage_report report_name"
+              },
+              {
+                "name": "report_url_params",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on default_usage_report report_url_params"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List default_usage_reports"
+        },
+        {
+          "info": {
+            "name": "Add default_usage_report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/default_usage_reports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add default_usage_report"
+        },
+        {
+          "info": {
+            "name": "Delete default_usage_report",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/erm/default_usage_reports/:erm_default_usage_report_id",
+            "params": [
+              {
+                "name": "erm_default_usage_report_id",
+                "value": "",
+                "type": "path",
+                "description": "ERM default_usage_report internal identifier"
+              }
+            ]
+          },
+          "docs": "Delete default_usage_report"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

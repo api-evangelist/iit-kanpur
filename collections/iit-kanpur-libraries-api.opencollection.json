@@ -1,0 +1,325 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa libraries API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "libraries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List libraries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/libraries",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              },
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive 'starts-with' search on name"
+              },
+              {
+                "name": "address1",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive 'starts-with' search on address1"
+              },
+              {
+                "name": "address2",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive 'starts-with' search on address2"
+              },
+              {
+                "name": "address3",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive 'starts-with' search on address3"
+              },
+              {
+                "name": "postal_code",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive 'starts-with' search on postal code"
+              },
+              {
+                "name": "city",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive 'starts-with' search on city"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive 'starts-with' search on state"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive 'starts_with' search on country"
+              },
+              {
+                "name": "phone",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive 'starts_with' search on phone number"
+              },
+              {
+                "name": "fax",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive 'starts_with' search on fax number"
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive 'starts_with' search on email address"
+              },
+              {
+                "name": "reply_to_email",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive 'starts_with' search on Reply-To email address"
+              },
+              {
+                "name": "return_path_email",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive 'starts_with' search on Return-Path email address"
+              },
+              {
+                "name": "url",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive 'starts_with' search on website URL"
+              },
+              {
+                "name": "ip",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive 'starts_with' search on IP address"
+              },
+              {
+                "name": "notes",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive 'starts_with' search on notes"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List libraries"
+        },
+        {
+          "info": {
+            "name": "Add library",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/libraries",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add library"
+        },
+        {
+          "info": {
+            "name": "Get library",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/libraries/:library_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "library_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal library identifier"
+              }
+            ]
+          },
+          "docs": "Get library"
+        },
+        {
+          "info": {
+            "name": "Update library",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/libraries/:library_id",
+            "params": [
+              {
+                "name": "library_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal library identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update library"
+        },
+        {
+          "info": {
+            "name": "Delete library",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/libraries/:library_id",
+            "params": [
+              {
+                "name": "library_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal library identifier"
+              }
+            ]
+          },
+          "docs": "Delete library"
+        },
+        {
+          "info": {
+            "name": "List libraries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/public/libraries",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List libraries"
+        },
+        {
+          "info": {
+            "name": "Get library (public)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/public/libraries/:library_id",
+            "params": [
+              {
+                "name": "library_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal library identifier"
+              }
+            ]
+          },
+          "docs": "Get library (public)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

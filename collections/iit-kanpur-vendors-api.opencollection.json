@@ -1,0 +1,262 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa vendors API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "vendors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List vendors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/acquisitions/vendors",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              },
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on vendor name"
+              },
+              {
+                "name": "accountnumber",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on vendor's account number"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List vendors"
+        },
+        {
+          "info": {
+            "name": "Add vendor",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/acquisitions/vendors",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add vendor"
+        },
+        {
+          "info": {
+            "name": "Get vendor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/acquisitions/vendors/:vendor_id",
+            "params": [
+              {
+                "name": "vendor_id",
+                "value": "",
+                "type": "path",
+                "description": "Vendor id"
+              }
+            ]
+          },
+          "docs": "Get vendor"
+        },
+        {
+          "info": {
+            "name": "Update vendor",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/acquisitions/vendors/:vendor_id",
+            "params": [
+              {
+                "name": "vendor_id",
+                "value": "",
+                "type": "path",
+                "description": "Vendor id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update vendor"
+        },
+        {
+          "info": {
+            "name": "Delete vendor",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/acquisitions/vendors/:vendor_id",
+            "params": [
+              {
+                "name": "vendor_id",
+                "value": "",
+                "type": "path",
+                "description": "Vendor id"
+              }
+            ]
+          },
+          "docs": "Delete vendor"
+        },
+        {
+          "info": {
+            "name": "List vendor issues",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/acquisitions/vendors/:vendor_id/issues",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              },
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "vendor_id",
+                "value": "",
+                "type": "path",
+                "description": "Vendor id"
+              },
+              {
+                "name": "issue_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on issue's id"
+              },
+              {
+                "name": "vendor_id",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on vendor's id"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on issue type"
+              },
+              {
+                "name": "started_on",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on issue start date"
+              },
+              {
+                "name": "ended_on",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on issue end date"
+              },
+              {
+                "name": "notes",
+                "value": "",
+                "type": "query",
+                "description": "Case insensitive search on issue's notes"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List vendor issues"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

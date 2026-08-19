@@ -1,0 +1,501 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa holds API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "holds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List holds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/holds",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              },
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "hold_id",
+                "value": "",
+                "type": "query",
+                "description": "Internal hold identifier"
+              },
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "query",
+                "description": "Internal patron identifier"
+              },
+              {
+                "name": "hold_date",
+                "value": "",
+                "type": "query",
+                "description": "Hold"
+              },
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "query",
+                "description": "Internal biblio identifier"
+              },
+              {
+                "name": "item_group_id",
+                "value": "",
+                "type": "query",
+                "description": "Internal item group identifier"
+              },
+              {
+                "name": "pickup_library_id",
+                "value": "",
+                "type": "query",
+                "description": "Internal library identifier for the pickup library"
+              },
+              {
+                "name": "cancellation_date",
+                "value": "",
+                "type": "query",
+                "description": "The date the hold was cancelled"
+              },
+              {
+                "name": "notes",
+                "value": "",
+                "type": "query",
+                "description": "Notes related to this hold"
+              },
+              {
+                "name": "priority",
+                "value": "",
+                "type": "query",
+                "description": "Where in the queue the patron sits"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Found status"
+              },
+              {
+                "name": "timestamp",
+                "value": "",
+                "type": "query",
+                "description": "Time of latest update"
+              },
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "query",
+                "description": "Internal item identifier"
+              },
+              {
+                "name": "waiting_date",
+                "value": "",
+                "type": "query",
+                "description": "Date the item was marked as waiting for the patron"
+              },
+              {
+                "name": "expiration_date",
+                "value": "",
+                "type": "query",
+                "description": "Date the hold expires"
+              },
+              {
+                "name": "lowest_priority",
+                "value": "",
+                "type": "query",
+                "description": "Lowest priority"
+              },
+              {
+                "name": "suspended",
+                "value": "",
+                "type": "query",
+                "description": "Suspended"
+              },
+              {
+                "name": "suspended_until",
+                "value": "",
+                "type": "query",
+                "description": "Suspended until"
+              },
+              {
+                "name": "non_priority",
+                "value": "",
+                "type": "query",
+                "description": "Non priority hold"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              },
+              {
+                "name": "old",
+                "value": "",
+                "type": "query",
+                "description": "By default, current holds are returned, when this is true then old holds are returned as result."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List holds"
+        },
+        {
+          "info": {
+            "name": "Place hold",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/holds",
+            "headers": [
+              {
+                "name": "x-koha-override",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Place hold"
+        },
+        {
+          "info": {
+            "name": "Update hold",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/holds/:hold_id",
+            "params": [
+              {
+                "name": "hold_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal hold identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This route is being deprecated and will be removed in future releases. Please migrate your project to use PATCH /holds/{hold_id} instead."
+        },
+        {
+          "info": {
+            "name": "Update hold",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://libserv.iitk.ac.in/api/v1/holds/:hold_id",
+            "params": [
+              {
+                "name": "hold_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal hold identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update hold"
+        },
+        {
+          "info": {
+            "name": "Cancel hold",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/holds/:hold_id",
+            "headers": [
+              {
+                "name": "x-koha-override",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "hold_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal hold identifier"
+              }
+            ]
+          },
+          "docs": "Cancel hold"
+        },
+        {
+          "info": {
+            "name": "Update pickup location for the hold",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/holds/:hold_id/pickup_location",
+            "params": [
+              {
+                "name": "hold_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal hold identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set a new pickup location for the hold"
+        },
+        {
+          "info": {
+            "name": "Get valid pickup locations for hold",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/holds/:hold_id/pickup_locations",
+            "headers": [
+              {
+                "name": "x-koha-override",
+                "value": ""
+              },
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "hold_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal hold identifier"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get valid pickup locations for hold"
+        },
+        {
+          "info": {
+            "name": "Update priority for the hold",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/holds/:hold_id/priority",
+            "params": [
+              {
+                "name": "hold_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal hold identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update priority for the hold"
+        },
+        {
+          "info": {
+            "name": "Suspend the hold",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/holds/:hold_id/suspension",
+            "params": [
+              {
+                "name": "hold_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal hold identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Suspend the hold"
+        },
+        {
+          "info": {
+            "name": "Resume hold",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/holds/:hold_id/suspension",
+            "params": [
+              {
+                "name": "hold_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal hold identifier"
+              }
+            ]
+          },
+          "docs": "Resume hold"
+        },
+        {
+          "info": {
+            "name": "List holds for a patron",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/patrons/:patron_id/holds",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              },
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "patron_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal patron identifier"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              },
+              {
+                "name": "old",
+                "value": "",
+                "type": "query",
+                "description": "By default, current holds are returned, when this is true then old holds are returned as result."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List holds for a patron"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

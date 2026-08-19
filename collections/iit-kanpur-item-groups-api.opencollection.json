@@ -1,0 +1,257 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa item_groups API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "item_groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List item_groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/biblios/:biblio_id/item_groups",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal identifier for the parent bibliographic record"
+              },
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List item_groups"
+        },
+        {
+          "info": {
+            "name": "Add item group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/biblios/:biblio_id/item_groups",
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal identifier for the parent bibliographic record"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add item group"
+        },
+        {
+          "info": {
+            "name": "Get item group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/biblios/:biblio_id/item_groups/:item_group_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal identifier for the parent bibliographic record"
+              },
+              {
+                "name": "item_group_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal identifier for the item_group"
+              }
+            ]
+          },
+          "docs": "Get item group"
+        },
+        {
+          "info": {
+            "name": "Update item group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/biblios/:biblio_id/item_groups/:item_group_id",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal identifier for the parent bibliographic record"
+              },
+              {
+                "name": "item_group_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal identifier for the item group"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update item group"
+        },
+        {
+          "info": {
+            "name": "Delete item group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/biblios/:biblio_id/item_groups/:item_group_id",
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal identifier for the parent bibliographic record"
+              },
+              {
+                "name": "item_group_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal identifier for the item group"
+              }
+            ]
+          },
+          "docs": "Delete item group"
+        },
+        {
+          "info": {
+            "name": "Add item to item group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/biblios/:biblio_id/item_groups/:item_group_id/items",
+            "headers": [
+              {
+                "name": "x-koha-embed",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal identifier for the parent bibliographic record"
+              },
+              {
+                "name": "item_group_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal identifier for the item group"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add item to item group"
+        },
+        {
+          "info": {
+            "name": "Delete item from item group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/biblios/:biblio_id/item_groups/:item_group_id/items/:item_id",
+            "params": [
+              {
+                "name": "biblio_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal identifier for the parent bibliographic record"
+              },
+              {
+                "name": "item_group_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal identifier for the item group"
+              },
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "path",
+                "description": "Internal identifier for the item"
+              }
+            ]
+          },
+          "docs": "Delete item from item group"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,147 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Koha REST 2fa smtp_servers API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "smtp_servers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List SMTP servers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/config/smtp_servers",
+            "headers": [
+              {
+                "name": "x-koha-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "_match",
+                "value": "",
+                "type": "query",
+                "description": "Matching criteria"
+              },
+              {
+                "name": "_order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria"
+              },
+              {
+                "name": "_page",
+                "value": "",
+                "type": "query",
+                "description": "Page number, for paginated object listing"
+              },
+              {
+                "name": "_per_page",
+                "value": "",
+                "type": "query",
+                "description": "Page size, for paginated object listing"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Query filter sent as a request parameter"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List SMTP servers"
+        },
+        {
+          "info": {
+            "name": "Add SMTP server",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://libserv.iitk.ac.in/api/v1/config/smtp_servers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add SMTP server"
+        },
+        {
+          "info": {
+            "name": "Get SMTP server",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://libserv.iitk.ac.in/api/v1/config/smtp_servers/:smtp_server_id",
+            "params": [
+              {
+                "name": "smtp_server_id",
+                "value": "",
+                "type": "path",
+                "description": "SMTP server internal identifier"
+              }
+            ]
+          },
+          "docs": "Get SMTP server"
+        },
+        {
+          "info": {
+            "name": "Update SMTP server",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://libserv.iitk.ac.in/api/v1/config/smtp_servers/:smtp_server_id",
+            "params": [
+              {
+                "name": "smtp_server_id",
+                "value": "",
+                "type": "path",
+                "description": "SMTP server internal identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update SMTP server"
+        },
+        {
+          "info": {
+            "name": "Delete SMTP server",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://libserv.iitk.ac.in/api/v1/config/smtp_servers/:smtp_server_id",
+            "params": [
+              {
+                "name": "smtp_server_id",
+                "value": "",
+                "type": "path",
+                "description": "SMTP server internal identifier"
+              }
+            ]
+          },
+          "docs": "Delete SMTP server"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
