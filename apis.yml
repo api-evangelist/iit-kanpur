@@ -44,7 +44,7 @@ modified: '2026-06-03'
 # https://libserv.iitk.ac.in/api/v1/ for the PKK Library; converted to OpenAPI 3.0
 # and added supporting artifacts (json-schema, json-structure, examples, rules,
 # vocabulary, json-ld). See openapi/iit-kanpur-library-rest.yaml.
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: iit-kanpur:iit-kanpur-2fa-api
   name: Indian Institute of Technology Kanpur 2fa API
