@@ -52,6 +52,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - 2FA
+  tags_raw:
   - 2fa
   properties:
   - type: OpenAPI
@@ -71,7 +73,8 @@ apis:
   description: Manage article requests
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - article_requests
   properties:
   - type: OpenAPI
@@ -91,7 +94,8 @@ apis:
   description: Manage authorised value categories
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - authorised_value_categories
   properties:
   - type: OpenAPI
@@ -111,7 +115,8 @@ apis:
   description: Manage authorised values
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - authorised_values
   properties:
   - type: OpenAPI
@@ -132,6 +137,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Authorities
+  tags_raw:
   - authorities
   properties:
   - type: OpenAPI
@@ -152,6 +159,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Baskets
+  tags_raw:
   - baskets
   properties:
   - type: OpenAPI
@@ -171,7 +180,8 @@ apis:
   description: Manage batch import profiles
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - batch_import_profiles
   properties:
   - type: OpenAPI
@@ -212,6 +222,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Bookings
+  tags_raw:
   - bookings
   properties:
   - type: OpenAPI
@@ -231,7 +243,8 @@ apis:
   description: Manage cash registers
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - cash_registers
   properties:
   - type: OpenAPI
@@ -272,6 +285,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Checkouts
+  tags_raw:
   - checkouts
   properties:
   - type: OpenAPI
@@ -291,7 +306,8 @@ apis:
   description: Manage circulation rules
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - circulation_rules
   properties:
   - type: OpenAPI
@@ -312,6 +328,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Cities
+  tags_raw:
   - cities
   properties:
   - type: OpenAPI
@@ -332,6 +350,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Clubs
+  tags_raw:
   - clubs
   properties:
   - type: OpenAPI
@@ -371,7 +391,8 @@ apis:
   description: Manage ERM agreements
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - erm_agreements
   properties:
   - type: OpenAPI
@@ -391,7 +412,8 @@ apis:
   description: Manage ERM configuration
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - erm_config
   properties:
   - type: OpenAPI
@@ -411,7 +433,8 @@ apis:
   description: Manage ERM counter files
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - erm_counter_files
   properties:
   - type: OpenAPI
@@ -431,7 +454,8 @@ apis:
   description: Manage ERM counter logs
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - erm_counter_logs
   properties:
   - type: OpenAPI
@@ -451,7 +475,8 @@ apis:
   description: Retrieve counter registry data
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - erm_counter_registry
   properties:
   - type: OpenAPI
@@ -471,7 +496,8 @@ apis:
   description: Manage ERM saved reports
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - erm_default_usage_reports
   properties:
   - type: OpenAPI
@@ -491,7 +517,8 @@ apis:
   description: Manage ERM docuemnts
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - erm_documents
   properties:
   - type: OpenAPI
@@ -511,7 +538,8 @@ apis:
   description: Manage ERM eHoldings packages
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - erm_eholdings_packages
   properties:
   - type: OpenAPI
@@ -531,7 +559,8 @@ apis:
   description: Manage ERM eHoldings resources
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - erm_eholdings_resources
   properties:
   - type: OpenAPI
@@ -551,7 +580,8 @@ apis:
   description: Manage ERM eHoldings titles
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - erm_eholdings_titles
   properties:
   - type: OpenAPI
@@ -571,7 +601,8 @@ apis:
   description: Manage ERM licences
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - erm_licences
   properties:
   - type: OpenAPI
@@ -591,7 +622,8 @@ apis:
   description: Retrieve SUSHI service data
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - erm_sushi_service
   properties:
   - type: OpenAPI
@@ -611,7 +643,8 @@ apis:
   description: Manage ERM usage data providers
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - erm_usage_data_providers
   properties:
   - type: OpenAPI
@@ -631,7 +664,8 @@ apis:
   description: Manage ERM usage databases
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - erm_usage_databases
   properties:
   - type: OpenAPI
@@ -651,7 +685,8 @@ apis:
   description: Manage ERM usage items
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - erm_usage_items
   properties:
   - type: OpenAPI
@@ -671,7 +706,8 @@ apis:
   description: Manage ERM usage platforms
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - erm_usage_platforms
   properties:
   - type: OpenAPI
@@ -691,7 +727,8 @@ apis:
   description: Manage ERM usage reports
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - erm_usage_reports
   properties:
   - type: OpenAPI
@@ -711,7 +748,8 @@ apis:
   description: Manage ERM usage titles
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - erm_usage_titles
   properties:
   - type: OpenAPI
@@ -731,7 +769,8 @@ apis:
   description: Manage ERM users
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - erm_users
   properties:
   - type: OpenAPI
@@ -752,6 +791,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Funds
+  tags_raw:
   - funds
   properties:
   - type: OpenAPI
@@ -772,6 +813,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Holds
+  tags_raw:
   - holds
   properties:
   - type: OpenAPI
@@ -792,6 +835,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Identity Providers
+  tags_raw:
   - identity_providers
   properties:
   - type: OpenAPI
@@ -811,7 +856,8 @@ apis:
   description: Manage ILL module backends
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - ill_backends
   properties:
   - type: OpenAPI
@@ -831,7 +877,8 @@ apis:
   description: Manage ILL module batches
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - ill_batches
   properties:
   - type: OpenAPI
@@ -851,7 +898,8 @@ apis:
   description: Manage ILL module batch statuses
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - ill_batchstatuses
   properties:
   - type: OpenAPI
@@ -871,7 +919,8 @@ apis:
   description: Manage ILL requests
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - ill_requests
   properties:
   - type: OpenAPI
@@ -892,6 +941,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Import Batches
+  tags_raw:
   - import_batches
   properties:
   - type: OpenAPI
@@ -911,7 +962,8 @@ apis:
   description: Manage item groups
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - item_groups
   properties:
   - type: OpenAPI
@@ -932,6 +984,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Item Types
+  tags_raw:
   - item_types
   properties:
   - type: OpenAPI
@@ -952,6 +1006,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Item
+  tags_raw:
   - items
   properties:
   - type: OpenAPI
@@ -972,6 +1028,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Job
+  tags_raw:
   - jobs
   properties:
   - type: OpenAPI
@@ -992,6 +1050,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Libraries
+  tags_raw:
   - libraries
   properties:
   - type: OpenAPI
@@ -1012,6 +1072,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Macros
+  tags_raw:
   - macros
   properties:
   - type: OpenAPI
@@ -1032,6 +1094,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Authentication
+  tags_raw:
   - oauth
   properties:
   - type: OpenAPI
@@ -1052,6 +1116,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Order
+  tags_raw:
   - orders
   properties:
   - type: OpenAPI
@@ -1071,7 +1137,8 @@ apis:
   description: Manage patron categories
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - patron_categories
   properties:
   - type: OpenAPI
@@ -1112,6 +1179,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Preservation
+  tags_raw:
   - preservation
   properties:
   - type: OpenAPI
@@ -1132,6 +1201,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Quotes
+  tags_raw:
   - quotes
   properties:
   - type: OpenAPI
@@ -1152,6 +1223,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Recalls
+  tags_raw:
   - recalls
   properties:
   - type: OpenAPI
@@ -1171,7 +1244,8 @@ apis:
   description: Manage return claims
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - return_claims
   properties:
   - type: OpenAPI
@@ -1212,6 +1286,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Search Filters
+  tags_raw:
   - search_filters
   properties:
   - type: OpenAPI
@@ -1231,7 +1307,8 @@ apis:
   description: Manage SMTP servers configurations
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
+  tags: []
+  tags_raw:
   - smtp_servers
   properties:
   - type: OpenAPI
@@ -1252,6 +1329,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Suggestions
+  tags_raw:
   - suggestions
   properties:
   - type: OpenAPI
@@ -1272,6 +1351,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Tickets
+  tags_raw:
   - tickets
   properties:
   - type: OpenAPI
@@ -1292,6 +1373,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Transfer Limits
+  tags_raw:
   - transfer_limits
   properties:
   - type: OpenAPI
@@ -1312,6 +1395,8 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
+  - Vendors
+  tags_raw:
   - vendors
   properties:
   - type: OpenAPI
