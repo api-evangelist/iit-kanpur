@@ -3,7 +3,7 @@ provider: Indian Institute of Technology Kanpur
 generated_by: planning/capability-mapping/scripts/classify_capabilities.py
 model: claude-opus-5
 frame:
-- Software & Technology
+- Education
 min_confidence: 0.7
 capability_model:
   source: https://github.com/vincentmakes/turbo-ea-capabilities
@@ -11,38 +11,154 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 3
+edge_count: 15
 edges:
-- tag: 2fa
-  spec_file: iit-kanpur-2fa-api-openapi.yml
-  capability_id: BC-620.20
-  capability_id_l1: BC-620
-  capability_name: Identity & Access Management
-  confidence: 0.8
-  evidence: POST /auth/two-factor/registration  Two factor register  Generate a secret; POST /auth/otp/token_delivery  Send
-    OTP token for second step authentication
-  reason: Operations register and verify two-factor authentication secrets and deliver OTP tokens — authentication
-    strengthening for user accounts, which is Identity & Access Management. This is technical auth plumbing
-    but IAM is the honest cross-industry capability.
 - tag: identity_providers
   spec_file: iit-kanpur-identity-providers-api-openapi.yml
   capability_id: BC-620.20
   capability_id_l1: BC-620
   capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: GET /auth/identity_providers  listIdentityProviders  List configured identity providers; POST
+    /auth/identity_providers/{identity_provider_id}/domains
+  reason: CRUD over configured external identity providers and their domains for authentication federation
+    — Identity & Access Management, not a library business capability.
+- tag: erm_eholdings_packages
+  spec_file: iit-kanpur-erm-eholdings-packages-api-openapi.yml
+  capability_id: BC-4790.40
+  capability_id_l1: BC-4790
+  capability_name: Library & Information Resource Operations
+  confidence: 0.82
+  evidence: GET /erm/eholdings/{provider}/packages  listErmEHoldingsPackages  List packages; schema erm_eholdings_package_agreement_yaml
+  reason: CRUD over eHoldings packages from content providers is library electronic collection development
+    — cataloguing and stewardship of subscribed information resources, matching Library & Information
+    Resource Operations.
+- tag: erm_eholdings_titles
+  spec_file: iit-kanpur-erm-eholdings-titles-api-openapi.yml
+  capability_id: BC-4790.40
+  capability_id_l1: BC-4790
+  capability_name: Library & Information Resource Operations
+  confidence: 0.82
+  evidence: POST /erm/eholdings/local/titles/import  importErmEHoldingsTitles  Import local titles
+  reason: Import and maintenance of electronic holdings titles is library collection development / e-resource
+    catalogue stewardship, i.e. Library & Information Resource Operations.
+- tag: biblios
+  spec_file: iit-kanpur-biblios-api-openapi.yml
+  capability_id: BC-4790.40
+  capability_id_l1: BC-4790
+  capability_name: Library & Information Resource Operations
   confidence: 0.8
-  evidence: GET /auth/identity_providers  listIdentityProviders  List configured identity providers ...
-    POST /auth/identity_providers/{identity_provider_id}/domains  addIdentityProviderDomain
-  reason: CRUD over configured external identity providers and their allowed domains under /auth, i.e.
-    administration of federated authentication for the system. That is Identity & Access Management (federation);
-    mapped at 0.8 as this is authentication plumbing but IAM is the legitimate capability for provider/federation
-    administration.
-- tag: orders
-  spec_file: iit-kanpur-orders-api-openapi.yml
-  capability_id: BC-500.30
-  capability_id_l1: BC-500
-  capability_name: Purchase Order Management
+  evidence: POST /biblios "Add biblio"; PUT /biblios/{biblio_id} "Update biblio"; GET /biblios/{biblio_id}/items
+    "Get items for a biblio"; POST /biblios/{biblio_id}/merge "Merge Biblios"
+  reason: Bibliographic record and holdings maintenance in the P.K. Kelkar Library's Koha ILS — the core
+    cataloguing and collection-record function of library and information resource operations.
+- tag: erm_eholdings_resources
+  spec_file: iit-kanpur-erm-eholdings-resources-api-openapi.yml
+  capability_id: BC-4790.40
+  capability_id_l1: BC-4790
+  capability_name: Library & Information Resource Operations
+  confidence: 0.8
+  evidence: GET /erm/eholdings/{provider}/resources  listErmEHoldingsResources  List eholdings resources
+  reason: Manages the library's electronic holdings resources (provider-supplied e-journal/e-book resources),
+    which is library collection and information resource operations rather than any generic IT capability.
+- tag: holds
+  spec_file: iit-kanpur-holds-api-openapi.yml
+  capability_id: BC-4790.40
+  capability_id_l1: BC-4790
+  capability_name: Library & Information Resource Operations
+  confidence: 0.8
+  evidence: POST /holds  addHold  Place hold; GET /holds/{hold_id}/pickup_locations  Get valid pickup
+    locations for hold; GET /patrons/{patron_id}/holds
+  reason: Patron hold/reservation lifecycle on library items with pickup locations and suspension — core
+    library circulation, which sits under Library & Information Resource Operations.
+- tag: ill_requests
+  spec_file: iit-kanpur-ill-requests-api-openapi.yml
+  capability_id: BC-4790.40
+  capability_id_l1: BC-4790
+  capability_name: Library & Information Resource Operations
   confidence: 0.78
-  evidence: POST /acquisitions/orders  addOrder  Add order
-  reason: All paths sit under /acquisitions/orders with full CRUD on an order_yaml resource — these are
-    library acquisition purchase orders placed with vendors, i.e. purchase order creation and lifecycle.
-    Maps to Purchase Order Management; some residual chance the intent is broader procure-to-pay operations.
+  evidence: GET /ill/requests  listIllrequests  List ILL requests; POST /ill/requests  addIllrequest  Add
+    ILL request
+  reason: Creation and listing of interlibrary loan requests — library resource sharing for patrons, part
+    of Library & Information Resource Operations.
+- tag: erm_agreements
+  spec_file: iit-kanpur-erm-agreements-api-openapi.yml
+  capability_id: BC-4790.50
+  capability_id_l1: BC-4790
+  capability_name: Content Licensing & Rights Management
+  confidence: 0.72
+  evidence: GET /erm/agreements  listErmAgreements  List agreements; schemas erm_agreement_license_yaml,
+    erm_agreement_period_yaml, erm_document_yaml
+  reason: Electronic Resource Management agreements with associated licences, periods and documents —
+    licensing and rights administration for third-party content used by the library. Content Licensing
+    & Rights Management is the best fit; generic contract management is an alternative reading.
+- tag: erm_licences
+  spec_file: iit-kanpur-erm-licences-api-openapi.yml
+  capability_id: BC-4790.50
+  capability_id_l1: BC-4790
+  capability_name: Content Licensing & Rights Management
+  confidence: 0.72
+  evidence: GET /erm/licenses  listErmLicenses  List licenses for agreements; schema erm_license_yaml
+  reason: Licence records tied to e-resource agreements represent licensing and rights terms for third-party
+    content used in teaching and research, matching Content Licensing & Rights Management. Some ambiguity
+    with library collection operations, hence moderate confidence.
+- tag: erm_usage_data_providers
+  spec_file: iit-kanpur-erm-usage-data-providers-api-openapi.yml
+  capability_id: BC-4790.40
+  capability_id_l1: BC-4790
+  capability_name: Library & Information Resource Operations
+  confidence: 0.72
+  evidence: POST /erm/usage_data_providers/{id}/process_COUNTER_file  Process COUNTER file upload for
+    this data provider's harvester
+  reason: Management of COUNTER/SUSHI usage data providers underpins evaluation of the library's electronic
+    subscriptions — collection assessment within Library & Information Resource Operations.
+- tag: checkouts
+  spec_file: iit-kanpur-checkouts-api-openapi.yml
+  capability_id: BC-4790.40
+  capability_id_l1: BC-4790
+  capability_name: Library & Information Resource Operations
+  confidence: 0.7
+  evidence: POST /checkouts  addCheckout  Add a new checkout; POST /checkouts/{checkout_id}/renewal  renewCheckout  Renew
+    a checkout; GET /patrons/{patron_id}/checkouts  List checkouts for a patron
+  reason: Core library circulation — lending, renewal and availability of library items to patrons. The
+    closest candidate is Library & Information Resource Operations under Educational Content & Learning
+    Resource Management; circulation is not named explicitly, hence moderate confidence.
+- tag: erm_usage_reports
+  spec_file: iit-kanpur-erm-usage-reports-api-openapi.yml
+  capability_id: BC-4790.40
+  capability_id_l1: BC-4790
+  capability_name: Library & Information Resource Operations
+  confidence: 0.7
+  evidence: GET /erm/eUsage/provider_rollup_report/{data_type}  get usage provider rollup report
+  reason: Monthly/yearly/provider rollup reports of electronic resource usage are library collection-evaluation
+    reporting, part of Library & Information Resource Operations rather than enterprise BI.
+- tag: ill_batches
+  spec_file: iit-kanpur-ill-batches-api-openapi.yml
+  capability_id: BC-4790.40
+  capability_id_l1: BC-4790
+  capability_name: Library & Information Resource Operations
+  confidence: 0.7
+  evidence: POST /ill/batches  addIllbatch  Add ILL batch; GET /ill/batches/{ill_batch_id}  Get ILL batch
+  reason: Management of interlibrary loan request batches — a library resource-sharing operation under
+    Library & Information Resource Operations.
+- tag: items
+  spec_file: iit-kanpur-items-api-openapi.yml
+  capability_id: BC-4790.40
+  capability_id_l1: BC-4790
+  capability_name: Library & Information Resource Operations
+  confidence: 0.7
+  evidence: 'GET /items listItems List items; GET /public/biblios/{biblio_id}/items getBiblioItemsPublic;
+    schemas: item_yaml, library_yaml, booking_yaml'
+  reason: Koha ILS item (holdings) records tied to bibliographic records and pickup locations/bookings
+    — library collection and information resource operations, not generic inventory of goods.
+- tag: suggestions
+  spec_file: iit-kanpur-suggestions-api-openapi.yml
+  capability_id: BC-4790.40
+  capability_id_l1: BC-4790
+  capability_name: Library & Information Resource Operations
+  confidence: 0.7
+  evidence: GET /suggestions  listSuggestions  List purchase suggestions; POST /suggestions  addSuggestions  Add
+    a purchase suggestion
+  reason: Patron purchase suggestions feeding library acquisitions is collection-development activity,
+    which sits under Library & Information Resource Operations. Some ambiguity with generic procurement,
+    hence moderate confidence.
