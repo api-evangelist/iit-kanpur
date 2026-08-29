@@ -1424,6 +1424,9 @@ apis:
   - type: x-json-ld
     url: json-ld/iit-kanpur-context.jsonld
 common:
+  - type: CapabilityMap
+    url: capabilities/iit-kanpur-capability-edges.yml
+    name: Indian Institute of Technology Kanpur Business Capability Map
   - type: AgenticAccess
     url: agentic-access/iit-kanpur-agentic-access.yml
   - type: DomainSecurity

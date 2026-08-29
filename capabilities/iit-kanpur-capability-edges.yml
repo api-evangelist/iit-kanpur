@@ -1,0 +1,48 @@
+slug: iit-kanpur
+provider: Indian Institute of Technology Kanpur
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: 2fa
+  spec_file: iit-kanpur-2fa-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: POST /auth/two-factor/registration  Two factor register  Generate a secret; POST /auth/otp/token_delivery  Send
+    OTP token for second step authentication
+  reason: Operations register and verify two-factor authentication secrets and deliver OTP tokens — authentication
+    strengthening for user accounts, which is Identity & Access Management. This is technical auth plumbing
+    but IAM is the honest cross-industry capability.
+- tag: identity_providers
+  spec_file: iit-kanpur-identity-providers-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: GET /auth/identity_providers  listIdentityProviders  List configured identity providers ...
+    POST /auth/identity_providers/{identity_provider_id}/domains  addIdentityProviderDomain
+  reason: CRUD over configured external identity providers and their allowed domains under /auth, i.e.
+    administration of federated authentication for the system. That is Identity & Access Management (federation);
+    mapped at 0.8 as this is authentication plumbing but IAM is the legitimate capability for provider/federation
+    administration.
+- tag: orders
+  spec_file: iit-kanpur-orders-api-openapi.yml
+  capability_id: BC-500.30
+  capability_id_l1: BC-500
+  capability_name: Purchase Order Management
+  confidence: 0.78
+  evidence: POST /acquisitions/orders  addOrder  Add order
+  reason: All paths sit under /acquisitions/orders with full CRUD on an order_yaml resource — these are
+    library acquisition purchase orders placed with vendors, i.e. purchase order creation and lifecycle.
+    Maps to Purchase Order Management; some residual chance the intent is broader procure-to-pay operations.
