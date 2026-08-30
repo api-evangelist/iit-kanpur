@@ -64,7 +64,7 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
-  - 2FA
+  - 2fa
   tags_raw:
   - 2fa
   properties:
@@ -149,7 +149,7 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
-  - Authorities
+  - authorities
   tags_raw:
   - authorities
   properties:
@@ -171,7 +171,7 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
-  - Baskets
+  - baskets
   tags_raw:
   - baskets
   properties:
@@ -234,7 +234,7 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
-  - Bookings
+  - bookings
   tags_raw:
   - bookings
   properties:
@@ -297,7 +297,7 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
-  - Checkouts
+  - checkouts
   tags_raw:
   - checkouts
   properties:
@@ -362,7 +362,7 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
-  - Clubs
+  - clubs
   tags_raw:
   - clubs
   properties:
@@ -803,7 +803,7 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
-  - Funds
+  - funds
   tags_raw:
   - funds
   properties:
@@ -825,7 +825,7 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
-  - Holds
+  - holds
   tags_raw:
   - holds
   properties:
@@ -846,8 +846,7 @@ apis:
   description: Manage identity providers
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
-  - Identity Providers
+  tags: []
   tags_raw:
   - identity_providers
   properties:
@@ -952,8 +951,7 @@ apis:
   description: Manage import batches
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
-  - Import Batches
+  tags: []
   tags_raw:
   - import_batches
   properties:
@@ -995,8 +993,7 @@ apis:
   description: Manage item types
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
-  - Item Types
+  tags: []
   tags_raw:
   - item_types
   properties:
@@ -1062,7 +1059,7 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
-  - Libraries
+  - libraries
   tags_raw:
   - libraries
   properties:
@@ -1084,7 +1081,7 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
-  - Macros
+  - macros
   tags_raw:
   - macros
   properties:
@@ -1191,7 +1188,7 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
-  - Preservation
+  - preservation
   tags_raw:
   - preservation
   properties:
@@ -1297,8 +1294,7 @@ apis:
   description: Manage search filters
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
-  - Search Filters
+  tags: []
   tags_raw:
   - search_filters
   properties:
@@ -1341,7 +1337,7 @@ apis:
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   tags:
-  - Suggestions
+  - suggestions
   tags_raw:
   - suggestions
   properties:
@@ -1384,8 +1380,7 @@ apis:
   description: Manage transfer limits
   humanURL: https://libserv.iitk.ac.in/
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
-  tags:
-  - Transfer Limits
+  tags: []
   tags_raw:
   - transfer_limits
   properties:
