@@ -138,25 +138,21 @@ apis:
 - aid: iit-kanpur:iit-kanpur-koha-rest-api
   name: IIT Kanpur PKK Library Koha REST API
   description: >-
-    The REST API of the Koha 23.11 integrated library system that the P.K.
-    Kelkar Library self-hosts at libserv.iitk.ac.in. Verified live on
-    2026-09-01: the spec is served at /api/v1 (Swagger 2.0 on the wire, 667KB),
-    a Swagger UI renders at /api/v1/.html, /api/v1/public/libraries returns
-    IIT Kanpur's own library records with no authentication, and staff
-    endpoints such as /api/v1/libraries return 401 Authentication failure.
-    This is ONE API with 64 resource groups, not 64 APIs. The 64 OpenAPI
-    documents below are per-tag splits of a single source contract
-    (openapi/_original/iit-kanpur-library-rest.yaml) produced by the API
-    Evangelist refine step, and they are listed here as properties of one
-    surface rather than as 64 separate entries.
+    The REST API of the Koha 23.11 integrated library system that the P.K. Kelkar Library self-hosts at
+    libserv.iitk.ac.in. Verified live on 2026-09-01: the spec is served at /api/v1 (Swagger 2.0 on the
+    wire, 667KB), a Swagger UI renders at /api/v1/.html, /api/v1/public/libraries returns IIT Kanpur's
+    own library records with no authentication, and staff endpoints such as /api/v1/libraries return 401
+    Authentication failure. This is ONE API with 64 resource groups, not 64 APIs. The 64 OpenAPI documents
+    below are per-tag splits of a single source contract (openapi/_original/iit-kanpur-library-rest.yaml)
+    produced by the API Evangelist refine step, and they are listed here as properties of one surface
+    rather than as 64 separate entries.
   humanURL: https://libserv.iitk.ac.in/api/v1/.html
   baseURL: https://libserv.iitk.ac.in/api/v1
   x-operator: institution
   x-operator-basis: >-
-    Host libserv.iitk.ac.in is under the institution's own registrable domain
-    iitk.ac.in, and Koha is open-source software the library installs and runs
-    itself — there is no vendor operating this endpoint. The CONTRACT, however,
-    is authored by the Koha Development Team (info.contact, GPL v3), not by IIT
+    Host libserv.iitk.ac.in is under the institution's own registrable domain iitk.ac.in, and Koha is
+    open-source software the library installs and runs itself — there is no vendor operating this endpoint.
+    The CONTRACT, however, is authored by the Koha Development Team (info.contact, GPL v3), not by IIT
     Kanpur; the institution operates the service, the community wrote the spec.
   x-contract-author: Koha Development Team (https://koha-community.org/)
   tags:
@@ -168,8 +164,6 @@ apis:
   - library_catalog
   - koha
   properties:
-  - type: OpenAPI
-    url: openapi/iit-kanpur-2fa-api-openapi.yml
   - type: OpenAPI
     url: openapi/iit-kanpur-article-requests-api-openapi.yml
   - type: OpenAPI
@@ -267,8 +261,6 @@ apis:
   - type: OpenAPI
     url: openapi/iit-kanpur-macros-api-openapi.yml
   - type: OpenAPI
-    url: openapi/iit-kanpur-oauth-api-openapi.yml
-  - type: OpenAPI
     url: openapi/iit-kanpur-orders-api-openapi.yml
   - type: OpenAPI
     url: openapi/iit-kanpur-patron-categories-api-openapi.yml
@@ -319,22 +311,19 @@ apis:
 - aid: iit-kanpur:iit-kanpur-oai-pmh-api
   name: IIT Kanpur PKK Library OAI-PMH API
   description: >-
-    OAI-PMH 2.0 metadata-harvesting endpoint for the P.K. Kelkar Library
-    catalog, operated on the institution's own Koha installation. Verified live
-    on 2026-09-01: Identify returns repositoryName "PKK Library", adminEmail
-    libcirc@iitk.ac.in, granularity YYYY-MM-DDThh:mm:ssZ, deletedRecord
-    persistent and earliestDatestamp 2016-09-28T08:43:15Z; ListMetadataFormats
-    returns oai_dc, marc21 and marcxml; ListIdentifiers returns live records.
-    ListSets returns noSetHierarchy — no sets are defined. Requires no
-    authentication. OAI-PMH is a named standard in the Kin Score education
-    regime and this is IIT Kanpur's one domain-standard conformance.
+    OAI-PMH 2.0 metadata-harvesting endpoint for the P.K. Kelkar Library catalog, operated on the institution's
+    own Koha installation. Verified live on 2026-09-01: Identify returns repositoryName "PKK Library",
+    adminEmail libcirc@iitk.ac.in, granularity YYYY-MM-DDThh:mm:ssZ, deletedRecord persistent and earliestDatestamp
+    2016-09-28T08:43:15Z; ListMetadataFormats returns oai_dc, marc21 and marcxml; ListIdentifiers returns
+    live records. ListSets returns noSetHierarchy — no sets are defined. Requires no authentication. OAI-PMH
+    is a named standard in the Kin Score education regime and this is IIT Kanpur's one domain-standard
+    conformance.
   humanURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl?verb=Identify
   baseURL: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
   x-operator: institution
   x-operator-basis: >-
-    Host libserv.iitk.ac.in is the institution's own; OAI-PMH is an Open
-    Archives Initiative protocol, not a vendor product, and the repository it
-    exposes is IIT Kanpur's own catalog.
+    Host libserv.iitk.ac.in is the institution's own; OAI-PMH is an Open Archives Initiative protocol,
+    not a vendor product, and the repository it exposes is IIT Kanpur's own catalog.
   tags:
   - Metadata
   - OAI-PMH
@@ -355,19 +344,17 @@ apis:
 - aid: iit-kanpur:iit-kanpur-ror-registry-record
   name: IIT Kanpur ROR Registry Record
   description: >-
-    IIT Kanpur's registration in the Research Organization Registry (ROR),
-    identifier https://ror.org/05pjsgx75, active, domain iitk.ac.in, display
-    names "IIT Kanpur" and "IITK". This records a MEMBERSHIP, not a surface the
-    institution operates: no ROR contract is saved under this slug and none
-    should be. The entry exists because a registry registration is a fact about
-    the institution, and deleting it to avoid a shared host would destroy a real
-    institutional identity record.
+    IIT Kanpur's registration in the Research Organization Registry (ROR), identifier https://ror.org/05pjsgx75,
+    active, domain iitk.ac.in, display names "IIT Kanpur" and "IITK". This records a MEMBERSHIP, not a
+    surface the institution operates: no ROR contract is saved under this slug and none should be. The
+    entry exists because a registry registration is a fact about the institution, and deleting it to avoid
+    a shared host would destroy a real institutional identity record.
   humanURL: https://ror.org/05pjsgx75
   baseURL: https://api.ror.org/v2/organizations/05pjsgx75
   x-operator: registry
   x-operator-basis: >-
-    ror.org is an identifier registry IIT Kanpur is REGISTERED IN. The registry
-    is operated by ROR; the registration is IIT Kanpur's.
+    ror.org is an identifier registry IIT Kanpur is REGISTERED IN. The registry is operated by ROR; the
+    registration is IIT Kanpur's.
   tags:
   - Research
   - Metadata
@@ -379,6 +366,26 @@ apis:
     url: https://ror.org/05pjsgx75
   - type: x-conformance
     url: conformance/iit-kanpur-conformance.yml
+- aid: iit-kanpur:iit-kanpur-oauth-api
+  name: Indian Institute of Technology Kanpur OAUTH API
+  description: Handle OAuth flows
+  humanURL: https://libserv.iitk.ac.in/api/v1/.html
+  baseURL: https://libserv.iitk.ac.in/api/v1
+  tags:
+  - oauth
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-oauth-api-openapi.yml
+- aid: iit-kanpur:iit-kanpur-2-fa-api
+  name: Indian Institute of Technology Kanpur 2 FA API
+  description: Handle two factor authentication flows
+  humanURL: https://libserv.iitk.ac.in/api/v1/.html
+  baseURL: https://libserv.iitk.ac.in/api/v1
+  tags:
+  - 2 FA
+  properties:
+  - type: OpenAPI
+    url: openapi/iit-kanpur-2-fa-api-openapi.yml
 common:
   - type: CapabilityMap
     url: capabilities/iit-kanpur-capability-edges.yml
