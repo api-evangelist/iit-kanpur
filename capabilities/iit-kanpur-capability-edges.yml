@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 15
+edge_count: 17
 edges:
 - tag: identity_providers
   spec_file: iit-kanpur-identity-providers-api-openapi.yml
@@ -42,6 +42,19 @@ edges:
   evidence: POST /erm/eholdings/local/titles/import  importErmEHoldingsTitles  Import local titles
   reason: Import and maintenance of electronic holdings titles is library collection development / e-resource
     catalogue stewardship, i.e. Library & Information Resource Operations.
+- tag: 2fa
+  spec_file: iit-kanpur-2-fa-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: POST /auth/two-factor/registration  Two factor register  Generate a secret; POST /auth/otp/token_delivery  Send
+    OTP token for second step authentication
+  reason: Operations register and verify two-factor authentication secrets and deliver OTP tokens — authentication
+    strengthening for user accounts, which is Identity & Access Management. This is technical auth plumbing
+    but IAM is the honest cross-industry capability.
+  recovered_from: sweep-20260829T005356Z-edges.json
+  reanchored_from: iit-kanpur-2fa-api-openapi.yml
 - tag: biblios
   spec_file: iit-kanpur-biblios-api-openapi.yml
   capability_id: BC-4790.40
@@ -81,6 +94,17 @@ edges:
     ILL request
   reason: Creation and listing of interlibrary loan requests — library resource sharing for patrons, part
     of Library & Information Resource Operations.
+- tag: orders
+  spec_file: iit-kanpur-orders-api-openapi.yml
+  capability_id: BC-500.30
+  capability_id_l1: BC-500
+  capability_name: Purchase Order Management
+  confidence: 0.78
+  evidence: POST /acquisitions/orders  addOrder  Add order
+  reason: All paths sit under /acquisitions/orders with full CRUD on an order_yaml resource — these are
+    library acquisition purchase orders placed with vendors, i.e. purchase order creation and lifecycle.
+    Maps to Purchase Order Management; some residual chance the intent is broader procure-to-pay operations.
+  recovered_from: sweep-20260829T005356Z-edges.json
 - tag: erm_agreements
   spec_file: iit-kanpur-erm-agreements-api-openapi.yml
   capability_id: BC-4790.50
