@@ -53,7 +53,7 @@
   "@id": "https://www.iitk.ac.in/",
   "name": "Indian Institute of Technology Kanpur",
   "url": "https://www.iitk.ac.in/",
-  "description": "Premier engineering and research institution in Kanpur, Uttar Pradesh, India, whose public programmatic footprint centers on the P.K. Kelkar Library Koha system (REST API, OAI-PMH 2.0, ILS-DI).",
+  "description": "Premier engineering and research institution in Kanpur, Uttar Pradesh, India, whose public programmatic footprint centers on the P.K. Kelkar Library Koha system: the Koha REST API and an OAI-PMH 2.0 endpoint. ILS-DI is disabled on this installation (verified 2026-09-01).",
   "subOrganization": {
     "@type": "Library",
     "@id": "https://libserv.iitk.ac.in/",

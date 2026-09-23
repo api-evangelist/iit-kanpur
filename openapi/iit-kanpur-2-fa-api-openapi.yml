@@ -10,29 +10,161 @@ info:
   license:
     name: GPL v3,
     url: http://www.gnu.org/licenses/gpl.txt
-  title: Koha REST Ill Backends API
+  title: Koha REST 2fa API
   version: '1'
 servers:
 - url: https://libserv.iitk.ac.in/api/v1
   description: PKK Library Koha REST API (production)
 tags:
-- description: Manage ILL module backends
-  name: ill_backends
-  x-displayName: ILL backends
+- description: Handle two factor authentication flows
+  name: 2 FA
+  x-displayName: Two factor authentication
 paths:
-  /ill/backends:
-    get:
+  /auth/otp/token_delivery:
+    post:
       tags:
-      - ill_backends
-      summary: List ILL backends
-      operationId: listIllbackends
+      - 2 FA
+      summary: Send OTP token for second step authentication
+      operationId: send_otp_token
       responses:
         '200':
-          description: A list of ILL backends
+          description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ill_backends_yaml'
+                additionalProperties: false
+                properties:
+                  access_token:
+                    type: string
+                  expires_in:
+                    type: integer
+                  token_type:
+                    type: string
+                type: object
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+  /auth/two-factor/registration:
+    post:
+      tags:
+      - 2 FA
+      summary: Generate a secret
+      operationId: Two factor register
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                additionalProperties: false
+                properties:
+                  issuer:
+                    type: string
+                  key_id:
+                    type: string
+                  qr_code:
+                    type: string
+                  secret32:
+                    type: string
+                type: object
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '401':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '403':
+          description: Access forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '404':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+        '500':
+          description: 'Internal server error. Possible `error_code` attribute values:
+
+
+            * `internal_server_error`
+
+            '
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_yaml'
+        '501':
+          description: Default response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultResponse'
+  /auth/two-factor/registration/verification:
+    post:
+      tags:
+      - 2 FA
+      summary: Verify two-factor registration
+      operationId: Two factor register verification
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                secret32:
+                  type: string
+                pin_code:
+                  type: string
+      responses:
+        '204':
+          description: OK
         '400':
           description: Bad request
           content:
@@ -52,11 +184,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/error_yaml'
         '404':
-          description: ILL backends not found
+          description: Default response.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/error_yaml'
+                $ref: '#/components/schemas/DefaultResponse'
         '500':
           description: 'Internal server error. Possible `error_code` attribute values:
 
@@ -74,89 +206,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DefaultResponse'
-        '503':
-          description: Under maintenance
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_yaml'
-  /ill/backends/{ill_backend_id}:
-    get:
-      tags:
-      - ill_backends
-      summary: Get ILL backend
-      operationId: getIllbackends
-      parameters:
-      - name: ill_backend_id
-        in: path
-        required: true
-        description: ILL backend id/name
-        schema:
-          type: string
-      - name: x-koha-embed
-        in: header
-        required: false
-        description: Embed list sent as a request header
-        schema:
-          type: array
-          items:
-            enum:
-            - statuses+strings
-            type: string
-      responses:
-        '200':
-          description: An ILL backends
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ill_backend_yaml'
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_yaml'
-        '401':
-          description: Authentication required
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_yaml'
-        '403':
-          description: Access forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_yaml'
-        '404':
-          description: ILL backends not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_yaml'
-        '500':
-          description: 'Internal server error. Possible `error_code` attribute values:
-
-
-            * `internal_server_error`
-
-            '
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_yaml'
-        '501':
-          description: Default response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DefaultResponse'
-        '503':
-          description: Under maintenance
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
     DefaultResponse:
@@ -185,42 +234,3 @@ components:
           description: Error code
           type: string
       type: object
-    ill_backend_yaml:
-      additionalProperties: false
-      properties:
-        capabilities:
-          description: List of capabilities
-          type: object
-        ill_backend_id:
-          description: Internal ILL backend identifier
-          type: string
-        statuses:
-          description: existing statuses
-          items:
-            $ref: '#/components/schemas/ill_status_yaml'
-          type: array
-      type: object
-    ill_status_yaml:
-      additionalProperties: false
-      properties:
-        backend:
-          description: The backend in which this status is used
-          type: string
-        category:
-          description: The AV category in which the status aliases exists in
-          type: string
-        code:
-          description: Internal ILL status code or av code
-          type: string
-        str:
-          description: Internal ILL status display string
-          type: string
-        type:
-          description: This is 'ill_status' or 'av' depending on if coming from backend or authorised values i.e. alias
-          type: string
-      type: object
-    ill_backends_yaml:
-      additionalProperties: false
-      items:
-        $ref: '#/components/schemas/ill_backend_yaml'
-      type: array

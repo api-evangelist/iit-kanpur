@@ -1,0 +1,111 @@
+generated: '2026-09-01'
+method: probed
+source: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl
+provider: iit-kanpur
+regime: education
+note: >-
+  Domain-standard conformance for the Indian Institute of Technology Kanpur, probed against the
+  Kin Score `education` regime standards[] list. Reward-only: a standard is listed as `conformant`
+  only where a live artifact or response evidences it. Every standard probed and NOT found is
+  recorded below as `not_found` with the probe that failed, so the absence is a measurement rather
+  than a silence.
+
+conformant:
+  - standard: oai-pmh
+    name: Open Archives Initiative Protocol for Metadata Harvesting 2.0
+    surface: IIT Kanpur PKK Library OAI-PMH API
+    x-operator: institution
+    contract: openapi/iit-kanpur-oai-pmh-api-openapi.yml
+    evidence:
+      - url: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl?verb=Identify
+        status: 200
+        locator: OAI-PMH/Identify/protocolVersion
+        value: '2.0'
+        detail: >-
+          repositoryName "PKK Library", adminEmail libcirc@iitk.ac.in, granularity
+          YYYY-MM-DDThh:mm:ssZ, deletedRecord persistent, earliestDatestamp 2016-09-28T08:43:15Z.
+      - url: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl?verb=ListMetadataFormats
+        status: 200
+        locator: OAI-PMH/ListMetadataFormats/metadataFormat/metadataPrefix
+        value: oai_dc, marc21, marcxml
+      - url: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl?verb=ListIdentifiers&metadataPrefix=oai_dc
+        status: 200
+        locator: OAI-PMH/ListIdentifiers
+        detail: Returns live record identifiers with datestamps; harvesting works end to end.
+    caveats:
+      - >-
+        The repository's own Identify response advertises baseURL
+        https://libserv.iitk.ac.in/opac/oai.pl, which returns 404 (probed 2026-09-01). The working
+        base URL is https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl. A harvester that trusts the
+        self-declared baseURL, as the protocol invites it to, will fail against this repository.
+      - >-
+        ListSets returns error code noSetHierarchy — the repository defines no OAI sets, so
+        set-scoped harvesting is unavailable.
+
+not_found:
+  - standard: shibboleth
+    detail: >-
+      No Shibboleth/SAML IdP found. idp.iitk.ac.in and webshib.iitk.ac.in do not resolve
+      (DNS NXDOMAIN, 2026-09-01), and no Indian identity federation appears among the 92
+      federations listed by the eduGAIN technical API, so no eduGAIN/InCommon entity descriptor
+      carries an iitk.ac.in IdP.
+    evidence:
+      - url: https://technical.edugain.org/api?action=list_feds&format=json
+        status: 200
+        detail: 92 federations returned; none registered for India.
+  - standard: saml
+    detail: Same probe as shibboleth. No institution-operated SAML metadata endpoint located.
+  - standard: datacite
+    detail: >-
+      Not a DataCite provider or repository client. The DataCite API returns zero providers and
+      zero clients matching the institution.
+    evidence:
+      - url: https://api.datacite.org/providers?query=kanpur
+        status: 200
+        detail: '{"data":[],"meta":{"total":0}}'
+      - url: https://api.datacite.org/clients?query=Kanpur
+        status: 200
+        detail: total 0
+  - standard: crossref
+    detail: Not a Crossref member.
+    evidence:
+      - url: https://api.crossref.org/members?query=Indian+Institute+of+Technology+Kanpur
+        status: 200
+        detail: total-results 0
+  - standard: orcid
+    detail: >-
+      No institution-operated ORCID integration surface found. Individual researchers hold ORCID
+      iDs, but that is a fact about people, not an institutional surface.
+  - standard: lti
+    detail: No LTI tool or platform registration surface found on any institution host.
+  - standard: scim
+    detail: >-
+      No SCIM provisioning endpoint found. Pingala, the institution's ERP/SIS, is login-gated with
+      no documented public API.
+  - standard: oneroster
+    detail: No OneRoster surface found.
+  - standard: ed-fi
+    detail: No Ed-Fi surface found. Ed-Fi is a US K-12 standard with no expected footprint here.
+  - standard: caliper
+    detail: No Caliper analytics surface found.
+  - standard: qti
+    detail: No QTI assessment surface found.
+
+registry_memberships:
+  - registry: ror
+    x-operator: registry
+    id: https://ror.org/05pjsgx75
+    names: [IIT Kanpur, IITK, Indian Institute of Technology Kanpur]
+    domain: iitk.ac.in
+    status: active
+    evidence:
+      - url: https://api.ror.org/v2/organizations/05pjsgx75
+        status: 200
+      - url: https://ror.org/05pjsgx75
+        status: 200
+    note: >-
+      ROR is an identifier registry the institution is REGISTERED IN, not a surface it operates.
+      The membership is a fact about IIT Kanpur; the registry's contract belongs to ROR. ROR is
+      not among the education regime's standards[], so this scores nothing — it is recorded
+      because deleting a registry membership to tidy a shared host destroys a real institutional
+      fact.

@@ -1,11 +1,17 @@
+# method: derived
+# generated: '2026-09-01'
+# source: openapi/_original/iit-kanpur-library-rest.yaml + live OAI-PMH probes
+# Authored by API Evangelist from the Koha contract and live endpoint probes; not published by IIT Kanpur.
 vocabulary:
   name: IIT Kanpur PKK Library API Vocabulary
   description: >-
     Controlled vocabulary for the programmatic surfaces of the P.K. Kelkar (PKK)
     Library at IIT Kanpur, derived from the live Koha 23.11 integrated library
     system: the Koha REST API (OpenAPI 3.0), the OAI-PMH 2.0 metadata-harvesting
-    endpoint, and the Koha ILS-DI discovery service. Terms reflect only objects,
-    operations, and metadata formats observed on the live endpoints.
+    endpoint. Terms reflect only objects, operations, and metadata formats
+    observed on the live endpoints. The Koha ILS-DI service is NOT part of this
+    vocabulary's live surface: it is disabled on this installation (verified
+    2026-09-01) and its term below is retained only to record that finding.
   version: "1.0.0"
   terms:
     - term: Biblio
@@ -55,8 +61,13 @@ vocabulary:
       definition: >-
         The Integrated Library System Discovery Interface, a Koha web service offering
         discovery-layer operations such as GetAvailability, GetRecords, GetPatronInfo,
-        LookupPatron, AuthenticatePatron, HoldTitle, HoldItem, and RenewLoan.
-      tags: [discovery, koha, service]
+        LookupPatron, AuthenticatePatron, HoldTitle, HoldItem, and RenewLoan. NOT
+        AVAILABLE at IIT Kanpur: verified 2026-09-01, the describe page returns HTTP
+        200 but every service call returns NotAllowed "ILS-DI is disabled". Listed
+        here as a negative finding, not as a live surface.
+      status: disabled
+      verified: '2026-09-01'
+      tags: [discovery, koha, service, not-available]
     - term: x-koha-embed
       definition: >-
         A custom request header used by the Koha REST API to request related objects

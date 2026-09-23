@@ -1,3 +1,7 @@
+# method: derived
+# generated: '2026-09-01'
+# source: openapi/_original/iit-kanpur-library-rest.yaml
+# Authored by API Evangelist from the Koha contract; not published by IIT Kanpur.
 # Spectral ruleset for the PKK Library (IIT Kanpur) Koha REST API.
 # Encodes patterns observed in the live OpenAPI description served at
 # https://libserv.iitk.ac.in/api/v1/ (Koha 23.11 REST API).

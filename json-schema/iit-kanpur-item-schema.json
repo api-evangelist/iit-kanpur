@@ -323,5 +323,11 @@
       ]
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "x-provenance": {
+    "generated": "2026-09-01",
+    "method": "derived",
+    "source": "openapi/_original/iit-kanpur-library-rest.yaml",
+    "note": "Derived by API Evangelist from the Koha REST contract the P.K. Kelkar Library serves at https://libserv.iitk.ac.in/api/v1. Not authored or published by IIT Kanpur. The endpoint is institution-operated; the contract is the Koha Development Team's."
+  }
 }

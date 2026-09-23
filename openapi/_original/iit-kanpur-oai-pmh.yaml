@@ -1,0 +1,157 @@
+openapi: 3.1.0
+x-provenance:
+  generated: '2026-09-01'
+  method: derived
+  source: https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl?verb=Identify
+  note: >-
+    Hand-authored by API Evangelist from live probes of the endpoint on 2026-09-01. IIT Kanpur
+    publishes no OpenAPI for this surface; OAI-PMH 2.0 is a specification, not a vendor contract,
+    and the endpoint is operated by the P.K. Kelkar Library on the institution's own host. The
+    verbs, metadata prefixes, granularity and deletedRecord policy below were read from live
+    Identify / ListMetadataFormats / ListSets / ListIdentifiers responses, not assumed.
+x-operator: institution
+info:
+  title: IIT Kanpur PKK Library OAI-PMH API
+  version: '2.0'
+  summary: OAI-PMH 2.0 metadata harvesting for the P.K. Kelkar Library catalog.
+  description: |
+    The Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH) 2.0 endpoint operated
+    by the P.K. Kelkar (PKK) Library at the Indian Institute of Technology Kanpur, running on the
+    library's own Koha 23.11 installation at `libserv.iitk.ac.in`.
+
+    This is one of only two verified institution-operated programmatic surfaces IIT Kanpur exposes.
+    It requires no authentication and answers the full OAI-PMH 2.0 verb set.
+
+    Confirmed live on 2026-09-01:
+
+    - `repositoryName`: PKK Library
+    - `protocolVersion`: 2.0
+    - `adminEmail`: libcirc@iitk.ac.in
+    - `earliestDatestamp`: 2016-09-28T08:43:15Z
+    - `deletedRecord`: persistent
+    - `granularity`: YYYY-MM-DDThh:mm:ssZ
+    - `metadataPrefix` supported: `oai_dc`, `marc21`, `marcxml`
+    - `ListSets` returns `noSetHierarchy` — the repository defines no OAI sets, so `set` is
+      accepted by the protocol but has no effect here.
+
+    Note: the repository's own `Identify` response advertises a `baseURL` of
+    `https://libserv.iitk.ac.in/opac/oai.pl`, which returns 404. The working base URL is
+    `https://libserv.iitk.ac.in/cgi-bin/koha/oai.pl`, verified 200. That mismatch is an upstream
+    Koha configuration defect at the institution, recorded here rather than silently corrected.
+
+    Responses are XML in the OAI-PMH 2.0 envelope. This document describes the HTTP surface; the
+    payload schema is normatively defined by the OAI-PMH 2.0 specification.
+  contact:
+    name: P.K. Kelkar Library, IIT Kanpur
+    email: libcirc@iitk.ac.in
+    url: https://libserv.iitk.ac.in/
+  license:
+    name: OAI-PMH 2.0 protocol (Open Archives Initiative)
+    url: https://www.openarchives.org/OAI/openarchivesprotocol.html
+servers:
+  - url: https://libserv.iitk.ac.in/cgi-bin/koha
+    description: PKK Library Koha OAI-PMH endpoint (production, verified 200 on 2026-09-01)
+tags:
+  - name: oai-pmh
+    description: OAI-PMH 2.0 metadata harvesting verbs.
+paths:
+  /oai.pl:
+    get:
+      tags: [oai-pmh]
+      summary: OAI-PMH 2.0 request
+      description: >-
+        Single-entry-point OAI-PMH 2.0 request. The `verb` parameter selects the operation; the
+        remaining parameters are conditional on the verb, per the OAI-PMH 2.0 specification.
+      operationId: oaiPmhRequest
+      security: []
+      parameters:
+        - name: verb
+          in: query
+          required: true
+          description: The OAI-PMH verb to invoke.
+          schema:
+            type: string
+            enum:
+              - Identify
+              - ListMetadataFormats
+              - ListSets
+              - ListIdentifiers
+              - ListRecords
+              - GetRecord
+        - name: metadataPrefix
+          in: query
+          required: false
+          description: >-
+            Metadata format to return. Required for ListIdentifiers, ListRecords and GetRecord.
+            This repository supports oai_dc, marc21 and marcxml.
+          schema:
+            type: string
+            enum: [oai_dc, marc21, marcxml]
+        - name: identifier
+          in: query
+          required: false
+          description: OAI identifier of a single record. Required for GetRecord.
+          schema:
+            type: string
+        - name: from
+          in: query
+          required: false
+          description: >-
+            Lower bound of the datestamp selective-harvesting range, in the repository's
+            granularity (YYYY-MM-DDThh:mm:ssZ). Earliest datestamp is 2016-09-28T08:43:15Z.
+          schema:
+            type: string
+        - name: until
+          in: query
+          required: false
+          description: Upper bound of the datestamp selective-harvesting range.
+          schema:
+            type: string
+        - name: set
+          in: query
+          required: false
+          description: >-
+            Set to harvest. Accepted by the protocol but inert on this repository, which returns
+            noSetHierarchy for ListSets.
+          schema:
+            type: string
+        - name: resumptionToken
+          in: query
+          required: false
+          description: Flow-control token returned by a previous incomplete list response.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: >-
+            An OAI-PMH 2.0 response envelope. Protocol-level errors (badVerb, badArgument,
+            cannotDisseminateFormat, idDoesNotExist, noRecordsMatch, noSetHierarchy,
+            badResumptionToken) are also returned with HTTP 200 inside an `<error>` element, as the
+            specification requires.
+          content:
+            text/xml:
+              schema:
+                type: string
+                contentMediaType: text/xml
+                description: OAI-PMH 2.0 XML response envelope.
+              examples:
+                identify:
+                  summary: Identify (verified live 2026-09-01)
+                  value: |
+                    <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/">
+                      <Identify>
+                        <repositoryName>PKK Library</repositoryName>
+                        <baseURL>https://libserv.iitk.ac.in/opac/oai.pl</baseURL>
+                        <protocolVersion>2.0</protocolVersion>
+                        <adminEmail>libcirc@iitk.ac.in</adminEmail>
+                        <earliestDatestamp>2016-09-28T08:43:15Z</earliestDatestamp>
+                        <deletedRecord>persistent</deletedRecord>
+                        <granularity>YYYY-MM-DDThh:mm:ssZ</granularity>
+                      </Identify>
+                    </OAI-PMH>
+                noSetHierarchy:
+                  summary: ListSets (verified live 2026-09-01)
+                  value: |
+                    <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/">
+                      <error code="noSetHierarchy">There are no OAI sets defined</error>
+                    </OAI-PMH>
