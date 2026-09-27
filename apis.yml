@@ -384,8 +384,6 @@ apis:
   humanURL: https://libserv.iitk.ac.in/api/v1/.html
   baseURL: https://libserv.iitk.ac.in/api/v1
   tags:
-  - 2FA
-  tags_raw:
   - 2 FA
   properties:
   - type: OpenAPI

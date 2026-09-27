@@ -10,7 +10,7 @@ info:
   license:
     name: GPL v3,
     url: http://www.gnu.org/licenses/gpl.txt
-  title: Koha REST OAUTH API
+  title: Koha REST OAuth API
   version: '1'
 servers:
 - url: https://libserv.iitk.ac.in/api/v1

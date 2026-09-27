@@ -136,6 +136,22 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object
     erm_counter_log_yaml:
       additionalProperties: false
       properties:
@@ -176,22 +192,6 @@ components:
       - filename
       - borrowernumber
       - counter_files_id
-      type: object
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
       type: object
     error_yaml:
       additionalProperties: true

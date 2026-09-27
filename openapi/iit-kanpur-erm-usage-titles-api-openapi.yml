@@ -213,32 +213,6 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
-      type: object
     erm_usage_yus_yaml:
       additionalProperties: false
       properties:
@@ -389,6 +363,16 @@ components:
       - title
       - usage_data_provider_id
       type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
     erm_usage_mus_yaml:
       additionalProperties: false
       properties:
@@ -459,4 +443,20 @@ components:
       required:
       - title_id
       - usage_data_provider_id
+      type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
       type: object

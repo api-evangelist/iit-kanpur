@@ -72,7 +72,7 @@
     "iit-kanpur-oai-pmh-api-openapi.yml"
   ],
   "archived": [
-    "deleted 2 superseded output(s) from the previous generation"
+    "deleted 1 superseded output(s) from the previous generation"
   ],
   "errors": [],
   "warnings": [],
@@ -80,8 +80,8 @@
     "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "iit-kanpur-library-rest.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "iit-kanpur-oai-pmh.yaml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "superseded outputs removed: iit-kanpur-2-fa-api-openapi.yml, iit-kanpur-o-auth-api-openapi.yml",
-    "apis.yml register: written (+2 apis, 5 total)"
+    "superseded outputs removed: iit-kanpur-2-fa-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 5 total)"
   ],
   "skipped": [
     "iit-kanpur-2-fa-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -133,8 +133,8 @@
     "iit-kanpur-jobs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "iit-kanpur-libraries-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "iit-kanpur-macros-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "iit-kanpur-o-auth-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "iit-kanpur-oai-pmh-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "iit-kanpur-oauth-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "iit-kanpur-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "iit-kanpur-patron-categories-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "iit-kanpur-patrons-api-openapi.yml: previously refined output, superseded by openapi/_original/",

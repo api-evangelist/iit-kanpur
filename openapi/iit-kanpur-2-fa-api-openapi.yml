@@ -87,7 +87,7 @@ paths:
       tags:
       - 2 FA
       summary: Generate a secret
-      operationId: Two factor register
+      operationId: TwoFactorRegister
       responses:
         '201':
           description: OK
@@ -146,12 +146,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DefaultResponse'
+      x-operation-id-source: normalized
+      x-operation-id-original: Two factor register
   /auth/two-factor/registration/verification:
     post:
       tags:
       - 2 FA
       summary: Verify two-factor registration
-      operationId: Two factor register verification
+      operationId: TwoFactorRegisterVerification
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -206,6 +208,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DefaultResponse'
+      x-operation-id-source: normalized
+      x-operation-id-original: Two factor register verification
 components:
   schemas:
     DefaultResponse:

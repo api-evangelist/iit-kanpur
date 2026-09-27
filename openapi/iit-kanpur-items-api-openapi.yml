@@ -1084,6 +1084,228 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
+    library_yaml:
+      additionalProperties: false
+      properties:
+        address1:
+          description: the first address line of the library
+          type:
+          - string
+          - 'null'
+        address2:
+          description: the second address line of the library
+          type:
+          - string
+          - 'null'
+        address3:
+          description: the third address line of the library
+          type:
+          - string
+          - 'null'
+        cash_registers:
+          description: The library's defined cash registers (x-koha-embed)
+          type:
+          - array
+          - 'null'
+        city:
+          description: the city or province of the library
+          type:
+          - string
+          - 'null'
+        country:
+          description: the county of the library
+          type:
+          - string
+          - 'null'
+        desks:
+          description: The library's defined desks (x-koha-embed)
+          type:
+          - array
+          - 'null'
+        email:
+          description: the primary email address of the library
+          type:
+          - string
+          - 'null'
+        fax:
+          description: the fax number of the library
+          type:
+          - string
+          - 'null'
+        geolocation:
+          description: geolocation of your library
+          type:
+          - string
+          - 'null'
+        illemail:
+          description: the ILL staff email address of the library
+          type:
+          - string
+          - 'null'
+        ip:
+          description: the IP address for your library or branch
+          type:
+          - string
+          - 'null'
+        library_id:
+          description: internally assigned library identifier
+          maxLength: 10
+          minLength: 1
+          type: string
+        marc_org_code:
+          description: MARC Organization Code, see http://www.loc.gov/marc/organizations/orgshome.html, when empty defaults to syspref MARCOrgCode
+          type:
+          - string
+          - 'null'
+        name:
+          description: Printable name of library
+          type: string
+        needs_override:
+          description: If the library needs an override to act as pickup location for a hold
+          type: boolean
+        notes:
+          description: notes related to your library or branch
+          type:
+          - string
+          - 'null'
+        phone:
+          description: the primary phone of the library
+          type:
+          - string
+          - 'null'
+        pickup_location:
+          description: If the library can act as a pickup location
+          type: boolean
+        postal_code:
+          description: the postal code of the library
+          type:
+          - string
+          - 'null'
+        public:
+          description: If the library is visible to the public
+          type: boolean
+        reply_to_email:
+          description: the email to be used as a Reply-To
+          type:
+          - string
+          - 'null'
+        return_path_email:
+          description: the email to be used as Return-Path
+          type:
+          - string
+          - 'null'
+        smtp_server:
+          description: The library effective SMTP server
+          type:
+          - object
+          - 'null'
+        state:
+          description: the reqional state of the library
+          type:
+          - string
+          - 'null'
+        url:
+          description: the URL for your library or branch's website
+          type:
+          - string
+          - 'null'
+      required:
+      - library_id
+      - name
+      type: object
+    bundle_link_yaml:
+      additionalProperties: false
+      properties:
+        external_id:
+          description: Item barcode
+          type:
+          - string
+          - 'null'
+        force_checkin:
+          type:
+          - boolean
+          - 'null'
+        ignore_holds:
+          type:
+          - boolean
+          - 'null'
+        item_id:
+          description: Internal item identifier
+          type:
+          - integer
+          - 'null'
+      type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object
+    booking_yaml:
+      additionalProperties: false
+      properties:
+        biblio:
+          description: Embedable biblio representation
+          type: object
+        biblio_id:
+          description: Internal identifier for the parent bibliographic record
+          type: integer
+        booking_id:
+          description: Internal booking identifier
+          type: integer
+        end_date:
+          description: Start date and time of this booking
+          format: date-time
+          type: string
+        item:
+          description: Embedable item representation
+          type:
+          - object
+          - 'null'
+        item_id:
+          description: Internal item identifier
+          type:
+          - integer
+          - 'null'
+        patron:
+          description: Embedable patron representation
+          type:
+          - object
+          - 'null'
+        patron_id:
+          description: Internal patron identifier
+          type: integer
+        start_date:
+          description: Start date and time of this booking
+          format: date-time
+          type: string
+      required:
+      - biblio_id
+      - item_id
+      - patron_id
+      - start_date
+      - end_date
+      type: object
     item_yaml:
       additionalProperties: false
       properties:
@@ -1318,226 +1540,4 @@ components:
           type:
           - string
           - 'null'
-      type: object
-    booking_yaml:
-      additionalProperties: false
-      properties:
-        biblio:
-          description: Embedable biblio representation
-          type: object
-        biblio_id:
-          description: Internal identifier for the parent bibliographic record
-          type: integer
-        booking_id:
-          description: Internal booking identifier
-          type: integer
-        end_date:
-          description: Start date and time of this booking
-          format: date-time
-          type: string
-        item:
-          description: Embedable item representation
-          type:
-          - object
-          - 'null'
-        item_id:
-          description: Internal item identifier
-          type:
-          - integer
-          - 'null'
-        patron:
-          description: Embedable patron representation
-          type:
-          - object
-          - 'null'
-        patron_id:
-          description: Internal patron identifier
-          type: integer
-        start_date:
-          description: Start date and time of this booking
-          format: date-time
-          type: string
-      required:
-      - biblio_id
-      - item_id
-      - patron_id
-      - start_date
-      - end_date
-      type: object
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
-      type: object
-    bundle_link_yaml:
-      additionalProperties: false
-      properties:
-        external_id:
-          description: Item barcode
-          type:
-          - string
-          - 'null'
-        force_checkin:
-          type:
-          - boolean
-          - 'null'
-        ignore_holds:
-          type:
-          - boolean
-          - 'null'
-        item_id:
-          description: Internal item identifier
-          type:
-          - integer
-          - 'null'
-      type: object
-    library_yaml:
-      additionalProperties: false
-      properties:
-        address1:
-          description: the first address line of the library
-          type:
-          - string
-          - 'null'
-        address2:
-          description: the second address line of the library
-          type:
-          - string
-          - 'null'
-        address3:
-          description: the third address line of the library
-          type:
-          - string
-          - 'null'
-        cash_registers:
-          description: The library's defined cash registers (x-koha-embed)
-          type:
-          - array
-          - 'null'
-        city:
-          description: the city or province of the library
-          type:
-          - string
-          - 'null'
-        country:
-          description: the county of the library
-          type:
-          - string
-          - 'null'
-        desks:
-          description: The library's defined desks (x-koha-embed)
-          type:
-          - array
-          - 'null'
-        email:
-          description: the primary email address of the library
-          type:
-          - string
-          - 'null'
-        fax:
-          description: the fax number of the library
-          type:
-          - string
-          - 'null'
-        geolocation:
-          description: geolocation of your library
-          type:
-          - string
-          - 'null'
-        illemail:
-          description: the ILL staff email address of the library
-          type:
-          - string
-          - 'null'
-        ip:
-          description: the IP address for your library or branch
-          type:
-          - string
-          - 'null'
-        library_id:
-          description: internally assigned library identifier
-          maxLength: 10
-          minLength: 1
-          type: string
-        marc_org_code:
-          description: MARC Organization Code, see http://www.loc.gov/marc/organizations/orgshome.html, when empty defaults to syspref MARCOrgCode
-          type:
-          - string
-          - 'null'
-        name:
-          description: Printable name of library
-          type: string
-        needs_override:
-          description: If the library needs an override to act as pickup location for a hold
-          type: boolean
-        notes:
-          description: notes related to your library or branch
-          type:
-          - string
-          - 'null'
-        phone:
-          description: the primary phone of the library
-          type:
-          - string
-          - 'null'
-        pickup_location:
-          description: If the library can act as a pickup location
-          type: boolean
-        postal_code:
-          description: the postal code of the library
-          type:
-          - string
-          - 'null'
-        public:
-          description: If the library is visible to the public
-          type: boolean
-        reply_to_email:
-          description: the email to be used as a Reply-To
-          type:
-          - string
-          - 'null'
-        return_path_email:
-          description: the email to be used as Return-Path
-          type:
-          - string
-          - 'null'
-        smtp_server:
-          description: The library effective SMTP server
-          type:
-          - object
-          - 'null'
-        state:
-          description: the reqional state of the library
-          type:
-          - string
-          - 'null'
-        url:
-          description: the URL for your library or branch's website
-          type:
-          - string
-          - 'null'
-      required:
-      - library_id
-      - name
       type: object

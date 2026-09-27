@@ -1783,6 +1783,176 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
+    preservation_config_yaml:
+      additionalProperties: false
+      properties:
+        permissions:
+          description: List of permissions of the logged in user used for the Preservation module
+          type: object
+        settings:
+          description: List of sysprefs used for the Preservation module
+          type: object
+      type: object
+    preservation_processing_yaml:
+      additionalProperties: false
+      properties:
+        attributes:
+          description: attributes of the processing
+          items:
+            $ref: '#/components/schemas/preservation_processing_attribute_yaml'
+        letter_code:
+          description: Letter code of the letter to use for printing slips
+          type:
+          - string
+          - 'null'
+        name:
+          description: name of the processing
+          type: string
+        processing_id:
+          description: internally assigned agreement identifier
+          readOnly: true
+          type: integer
+      required:
+      - processing_id
+      - name
+      type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
+    preservation_train_yaml:
+      additionalProperties: false
+      properties:
+        closed_on:
+          description: closing date
+          type:
+          - string
+          - 'null'
+        created_on:
+          description: creation date
+          type:
+          - string
+          - 'null'
+        default_processing:
+          description: the default processing
+          type:
+          - object
+          - 'null'
+        default_processing_id:
+          description: foreign key to preservation_processings
+          type:
+          - integer
+          - 'null'
+        description:
+          description: description of the train
+          type:
+          - string
+          - 'null'
+        name:
+          description: name of the train
+          type: string
+        not_for_loan:
+          description: NOT_LOAN authorised value to apply to item added to this train
+          type:
+          - string
+          - 'null'
+        received_on:
+          description: receiving date
+          type:
+          - string
+          - 'null'
+        sent_on:
+          description: sending date
+          type:
+          - string
+          - 'null'
+        train_id:
+          description: internally assigned train identifier
+          readOnly: true
+          type: integer
+      required:
+      - train_id
+      - name
+      type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object
+    preservation_train_item_yaml:
+      additionalProperties: false
+      properties:
+        added_on:
+          description: add date
+          type:
+          - string
+          - 'null'
+        attributes:
+          description: attribute list
+          type:
+          - array
+          - 'null'
+        catalogue_item:
+          description: catalogue item
+          type:
+          - object
+          - 'null'
+        item_id:
+          description: internally item identifier
+          type: integer
+        processing_id:
+          description: internally processing identifier
+          type: integer
+        train_id:
+          description: internally train identifier
+          type: integer
+        train_item_id:
+          description: internally assigned train item identifier
+          readOnly: true
+          type: integer
+        user_train_item_id:
+          description: internally user train item identifier
+          type: integer
+      type: object
+    preservation_processing_attribute_yaml:
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+        option_source:
+          type:
+          - string
+          - 'null'
+        processing_attribute_id:
+          description: Internal processing attribute identifier
+          type: integer
+        processing_id:
+          description: Internal processing identifier
+          type: integer
+        type:
+          type:
+          - string
+      required:
+      - name
+      - type
+      type: object
     item_yaml:
       additionalProperties: false
       properties:
@@ -2017,174 +2187,4 @@ components:
           type:
           - string
           - 'null'
-      type: object
-    preservation_train_item_yaml:
-      additionalProperties: false
-      properties:
-        added_on:
-          description: add date
-          type:
-          - string
-          - 'null'
-        attributes:
-          description: attribute list
-          type:
-          - array
-          - 'null'
-        catalogue_item:
-          description: catalogue item
-          type:
-          - object
-          - 'null'
-        item_id:
-          description: internally item identifier
-          type: integer
-        processing_id:
-          description: internally processing identifier
-          type: integer
-        train_id:
-          description: internally train identifier
-          type: integer
-        train_item_id:
-          description: internally assigned train item identifier
-          readOnly: true
-          type: integer
-        user_train_item_id:
-          description: internally user train item identifier
-          type: integer
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
-      type: object
-    preservation_train_yaml:
-      additionalProperties: false
-      properties:
-        closed_on:
-          description: closing date
-          type:
-          - string
-          - 'null'
-        created_on:
-          description: creation date
-          type:
-          - string
-          - 'null'
-        default_processing:
-          description: the default processing
-          type:
-          - object
-          - 'null'
-        default_processing_id:
-          description: foreign key to preservation_processings
-          type:
-          - integer
-          - 'null'
-        description:
-          description: description of the train
-          type:
-          - string
-          - 'null'
-        name:
-          description: name of the train
-          type: string
-        not_for_loan:
-          description: NOT_LOAN authorised value to apply to item added to this train
-          type:
-          - string
-          - 'null'
-        received_on:
-          description: receiving date
-          type:
-          - string
-          - 'null'
-        sent_on:
-          description: sending date
-          type:
-          - string
-          - 'null'
-        train_id:
-          description: internally assigned train identifier
-          readOnly: true
-          type: integer
-      required:
-      - train_id
-      - name
-      type: object
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
-      type: object
-    preservation_processing_attribute_yaml:
-      additionalProperties: false
-      properties:
-        name:
-          type: string
-        option_source:
-          type:
-          - string
-          - 'null'
-        processing_attribute_id:
-          description: Internal processing attribute identifier
-          type: integer
-        processing_id:
-          description: Internal processing identifier
-          type: integer
-        type:
-          type:
-          - string
-      required:
-      - name
-      - type
-      type: object
-    preservation_config_yaml:
-      additionalProperties: false
-      properties:
-        permissions:
-          description: List of permissions of the logged in user used for the Preservation module
-          type: object
-        settings:
-          description: List of sysprefs used for the Preservation module
-          type: object
-      type: object
-    preservation_processing_yaml:
-      additionalProperties: false
-      properties:
-        attributes:
-          description: attributes of the processing
-          items:
-            $ref: '#/components/schemas/preservation_processing_attribute_yaml'
-        letter_code:
-          description: Letter code of the letter to use for printing slips
-          type:
-          - string
-          - 'null'
-        name:
-          description: name of the processing
-          type: string
-        processing_id:
-          description: internally assigned agreement identifier
-          readOnly: true
-          type: integer
-      required:
-      - processing_id
-      - name
       type: object

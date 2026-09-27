@@ -183,76 +183,6 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
-      type: object
-    erm_usage_database_yaml:
-      additionalProperties: false
-      properties:
-        database:
-          description: name of the database
-          type:
-          - string
-          - 'null'
-        database_id:
-          description: internally assigned database identifier
-          readOnly: true
-          type: integer
-        erm_usage_muses:
-          description: usage mus
-          items:
-            $ref: '#/components/schemas/erm_usage_mus_yaml'
-          type: array
-        erm_usage_yuses:
-          description: usage yus
-          items:
-            $ref: '#/components/schemas/erm_usage_yus_yaml'
-          type: array
-        platform:
-          description: name of the platform
-          type:
-          - string
-          - 'null'
-        publisher:
-          description: publisher of the database data
-          type:
-          - string
-          - 'null'
-        publisher_id:
-          description: publisher_id of the database data
-          type:
-          - string
-          - 'null'
-        usage_data_provider_id:
-          description: usage_data_provider the database is harvested by
-          type: integer
-      required:
-      - database
-      - usage_data_provider_id
-      type: object
     erm_usage_yus_yaml:
       additionalProperties: false
       properties:
@@ -318,6 +248,60 @@ components:
       required:
       - title_id
       - usage_data_provider_id
+      type: object
+    erm_usage_database_yaml:
+      additionalProperties: false
+      properties:
+        database:
+          description: name of the database
+          type:
+          - string
+          - 'null'
+        database_id:
+          description: internally assigned database identifier
+          readOnly: true
+          type: integer
+        erm_usage_muses:
+          description: usage mus
+          items:
+            $ref: '#/components/schemas/erm_usage_mus_yaml'
+          type: array
+        erm_usage_yuses:
+          description: usage yus
+          items:
+            $ref: '#/components/schemas/erm_usage_yus_yaml'
+          type: array
+        platform:
+          description: name of the platform
+          type:
+          - string
+          - 'null'
+        publisher:
+          description: publisher of the database data
+          type:
+          - string
+          - 'null'
+        publisher_id:
+          description: publisher_id of the database data
+          type:
+          - string
+          - 'null'
+        usage_data_provider_id:
+          description: usage_data_provider the database is harvested by
+          type: integer
+      required:
+      - database
+      - usage_data_provider_id
+      type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
       type: object
     erm_usage_mus_yaml:
       additionalProperties: false
@@ -389,4 +373,20 @@ components:
       required:
       - title_id
       - usage_data_provider_id
+      type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
       type: object

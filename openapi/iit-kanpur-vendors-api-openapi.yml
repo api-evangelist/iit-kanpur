@@ -595,37 +595,6 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
-    vendor_alias_yaml:
-      additionalProperties: false
-      properties:
-        alias:
-          description: The alias
-          type: string
-        alias_id:
-          description: Internal ID for the extended attribute
-          type: integer
-        vendor_id:
-          description: ID of the vendor
-          type: integer
-      required:
-      - alias
-      type: object
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
-      type: object
     vendor_yaml:
       additionalProperties: false
       properties:
@@ -760,6 +729,21 @@ components:
           description: Error code
           type: string
       type: object
+    vendor_alias_yaml:
+      additionalProperties: false
+      properties:
+        alias:
+          description: The alias
+          type: string
+        alias_id:
+          description: Internal ID for the extended attribute
+          type: integer
+        vendor_id:
+          description: ID of the vendor
+          type: integer
+      required:
+      - alias
+      type: object
     vendor_issue_yaml:
       additionalProperties: false
       properties:
@@ -797,4 +781,20 @@ components:
         vendor_id:
           description: ID of the vendor
           type: integer
+      type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
       type: object

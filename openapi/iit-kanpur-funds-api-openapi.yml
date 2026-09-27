@@ -395,49 +395,85 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
-      type: object
-    patron_extended_attribute_yaml:
+    fund_yaml:
       additionalProperties: false
       properties:
-        extended_attribute_id:
-          description: Internal ID for the extended attribute
-          type: integer
-        type:
-          description: Extended attribute type
-          type: string
-        value:
-          description: Extended attribute value
+        budget_id:
+          description: Internal identifier for the budget
+          type:
+          - number
+          - 'null'
+        code:
+          description: Code assigned to the fund by the user
           type:
           - string
           - 'null'
+        fund_access:
+          description: 'Level of permission for this fund (1: owner, 2: owner, users and library, 3: owner and users)'
+          type:
+          - number
+          - 'null'
+        fund_id:
+          description: internally assigned fund identifier
+          readOnly: true
+          type: integer
+        fund_owner_id:
+          description: Internal identifier for the fund owner
+          type:
+          - number
+          - 'null'
+        library_id:
+          description: Internal identifier for the library that this fund belongs to
+          type:
+          - string
+          - 'null'
+        name:
+          description: Name assigned to the fund by the user
+          type:
+          - string
+          - 'null'
+        notes:
+          description: Notes related to this fund
+          type:
+          - string
+          - 'null'
+        parent_fund_id:
+          description: Internal identifier for parent fund
+          type:
+          - integer
+          - 'null'
+        statistic1_auth_value_category:
+          description: Statistical category for this fund
+          type:
+          - string
+          - 'null'
+        statistic2_auth_value_category:
+          description: Second statistical category for this fund
+          type:
+          - string
+          - 'null'
+        timestamp:
+          description: Timestamp
+          format: date-time
+          type:
+          - string
+        total_amount:
+          description: Total amount for this fund
+          type:
+          - number
+          - 'null'
+        warn_at_amount:
+          description: Warning at amount
+          type:
+          - number
+          - 'null'
+        warn_at_percentage:
+          description: Warning at percentage
+          type:
+          - number
+          - 'null'
       required:
-      - type
-      - value
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
+      - name
       type: object
     patron_yaml:
       additionalProperties: false
@@ -825,83 +861,47 @@ components:
       - library_id
       - category_id
       type: object
-    fund_yaml:
+    patron_extended_attribute_yaml:
       additionalProperties: false
       properties:
-        budget_id:
-          description: Internal identifier for the budget
-          type:
-          - number
-          - 'null'
-        code:
-          description: Code assigned to the fund by the user
-          type:
-          - string
-          - 'null'
-        fund_access:
-          description: 'Level of permission for this fund (1: owner, 2: owner, users and library, 3: owner and users)'
-          type:
-          - number
-          - 'null'
-        fund_id:
-          description: internally assigned fund identifier
-          readOnly: true
+        extended_attribute_id:
+          description: Internal ID for the extended attribute
           type: integer
-        fund_owner_id:
-          description: Internal identifier for the fund owner
-          type:
-          - number
-          - 'null'
-        library_id:
-          description: Internal identifier for the library that this fund belongs to
+        type:
+          description: Extended attribute type
+          type: string
+        value:
+          description: Extended attribute value
           type:
           - string
-          - 'null'
-        name:
-          description: Name assigned to the fund by the user
-          type:
-          - string
-          - 'null'
-        notes:
-          description: Notes related to this fund
-          type:
-          - string
-          - 'null'
-        parent_fund_id:
-          description: Internal identifier for parent fund
-          type:
-          - integer
-          - 'null'
-        statistic1_auth_value_category:
-          description: Statistical category for this fund
-          type:
-          - string
-          - 'null'
-        statistic2_auth_value_category:
-          description: Second statistical category for this fund
-          type:
-          - string
-          - 'null'
-        timestamp:
-          description: Timestamp
-          format: date-time
-          type:
-          - string
-        total_amount:
-          description: Total amount for this fund
-          type:
-          - number
-          - 'null'
-        warn_at_amount:
-          description: Warning at amount
-          type:
-          - number
-          - 'null'
-        warn_at_percentage:
-          description: Warning at percentage
-          type:
-          - number
           - 'null'
       required:
-      - name
+      - type
+      - value
+      type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
       type: object

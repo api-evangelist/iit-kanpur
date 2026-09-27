@@ -159,22 +159,6 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
-      type: object
     error_yaml:
       additionalProperties: true
       properties:
@@ -185,21 +169,11 @@ components:
           description: Error code
           type: string
       type: object
-    ill_backend_yaml:
+    ill_backends_yaml:
       additionalProperties: false
-      properties:
-        capabilities:
-          description: List of capabilities
-          type: object
-        ill_backend_id:
-          description: Internal ILL backend identifier
-          type: string
-        statuses:
-          description: existing statuses
-          items:
-            $ref: '#/components/schemas/ill_status_yaml'
-          type: array
-      type: object
+      items:
+        $ref: '#/components/schemas/ill_backend_yaml'
+      type: array
     ill_status_yaml:
       additionalProperties: false
       properties:
@@ -219,8 +193,34 @@ components:
           description: This is 'ill_status' or 'av' depending on if coming from backend or authorised values i.e. alias
           type: string
       type: object
-    ill_backends_yaml:
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object
+    ill_backend_yaml:
       additionalProperties: false
-      items:
-        $ref: '#/components/schemas/ill_backend_yaml'
-      type: array
+      properties:
+        capabilities:
+          description: List of capabilities
+          type: object
+        ill_backend_id:
+          description: Internal ILL backend identifier
+          type: string
+        statuses:
+          description: existing statuses
+          items:
+            $ref: '#/components/schemas/ill_status_yaml'
+          type: array
+      type: object

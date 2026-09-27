@@ -557,31 +557,35 @@ components:
       - user_id
       - role
       type: object
-    DefaultResponse:
+    erm_agreement_license_yaml:
+      additionalProperties: false
       properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
+        agreement_id:
+          description: Internal agreement identifier
+          type: integer
+        agreement_license_id:
+          description: Internal agreement license identifier
+          type: integer
+        license_id:
+          description: Internal license identifier
+          type: integer
+        notes:
+          type:
+          - string
+          - 'null'
+        physical_location:
+          type:
+          - string
+          - 'null'
+        status:
+          type: string
+        uri:
+          type:
+          - string
+          - 'null'
       required:
-      - errors
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
+      - license_id
+      - status
       type: object
     erm_agreement_period_yaml:
       additionalProperties: false
@@ -615,6 +619,121 @@ components:
           type: string
       required:
       - started_on
+      type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
+    erm_agreement_relationship_yaml:
+      additionalProperties: false
+      properties:
+        agreement_id:
+          description: Internal agreement identifier
+          type: integer
+        notes:
+          type:
+          - string
+          - 'null'
+        related_agreement_id:
+          description: Internal related agreement identifier
+          type: integer
+        relationship:
+          description: relationship between the agreements
+          enum:
+          - supersedes
+          - is-superseded-by
+          - provides_post-cancellation_access_for
+          - has-post-cancellation-access-in
+          - tracks_demand-driven_acquisitions_for
+          - has-demand-driven-acquisitions-in
+          - has_backfile_in
+          - has_frontfile_in
+          - related_to
+          type: string
+      required:
+      - related_agreement_id
+      - relationship
+      type: object
+    erm_document_yaml:
+      additionalProperties: false
+      properties:
+        agreement_id:
+          description: Internal agreement identifier
+          type:
+          - integer
+          - 'null'
+        document_id:
+          description: internally assigned identifier
+          type: integer
+        file_content:
+          description: Content of the file
+          type:
+          - string
+          - 'null'
+        file_description:
+          description: Description of the file
+          type:
+          - string
+          - 'null'
+        file_name:
+          description: Name of the file
+          type:
+          - string
+          - 'null'
+        file_type:
+          description: Type of the file
+          readOnly: true
+          type:
+          - string
+          - 'null'
+        license_id:
+          description: Internal license identifier
+          type:
+          - integer
+          - 'null'
+        notes:
+          type:
+          - string
+          - 'null'
+        physical_location:
+          description: Physical location of the document
+          type:
+          - string
+          - 'null'
+        uploaded_on:
+          description: Datetime of the upload
+          format: date-time
+          readOnly: true
+          type:
+          - string
+          - 'null'
+        uri:
+          description: URI of the document
+          type:
+          - string
+          - 'null'
+      type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
       type: object
     erm_agreement_yaml:
       additionalProperties: false
@@ -692,123 +811,4 @@ components:
       - name
       - status
       - is_perpetual
-      type: object
-    erm_agreement_license_yaml:
-      additionalProperties: false
-      properties:
-        agreement_id:
-          description: Internal agreement identifier
-          type: integer
-        agreement_license_id:
-          description: Internal agreement license identifier
-          type: integer
-        license_id:
-          description: Internal license identifier
-          type: integer
-        notes:
-          type:
-          - string
-          - 'null'
-        physical_location:
-          type:
-          - string
-          - 'null'
-        status:
-          type: string
-        uri:
-          type:
-          - string
-          - 'null'
-      required:
-      - license_id
-      - status
-      type: object
-    erm_document_yaml:
-      additionalProperties: false
-      properties:
-        agreement_id:
-          description: Internal agreement identifier
-          type:
-          - integer
-          - 'null'
-        document_id:
-          description: internally assigned identifier
-          type: integer
-        file_content:
-          description: Content of the file
-          type:
-          - string
-          - 'null'
-        file_description:
-          description: Description of the file
-          type:
-          - string
-          - 'null'
-        file_name:
-          description: Name of the file
-          type:
-          - string
-          - 'null'
-        file_type:
-          description: Type of the file
-          readOnly: true
-          type:
-          - string
-          - 'null'
-        license_id:
-          description: Internal license identifier
-          type:
-          - integer
-          - 'null'
-        notes:
-          type:
-          - string
-          - 'null'
-        physical_location:
-          description: Physical location of the document
-          type:
-          - string
-          - 'null'
-        uploaded_on:
-          description: Datetime of the upload
-          format: date-time
-          readOnly: true
-          type:
-          - string
-          - 'null'
-        uri:
-          description: URI of the document
-          type:
-          - string
-          - 'null'
-      type: object
-    erm_agreement_relationship_yaml:
-      additionalProperties: false
-      properties:
-        agreement_id:
-          description: Internal agreement identifier
-          type: integer
-        notes:
-          type:
-          - string
-          - 'null'
-        related_agreement_id:
-          description: Internal related agreement identifier
-          type: integer
-        relationship:
-          description: relationship between the agreements
-          enum:
-          - supersedes
-          - is-superseded-by
-          - provides_post-cancellation_access_for
-          - has-post-cancellation-access-in
-          - tracks_demand-driven_acquisitions_for
-          - has-demand-driven-acquisitions-in
-          - has_backfile_in
-          - has_frontfile_in
-          - related_to
-          type: string
-      required:
-      - related_agreement_id
-      - relationship
       type: object

@@ -1234,161 +1234,6 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
-      type: object
-    hold_yaml:
-      additionalProperties: false
-      properties:
-        biblio:
-          description: Bibliographic record
-          type:
-          - object
-          - 'null'
-        biblio_id:
-          description: Internal biblio identifier
-          type: integer
-        cancellation_date:
-          description: The date the hold was cancelled
-          format: date
-          type:
-          - string
-          - 'null'
-        cancellation_reason:
-          description: The reason the hold was cancelled
-          type:
-          - string
-          - 'null'
-        cancellation_requested:
-          description: Cancellation requests count for the hold (x-koha-embed)
-          type:
-          - boolean
-          - 'null'
-        desk_id:
-          description: The id of the desk
-          type:
-          - integer
-          - 'null'
-        expiration_date:
-          description: The date the hold expires
-          format: date
-          type:
-          - string
-          - 'null'
-        hold_date:
-          description: The date the hold was placed
-          format: date
-          type:
-          - string
-          - 'null'
-        hold_id:
-          description: Internal hold identifier
-          type: integer
-        item:
-          description: The item
-          type:
-          - object
-          - 'null'
-        item_group_id:
-          description: Internal item group identifier
-          type:
-          - string
-          - 'null'
-        item_id:
-          description: Internal item identifier
-          type:
-          - integer
-          - 'null'
-        item_level:
-          description: If the hold is placed at item level
-          type: boolean
-        item_type:
-          description: If record level hold, the optional itemtype of the item the patron is requesting
-          type:
-          - string
-          - 'null'
-        lowest_priority:
-          description: Controls if the hold is given the lowest priority on the queue
-          type: boolean
-        non_priority:
-          description: Set this hold as non priority
-          type: boolean
-        notes:
-          description: Notes related to this hold
-          type:
-          - string
-          - 'null'
-        patron_id:
-          description: Internal patron identifier
-          type: integer
-        pickup_library:
-          description: Pickup library
-          type:
-          - object
-          - 'null'
-        pickup_library_id:
-          description: Internal library identifier for the pickup library
-          type:
-          - string
-          - 'null'
-        priority:
-          description: Where in the queue the patron sits
-          type:
-          - integer
-          - 'null'
-        status:
-          description: A one letter code defining what the status of the hold is after it has been confirmed
-          type:
-          - string
-          - 'null'
-        suspended:
-          description: Controls if the hold is suspended
-          type: boolean
-        suspended_until:
-          description: Date until which the hold has been suspended
-          format: date-time
-          type:
-          - string
-          - 'null'
-        timestamp:
-          description: Timestamp for the latest hold update
-          format: date-time
-          type: string
-        waiting_date:
-          description: The date the item was marked as waiting for the patron at the library
-          format: date
-          type:
-          - string
-          - 'null'
-      type: object
-    holds_yaml:
-      additionalProperties: false
-      items:
-        $ref: '#/components/schemas/hold_yaml'
-      type: array
     library_yaml:
       additionalProperties: false
       properties:
@@ -1517,4 +1362,159 @@ components:
       required:
       - library_id
       - name
+      type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object
+    holds_yaml:
+      additionalProperties: false
+      items:
+        $ref: '#/components/schemas/hold_yaml'
+      type: array
+    hold_yaml:
+      additionalProperties: false
+      properties:
+        biblio:
+          description: Bibliographic record
+          type:
+          - object
+          - 'null'
+        biblio_id:
+          description: Internal biblio identifier
+          type: integer
+        cancellation_date:
+          description: The date the hold was cancelled
+          format: date
+          type:
+          - string
+          - 'null'
+        cancellation_reason:
+          description: The reason the hold was cancelled
+          type:
+          - string
+          - 'null'
+        cancellation_requested:
+          description: Cancellation requests count for the hold (x-koha-embed)
+          type:
+          - boolean
+          - 'null'
+        desk_id:
+          description: The id of the desk
+          type:
+          - integer
+          - 'null'
+        expiration_date:
+          description: The date the hold expires
+          format: date
+          type:
+          - string
+          - 'null'
+        hold_date:
+          description: The date the hold was placed
+          format: date
+          type:
+          - string
+          - 'null'
+        hold_id:
+          description: Internal hold identifier
+          type: integer
+        item:
+          description: The item
+          type:
+          - object
+          - 'null'
+        item_group_id:
+          description: Internal item group identifier
+          type:
+          - string
+          - 'null'
+        item_id:
+          description: Internal item identifier
+          type:
+          - integer
+          - 'null'
+        item_level:
+          description: If the hold is placed at item level
+          type: boolean
+        item_type:
+          description: If record level hold, the optional itemtype of the item the patron is requesting
+          type:
+          - string
+          - 'null'
+        lowest_priority:
+          description: Controls if the hold is given the lowest priority on the queue
+          type: boolean
+        non_priority:
+          description: Set this hold as non priority
+          type: boolean
+        notes:
+          description: Notes related to this hold
+          type:
+          - string
+          - 'null'
+        patron_id:
+          description: Internal patron identifier
+          type: integer
+        pickup_library:
+          description: Pickup library
+          type:
+          - object
+          - 'null'
+        pickup_library_id:
+          description: Internal library identifier for the pickup library
+          type:
+          - string
+          - 'null'
+        priority:
+          description: Where in the queue the patron sits
+          type:
+          - integer
+          - 'null'
+        status:
+          description: A one letter code defining what the status of the hold is after it has been confirmed
+          type:
+          - string
+          - 'null'
+        suspended:
+          description: Controls if the hold is suspended
+          type: boolean
+        suspended_until:
+          description: Date until which the hold has been suspended
+          format: date-time
+          type:
+          - string
+          - 'null'
+        timestamp:
+          description: Timestamp for the latest hold update
+          format: date-time
+          type: string
+        waiting_date:
+          description: The date the item was marked as waiting for the patron at the library
+          format: date
+          type:
+          - string
+          - 'null'
       type: object

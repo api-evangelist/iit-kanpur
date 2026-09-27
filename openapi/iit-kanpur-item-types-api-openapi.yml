@@ -140,6 +140,29 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
+    item_type_translated_description_yaml:
+      additionalProperties: false
+      properties:
+        lang:
+          description: Language identifier
+          type: string
+        translation:
+          description: Translated plain text
+          type: string
+      required:
+      - lang
+      - translation
+      type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
     item_type_yaml:
       additionalProperties: false
       properties:
@@ -233,19 +256,6 @@ components:
       required:
       - item_type_id
       type: object
-    item_type_translated_description_yaml:
-      additionalProperties: false
-      properties:
-        lang:
-          description: Language identifier
-          type: string
-        translation:
-          description: Translated plain text
-          type: string
-      required:
-      - lang
-      - translation
-      type: object
     DefaultResponse:
       properties:
         errors:
@@ -261,14 +271,4 @@ components:
           type: array
       required:
       - errors
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
       type: object

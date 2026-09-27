@@ -672,6 +672,69 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object
+    ticket_update_yaml:
+      additionalProperties: true
+      properties:
+        date:
+          description: Date the ticket update was reported
+          format: date-time
+          readOnly: true
+          type:
+          - string
+          - 'null'
+        message:
+          description: Ticket update details
+          type: string
+        public:
+          description: Is this update intended to be sent to the patron
+          type: boolean
+        ticket_id:
+          description: Internal ticket identifier
+          readOnly: true
+          type: integer
+        update_id:
+          description: Internal ticket update identifier
+          readOnly: true
+          type: integer
+        user:
+          description: The object representing the patron who added the update
+          readOnly: true
+          type:
+          - object
+          - 'null'
+        user_id:
+          description: Internal identifier for the patron who added the update
+          type: integer
+      required:
+      - message
+      - public
+      type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
     ticket_yaml:
       additionalProperties: false
       properties:
@@ -735,67 +798,4 @@ components:
       required:
       - title
       - body
-      type: object
-    ticket_update_yaml:
-      additionalProperties: true
-      properties:
-        date:
-          description: Date the ticket update was reported
-          format: date-time
-          readOnly: true
-          type:
-          - string
-          - 'null'
-        message:
-          description: Ticket update details
-          type: string
-        public:
-          description: Is this update intended to be sent to the patron
-          type: boolean
-        ticket_id:
-          description: Internal ticket identifier
-          readOnly: true
-          type: integer
-        update_id:
-          description: Internal ticket update identifier
-          readOnly: true
-          type: integer
-        user:
-          description: The object representing the patron who added the update
-          readOnly: true
-          type:
-          - object
-          - 'null'
-        user_id:
-          description: Internal identifier for the patron who added the update
-          type: integer
-      required:
-      - message
-      - public
-      type: object
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
       type: object

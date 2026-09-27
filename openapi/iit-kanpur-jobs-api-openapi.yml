@@ -212,6 +212,22 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object
     job_yaml:
       additionalProperties: false
       properties:
@@ -265,22 +281,6 @@ components:
         type:
           description: job type
           type: string
-      type: object
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
       type: object
     error_yaml:
       additionalProperties: true

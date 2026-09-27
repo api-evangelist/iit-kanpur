@@ -306,6 +306,41 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
+    erm_counter_file_yaml:
+      additionalProperties: false
+      properties:
+        counter_logs:
+          description: counter logs
+          items:
+            $ref: '#/components/schemas/erm_counter_log_yaml'
+          type: array
+        date_uploaded:
+          description: Timestamp for the date of upload
+          format: date-time
+          type: string
+        erm_counter_files_id:
+          description: internally assigned counter_files identifier
+          readOnly: true
+          type: integer
+        file_content:
+          description: file_content
+          type: string
+        filename:
+          description: filename
+          type: string
+        type:
+          description: type of the counter_files
+          type:
+          - string
+          - 'null'
+        usage_data_provider_id:
+          description: usage_data_provider_id of the counter_files
+          type: integer
+      required:
+      - usage_data_provider_id
+      - filename
+      - file_content
+      type: object
     erm_counter_log_yaml:
       additionalProperties: false
       properties:
@@ -346,41 +381,6 @@ components:
       - filename
       - borrowernumber
       - counter_files_id
-      type: object
-    erm_counter_file_yaml:
-      additionalProperties: false
-      properties:
-        counter_logs:
-          description: counter logs
-          items:
-            $ref: '#/components/schemas/erm_counter_log_yaml'
-          type: array
-        date_uploaded:
-          description: Timestamp for the date of upload
-          format: date-time
-          type: string
-        erm_counter_files_id:
-          description: internally assigned counter_files identifier
-          readOnly: true
-          type: integer
-        file_content:
-          description: file_content
-          type: string
-        filename:
-          description: filename
-          type: string
-        type:
-          description: type of the counter_files
-          type:
-          - string
-          - 'null'
-        usage_data_provider_id:
-          description: usage_data_provider_id of the counter_files
-          type: integer
-      required:
-      - usage_data_provider_id
-      - filename
-      - file_content
       type: object
     DefaultResponse:
       properties:

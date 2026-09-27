@@ -84,21 +84,6 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
-    circ-rule-kind_yaml:
-      additionalProperties: false
-      properties:
-        scope:
-          description: levels that this rule kind can be set for
-          items:
-            enum:
-            - branchcode
-            - categorycode
-            - itemtype
-            type: string
-          type: array
-      required:
-      - scope
-      type: object
     DefaultResponse:
       properties:
         errors:
@@ -114,6 +99,21 @@ components:
           type: array
       required:
       - errors
+      type: object
+    circ-rule-kind_yaml:
+      additionalProperties: false
+      properties:
+        scope:
+          description: levels that this rule kind can be set for
+          items:
+            enum:
+            - branchcode
+            - categorycode
+            - itemtype
+            type: string
+          type: array
+      required:
+      - scope
       type: object
     error_yaml:
       additionalProperties: true

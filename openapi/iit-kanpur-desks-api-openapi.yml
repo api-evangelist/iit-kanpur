@@ -155,6 +155,16 @@ components:
       required:
       - errors
       type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
     desk_yaml:
       additionalProperties: false
       properties:
@@ -173,14 +183,4 @@ components:
       - desk_id
       - name
       - library_id
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
       type: object
