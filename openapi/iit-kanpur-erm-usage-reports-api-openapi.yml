@@ -617,71 +617,6 @@ components:
           description: Error code
           type: string
       type: object
-    erm_custom_report_yaml:
-      properties:
-        erm_usage_muses:
-          description: usage mus
-          items:
-            $ref: '#/components/schemas/erm_usage_mus_yaml'
-          type: array
-        erm_usage_yuses:
-          description: usage yus
-          items:
-            $ref: '#/components/schemas/erm_usage_yus_yaml'
-          type: array
-        metric_type:
-          description: metric_type of the title data
-          type:
-          - string
-          - 'null'
-        online_issn:
-          description: online_issn number of the title
-          type:
-          - string
-          - 'null'
-        print_issn:
-          description: print_issn number of the title
-          type:
-          - string
-          - 'null'
-        provider_name:
-          description: provider_name of the title
-          type:
-          - string
-          - 'null'
-        publisher:
-          description: publisher of the title data
-          type:
-          - string
-          - 'null'
-        publisher_id:
-          description: publisher_id of the title data
-          type:
-          - string
-          - 'null'
-        title:
-          description: title of the title
-          type:
-          - string
-          - 'null'
-        title_doi:
-          description: doi number of the title
-          type:
-          - string
-          - 'null'
-        title_id:
-          description: internally assigned title identifier
-          readOnly: true
-          type: integer
-        title_uri:
-          description: title_uri number of the title
-          type:
-          - string
-          - 'null'
-        usage_data_provider_id:
-          description: usage_data_provider the title is harvested by
-          type: integer
-      type: object
     erm_usage_mus_yaml:
       additionalProperties: false
       properties:
@@ -768,4 +703,69 @@ components:
           type: array
       required:
       - errors
+      type: object
+    erm_custom_report_yaml:
+      properties:
+        erm_usage_muses:
+          description: usage mus
+          items:
+            $ref: '#/components/schemas/erm_usage_mus_yaml'
+          type: array
+        erm_usage_yuses:
+          description: usage yus
+          items:
+            $ref: '#/components/schemas/erm_usage_yus_yaml'
+          type: array
+        metric_type:
+          description: metric_type of the title data
+          type:
+          - string
+          - 'null'
+        online_issn:
+          description: online_issn number of the title
+          type:
+          - string
+          - 'null'
+        print_issn:
+          description: print_issn number of the title
+          type:
+          - string
+          - 'null'
+        provider_name:
+          description: provider_name of the title
+          type:
+          - string
+          - 'null'
+        publisher:
+          description: publisher of the title data
+          type:
+          - string
+          - 'null'
+        publisher_id:
+          description: publisher_id of the title data
+          type:
+          - string
+          - 'null'
+        title:
+          description: title of the title
+          type:
+          - string
+          - 'null'
+        title_doi:
+          description: doi number of the title
+          type:
+          - string
+          - 'null'
+        title_id:
+          description: internally assigned title identifier
+          readOnly: true
+          type: integer
+        title_uri:
+          description: title_uri number of the title
+          type:
+          - string
+          - 'null'
+        usage_data_provider_id:
+          description: usage_data_provider the title is harvested by
+          type: integer
       type: object

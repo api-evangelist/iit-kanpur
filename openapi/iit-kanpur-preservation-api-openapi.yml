@@ -1783,49 +1783,6 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
-    preservation_config_yaml:
-      additionalProperties: false
-      properties:
-        permissions:
-          description: List of permissions of the logged in user used for the Preservation module
-          type: object
-        settings:
-          description: List of sysprefs used for the Preservation module
-          type: object
-      type: object
-    preservation_processing_yaml:
-      additionalProperties: false
-      properties:
-        attributes:
-          description: attributes of the processing
-          items:
-            $ref: '#/components/schemas/preservation_processing_attribute_yaml'
-        letter_code:
-          description: Letter code of the letter to use for printing slips
-          type:
-          - string
-          - 'null'
-        name:
-          description: name of the processing
-          type: string
-        processing_id:
-          description: internally assigned agreement identifier
-          readOnly: true
-          type: integer
-      required:
-      - processing_id
-      - name
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
-      type: object
     preservation_train_yaml:
       additionalProperties: false
       properties:
@@ -1880,6 +1837,48 @@ components:
       - train_id
       - name
       type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
+    preservation_config_yaml:
+      additionalProperties: false
+      properties:
+        permissions:
+          description: List of permissions of the logged in user used for the Preservation module
+          type: object
+        settings:
+          description: List of sysprefs used for the Preservation module
+          type: object
+      type: object
+    preservation_processing_attribute_yaml:
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+        option_source:
+          type:
+          - string
+          - 'null'
+        processing_attribute_id:
+          description: Internal processing attribute identifier
+          type: integer
+        processing_id:
+          description: Internal processing identifier
+          type: integer
+        type:
+          type:
+          - string
+      required:
+      - name
+      - type
+      type: object
     DefaultResponse:
       properties:
         errors:
@@ -1931,27 +1930,28 @@ components:
           description: internally user train item identifier
           type: integer
       type: object
-    preservation_processing_attribute_yaml:
+    preservation_processing_yaml:
       additionalProperties: false
       properties:
-        name:
-          type: string
-        option_source:
+        attributes:
+          description: attributes of the processing
+          items:
+            $ref: '#/components/schemas/preservation_processing_attribute_yaml'
+        letter_code:
+          description: Letter code of the letter to use for printing slips
           type:
           - string
           - 'null'
-        processing_attribute_id:
-          description: Internal processing attribute identifier
-          type: integer
+        name:
+          description: name of the processing
+          type: string
         processing_id:
-          description: Internal processing identifier
+          description: internally assigned agreement identifier
+          readOnly: true
           type: integer
-        type:
-          type:
-          - string
       required:
+      - processing_id
       - name
-      - type
       type: object
     item_yaml:
       additionalProperties: false

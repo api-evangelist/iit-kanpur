@@ -169,30 +169,6 @@ components:
           description: Error code
           type: string
       type: object
-    ill_backends_yaml:
-      additionalProperties: false
-      items:
-        $ref: '#/components/schemas/ill_backend_yaml'
-      type: array
-    ill_status_yaml:
-      additionalProperties: false
-      properties:
-        backend:
-          description: The backend in which this status is used
-          type: string
-        category:
-          description: The AV category in which the status aliases exists in
-          type: string
-        code:
-          description: Internal ILL status code or av code
-          type: string
-        str:
-          description: Internal ILL status display string
-          type: string
-        type:
-          description: This is 'ill_status' or 'av' depending on if coming from backend or authorised values i.e. alias
-          type: string
-      type: object
     DefaultResponse:
       properties:
         errors:
@@ -223,4 +199,28 @@ components:
           items:
             $ref: '#/components/schemas/ill_status_yaml'
           type: array
+      type: object
+    ill_backends_yaml:
+      additionalProperties: false
+      items:
+        $ref: '#/components/schemas/ill_backend_yaml'
+      type: array
+    ill_status_yaml:
+      additionalProperties: false
+      properties:
+        backend:
+          description: The backend in which this status is used
+          type: string
+        category:
+          description: The AV category in which the status aliases exists in
+          type: string
+        code:
+          description: Internal ILL status code or av code
+          type: string
+        str:
+          description: Internal ILL status display string
+          type: string
+        type:
+          description: This is 'ill_status' or 'av' depending on if coming from backend or authorised values i.e. alias
+          type: string
       type: object

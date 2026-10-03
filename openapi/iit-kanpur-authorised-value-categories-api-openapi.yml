@@ -187,6 +187,16 @@ components:
       - value
       - description
       type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
     authorised_value_category_yaml:
       additionalProperties: false
       properties:
@@ -205,14 +215,4 @@ components:
           type: boolean
       required:
       - category_name
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
       type: object

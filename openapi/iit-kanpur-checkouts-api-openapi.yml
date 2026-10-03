@@ -1151,6 +1151,65 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
+    checkout_availability_yaml:
+      additionalProperties: false
+      properties:
+        blockers:
+          description: blocking issues
+          type: object
+        confirmation_token:
+          description: token for confirmation
+          type:
+          - string
+          - 'null'
+        confirms:
+          description: issues requireing confirmation
+          type: object
+        warnings:
+          description: informational issues
+          type: object
+      type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
+    checkouts_yaml:
+      additionalProperties: false
+      items:
+        $ref: '#/components/schemas/checkout_yaml'
+      type: array
+    renewals_yaml:
+      additionalProperties: false
+      items:
+        $ref: '#/components/schemas/renewal_yaml'
+      type: array
+    allows_renewal_yaml:
+      additionalProperties: false
+      properties:
+        allows_renewal:
+          description: Renewability status; true = renewable, false = not renewable
+          type: boolean
+        current_renewals:
+          description: Current used renewals
+          type: integer
+        error:
+          description: Description on false allows_renewal.
+          type:
+          - string
+          - 'null'
+        max_renewals:
+          description: Maximum number of possible renewals
+          type: integer
+        unseen_renewals:
+          description: Number of consecutive times the item was renewed without being seen
+          type: integer
+      type: object
     checkout_yaml:
       additionalProperties: false
       properties:
@@ -1256,15 +1315,21 @@ components:
           - integer
           - 'null'
       type: object
-    error_yaml:
-      additionalProperties: true
+    DefaultResponse:
       properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
       type: object
     renewal_yaml:
       additionalProperties: false
@@ -1308,69 +1373,4 @@ components:
         timestamp:
           description: Last update time
           type: string
-      type: object
-    checkout_availability_yaml:
-      additionalProperties: false
-      properties:
-        blockers:
-          description: blocking issues
-          type: object
-        confirmation_token:
-          description: token for confirmation
-          type:
-          - string
-          - 'null'
-        confirms:
-          description: issues requireing confirmation
-          type: object
-        warnings:
-          description: informational issues
-          type: object
-      type: object
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
-      type: object
-    checkouts_yaml:
-      additionalProperties: false
-      items:
-        $ref: '#/components/schemas/checkout_yaml'
-      type: array
-    renewals_yaml:
-      additionalProperties: false
-      items:
-        $ref: '#/components/schemas/renewal_yaml'
-      type: array
-    allows_renewal_yaml:
-      additionalProperties: false
-      properties:
-        allows_renewal:
-          description: Renewability status; true = renewable, false = not renewable
-          type: boolean
-        current_renewals:
-          description: Current used renewals
-          type: integer
-        error:
-          description: Description on false allows_renewal.
-          type:
-          - string
-          - 'null'
-        max_renewals:
-          description: Maximum number of possible renewals
-          type: integer
-        unseen_renewals:
-          description: Number of consecutive times the item was renewed without being seen
-          type: integer
       type: object

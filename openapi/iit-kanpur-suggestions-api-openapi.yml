@@ -558,6 +558,34 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
+    patron_extended_attribute_yaml:
+      additionalProperties: false
+      properties:
+        extended_attribute_id:
+          description: Internal ID for the extended attribute
+          type: integer
+        type:
+          description: Extended attribute type
+          type: string
+        value:
+          description: Extended attribute value
+          type:
+          - string
+          - 'null'
+      required:
+      - type
+      - value
+      type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
     patron_yaml:
       additionalProperties: false
       properties:
@@ -944,33 +972,21 @@ components:
       - library_id
       - category_id
       type: object
-    patron_extended_attribute_yaml:
-      additionalProperties: false
+    DefaultResponse:
       properties:
-        extended_attribute_id:
-          description: Internal ID for the extended attribute
-          type: integer
-        type:
-          description: Extended attribute type
-          type: string
-        value:
-          description: Extended attribute value
-          type:
-          - string
-          - 'null'
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
       required:
-      - type
-      - value
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
+      - errors
       type: object
     suggestion_yaml:
       additionalProperties: false
@@ -1168,20 +1184,4 @@ components:
           type:
           - string
           - 'null'
-      type: object
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
       type: object

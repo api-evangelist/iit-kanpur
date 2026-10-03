@@ -860,21 +860,64 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
-    DefaultResponse:
+    erm_eholdings_resource_yaml:
+      additionalProperties: false
       properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
+        ended_on:
+          description: End date
+          type:
+          - string
+          - 'null'
+        is_selected:
+          type:
+          - boolean
+          - 'null'
+        package:
+          description: Information about the package
+          type:
+          - object
+          - 'null'
+        package_id:
+          description: foreign key to the package
+          type:
+          - string
+          - 'null'
+        proxy:
+          description: Proxy to access this resource
+          type:
+          - string
+          - 'null'
+        resource_id:
+          description: internally assigned identifier
+          readOnly: true
+          type: string
+        started_on:
+          description: Start date
+          type:
+          - string
+          - 'null'
+        title:
+          description: Information about the title
+          type:
+          - object
+          - 'null'
+        title_id:
+          description: foreign key to the title
+          type:
+          - integer
+          - 'null'
+        vendor:
+          description: Information about the vendor
+          type:
+          - object
+          - 'null'
+        vendor_id:
+          description: foreign key to aqbooksellers
+          type:
+          - integer
+          - 'null'
       required:
-      - errors
+      - package_id
       type: object
     erm_eholdings_title_yaml:
       additionalProperties: false
@@ -1025,65 +1068,6 @@ components:
       required:
       - publication_title
       type: object
-    erm_eholdings_resource_yaml:
-      additionalProperties: false
-      properties:
-        ended_on:
-          description: End date
-          type:
-          - string
-          - 'null'
-        is_selected:
-          type:
-          - boolean
-          - 'null'
-        package:
-          description: Information about the package
-          type:
-          - object
-          - 'null'
-        package_id:
-          description: foreign key to the package
-          type:
-          - string
-          - 'null'
-        proxy:
-          description: Proxy to access this resource
-          type:
-          - string
-          - 'null'
-        resource_id:
-          description: internally assigned identifier
-          readOnly: true
-          type: string
-        started_on:
-          description: Start date
-          type:
-          - string
-          - 'null'
-        title:
-          description: Information about the title
-          type:
-          - object
-          - 'null'
-        title_id:
-          description: foreign key to the title
-          type:
-          - integer
-          - 'null'
-        vendor:
-          description: Information about the vendor
-          type:
-          - object
-          - 'null'
-        vendor_id:
-          description: foreign key to aqbooksellers
-          type:
-          - integer
-          - 'null'
-      required:
-      - package_id
-      type: object
     error_yaml:
       additionalProperties: true
       properties:
@@ -1093,4 +1077,20 @@ components:
         error_code:
           description: Error code
           type: string
+      type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
       type: object

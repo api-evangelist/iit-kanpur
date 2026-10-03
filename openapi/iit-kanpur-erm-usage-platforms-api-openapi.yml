@@ -231,6 +231,35 @@ components:
       - title_id
       - usage_data_provider_id
       type: object
+    erm_usage_platform_yaml:
+      additionalProperties: false
+      properties:
+        erm_usage_muses:
+          description: usage mus
+          items:
+            $ref: '#/components/schemas/erm_usage_mus_yaml'
+          type: array
+        erm_usage_yuses:
+          description: usage yus
+          items:
+            $ref: '#/components/schemas/erm_usage_yus_yaml'
+          type: array
+        platform:
+          description: title of the platform
+          type:
+          - string
+          - 'null'
+        platform_id:
+          description: internally assigned platform identifier
+          readOnly: true
+          type: integer
+        usage_data_provider_id:
+          description: usage_data_provider the platform is harvested by
+          type: integer
+      required:
+      - platform
+      - usage_data_provider_id
+      type: object
     error_yaml:
       additionalProperties: true
       properties:
@@ -327,33 +356,4 @@ components:
           type: array
       required:
       - errors
-      type: object
-    erm_usage_platform_yaml:
-      additionalProperties: false
-      properties:
-        erm_usage_muses:
-          description: usage mus
-          items:
-            $ref: '#/components/schemas/erm_usage_mus_yaml'
-          type: array
-        erm_usage_yuses:
-          description: usage yus
-          items:
-            $ref: '#/components/schemas/erm_usage_yus_yaml'
-          type: array
-        platform:
-          description: title of the platform
-          type:
-          - string
-          - 'null'
-        platform_id:
-          description: internally assigned platform identifier
-          readOnly: true
-          type: integer
-        usage_data_provider_id:
-          description: usage_data_provider the platform is harvested by
-          type: integer
-      required:
-      - platform
-      - usage_data_provider_id
       type: object

@@ -382,6 +382,16 @@ components:
       - borrowernumber
       - counter_files_id
       type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
     DefaultResponse:
       properties:
         errors:
@@ -397,14 +407,4 @@ components:
           type: array
       required:
       - errors
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
       type: object

@@ -719,31 +719,6 @@ components:
       required:
       - name
       type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
-      type: object
-    vendor_alias_yaml:
-      additionalProperties: false
-      properties:
-        alias:
-          description: The alias
-          type: string
-        alias_id:
-          description: Internal ID for the extended attribute
-          type: integer
-        vendor_id:
-          description: ID of the vendor
-          type: integer
-      required:
-      - alias
-      type: object
     vendor_issue_yaml:
       additionalProperties: false
       properties:
@@ -781,6 +756,31 @@ components:
         vendor_id:
           description: ID of the vendor
           type: integer
+      type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
+    vendor_alias_yaml:
+      additionalProperties: false
+      properties:
+        alias:
+          description: The alias
+          type: string
+        alias_id:
+          description: Internal ID for the extended attribute
+          type: integer
+        vendor_id:
+          description: ID of the vendor
+          type: integer
+      required:
+      - alias
       type: object
     DefaultResponse:
       properties:

@@ -90,6 +90,16 @@ components:
           description: List of sysprefs used for the ERM module
           type: object
       type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
     DefaultResponse:
       properties:
         errors:
@@ -105,14 +115,4 @@ components:
           type: array
       required:
       - errors
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
       type: object

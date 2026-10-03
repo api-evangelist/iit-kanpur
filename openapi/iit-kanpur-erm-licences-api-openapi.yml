@@ -495,6 +495,16 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
     erm_user_role_yaml:
       additionalProperties: false
       properties:
@@ -525,91 +535,6 @@ components:
       required:
       - user_id
       - role
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
-      type: object
-    erm_document_yaml:
-      additionalProperties: false
-      properties:
-        agreement_id:
-          description: Internal agreement identifier
-          type:
-          - integer
-          - 'null'
-        document_id:
-          description: internally assigned identifier
-          type: integer
-        file_content:
-          description: Content of the file
-          type:
-          - string
-          - 'null'
-        file_description:
-          description: Description of the file
-          type:
-          - string
-          - 'null'
-        file_name:
-          description: Name of the file
-          type:
-          - string
-          - 'null'
-        file_type:
-          description: Type of the file
-          readOnly: true
-          type:
-          - string
-          - 'null'
-        license_id:
-          description: Internal license identifier
-          type:
-          - integer
-          - 'null'
-        notes:
-          type:
-          - string
-          - 'null'
-        physical_location:
-          description: Physical location of the document
-          type:
-          - string
-          - 'null'
-        uploaded_on:
-          description: Datetime of the upload
-          format: date-time
-          readOnly: true
-          type:
-          - string
-          - 'null'
-        uri:
-          description: URI of the document
-          type:
-          - string
-          - 'null'
-      type: object
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
       type: object
     erm_license_yaml:
       additionalProperties: false
@@ -669,4 +594,79 @@ components:
       - name
       - status
       - type
+      type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object
+    erm_document_yaml:
+      additionalProperties: false
+      properties:
+        agreement_id:
+          description: Internal agreement identifier
+          type:
+          - integer
+          - 'null'
+        document_id:
+          description: internally assigned identifier
+          type: integer
+        file_content:
+          description: Content of the file
+          type:
+          - string
+          - 'null'
+        file_description:
+          description: Description of the file
+          type:
+          - string
+          - 'null'
+        file_name:
+          description: Name of the file
+          type:
+          - string
+          - 'null'
+        file_type:
+          description: Type of the file
+          readOnly: true
+          type:
+          - string
+          - 'null'
+        license_id:
+          description: Internal license identifier
+          type:
+          - integer
+          - 'null'
+        notes:
+          type:
+          - string
+          - 'null'
+        physical_location:
+          description: Physical location of the document
+          type:
+          - string
+          - 'null'
+        uploaded_on:
+          description: Datetime of the upload
+          format: date-time
+          readOnly: true
+          type:
+          - string
+          - 'null'
+        uri:
+          description: URI of the document
+          type:
+          - string
+          - 'null'
       type: object

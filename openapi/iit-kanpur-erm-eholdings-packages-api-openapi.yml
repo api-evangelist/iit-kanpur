@@ -763,6 +763,29 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
+    erm_eholdings_package_agreement_yaml:
+      additionalProperties: false
+      properties:
+        agreement_id:
+          description: foreign key to agreement
+          type: integer
+        package_id:
+          description: foreign key to package
+          readOnly: true
+          type: integer
+      required:
+      - agreement_id
+      type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
     erm_eholdings_resource_yaml:
       additionalProperties: false
       properties:
@@ -821,16 +844,6 @@ components:
           - 'null'
       required:
       - package_id
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
       type: object
     erm_eholdings_package_yaml:
       additionalProperties: false
@@ -922,17 +935,4 @@ components:
           type: array
       required:
       - errors
-      type: object
-    erm_eholdings_package_agreement_yaml:
-      additionalProperties: false
-      properties:
-        agreement_id:
-          description: foreign key to agreement
-          type: integer
-        package_id:
-          description: foreign key to package
-          readOnly: true
-          type: integer
-      required:
-      - agreement_id
       type: object

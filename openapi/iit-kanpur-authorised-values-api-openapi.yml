@@ -172,22 +172,6 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
-      type: object
     authorised_value_yaml:
       additionalProperties: false
       properties:
@@ -228,4 +212,20 @@ components:
         error_code:
           description: Error code
           type: string
+      type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
       type: object
