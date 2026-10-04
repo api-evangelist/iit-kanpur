@@ -892,79 +892,6 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
-      type: object
-    identity_provider_domain_yaml:
-      additionalProperties: false
-      properties:
-        allow_opac:
-          description: If this domain can be used for OPAC login
-          type: boolean
-        allow_staff:
-          description: If this domain can be used for staff login
-          type: boolean
-        auto_register:
-          description: If patrons will be generated on login if required
-          type: boolean
-        default_category_id:
-          description: Internal identifier for the default patron's category
-          type:
-          - string
-          - 'null'
-        default_library_id:
-          description: Internal identifier for the default library to be assigned to the new patrons
-          type:
-          - string
-          - 'null'
-        domain:
-          description: Matching domain ('*' used as wildcard)
-          type:
-          - string
-          - 'null'
-        identity_provider_domain_id:
-          description: Internally assigned identity provider domain identifier
-          readOnly: true
-          type: integer
-        identity_provider_id:
-          description: Internally assigned identity provider identifier
-          type: integer
-        update_on_auth:
-          description: If patron data is updated on login
-          type: boolean
-      required:
-      - identity_provider_domain_id
-      - domain
-      - auto_register
-      - update_on_auth
-      - default_library_id
-      - default_category_id
-      - allow_opac
-      - allow_staff
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
-      type: object
     identity_provider_yaml:
       additionalProperties: false
       properties:
@@ -1015,4 +942,77 @@ components:
       - config
       - code
       - protocol
+      type: object
+    identity_provider_domain_yaml:
+      additionalProperties: false
+      properties:
+        allow_opac:
+          description: If this domain can be used for OPAC login
+          type: boolean
+        allow_staff:
+          description: If this domain can be used for staff login
+          type: boolean
+        auto_register:
+          description: If patrons will be generated on login if required
+          type: boolean
+        default_category_id:
+          description: Internal identifier for the default patron's category
+          type:
+          - string
+          - 'null'
+        default_library_id:
+          description: Internal identifier for the default library to be assigned to the new patrons
+          type:
+          - string
+          - 'null'
+        domain:
+          description: Matching domain ('*' used as wildcard)
+          type:
+          - string
+          - 'null'
+        identity_provider_domain_id:
+          description: Internally assigned identity provider domain identifier
+          readOnly: true
+          type: integer
+        identity_provider_id:
+          description: Internally assigned identity provider identifier
+          type: integer
+        update_on_auth:
+          description: If patron data is updated on login
+          type: boolean
+      required:
+      - identity_provider_domain_id
+      - domain
+      - auto_register
+      - update_on_auth
+      - default_library_id
+      - default_category_id
+      - allow_opac
+      - allow_staff
+      type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
       type: object

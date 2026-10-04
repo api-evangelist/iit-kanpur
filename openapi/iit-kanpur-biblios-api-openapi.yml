@@ -1303,6 +1303,30 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
+    merge_biblios_yaml:
+      additionalProperties: false
+      properties:
+        biblio_id_to_merge:
+          description: Biblionumber from which to merge
+          type: integer
+        datarecord:
+          description: Bibliographic record used as result of the merge. It uses the format MARC-in-JSON
+          type:
+          - object
+          - 'null'
+        framework_to_use:
+          description: Framework code, you can use it only with a value in datarecord field. With null value it uses the framework code of record to be merged into.
+          type:
+          - string
+          - 'null'
+        rules:
+          description: Internally identifier of a merge algoritm. Now two identifier are supported, 'override' and 'override_ext'. 'override' is to use when you the bibliographic data of biblio_id as resulting bibliographic data. The null value is equivalent of 'override'. 'override_ext' is to use only with a value in datarecord field. In fact is mandatory to use if you insert a record inside datarecord field.
+          type:
+          - string
+          - 'null'
+      required:
+      - biblio_id_to_merge
+      type: object
     error_yaml:
       additionalProperties: true
       properties:
@@ -1441,46 +1465,6 @@ components:
       required:
       - library_id
       - name
-      type: object
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
-      type: object
-    merge_biblios_yaml:
-      additionalProperties: false
-      properties:
-        biblio_id_to_merge:
-          description: Biblionumber from which to merge
-          type: integer
-        datarecord:
-          description: Bibliographic record used as result of the merge. It uses the format MARC-in-JSON
-          type:
-          - object
-          - 'null'
-        framework_to_use:
-          description: Framework code, you can use it only with a value in datarecord field. With null value it uses the framework code of record to be merged into.
-          type:
-          - string
-          - 'null'
-        rules:
-          description: Internally identifier of a merge algoritm. Now two identifier are supported, 'override' and 'override_ext'. 'override' is to use when you the bibliographic data of biblio_id as resulting bibliographic data. The null value is equivalent of 'override'. 'override_ext' is to use only with a value in datarecord field. In fact is mandatory to use if you insert a record inside datarecord field.
-          type:
-          - string
-          - 'null'
-      required:
-      - biblio_id_to_merge
       type: object
     item_yaml:
       additionalProperties: false
@@ -1716,4 +1700,20 @@ components:
           type:
           - string
           - 'null'
+      type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
       type: object

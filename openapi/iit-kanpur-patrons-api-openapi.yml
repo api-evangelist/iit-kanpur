@@ -2599,111 +2599,6 @@ components:
       required:
       - amount
       type: object
-    credit_yaml:
-      additionalProperties: false
-      properties:
-        account_line_id:
-          description: Internal account line identifier
-          readOnly: true
-          type:
-          - integer
-          - 'null'
-        amount:
-          description: Credit amount
-          type: number
-        amount_outstanding:
-          description: Outstanding amount
-          readOnly: true
-          type: number
-        cash_register_id:
-          description: Internal identifier for the cash register used for the payment (if any)
-          type:
-          - integer
-          - 'null'
-        credit_number:
-          description: Internally generated identifier for credits
-          readOnly: true
-          type:
-          - string
-          - 'null'
-        date:
-          description: Date the account line was created
-          format: date-time
-          readOnly: true
-          type: string
-        description:
-          description: Account line description
-          readOnly: true
-          type:
-          - string
-          - 'null'
-        interface:
-          description: 'Interface in which the account line was generated (values can be: api, cron, commandline, intranet, opac and sip)'
-          readOnly: true
-          type:
-          - string
-          - 'null'
-        internal_note:
-          description: Internal note
-          type:
-          - string
-          - 'null'
-        library_id:
-          description: Internal identifier for the library in which the transaction took place
-          type:
-          - string
-          - 'null'
-        patron_id:
-          description: Internal identifier for the patron the account line belongs to
-          readOnly: true
-          type: integer
-        payment_type:
-          description: Payment type
-          type:
-          - string
-          - 'null'
-        status:
-          description: The credit status
-          readOnly: true
-          type:
-          - string
-          - 'null'
-        timestamp:
-          description: Timestamp for the latest line update
-          format: date-time
-          readOnly: true
-          type: string
-        type:
-          description: Account credit type
-          type:
-          - string
-          - 'null'
-        user_id:
-          description: Internal patron identifier for the staff member that introduced the account line
-          type:
-          - integer
-          - 'null'
-      required:
-      - amount
-      type: object
-    patron_extended_attribute_yaml:
-      additionalProperties: false
-      properties:
-        extended_attribute_id:
-          description: Internal ID for the extended attribute
-          type: integer
-        type:
-          description: Extended attribute type
-          type: string
-        value:
-          description: Extended attribute value
-          type:
-          - string
-          - 'null'
-      required:
-      - type
-      - value
-      type: object
     error_yaml:
       additionalProperties: true
       properties:
@@ -2714,21 +2609,146 @@ components:
           description: Error code
           type: string
       type: object
-    DefaultResponse:
+    checkout_yaml:
+      additionalProperties: false
       properties:
-        errors:
+        auto_renew:
+          description: Auto renewal
+          type: boolean
+        auto_renew_error:
+          description: Auto renewal error
+          type:
+          - string
+          - 'null'
+        checkin_date:
+          description: Date the item was returned
+          format: date-time
+          type:
+          - string
+          - 'null'
+        checkout_date:
+          description: Date the item was issued
+          format: date-time
+          type: string
+        checkout_id:
+          description: internally assigned checkout identifier
+          type: integer
+        due_date:
+          description: Due date
+          format: date-time
+          type: string
+        issuer:
+          description: The object representing the checkout issuer
+          type:
+          - object
+          - 'null'
+        issuer_id:
+          description: internally assigned for the user that processed the checkout
+          type:
+          - integer
+          - 'null'
+        item:
+          description: The object representing the checked out item
+          type:
+          - object
+          - 'null'
+        item_id:
+          description: internal identifier of checked out item
+          type:
+          - integer
+          - 'null'
+        last_renewed_date:
+          description: Date the item was last renewed
+          format: date-time
+          type:
+          - string
+          - 'null'
+        library:
+          description: The object representing the checkout library
+          type:
+          - object
+          - 'null'
+        library_id:
+          description: code of the library the item was checked out
+          type:
+          - string
+          - 'null'
+        note:
+          description: Issue note text
+          type:
+          - string
+          - 'null'
+        note_date:
+          description: Datetime of the issue note
+          format: date
+          type:
+          - string
+          - 'null'
+        note_seen:
+          description: has the note been seen already
+          type:
+          - boolean
+          - 'null'
+        onsite_checkout:
+          description: On site checkout
+          type: boolean
+        patron:
+          description: The object representing the checkout patron
+          type:
+          - object
+          - 'null'
+        patron_id:
+          description: Internal patron identifier
+          type: integer
+        renewals_count:
+          description: Number of renewals
+          type:
+          - integer
+          - 'null'
+        timestamp:
+          description: Last update time
+          type: string
+        unseen_renewals:
+          description: Number of consecutive unseen renewals
+          type:
+          - integer
+          - 'null'
+      type: object
+    patron_account_credit_yaml:
+      additionalProperties: false
+      properties:
+        account_lines_ids:
+          description: List of account line ids the credit goes against (optional)
           items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
+            type: integer
           type: array
+        amount:
+          description: Credit amount
+          minimum: 0
+          type: number
+        credit_type:
+          description: Type of credit ('CREDIT', 'FORGIVEN', 'LOST_FOUND', 'PAYMENT', 'WRITEOFF', 'PROCESSING_FOUND' )
+          type: string
+        date:
+          description: Date the credit was recorded (optional)
+          format: date
+          type: string
+        description:
+          description: Description
+          type: string
+        library_id:
+          description: Internal identifier for the library in which the transaction took place
+          type:
+          - string
+          - 'null'
+        note:
+          description: Internal note
+          type: string
+        payment_type:
+          description: Payment type (only applies when credit_type=payment)
+          type: string
       required:
-      - errors
+      - amount
       type: object
     account_line_yaml:
       additionalProperties: false
@@ -2837,31 +2857,23 @@ components:
       required:
       - amount
       type: object
-    patron_balance_yaml:
+    patron_extended_attribute_yaml:
       additionalProperties: false
       properties:
-        balance:
-          description: Signed decimal number
-          type: number
-        outstanding_credits:
-          properties:
-            lines:
-              items:
-                $ref: '#/components/schemas/account_line_yaml'
-              type: array
-            total:
-              type: number
-        outstanding_debits:
-          properties:
-            lines:
-              items:
-                $ref: '#/components/schemas/account_line_yaml'
-              type: array
-            total:
-              type: number
-          type: object
+        extended_attribute_id:
+          description: Internal ID for the extended attribute
+          type: integer
+        type:
+          description: Extended attribute type
+          type: string
+        value:
+          description: Extended attribute value
+          type:
+          - string
+          - 'null'
       required:
-      - balance
+      - type
+      - value
       type: object
     patron_yaml:
       additionalProperties: false
@@ -3249,144 +3261,132 @@ components:
       - library_id
       - category_id
       type: object
-    patron_account_credit_yaml:
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object
+    credit_yaml:
       additionalProperties: false
       properties:
-        account_lines_ids:
-          description: List of account line ids the credit goes against (optional)
-          items:
-            type: integer
-          type: array
+        account_line_id:
+          description: Internal account line identifier
+          readOnly: true
+          type:
+          - integer
+          - 'null'
         amount:
           description: Credit amount
-          minimum: 0
           type: number
-        credit_type:
-          description: Type of credit ('CREDIT', 'FORGIVEN', 'LOST_FOUND', 'PAYMENT', 'WRITEOFF', 'PROCESSING_FOUND' )
-          type: string
+        amount_outstanding:
+          description: Outstanding amount
+          readOnly: true
+          type: number
+        cash_register_id:
+          description: Internal identifier for the cash register used for the payment (if any)
+          type:
+          - integer
+          - 'null'
+        credit_number:
+          description: Internally generated identifier for credits
+          readOnly: true
+          type:
+          - string
+          - 'null'
         date:
-          description: Date the credit was recorded (optional)
-          format: date
+          description: Date the account line was created
+          format: date-time
+          readOnly: true
           type: string
         description:
-          description: Description
-          type: string
+          description: Account line description
+          readOnly: true
+          type:
+          - string
+          - 'null'
+        interface:
+          description: 'Interface in which the account line was generated (values can be: api, cron, commandline, intranet, opac and sip)'
+          readOnly: true
+          type:
+          - string
+          - 'null'
+        internal_note:
+          description: Internal note
+          type:
+          - string
+          - 'null'
         library_id:
           description: Internal identifier for the library in which the transaction took place
           type:
           - string
           - 'null'
-        note:
-          description: Internal note
-          type: string
+        patron_id:
+          description: Internal identifier for the patron the account line belongs to
+          readOnly: true
+          type: integer
         payment_type:
-          description: Payment type (only applies when credit_type=payment)
+          description: Payment type
+          type:
+          - string
+          - 'null'
+        status:
+          description: The credit status
+          readOnly: true
+          type:
+          - string
+          - 'null'
+        timestamp:
+          description: Timestamp for the latest line update
+          format: date-time
+          readOnly: true
           type: string
+        type:
+          description: Account credit type
+          type:
+          - string
+          - 'null'
+        user_id:
+          description: Internal patron identifier for the staff member that introduced the account line
+          type:
+          - integer
+          - 'null'
       required:
       - amount
       type: object
-    checkout_yaml:
+    patron_balance_yaml:
       additionalProperties: false
       properties:
-        auto_renew:
-          description: Auto renewal
-          type: boolean
-        auto_renew_error:
-          description: Auto renewal error
-          type:
-          - string
-          - 'null'
-        checkin_date:
-          description: Date the item was returned
-          format: date-time
-          type:
-          - string
-          - 'null'
-        checkout_date:
-          description: Date the item was issued
-          format: date-time
-          type: string
-        checkout_id:
-          description: internally assigned checkout identifier
-          type: integer
-        due_date:
-          description: Due date
-          format: date-time
-          type: string
-        issuer:
-          description: The object representing the checkout issuer
-          type:
-          - object
-          - 'null'
-        issuer_id:
-          description: internally assigned for the user that processed the checkout
-          type:
-          - integer
-          - 'null'
-        item:
-          description: The object representing the checked out item
-          type:
-          - object
-          - 'null'
-        item_id:
-          description: internal identifier of checked out item
-          type:
-          - integer
-          - 'null'
-        last_renewed_date:
-          description: Date the item was last renewed
-          format: date-time
-          type:
-          - string
-          - 'null'
-        library:
-          description: The object representing the checkout library
-          type:
-          - object
-          - 'null'
-        library_id:
-          description: code of the library the item was checked out
-          type:
-          - string
-          - 'null'
-        note:
-          description: Issue note text
-          type:
-          - string
-          - 'null'
-        note_date:
-          description: Datetime of the issue note
-          format: date
-          type:
-          - string
-          - 'null'
-        note_seen:
-          description: has the note been seen already
-          type:
-          - boolean
-          - 'null'
-        onsite_checkout:
-          description: On site checkout
-          type: boolean
-        patron:
-          description: The object representing the checkout patron
-          type:
-          - object
-          - 'null'
-        patron_id:
-          description: Internal patron identifier
-          type: integer
-        renewals_count:
-          description: Number of renewals
-          type:
-          - integer
-          - 'null'
-        timestamp:
-          description: Last update time
-          type: string
-        unseen_renewals:
-          description: Number of consecutive unseen renewals
-          type:
-          - integer
-          - 'null'
+        balance:
+          description: Signed decimal number
+          type: number
+        outstanding_credits:
+          properties:
+            lines:
+              items:
+                $ref: '#/components/schemas/account_line_yaml'
+              type: array
+            total:
+              type: number
+        outstanding_debits:
+          properties:
+            lines:
+              items:
+                $ref: '#/components/schemas/account_line_yaml'
+              type: array
+            total:
+              type: number
+          type: object
+      required:
+      - balance
       type: object

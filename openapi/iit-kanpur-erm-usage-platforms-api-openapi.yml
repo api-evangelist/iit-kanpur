@@ -165,111 +165,6 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
-    erm_usage_yus_yaml:
-      additionalProperties: false
-      properties:
-        access_type:
-          description: access type of the yearly usage summary
-          type:
-          - string
-          - 'null'
-        database_id:
-          description: database_id of the yearly usage summary
-          type:
-          - integer
-          - 'null'
-        item_id:
-          description: item_id of the yearly usage summary
-          type:
-          - integer
-          - 'null'
-        metric_type:
-          description: metric type of the yearly usage summary
-          type:
-          - string
-          - 'null'
-        platform_id:
-          description: platform_id of the yearly usage summary
-          type:
-          - integer
-          - 'null'
-        report_type:
-          description: report type of the yearly usage summary
-          type:
-          - string
-          - 'null'
-        title_id:
-          description: title_id of the yearly usage summary
-          type:
-          - integer
-          - 'null'
-        totalcount:
-          description: total count of the yearly usage summary
-          type:
-          - integer
-          - 'null'
-        usage_data_provider_id:
-          description: usage_data_provider_id of the yearly usage summary
-          type:
-          - integer
-          - 'null'
-        year:
-          description: year of the yearly usage summary
-          type:
-          - integer
-          - 'null'
-        yearly_usage_summary_id:
-          description: internally assigned yearly usage summary identifier
-          readOnly: true
-          type: integer
-        yop:
-          description: year of publication of the yearly usage summary
-          type:
-          - string
-          - 'null'
-      required:
-      - title_id
-      - usage_data_provider_id
-      type: object
-    erm_usage_platform_yaml:
-      additionalProperties: false
-      properties:
-        erm_usage_muses:
-          description: usage mus
-          items:
-            $ref: '#/components/schemas/erm_usage_mus_yaml'
-          type: array
-        erm_usage_yuses:
-          description: usage yus
-          items:
-            $ref: '#/components/schemas/erm_usage_yus_yaml'
-          type: array
-        platform:
-          description: title of the platform
-          type:
-          - string
-          - 'null'
-        platform_id:
-          description: internally assigned platform identifier
-          readOnly: true
-          type: integer
-        usage_data_provider_id:
-          description: usage_data_provider the platform is harvested by
-          type: integer
-      required:
-      - platform
-      - usage_data_provider_id
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
-      type: object
     erm_usage_mus_yaml:
       additionalProperties: false
       properties:
@@ -341,6 +236,16 @@ components:
       - title_id
       - usage_data_provider_id
       type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
     DefaultResponse:
       properties:
         errors:
@@ -356,4 +261,99 @@ components:
           type: array
       required:
       - errors
+      type: object
+    erm_usage_platform_yaml:
+      additionalProperties: false
+      properties:
+        erm_usage_muses:
+          description: usage mus
+          items:
+            $ref: '#/components/schemas/erm_usage_mus_yaml'
+          type: array
+        erm_usage_yuses:
+          description: usage yus
+          items:
+            $ref: '#/components/schemas/erm_usage_yus_yaml'
+          type: array
+        platform:
+          description: title of the platform
+          type:
+          - string
+          - 'null'
+        platform_id:
+          description: internally assigned platform identifier
+          readOnly: true
+          type: integer
+        usage_data_provider_id:
+          description: usage_data_provider the platform is harvested by
+          type: integer
+      required:
+      - platform
+      - usage_data_provider_id
+      type: object
+    erm_usage_yus_yaml:
+      additionalProperties: false
+      properties:
+        access_type:
+          description: access type of the yearly usage summary
+          type:
+          - string
+          - 'null'
+        database_id:
+          description: database_id of the yearly usage summary
+          type:
+          - integer
+          - 'null'
+        item_id:
+          description: item_id of the yearly usage summary
+          type:
+          - integer
+          - 'null'
+        metric_type:
+          description: metric type of the yearly usage summary
+          type:
+          - string
+          - 'null'
+        platform_id:
+          description: platform_id of the yearly usage summary
+          type:
+          - integer
+          - 'null'
+        report_type:
+          description: report type of the yearly usage summary
+          type:
+          - string
+          - 'null'
+        title_id:
+          description: title_id of the yearly usage summary
+          type:
+          - integer
+          - 'null'
+        totalcount:
+          description: total count of the yearly usage summary
+          type:
+          - integer
+          - 'null'
+        usage_data_provider_id:
+          description: usage_data_provider_id of the yearly usage summary
+          type:
+          - integer
+          - 'null'
+        year:
+          description: year of the yearly usage summary
+          type:
+          - integer
+          - 'null'
+        yearly_usage_summary_id:
+          description: internally assigned yearly usage summary identifier
+          readOnly: true
+          type: integer
+        yop:
+          description: year of publication of the yearly usage summary
+          type:
+          - string
+          - 'null'
+      required:
+      - title_id
+      - usage_data_provider_id
       type: object

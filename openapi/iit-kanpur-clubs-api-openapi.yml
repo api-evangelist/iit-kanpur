@@ -138,28 +138,6 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
-    club_hold_yaml:
-      additionalProperties: false
-      properties:
-        biblio_id:
-          description: Internal biblio identifier
-          type: integer
-        club_hold_id:
-          description: Internal club hold identifier
-          type: integer
-        club_id:
-          description: Internal club identifier
-          type: integer
-        date_created:
-          description: Date and time the hold was created
-          format: date-time
-          type: string
-        item_id:
-          description: Internal item identifier
-          type:
-          - string
-          - 'null'
-      type: object
     error_yaml:
       additionalProperties: true
       properties:
@@ -185,4 +163,26 @@ components:
           type: array
       required:
       - errors
+      type: object
+    club_hold_yaml:
+      additionalProperties: false
+      properties:
+        biblio_id:
+          description: Internal biblio identifier
+          type: integer
+        club_hold_id:
+          description: Internal club hold identifier
+          type: integer
+        club_id:
+          description: Internal club identifier
+          type: integer
+        date_created:
+          description: Date and time the hold was created
+          format: date-time
+          type: string
+        item_id:
+          description: Internal item identifier
+          type:
+          - string
+          - 'null'
       type: object

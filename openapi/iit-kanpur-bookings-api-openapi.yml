@@ -550,6 +550,16 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
     booking_yaml:
       additionalProperties: false
       properties:
@@ -594,16 +604,6 @@ components:
       - patron_id
       - start_date
       - end_date
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
       type: object
     DefaultResponse:
       properties:

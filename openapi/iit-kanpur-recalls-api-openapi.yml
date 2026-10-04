@@ -155,6 +155,22 @@ components:
           description: Error code
           type: string
       type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object
     recall_yaml:
       additionalProperties: false
       properties:
@@ -232,20 +248,4 @@ components:
           type:
           - string
           - 'null'
-      type: object
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
       type: object

@@ -506,32 +506,6 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
-    transfer_limit_yaml:
-      additionalProperties: false
-      properties:
-        collection_code:
-          description: Authorized value for the collection code associated with this limit
-          type:
-          - string
-          - 'null'
-        from_library_id:
-          description: Internal library id for which library the item is coming from
-          type: string
-        item_type:
-          description: Itemtype defining the type for this limi
-          type:
-          - string
-          - 'null'
-        limit_id:
-          description: Internal transfer limit identifier
-          type: integer
-        to_library_id:
-          description: Internal library id for which library the item is going to
-          type: string
-      required:
-      - to_library_id
-      - from_library_id
-      type: object
     error_yaml:
       additionalProperties: true
       properties:
@@ -557,4 +531,30 @@ components:
           type: array
       required:
       - errors
+      type: object
+    transfer_limit_yaml:
+      additionalProperties: false
+      properties:
+        collection_code:
+          description: Authorized value for the collection code associated with this limit
+          type:
+          - string
+          - 'null'
+        from_library_id:
+          description: Internal library id for which library the item is coming from
+          type: string
+        item_type:
+          description: Itemtype defining the type for this limi
+          type:
+          - string
+          - 'null'
+        limit_id:
+          description: Internal transfer limit identifier
+          type: integer
+        to_library_id:
+          description: Internal library id for which library the item is going to
+          type: string
+      required:
+      - to_library_id
+      - from_library_id
       type: object

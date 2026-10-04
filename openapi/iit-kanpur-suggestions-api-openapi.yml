@@ -558,6 +558,213 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
+    suggestion_yaml:
+      additionalProperties: false
+      properties:
+        accepted_by:
+          description: patron_id for the librarian who accepted the suggestion, foreign key linking to the borrowers table
+          type:
+          - integer
+          - 'null'
+        accepted_date:
+          description: date the suggestion was marked as accepted
+          format: date
+          type:
+          - string
+          - 'null'
+        archived:
+          description: archived (processed) suggestion
+          type:
+          - boolean
+          - 'null'
+        author:
+          description: author of the suggested item
+          type:
+          - string
+          - 'null'
+        biblio_id:
+          description: foreign key linking the suggestion to the biblio table after the suggestion has been ordered
+          type:
+          - integer
+          - 'null'
+        budget_id:
+          description: foreign key linking the suggested budget to the aqbudgets table
+          type:
+          - integer
+          - 'null'
+        collection_title:
+          description: collection name for the suggested item
+          type:
+          - string
+          - 'null'
+        copyright_date:
+          description: copyright date of the suggested item
+          type:
+          - integer
+          - 'null'
+        currency:
+          description: suggested currency for the suggested price
+          type:
+          - string
+          - 'null'
+        isbn:
+          description: isbn of the suggested item
+          type:
+          - string
+          - 'null'
+        item_price:
+          description: suggested price
+          type:
+          - number
+          - 'null'
+        item_type:
+          description: suggested item type
+          type:
+          - string
+          - 'null'
+        last_status_change_by:
+          description: patron the suggestion was last modified by
+          type:
+          - integer
+          - 'null'
+        last_status_change_date:
+          description: date the suggestion was last modified
+          format: date
+          type:
+          - string
+          - 'null'
+        library_id:
+          description: foreign key linking the suggested branch to the branches table
+          type:
+          - string
+          - 'null'
+        managed_by:
+          description: patron_id for the librarian managing the suggestion, foreign key linking to the borrowers table
+          type:
+          - integer
+          - 'null'
+        managed_date:
+          description: date the suggestion was updated
+          format: date
+          type:
+          - string
+          - 'null'
+        note:
+          description: note entered on the suggestion
+          type:
+          - string
+          - 'null'
+        patron_reason:
+          description: reason for making the suggestion
+          type:
+          - string
+          - 'null'
+        publication_place:
+          description: publication place of the suggested item
+          type:
+          - string
+          - 'null'
+        publication_year:
+          description: year of publication
+          type:
+          - string
+          - 'null'
+        publisher_code:
+          description: publisher of the suggested item
+          type:
+          - string
+          - 'null'
+        quantity:
+          description: suggested quantity to be purchased
+          type:
+          - string
+          - 'null'
+        reason:
+          description: reason for accepting or rejecting the suggestion
+          type:
+          - string
+          - 'null'
+        rejected_by:
+          description: patron_id for the librarian who rejected the suggestion, foreign key linking to the borrowers table
+          type:
+          - integer
+          - 'null'
+        rejected_date:
+          description: date the suggestion was marked as rejected
+          format: date
+          type:
+          - string
+          - 'null'
+        staff_note:
+          description: non-public note entered on the suggestion
+          type:
+          - string
+          - 'null'
+        status:
+          description: 'Suggestion status. Possible values are:
+
+
+            * `ASKED`
+
+            * `CHECKED`
+
+            * `ACCEPTED`
+
+            * `REJECTED`
+
+            * `ORDERED`
+
+            * `AVAILABLE`
+
+            * Values from the `SUGGEST_STATUS` av category
+
+            '
+          type: string
+        suggested_by:
+          description: patron_id for the person making the suggestion, foreign key linking to the borrowers table
+          type:
+          - integer
+          - 'null'
+        suggestion_date:
+          description: the suggestion was submitted
+          format: date
+          type: string
+        suggestion_id:
+          description: unique identifier assigned automatically by Koha
+          readOnly: true
+          type: integer
+        timestamp:
+          description: timestamp of date created
+          format: date-time
+          type:
+          - string
+          - 'null'
+        title:
+          description: title of the suggested item
+          type:
+          - string
+          - 'null'
+        total_price:
+          description: suggested total cost (price*quantity updated for currency)
+          type:
+          - string
+          - 'null'
+        volume_desc:
+          description: volume description
+          type:
+          - string
+          - 'null'
+      type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
     patron_extended_attribute_yaml:
       additionalProperties: false
       properties:
@@ -575,16 +782,6 @@ components:
       required:
       - type
       - value
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
       type: object
     patron_yaml:
       additionalProperties: false
@@ -987,201 +1184,4 @@ components:
           type: array
       required:
       - errors
-      type: object
-    suggestion_yaml:
-      additionalProperties: false
-      properties:
-        accepted_by:
-          description: patron_id for the librarian who accepted the suggestion, foreign key linking to the borrowers table
-          type:
-          - integer
-          - 'null'
-        accepted_date:
-          description: date the suggestion was marked as accepted
-          format: date
-          type:
-          - string
-          - 'null'
-        archived:
-          description: archived (processed) suggestion
-          type:
-          - boolean
-          - 'null'
-        author:
-          description: author of the suggested item
-          type:
-          - string
-          - 'null'
-        biblio_id:
-          description: foreign key linking the suggestion to the biblio table after the suggestion has been ordered
-          type:
-          - integer
-          - 'null'
-        budget_id:
-          description: foreign key linking the suggested budget to the aqbudgets table
-          type:
-          - integer
-          - 'null'
-        collection_title:
-          description: collection name for the suggested item
-          type:
-          - string
-          - 'null'
-        copyright_date:
-          description: copyright date of the suggested item
-          type:
-          - integer
-          - 'null'
-        currency:
-          description: suggested currency for the suggested price
-          type:
-          - string
-          - 'null'
-        isbn:
-          description: isbn of the suggested item
-          type:
-          - string
-          - 'null'
-        item_price:
-          description: suggested price
-          type:
-          - number
-          - 'null'
-        item_type:
-          description: suggested item type
-          type:
-          - string
-          - 'null'
-        last_status_change_by:
-          description: patron the suggestion was last modified by
-          type:
-          - integer
-          - 'null'
-        last_status_change_date:
-          description: date the suggestion was last modified
-          format: date
-          type:
-          - string
-          - 'null'
-        library_id:
-          description: foreign key linking the suggested branch to the branches table
-          type:
-          - string
-          - 'null'
-        managed_by:
-          description: patron_id for the librarian managing the suggestion, foreign key linking to the borrowers table
-          type:
-          - integer
-          - 'null'
-        managed_date:
-          description: date the suggestion was updated
-          format: date
-          type:
-          - string
-          - 'null'
-        note:
-          description: note entered on the suggestion
-          type:
-          - string
-          - 'null'
-        patron_reason:
-          description: reason for making the suggestion
-          type:
-          - string
-          - 'null'
-        publication_place:
-          description: publication place of the suggested item
-          type:
-          - string
-          - 'null'
-        publication_year:
-          description: year of publication
-          type:
-          - string
-          - 'null'
-        publisher_code:
-          description: publisher of the suggested item
-          type:
-          - string
-          - 'null'
-        quantity:
-          description: suggested quantity to be purchased
-          type:
-          - string
-          - 'null'
-        reason:
-          description: reason for accepting or rejecting the suggestion
-          type:
-          - string
-          - 'null'
-        rejected_by:
-          description: patron_id for the librarian who rejected the suggestion, foreign key linking to the borrowers table
-          type:
-          - integer
-          - 'null'
-        rejected_date:
-          description: date the suggestion was marked as rejected
-          format: date
-          type:
-          - string
-          - 'null'
-        staff_note:
-          description: non-public note entered on the suggestion
-          type:
-          - string
-          - 'null'
-        status:
-          description: 'Suggestion status. Possible values are:
-
-
-            * `ASKED`
-
-            * `CHECKED`
-
-            * `ACCEPTED`
-
-            * `REJECTED`
-
-            * `ORDERED`
-
-            * `AVAILABLE`
-
-            * Values from the `SUGGEST_STATUS` av category
-
-            '
-          type: string
-        suggested_by:
-          description: patron_id for the person making the suggestion, foreign key linking to the borrowers table
-          type:
-          - integer
-          - 'null'
-        suggestion_date:
-          description: the suggestion was submitted
-          format: date
-          type: string
-        suggestion_id:
-          description: unique identifier assigned automatically by Koha
-          readOnly: true
-          type: integer
-        timestamp:
-          description: timestamp of date created
-          format: date-time
-          type:
-          - string
-          - 'null'
-        title:
-          description: title of the suggested item
-          type:
-          - string
-          - 'null'
-        total_price:
-          description: suggested total cost (price*quantity updated for currency)
-          type:
-          - string
-          - 'null'
-        volume_desc:
-          description: volume description
-          type:
-          - string
-          - 'null'
       type: object

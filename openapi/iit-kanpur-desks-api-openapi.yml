@@ -139,25 +139,6 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
-    desk_yaml:
-      additionalProperties: false
-      properties:
-        desk_id:
-          description: Internal desk identifier
-          type: integer
-        library_id:
-          description: Internally assigned library identifier
-          maxLength: 10
-          minLength: 1
-          type: string
-        name:
-          description: The desk display name
-          type: string
-      required:
-      - desk_id
-      - name
-      - library_id
-      type: object
     error_yaml:
       additionalProperties: true
       properties:
@@ -183,4 +164,23 @@ components:
           type: array
       required:
       - errors
+      type: object
+    desk_yaml:
+      additionalProperties: false
+      properties:
+        desk_id:
+          description: Internal desk identifier
+          type: integer
+        library_id:
+          description: Internally assigned library identifier
+          maxLength: 10
+          minLength: 1
+          type: string
+        name:
+          description: The desk display name
+          type: string
+      required:
+      - desk_id
+      - name
+      - library_id
       type: object

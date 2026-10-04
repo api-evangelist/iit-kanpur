@@ -290,23 +290,6 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
-    erm_default_usage_report_yaml:
-      additionalProperties: false
-      properties:
-        erm_default_usage_report_id:
-          description: internally assigned default_usage_report identifier
-          readOnly: true
-          type: integer
-        report_name:
-          description: report_name
-          type: string
-        report_url_params:
-          description: report_url_params
-          type: string
-      required:
-      - report_name
-      - report_url_params
-      type: object
     error_yaml:
       additionalProperties: true
       properties:
@@ -332,4 +315,21 @@ components:
           type: array
       required:
       - errors
+      type: object
+    erm_default_usage_report_yaml:
+      additionalProperties: false
+      properties:
+        erm_default_usage_report_id:
+          description: internally assigned default_usage_report identifier
+          readOnly: true
+          type: integer
+        report_name:
+          description: report_name
+          type: string
+        report_url_params:
+          description: report_url_params
+          type: string
+      required:
+      - report_name
+      - report_url_params
       type: object

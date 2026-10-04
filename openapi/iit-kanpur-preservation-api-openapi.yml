@@ -1783,6 +1783,16 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
+    preservation_config_yaml:
+      additionalProperties: false
+      properties:
+        permissions:
+          description: List of permissions of the logged in user used for the Preservation module
+          type: object
+        settings:
+          description: List of sysprefs used for the Preservation module
+          type: object
+      type: object
     preservation_train_yaml:
       additionalProperties: false
       properties:
@@ -1847,16 +1857,6 @@ components:
           description: Error code
           type: string
       type: object
-    preservation_config_yaml:
-      additionalProperties: false
-      properties:
-        permissions:
-          description: List of permissions of the logged in user used for the Preservation module
-          type: object
-        settings:
-          description: List of sysprefs used for the Preservation module
-          type: object
-      type: object
     preservation_processing_attribute_yaml:
       additionalProperties: false
       properties:
@@ -1878,57 +1878,6 @@ components:
       required:
       - name
       - type
-      type: object
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
-      type: object
-    preservation_train_item_yaml:
-      additionalProperties: false
-      properties:
-        added_on:
-          description: add date
-          type:
-          - string
-          - 'null'
-        attributes:
-          description: attribute list
-          type:
-          - array
-          - 'null'
-        catalogue_item:
-          description: catalogue item
-          type:
-          - object
-          - 'null'
-        item_id:
-          description: internally item identifier
-          type: integer
-        processing_id:
-          description: internally processing identifier
-          type: integer
-        train_id:
-          description: internally train identifier
-          type: integer
-        train_item_id:
-          description: internally assigned train item identifier
-          readOnly: true
-          type: integer
-        user_train_item_id:
-          description: internally user train item identifier
-          type: integer
       type: object
     preservation_processing_yaml:
       additionalProperties: false
@@ -2187,4 +2136,55 @@ components:
           type:
           - string
           - 'null'
+      type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object
+    preservation_train_item_yaml:
+      additionalProperties: false
+      properties:
+        added_on:
+          description: add date
+          type:
+          - string
+          - 'null'
+        attributes:
+          description: attribute list
+          type:
+          - array
+          - 'null'
+        catalogue_item:
+          description: catalogue item
+          type:
+          - object
+          - 'null'
+        item_id:
+          description: internally item identifier
+          type: integer
+        processing_id:
+          description: internally processing identifier
+          type: integer
+        train_id:
+          description: internally train identifier
+          type: integer
+        train_item_id:
+          description: internally assigned train item identifier
+          readOnly: true
+          type: integer
+        user_train_item_id:
+          description: internally user train item identifier
+          type: integer
       type: object

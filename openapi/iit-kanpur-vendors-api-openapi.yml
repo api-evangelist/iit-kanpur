@@ -595,6 +595,85 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
+    vendor_issue_yaml:
+      additionalProperties: false
+      properties:
+        _strings:
+          description: A list of stringified coded values
+          type:
+          - object
+          - 'null'
+        ended_on:
+          description: End date
+          format: date
+          type:
+          - string
+          - 'null'
+        issue_id:
+          description: internally assigned vendor identifier
+          readOnly: true
+          type: integer
+        notes:
+          description: Notes
+          type:
+          - string
+          - 'null'
+        started_on:
+          description: Start date
+          format: date
+          type:
+          - string
+          - 'null'
+        type:
+          description: Type of the issue
+          type:
+          - string
+          - 'null'
+        vendor_id:
+          description: ID of the vendor
+          type: integer
+      type: object
+    error_yaml:
+      additionalProperties: true
+      properties:
+        error:
+          description: Error message
+          type: string
+        error_code:
+          description: Error code
+          type: string
+      type: object
+    vendor_alias_yaml:
+      additionalProperties: false
+      properties:
+        alias:
+          description: The alias
+          type: string
+        alias_id:
+          description: Internal ID for the extended attribute
+          type: integer
+        vendor_id:
+          description: ID of the vendor
+          type: integer
+      required:
+      - alias
+      type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object
     vendor_yaml:
       additionalProperties: false
       properties:
@@ -718,83 +797,4 @@ components:
           - 'null'
       required:
       - name
-      type: object
-    vendor_issue_yaml:
-      additionalProperties: false
-      properties:
-        _strings:
-          description: A list of stringified coded values
-          type:
-          - object
-          - 'null'
-        ended_on:
-          description: End date
-          format: date
-          type:
-          - string
-          - 'null'
-        issue_id:
-          description: internally assigned vendor identifier
-          readOnly: true
-          type: integer
-        notes:
-          description: Notes
-          type:
-          - string
-          - 'null'
-        started_on:
-          description: Start date
-          format: date
-          type:
-          - string
-          - 'null'
-        type:
-          description: Type of the issue
-          type:
-          - string
-          - 'null'
-        vendor_id:
-          description: ID of the vendor
-          type: integer
-      type: object
-    error_yaml:
-      additionalProperties: true
-      properties:
-        error:
-          description: Error message
-          type: string
-        error_code:
-          description: Error code
-          type: string
-      type: object
-    vendor_alias_yaml:
-      additionalProperties: false
-      properties:
-        alias:
-          description: The alias
-          type: string
-        alias_id:
-          description: Internal ID for the extended attribute
-          type: integer
-        vendor_id:
-          description: ID of the vendor
-          type: integer
-      required:
-      - alias
-      type: object
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
       type: object

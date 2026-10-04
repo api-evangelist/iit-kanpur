@@ -1244,11 +1244,6 @@ components:
           description: Error code
           type: string
       type: object
-    holds_yaml:
-      additionalProperties: false
-      items:
-        $ref: '#/components/schemas/hold_yaml'
-      type: array
     library_yaml:
       additionalProperties: false
       properties:
@@ -1378,6 +1373,22 @@ components:
       - library_id
       - name
       type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object
     hold_yaml:
       additionalProperties: false
       properties:
@@ -1502,19 +1513,8 @@ components:
           - string
           - 'null'
       type: object
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
-      type: object
+    holds_yaml:
+      additionalProperties: false
+      items:
+        $ref: '#/components/schemas/hold_yaml'
+      type: array

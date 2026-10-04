@@ -536,6 +536,22 @@ components:
       - user_id
       - role
       type: object
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object
     erm_license_yaml:
       additionalProperties: false
       properties:
@@ -594,22 +610,6 @@ components:
       - name
       - status
       - type
-      type: object
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
       type: object
     erm_document_yaml:
       additionalProperties: false

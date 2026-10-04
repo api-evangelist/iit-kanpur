@@ -360,6 +360,27 @@ paths:
                 $ref: '#/components/schemas/error_yaml'
 components:
   schemas:
+    ill_batchstatuses_yaml:
+      additionalProperties: false
+      items:
+        $ref: '#/components/schemas/ill_batchstatus_yaml'
+      type: array
+    DefaultResponse:
+      properties:
+        errors:
+          items:
+            properties:
+              message:
+                type: string
+              path:
+                type: string
+            required:
+            - message
+            type: object
+          type: array
+      required:
+      - errors
+      type: object
     ill_batchstatus_yaml:
       additionalProperties: false
       properties:
@@ -380,11 +401,6 @@ components:
       - code
       - is_system
       type: object
-    ill_batchstatuses_yaml:
-      additionalProperties: false
-      items:
-        $ref: '#/components/schemas/ill_batchstatus_yaml'
-      type: array
     error_yaml:
       additionalProperties: true
       properties:
@@ -394,20 +410,4 @@ components:
         error_code:
           description: Error code
           type: string
-      type: object
-    DefaultResponse:
-      properties:
-        errors:
-          items:
-            properties:
-              message:
-                type: string
-              path:
-                type: string
-            required:
-            - message
-            type: object
-          type: array
-      required:
-      - errors
       type: object
